@@ -6,6 +6,8 @@ public class GOB_E_Patrouiller : IA_Etat {
 
     public float vitesse;
 	public float delaisAChaqueArret;
+	public float niveauAttentionEnMarche;
+	public float niveauAttentionArret;
 
 	public IA_PointInteret[] chemin;
 
@@ -34,14 +36,13 @@ public class GOB_E_Patrouiller : IA_Etat {
 
     public override void faireEtat()
     {
-//		if(agent.princesseReperee()) {
-//			changerEtat(this.GetComponent<gob_E_poursuite>());
-//		}
-//
-//		else if (enChemin) {
 		if (enChemin) {
 
-			if (agent.destinationCouranteAtteinte ()) {
+			if(perception.aReperer(princesse, niveauAttentionEnMarche)) {
+//				changerEtat(this.GetComponent<gob_E_poursuite>());
+				Debug.Log("Princesse repérée normal");
+			}
+			else if (agent.destinationCouranteAtteinte ()) {
 
 				indiceDernierPointRejoint = indiceCheminActuel;
 //				setAnimation("searching");
@@ -55,11 +56,9 @@ public class GOB_E_Patrouiller : IA_Etat {
 			suivreChemin ();
 			enChemin = true;
 
-		} else {
-
-//			if(agent.princesseRepereeAvecAttention()) {
-//				changerEtat(this.GetComponent<gob_E_poursuite>());
-//			}
+		} else if(perception.aReperer(princesse, niveauAttentionArret)) {
+//			changerEtat(this.GetComponent<gob_E_poursuite>());
+			Debug.Log("Princesse repérée attention");
 		}
     }
 

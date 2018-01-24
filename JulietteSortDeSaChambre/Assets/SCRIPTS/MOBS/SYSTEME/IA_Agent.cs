@@ -15,6 +15,7 @@ public class IA_Agent : MonoBehaviour {
 	private IA_MobVie mobVie;
 	private Vector3 destination;
 	private SoundEntity se;
+	private IA_Perception perception;
     
 	public IA_Etat etatCourant;
 	public float vitesseAngulaire;
@@ -39,6 +40,7 @@ public class IA_Agent : MonoBehaviour {
         pointsInteret = GameObject.FindObjectsOfType<IA_PointInteret>();
 		mobVie = GetComponent<IA_MobVie> ();
 		se = GetComponent<SoundEntity> ();
+		perception = GetComponent<IA_Perception> ();
     }
 
     // Use this for initialization
@@ -98,6 +100,10 @@ public class IA_Agent : MonoBehaviour {
 
 	public SoundEntity getSoundEntity(){
 		return se;
+	}
+
+	public IA_Perception getPerception(){
+		return perception;
 	}
 
 	/// <summary>

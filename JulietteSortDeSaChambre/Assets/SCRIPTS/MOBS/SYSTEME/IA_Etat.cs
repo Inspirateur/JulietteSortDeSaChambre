@@ -15,6 +15,7 @@ public abstract class IA_Etat : MonoBehaviour
 //	protected princesse_vie princesseVie;
 //	protected princesse_arme princesseArme;
 	protected IA_PointInteret[] pointsInteret;
+	protected IA_Perception perception;
 
     // Use this for initialization
     void Awake()
@@ -32,6 +33,7 @@ public abstract class IA_Etat : MonoBehaviour
 //		princesseVie = agent.getPrincesse_Vie();
 //		princesseArme = agent.getPrincesse_Arme ();
         pointsInteret = agent.getPointsInteret();
+		perception = agent.getPerception();
     }
 
     public abstract void entrerEtat();

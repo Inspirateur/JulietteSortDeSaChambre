@@ -273,7 +273,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 329911408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.38, y: 0.92, z: -2.48}
+  m_LocalPosition: {x: 2.19, y: 0.92, z: -1.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 1128711076}
   - component: {fileID: 1128711082}
   - component: {fileID: 1128711075}
+  - component: {fileID: 1128711085}
   - component: {fileID: 1128711081}
   - component: {fileID: 1128711084}
   - component: {fileID: 1128711083}
@@ -604,6 +605,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesse: 1
   delaisAChaqueArret: 3
+  niveauAttentionEnMarche: 1
+  niveauAttentionArret: 2
   chemin:
   - {fileID: 1107563424}
   - {fileID: 1118641393}
@@ -722,6 +725,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listeClips: []
+--- !u!114 &1128711085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128711074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09bb76b38c8c416448e44b60a85e72a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demiAngleVision: 60
+  distanceVision: 18
+  rayonAudition: 5
 --- !u!4 &1591351836 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4347361624186870, guid: bd7a4dc0f8b432c4eb5f79e970016e7d,

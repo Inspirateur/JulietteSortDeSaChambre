@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IA_Sens : MonoBehaviour {
+public class IA_Perception : MonoBehaviour {
 
 	public float demiAngleVision;
 	public float distanceVision;
