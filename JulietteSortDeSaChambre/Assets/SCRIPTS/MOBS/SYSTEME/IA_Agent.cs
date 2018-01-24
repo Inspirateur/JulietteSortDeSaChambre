@@ -17,9 +17,6 @@ public class IA_Agent : MonoBehaviour {
     
     public IA_Etat etatCourant;
 
-	public float demiAngleVision;
-	public float distanceVision;
-	public float rayonAudition;
 	public float distanceCombatOptimale;
 	public float distanceRepousse;
 	public float vitesseAngulaire;
@@ -232,52 +229,6 @@ public class IA_Agent : MonoBehaviour {
         etatCourant.entrerEtat();
 	}
 
-	/// <summary>
-	/// Permet de savoir si l'agent a repéré la princesse en fonction de son audition et de sa vision
-	/// </summary>
-	public bool princesseReperee(){
-
-		return chercherPrincesse (1.0f);
-	}
-
-	/// <summary>
-	/// Permet de savoir si l'agent a repéré la princesse en fonction de son audition et de sa vision en faissant vraiment attention
-	/// </summary>
-	public bool princesseRepereeAvecAttention(){
-
-		return chercherPrincesse (2.0f);
-	}
-
-	private bool chercherPrincesse(float niveauAttention){
-
-		Vector3 vecDistancePrincesse = princesse.transform.position - this.transform.position;
-
-		RaycastHit hitInfo;
-
-		Physics.Raycast(this.transform.position, vecDistancePrincesse.normalized, out hitInfo);
-
-		if ( ! hitInfo.collider.gameObject.Equals(princesse)) {
-			return false;
-		}
-
-		float distancePrincesse = vecDistancePrincesse.magnitude;
-
-		if (distancePrincesse <= this.rayonAudition * niveauAttention) {
-			return true;
-		}
-
-		float angle = Vector3.Angle (this.transform.forward, vecDistancePrincesse.normalized);
-
-		if(angle <= this.demiAngleVision * niveauAttention) {
-
-			if (hitInfo.distance <= this.distanceVision) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 	public Vector3 directionToPrincesseDansPlanY0() {
 
 		Vector3 dir = princesse.transform.position - this.transform.position;
@@ -289,21 +240,25 @@ public class IA_Agent : MonoBehaviour {
 		return (princesse.transform.position - this.transform.position).magnitude;
 	}
 
-	public void recevoirDegat(int valeurDegats, Vector3 hitPoint) {
-
-		if (etatDegatsRecu != null) {
-			changerEtat (etatDegatsRecu);
-		}
-		mobVie.blesser (valeurDegats, hitPoint);
+	public void subirDegats(int valeurDegats, Vector3 hitPoint) {
+		etatCourant.subirDegats(valeurDegats, hitPoint);
 	}
 
-	public void recevoirDegat(int valeurDegats) {
-
-		if (etatDegatsRecu != null) {
-			changerEtat (etatDegatsRecu);
-		}
-		mobVie.blesser (valeurDegats);
-	}
+//	public void recevoirDegat(int valeurDegats, Vector3 hitPoint) {
+//
+//		if (etatDegatsRecu != null) {
+//			changerEtat (etatDegatsRecu);
+//		}
+//		mobVie.blesser (valeurDegats, hitPoint);
+//	}
+//
+//	public void recevoirDegat(int valeurDegats) {
+//
+//		if (etatDegatsRecu != null) {
+//			changerEtat (etatDegatsRecu);
+//		}
+//		mobVie.blesser (valeurDegats);
+//	}
 
 	public bool estEnVie() {
 		return mobVie.estEnVie ();

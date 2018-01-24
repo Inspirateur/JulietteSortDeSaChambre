@@ -37,6 +37,7 @@ public abstract class IA_Etat : MonoBehaviour
     public abstract void entrerEtat();
     public abstract void faireEtat();
     public abstract void sortirEtat();
+	public abstract void subirDegats(int valeurDegats, Vector3 hitPoint);
 
 	protected void changerEtat(IA_Etat nouvelEtat)
     {
