@@ -8,12 +8,12 @@ public class IA_MobVie : MonoBehaviour {
 	public Transform hitEffect;
 
 	private int vieCourante;
-	private ia_agent agent;
+	private IA_Agent agent;
 
 	// Use this for initialization
 	void Start () {
 		vieCourante = vieMax;
-		agent = GetComponent<ia_agent> ();
+		agent = GetComponent<IA_Agent> ();
 	}
 
 	// Update is called once per frame

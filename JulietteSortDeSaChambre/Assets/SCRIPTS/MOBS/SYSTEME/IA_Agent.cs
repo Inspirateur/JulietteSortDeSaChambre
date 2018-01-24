@@ -40,10 +40,10 @@ public class IA_Agent : MonoBehaviour {
         anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody> ();
         princesse = GameObject.FindGameObjectWithTag("Player");
-        princesseVie = princesse.GetComponent<princesse_vie>();
-		princesseArme = princesse.GetComponent<princesse_arme>();
-        pointsInteret = GameObject.FindObjectsOfType<ia_pointInteret>();
-		mobVie = GetComponent<mob_vie> ();
+//        princesseVie = princesse.GetComponent<princesse_vie>();
+//		princesseArme = princesse.GetComponent<princesse_arme>();
+        pointsInteret = GameObject.FindObjectsOfType<IA_PointInteret>();
+		mobVie = GetComponent<IA_MobVie> ();
 		se = GetComponent<SoundEntity> ();
     }
 
@@ -85,22 +85,22 @@ public class IA_Agent : MonoBehaviour {
         return princesse;
 	}
 
-	public princesse_vie getPrincesse_Vie()
-	{
-		return princesseVie;
-	}
+//	public princesse_vie getPrincesse_Vie()
+//	{
+//		return princesseVie;
+//	}
+//
+//	public princesse_arme getPrincesse_Arme()
+//	{
+//		return princesseArme;
+//	}
 
-	public princesse_arme getPrincesse_Arme()
-	{
-		return princesseArme;
-	}
-
-	public ia_pointInteret[] getPointsInteret()
+	public IA_PointInteret[] getPointsInteret()
 	{
 		return pointsInteret;
 	}
 
-	public mob_vie getMobVie()
+	public IA_MobVie getMobVie()
 	{
 		return mobVie;
 	}
@@ -121,7 +121,7 @@ public class IA_Agent : MonoBehaviour {
 	/// <summary>
 	/// Définit le point d'interet de destination actuel de l'agent.
 	/// </summary>
-	public void definirDestination(ia_pointInteret pi)
+	public void definirDestination(IA_PointInteret pi)
 	{
 		definirDestination(pi.transform.position);
 	}
@@ -131,7 +131,7 @@ public class IA_Agent : MonoBehaviour {
     /// </summary>
     public void definirDestination(string nomDestination)
     {
-        foreach (ia_pointInteret pi in pointsInteret)
+		foreach (IA_PointInteret pi in pointsInteret)
         {
 			if (pi.name.Equals(nomDestination))
             {
@@ -224,7 +224,7 @@ public class IA_Agent : MonoBehaviour {
     /// <summary>
     /// Permet de sortir de l'état courant puis d'entrer dans le nouvel état.
     /// </summary>
-    public void changerEtat(ia_etat nouvelEtat)
+    public void changerEtat(IA_Etat nouvelEtat)
     {
         etatCourant.sortirEtat();
         etatCourant = nouvelEtat;

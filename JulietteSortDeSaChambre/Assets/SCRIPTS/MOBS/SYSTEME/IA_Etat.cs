@@ -12,9 +12,9 @@ public abstract class IA_Etat : MonoBehaviour
 	protected Animator anim;
 	protected Rigidbody rb;
     protected GameObject princesse;
-	protected princesse_vie princesseVie;
-	protected princesse_arme princesseArme;
-    protected ia_pointInteret[] pointsInteret;
+//	protected princesse_vie princesseVie;
+//	protected princesse_arme princesseArme;
+	protected IA_PointInteret[] pointsInteret;
 
     // Use this for initialization
     void Awake()
@@ -24,13 +24,13 @@ public abstract class IA_Etat : MonoBehaviour
 
     protected void init()
     {
-        agent = this.GetComponent<ia_agent>();
+		agent = this.GetComponent<IA_Agent>();
         nav = agent.getNav();
 		anim = agent.getAnimator ();
 		rb = agent.getRigidbody ();
         princesse = agent.getPrincesse();
-        princesseVie = agent.getPrincesse_Vie();
-		princesseArme = agent.getPrincesse_Arme ();
+//		princesseVie = agent.getPrincesse_Vie();
+//		princesseArme = agent.getPrincesse_Arme ();
         pointsInteret = agent.getPointsInteret();
     }
 
@@ -38,7 +38,7 @@ public abstract class IA_Etat : MonoBehaviour
     public abstract void faireEtat();
     public abstract void sortirEtat();
 
-    protected void changerEtat(ia_etat nouvelEtat)
+	protected void changerEtat(IA_Etat nouvelEtat)
     {
         agent.changerEtat(nouvelEtat);
     }

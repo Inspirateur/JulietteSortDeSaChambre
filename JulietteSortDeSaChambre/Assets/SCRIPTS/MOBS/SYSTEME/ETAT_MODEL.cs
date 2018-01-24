@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ETAT_MODEL : ia_etat {
+public class ETAT_MODEL : IA_Etat {
 
     // Use this for initialization
     void Start()
