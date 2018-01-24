@@ -496,6 +496,21 @@ MonoBehaviour:
   etatCourant: {fileID: 1128711081}
   vitesseAngulaire: 8
   etatMort: {fileID: 0}
+  bruitsPas:
+  - {fileID: 8300000, guid: 33271775b672a124d81b88cab8ecdd96, type: 3}
+  - {fileID: 8300000, guid: d4aeb1f7f2ffcbb4dbae6c3a40ded6ec, type: 3}
+  - {fileID: 8300000, guid: 83e22554474e27548aae8cf96795314c, type: 3}
+  - {fileID: 8300000, guid: a1058f98c3e33104b88b63a69edb653d, type: 3}
+  - {fileID: 8300000, guid: b4d7eb3a0e73aa74ca515c26484da7ca, type: 3}
+  - {fileID: 8300000, guid: 7b4f2852ee1bddc4a9d5e8581c712347, type: 3}
+  - {fileID: 8300000, guid: d11d51c0caec1c34b958ec2e253a432f, type: 3}
+  - {fileID: 8300000, guid: e1590821f2e05e14b918f017156f95db, type: 3}
+  - {fileID: 8300000, guid: fee8c66f5eb7910459b4b44435b82749, type: 3}
+  - {fileID: 8300000, guid: 1b2ea417f325a514594c8eeecc2e467c, type: 3}
+  minPitch: 2.5
+  maxPitch: 3
+  minVolume: 0.25
+  maxVolume: 0.35
 --- !u!54 &1128711076
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -595,7 +610,7 @@ MonoBehaviour:
   - {fileID: 1107563424}
   - {fileID: 1118641393}
   - {fileID: 1591351837}
-  sonArret: {fileID: 0}
+  sonArret: {fileID: 8300000, guid: 5f539f7a41ee5d24691a9408294d5917, type: 3}
 --- !u!195 &1128711082
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -637,7 +652,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -666,7 +681,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

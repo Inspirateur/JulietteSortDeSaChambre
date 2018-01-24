@@ -25,12 +25,12 @@ public class IA_Agent : MonoBehaviour {
 	public IA_Etat etatMort;
 //	public IA_Etat etatDegatsRecu;
 
-//	public AudioClip[] bruitsPas;
-//	public float minPitch;
-//	public float maxPitch;
-//	public float minVolume;
-//	public float maxVolume;
-//	private float timerStep;
+	public AudioClip[] bruitsPas;
+	public float minPitch;
+	public float maxPitch;
+	public float minVolume;
+	public float maxVolume;
+	private float timerStep;
 
     void Awake()
     {
@@ -55,13 +55,13 @@ public class IA_Agent : MonoBehaviour {
 	void Update () {
 
         etatCourant.faireEtat();
-//		if (timerStep <= Time.time && nav.velocity.magnitude != 0.0f) {
-//			int indice = Random.Range (0, this.bruitsPas.Length);
-//			float volume = Random.Range (minVolume, maxVolume);
-//			float pitch = Random.Range (minPitch, maxPitch);
-//			se.playOneShot(this.bruitsPas[indice], volume, pitch);
-//			timerStep = Time.time + (Random.Range (0.9f, 1.0f) * (1.0f / nav.velocity.magnitude) * 0.8f);
-//		}
+		if (timerStep <= Time.time && nav.velocity.magnitude != 0.0f) {
+			int indice = Random.Range (0, this.bruitsPas.Length);
+			float volume = Random.Range (minVolume, maxVolume);
+			float pitch = Random.Range (minPitch, maxPitch);
+			se.playOneShot(this.bruitsPas[indice], volume, pitch);
+			timerStep = Time.time + (Random.Range (0.9f, 1.0f) * Mathf.Min(1.0f / nav.velocity.magnitude, 1.0f));
+		}
 	}
 
 	public NavMeshAgent getNav()
