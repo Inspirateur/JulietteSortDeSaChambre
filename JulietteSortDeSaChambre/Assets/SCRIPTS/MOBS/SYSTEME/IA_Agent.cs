@@ -8,7 +8,7 @@ public class IA_Agent : MonoBehaviour {
     private NavMeshAgent nav;
     private Animator anim;
 	private Rigidbody rb;
-    private GameObject princesse;
+	private GameObject princesse;
 //	private princesse_vie princesseVie;
 //	private princesse_arme princesseArme;
     private IA_PointInteret[] pointsInteret;
@@ -39,8 +39,8 @@ public class IA_Agent : MonoBehaviour {
         nav = this.GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody> ();
-        princesse = GameObject.FindGameObjectWithTag("Player");
-//        princesseVie = princesse.GetComponent<princesse_vie>();
+		princesse = GameObject.FindGameObjectWithTag("Player");
+//		princesseVie = princesse.GetComponent<princesse_vie>();
 //		princesseArme = princesse.GetComponent<princesse_arme>();
         pointsInteret = GameObject.FindObjectsOfType<IA_PointInteret>();
 		mobVie = GetComponent<IA_MobVie> ();
@@ -80,9 +80,9 @@ public class IA_Agent : MonoBehaviour {
 		return rb;
 	}
 
-    public GameObject getPrincesse()
-    {
-        return princesse;
+	public GameObject getPrincesse()
+	{
+		return princesse;
 	}
 
 //	public princesse_vie getPrincesse_Vie()
