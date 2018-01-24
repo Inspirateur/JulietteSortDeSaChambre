@@ -64,4 +64,8 @@ public class SoundEntity : MonoBehaviour {
 	public void playOneShot(int indice, float volume, float pitch) {
 		playOneShot (listeClips [indice], volume, pitch);
 	}
+
+	public int nbClips() {
+		return listeClips.Length;
+	}
 }
