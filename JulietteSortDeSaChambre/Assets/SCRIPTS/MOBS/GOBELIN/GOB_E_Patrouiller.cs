@@ -39,8 +39,8 @@ public class GOB_E_Patrouiller : IA_Etat {
 		if (enChemin) {
 
 			if(perception.aReperer(princesse, niveauAttentionEnMarche)) {
-//				changerEtat(this.GetComponent<gob_E_poursuite>());
 				Debug.Log("Princesse repérée normal");
+				changerEtat(this.GetComponent<GOB_E_Poursuivre>());
 			}
 			else if (agent.destinationCouranteAtteinte ()) {
 
@@ -57,8 +57,8 @@ public class GOB_E_Patrouiller : IA_Etat {
 			enChemin = true;
 
 		} else if(perception.aReperer(princesse, niveauAttentionArret)) {
-//			changerEtat(this.GetComponent<gob_E_poursuite>());
 			Debug.Log("Princesse repérée attention");
+			changerEtat(this.GetComponent<GOB_E_Poursuivre>());
 		}
     }
 

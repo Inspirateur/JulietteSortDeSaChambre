@@ -17,7 +17,8 @@ public class IA_Agent : MonoBehaviour {
 	private SoundEntity se;
 	private IA_Perception perception;
     
-	public IA_Etat etatCourant;
+	public IA_Etat etatInitial;
+	private IA_Etat etatCourant;
 	public float vitesseAngulaire;
 
 //	public float distanceCombatOptimale;
@@ -45,7 +46,7 @@ public class IA_Agent : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+		etatCourant = etatInitial;
         etatCourant.entrerEtat();
     }
 	
@@ -225,7 +226,7 @@ public class IA_Agent : MonoBehaviour {
     {
         etatCourant.sortirEtat();
         etatCourant = nouvelEtat;
-//		Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
+		Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
         etatCourant.entrerEtat();
 	}
 
