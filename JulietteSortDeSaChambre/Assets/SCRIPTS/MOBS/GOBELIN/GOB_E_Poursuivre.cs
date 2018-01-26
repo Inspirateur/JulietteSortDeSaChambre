@@ -65,9 +65,8 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 		} else if (chargePrevue && agent.distanceToPrincesse() <= distanceDash && Vector3.Angle(this.transform.forward, princesse.transform.position - this.transform.position) <= 10.0f) {
 
-//			changerEtat(this.GetComponent<gob_E_attackPuissante>());
 			Debug.Log("dash");
-			sortirEtat ();
+			changerEtat(this.GetComponent<GOB_E_Charger>());
 
 		} else if (agent.destinationCouranteAtteinte ()) {
 			

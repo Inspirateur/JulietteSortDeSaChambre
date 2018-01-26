@@ -486,8 +486,11 @@ GameObject:
   - component: {fileID: 1128711085}
   - component: {fileID: 1128711081}
   - component: {fileID: 1128711086}
+  - component: {fileID: 1128711087}
   - component: {fileID: 1128711084}
   - component: {fileID: 1128711083}
+  - component: {fileID: 1128711089}
+  - component: {fileID: 1128711088}
   m_Layer: 0
   m_Name: GobelinFictif
   m_TagString: Untagged
@@ -754,8 +757,47 @@ MonoBehaviour:
   vitesse: 2.5
   dureeRecherchePrincesse: 4
   distanceEntreeCombat: 2.5
-  distanceDash: 4
-  pourcentageUtilisationCharge: 0.5
+  distanceDash: 7.5
+  pourcentageUtilisationCharge: 1
+--- !u!114 &1128711087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128711074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a92167b59f6da4f953be4123f08934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degats: 3
+  impulsionVerticale: 250
+  impulsionHorizontale: 250
+  forceRecule: 10
+  sonCharge: {fileID: 8300000, guid: 4ac56d29b6e0c254096ff017c5481ec4, type: 3}
+--- !u!114 &1128711088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128711074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dac74c4d05b564d9294fb8518875ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1128711089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128711074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.1809911, z: 2.410705}
+  m_Center: {x: 0, y: 0.35, z: 1.07}
 --- !u!4 &1591351836 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4347361624186870, guid: bd7a4dc0f8b432c4eb5f79e970016e7d,
