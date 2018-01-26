@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class princesse_deplacement : MonoBehaviour
+public class PrincesseDeplacement : MonoBehaviour
 {
 
     static Animator anim;
@@ -51,6 +51,16 @@ public class princesse_deplacement : MonoBehaviour
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
 
+       /* if(moveHorizontal!=0f || moveVertical != 0f)
+        {
+            GererDeplacement(moveHorizontal, moveVertical);
+
+            if (!anim.GetBool("IsJumping"))
+            {
+
+            }
+        }*/
+
         if (moveHorizontal != 0.0f || moveVertical != 0.0f)
         {
             GererDeplacement(moveHorizontal, moveVertical);
@@ -93,6 +103,7 @@ public class princesse_deplacement : MonoBehaviour
         if (saut && isGrounded == true)
         {
             rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
+            //rb.AddRelativeForce(new Vector3(0.0f, forceSaut, 0.0f));
             isGrounded = false;
         }
 
@@ -103,24 +114,24 @@ public class princesse_deplacement : MonoBehaviour
             if (anim.GetBool("IsIdle"))
             {
                 anim.Play("attack1");
-                princesseArme.lancerAttaque();
+                //princesseArme.lancerAttaque();
             }
             if (anim.GetBool("IsJumping"))
             {
                 anim.Play("attack_jump");
                 rb.AddForce(transform.forward * 500f);
                 rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-                princesseArme.lancerAttaque();
+                //princesseArme.lancerAttaque();
             }
             if (anim.GetBool("IsRunning") == true)
             {
                 anim.Play("attack_run");
-                princesseArme.lancerAttaque();
+                //princesseArme.lancerAttaque();
             }
             if (anim.GetBool("IsSidewalk") == true)
             {
                 anim.Play("attack_run");
-                princesseArme.lancerAttaque();
+                //princesseArme.lancerAttaque();
             }
         }
 
@@ -137,7 +148,7 @@ public class princesse_deplacement : MonoBehaviour
             }
         }
 
-        /*------------------ gerer la deplacement du cube --------*/
+        /*------------------ gerer la deplacement du cube --------
         if (isPushing == true)
         {
             anim.SetBool("isPushing", true);
@@ -147,17 +158,17 @@ public class princesse_deplacement : MonoBehaviour
         {
             anim.SetBool("isPushing", false);
 
-        }
+        }*/
 
 
     }
 
-    private void gererAnim( string stringToTrue)
+    private void gererAnim(string stringToTrue)
     {
         //Met tous les anim.setBool a false sauf celui du stringToTrue
         gererAnim();
 
-        anim.setBool(stringToTrue, true);
+        anim.SetBool(stringToTrue, true);
 
     }
 
@@ -168,7 +179,7 @@ public class princesse_deplacement : MonoBehaviour
         anim.SetBool("IsBackwalk", false);
         anim.SetBool("IsSidewalk", false);
         anim.SetBool("IsIdle", false);
-        anim.SetBool("isPushing", false);
+        //anim.SetBool("isPushing", false);
         anim.SetBool("IsJumping", false);
 
     }
@@ -187,8 +198,7 @@ public class princesse_deplacement : MonoBehaviour
 
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
         {
-
-            float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
+            /*float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
 
             float rotation;
 
@@ -204,7 +214,7 @@ public class princesse_deplacement : MonoBehaviour
 
             rotation = Mathf.Clamp(difRotation, -vitesseAngulaire, vitesseAngulaire);
 
-            this.transform.Rotate(0.0f, rotation, 0.0f);
+            this.transform.Rotate(0.0f, rotation, 0.0f);*/
 
             Vector3 mouvement = this.transform.forward * Mathf.Max(moveVertical, -0.5f);
             float norme = Mathf.Max(mouvement.magnitude, 0.5f);
@@ -228,7 +238,7 @@ public class princesse_deplacement : MonoBehaviour
                 int indice = Random.Range(0, this.bruitsPas.Length);
                 float volume = Random.Range(minVolume, maxVolume);
                 float pitch = Random.Range(minPitch, maxPitch);
-                sm.playOneShot(this.bruitsPas[indice], volume, pitch);
+                //sm.playOneShot(this.bruitsPas[indice], volume, pitch);
                 timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
             }
         }
@@ -259,7 +269,7 @@ public class princesse_deplacement : MonoBehaviour
 
     void OnTriggerStay(Collider collision)
     {
-        if (collision.tag == "wall" || collision.tag == "cube")
+        if (collision.tag == "sol" || collision.tag == "cube")
         {
             isGrounded = true;
         }
@@ -277,6 +287,14 @@ public class princesse_deplacement : MonoBehaviour
         {
             isPushing = false;
 
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "sol")
+        {
+            isGrounded = true;
         }
     }
 
