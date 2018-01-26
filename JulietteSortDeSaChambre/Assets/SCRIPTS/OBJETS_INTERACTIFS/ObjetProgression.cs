@@ -6,7 +6,6 @@ public class ObjetProgression : ObjetInteractifs {
 
 	private princesseObjetProgression juliette;
 	public EnumObjetProgression objetProgression;
-
 	//private affichage_ObjetRamasser affichageObjetRamasser;
 	//private affichage_objetActuel affichageobjetActuel;
 
@@ -23,5 +22,6 @@ public class ObjetProgression : ObjetInteractifs {
 	override
 	public void Activation(){
 		Debug.Log ("Activation ObjetProgression");
+		supprimerObjet ();
 	}
 }
