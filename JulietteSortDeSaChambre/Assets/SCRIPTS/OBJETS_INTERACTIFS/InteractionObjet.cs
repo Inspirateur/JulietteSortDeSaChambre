@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjetInteraction : MonoBehaviour {
+public class InteractionObjet : MonoBehaviour {
 
 	private GameObject juliette;
 
@@ -12,7 +12,7 @@ public class ObjetInteraction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		juliette = GameObject.FindGameObjectsWithTag ("Player");
+		juliette = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 
