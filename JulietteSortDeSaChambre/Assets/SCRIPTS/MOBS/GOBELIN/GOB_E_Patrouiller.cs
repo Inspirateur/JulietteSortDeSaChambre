@@ -27,7 +27,7 @@ public class GOB_E_Patrouiller : IA_Etat {
 
     public override void entrerEtat()
 	{
-//        setAnimation("walking");
+		setAnimation(GOB_Animations.MARCHER);
 		indiceCheminActuel = indiceDernierPointRejoint;
 		nav.enabled = true;
         suivreChemin();
@@ -39,25 +39,23 @@ public class GOB_E_Patrouiller : IA_Etat {
 		if (enChemin) {
 
 			if(perception.aReperer(princesse, niveauAttentionEnMarche)) {
-				Debug.Log("Princesse repérée normal");
 				changerEtat(this.GetComponent<GOB_E_Poursuivre>());
 			}
 			else if (agent.destinationCouranteAtteinte ()) {
 
 				indiceDernierPointRejoint = indiceCheminActuel;
-//				setAnimation("searching");
+				setAnimation(GOB_Animations.CHERCHER);
 				enChemin = false;
 				this.delaisActuel = Time.time + this.delaisAChaqueArret;
 				agent.getSoundEntity().playOneShot(sonArret, 1.0f);
 			}
 		} else if (Time.time > this.delaisActuel) {
 
-//			setAnimation("walking");
+			setAnimation(GOB_Animations.MARCHER);
 			suivreChemin ();
 			enChemin = true;
 
 		} else if(perception.aReperer(princesse, niveauAttentionArret)) {
-			Debug.Log("Princesse repérée attention");
 			changerEtat(this.GetComponent<GOB_E_Poursuivre>());
 		}
     }

@@ -25,10 +25,9 @@ public class GOB_E_Charger : IA_Etat {
 	public override void entrerEtat()
 	{
 		agent.getSoundEntity().playOneShot(sonCharge, 1.0f);
-		this.transform.forward = (princesse.transform.position - this.transform.position).normalized;
 		degatsAttaqueEffectues = false;
 		rb.AddForce (this.transform.up * impulsionVerticale + this.transform.forward * impulsionHorizontale);
-//		setAnimation ("attackPuissante");
+//		setAnimation ("charge");
 	}
 
 	public override void faireEtat()

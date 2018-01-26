@@ -28,7 +28,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 	public override void entrerEtat()
 	{
-//		setAnimation("running");
+		setAnimation(GOB_Animations.COURIR);
 		nav.speed = vitesse;
 		nav.enabled = true;
 		delaiActuelRecherche = 0.0f;
@@ -64,40 +64,38 @@ public class GOB_E_Poursuivre : IA_Etat {
 			sortirEtat ();
 
 		} else if (chargePrevue && agent.distanceToPrincesse() <= distanceDash && Vector3.Angle(this.transform.forward, princesse.transform.position - this.transform.position) <= 10.0f) {
-
-			Debug.Log("dash");
+			
 			changerEtat(this.GetComponent<GOB_E_Charger>());
 
 		} else if (agent.destinationCouranteAtteinte ()) {
 			
 			Debug.Log("princesse perdu");
-//			if (delaiActuelRecherche == 0.0f) {
-//				princessePerdue = true;
-//				delaiActuelRecherche = Time.time + dureeRecherchePrincesse;
-//				setAnimation ("searching");
-//				enRotation = false;
-//			}
-//
-//			if(Time.time <= delaiActuelRecherche) {
-//
-//				if (agent.princesseRepereeAvecAttention ()) {
-//					setAnimation("running");
-//					princessePerdue = false;
-//					delaiActuelRecherche = 0.0f;
-//					dernierePositionPrincesseConnue = princesse.transform.position;
-//					agent.definirDestination (dernierePositionPrincesseConnue);
-//					enRotation = true;
-//
-//				}
-//			} else {
-//				changerEtat (etatSiPrincessePerdue);
-//			}
+			if (delaiActuelRecherche == 0.0f) {
+				princessePerdue = true;
+				delaiActuelRecherche = Time.time + dureeRecherchePrincesse;
+				setAnimation (GOB_Animations.CHERCHER);
+				enRotation = false;
+			}
+
+			if(Time.time <= delaiActuelRecherche) {
+
+				if (perception.aReperer(princesse, 2.0f)) {
+					setAnimation(GOB_Animations.COURIR);
+					princessePerdue = false;
+					delaiActuelRecherche = 0.0f;
+					dernierePositionPrincesseConnue = princesse.transform.position;
+					agent.definirDestination (dernierePositionPrincesseConnue);
+					enRotation = true;
+
+				}
+			} else {
+				changerEtat (agent.etatInitial);
+			}
 		}
 	}
 
 	public override void sortirEtat()
 	{
-		nav.speed = 0.0f;
 		nav.enabled = false;
 	}
 
