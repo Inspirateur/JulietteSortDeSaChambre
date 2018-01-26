@@ -30,8 +30,7 @@ public class IA_Agent : MonoBehaviour {
 	public BruiteurPas bruiteurPas;
 	private float timerStep;
 
-    void Awake()
-    {
+    void Awake() {
         nav = this.GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody> ();
