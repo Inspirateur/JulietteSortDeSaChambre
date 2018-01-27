@@ -65,11 +65,6 @@ public class GOB_E_Patrouiller : IA_Etat {
         
     }
 
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
-	}
-
     private void suivreChemin()
 	{
 		indiceCheminActuel = (indiceCheminActuel + 1) % chemin.Length;

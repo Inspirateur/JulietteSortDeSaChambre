@@ -42,18 +42,12 @@ public class GOB_E_Charger : IA_Etat {
 			}
 
 		} else {
-//			changerEtat(this.GetComponent<GOB_E_>());
-			sortirEtat();
+			changerEtat(this.GetComponent<GOB_E_Combattre>());
 		}
 	}
 
 	public override void sortirEtat()
 	{
-		setAnimation (GOB_Animations.COMBATTRE);
-	}
-
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
+		
 	}
 }

@@ -25,7 +25,7 @@ public class IA_Agent : MonoBehaviour {
 //	public float distanceRepousse;
 
 	public IA_Etat etatMort;
-//	public IA_Etat etatDegatsRecu;
+	public IA_Etat etatEtreBlesseDefaut;
 
 	public BruiteurPas bruiteurPas;
 	private float timerStep;
@@ -242,6 +242,10 @@ public class IA_Agent : MonoBehaviour {
 
 	public void subirDegats(int valeurDegats, Vector3 hitPoint) {
 		etatCourant.subirDegats(valeurDegats, hitPoint);
+	}
+
+	public void subirDegats(int valeurDegats) {
+		etatCourant.subirDegats(valeurDegats);
 	}
 
 //	public void recevoirDegat(int valeurDegats, Vector3 hitPoint) {

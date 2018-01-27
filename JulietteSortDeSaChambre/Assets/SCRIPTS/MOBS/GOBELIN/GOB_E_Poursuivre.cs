@@ -98,9 +98,4 @@ public class GOB_E_Poursuivre : IA_Etat {
 	{
 		nav.enabled = false;
 	}
-
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
-	}
 }
