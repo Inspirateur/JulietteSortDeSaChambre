@@ -41,9 +41,4 @@ public class GOB_E_Mourir : IA_Etat {
 	{
 
 	}
-
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
-	}
 }
