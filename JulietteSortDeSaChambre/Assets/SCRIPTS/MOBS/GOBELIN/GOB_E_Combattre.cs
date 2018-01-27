@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GOB_E_Combattre : IA_Etat {
 
+	public float delaisMaxAvantAttaque;
+//	public float 
+
 	// Use this for initialization
 	void Start()
 	{
