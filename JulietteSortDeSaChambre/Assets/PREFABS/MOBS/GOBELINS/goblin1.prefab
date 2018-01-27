@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 114554954713644384}
   - component: {fileID: 114538493332204824}
   - component: {fileID: 114600025527141288}
+  - component: {fileID: 114933512836801624}
   - component: {fileID: 114392253394215760}
   - component: {fileID: 114231919765344164}
   - component: {fileID: 114474552997635654}
@@ -1643,6 +1644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727f5e65a3a711241b2cb5e4fa533646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delaisMaxAvantAttaque: 0
 --- !u!114 &114538493332204824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1762,6 +1764,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47dac74c4d05b564d9294fb8518875ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114933512836801624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661025149933492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964dc195fd9669847bf98f6b82051706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emplacementAGarder: {fileID: 0}
+  vitesse: 2.5
 --- !u!136 &136611024261354854
 CapsuleCollider:
   m_ObjectHideFlags: 1

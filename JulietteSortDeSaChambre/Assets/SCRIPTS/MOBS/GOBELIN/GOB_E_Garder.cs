@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gob_E_Garder : IA_Etat {
+public class GOB_E_Garder : IA_Etat {
 
 	public IA_PointInteret emplacementAGarder;
 	public float vitesse;
@@ -50,7 +50,7 @@ public class Gob_E_Garder : IA_Etat {
 
 		} else if (!enGarde && !enRotation) {
 			enGarde = true;
-//			setAnimation (GOB_Animations.);
+			setAnimation (GOB_Animations.GARDER);
 		}
 	}
 
