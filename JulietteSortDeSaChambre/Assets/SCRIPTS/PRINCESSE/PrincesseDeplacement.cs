@@ -26,6 +26,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private float timerStep;
     private SoundManager sm;
 
+
     void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -66,7 +67,7 @@ public class PrincesseDeplacement : MonoBehaviour
             GererDeplacement(moveHorizontal, moveVertical);
             if (!anim.GetBool("IsJumping"))
             {
-                if (moveHorizontal < 0.0f && moveVertical == 0.0f || moveHorizontal > 0.0f && moveVertical == 0.0f)
+				if ((moveHorizontal < 0.0f && moveVertical == 0.0f || moveHorizontal > 0.0f && moveVertical == 0.0f)&&(!anim.GetBool("IsSidewalk")))
                 {
                     gererAnim("IsSidewalk");
                 }
@@ -79,17 +80,19 @@ public class PrincesseDeplacement : MonoBehaviour
                     gererAnim("IsRunning");
                 }
             }
-            else
+           /* else
             {
-                gererAnim("IsJumping");
-            }
+				gererAnim("IsJumping");
+            }*/
         }
         else
         {
-            if (isGrounded)
+			if (isGrounded && anim.GetBool("IsJumping"))
             {
-                gererAnim("IsIdle");
-            }
+                //gererAnim("IsIdle");
+			}else if(isGrounded){
+				gererAnim ("IsIdle");
+			}
             else
             {
                 gererAnim();
@@ -97,12 +100,13 @@ public class PrincesseDeplacement : MonoBehaviour
         }
 
 
-        bool saut = InputManager.GetButtonDown("Jump");
+        
         //	Input.GetKeyDown(KeyCode.Space);
-
-        if (saut && isGrounded == true)
+		bool saut = InputManager.GetButtonDown("Jump");
+        if (saut && isGrounded)
         {
             rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
+			gererAnim("IsJumping");
             //rb.AddRelativeForce(new Vector3(0.0f, forceSaut, 0.0f));
             isGrounded = false;
         }
@@ -269,10 +273,9 @@ public class PrincesseDeplacement : MonoBehaviour
 
     void OnTriggerStay(Collider collision)
     {
-        if (collision.tag == "sol" || collision.tag == "cube")
-        {
-            isGrounded = true;
-        }
+		if (collision.tag == "sol" || collision.tag == "cube") {
+			isGrounded = true;
+		}
         if (collision.tag == "cube")
         {
             isPushing = true;
