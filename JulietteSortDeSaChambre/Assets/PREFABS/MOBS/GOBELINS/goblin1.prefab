@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 114231919765344164}
   - component: {fileID: 114474552997635654}
   - component: {fileID: 114105685056678634}
+  - component: {fileID: 114480212014664848}
   - component: {fileID: 114980849865397104}
   - component: {fileID: 114697752461141492}
   - component: {fileID: 114576495301655080}
@@ -1665,6 +1666,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceSortieCombat: 2.3
   delaisMaxAvantAttaque: 0.75
+  pourcentageAttaqueEmpaler: 0.5
+--- !u!114 &114480212014664848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661025149933492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a11f2dc676ca545beacdfbaaf043b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degats: 1
+  forceRecule: 4
+  sonAttaque: {fileID: 8300000, guid: 4ac56d29b6e0c254096ff017c5481ec4, type: 3}
 --- !u!114 &114538493332204824
 MonoBehaviour:
   m_ObjectHideFlags: 1
