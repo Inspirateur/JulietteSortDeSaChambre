@@ -1648,6 +1648,7 @@ MonoBehaviour:
   distanceEntreeCombat: 1.8
   distanceDash: 6
   pourcentageUtilisationCharge: 0
+  sonPrincessePerdu: {fileID: 8300000, guid: c4defa7d9e25e51499a71062760414ec, type: 3}
 --- !u!114 &114474552997635654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1687,7 +1688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   demiAngleVision: 60
   distanceVision: 18
-  rayonAudition: 5
+  rayonAudition: 4
 --- !u!114 &114573032975459940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1743,6 +1744,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   sonArret: {fileID: 8300000, guid: 5f539f7a41ee5d24691a9408294d5917, type: 3}
+  sonPoursuite: {fileID: 8300000, guid: ca804b62dcfe9334fa76d47070ab0299, type: 3}
 --- !u!114 &114645792280038084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1793,6 +1795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emplacementAGarder: {fileID: 0}
   vitesse: 2.5
+  sonPoursuite: {fileID: 8300000, guid: ca804b62dcfe9334fa76d47070ab0299, type: 3}
 --- !u!136 &136611024261354854
 CapsuleCollider:
   m_ObjectHideFlags: 1

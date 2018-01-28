@@ -25,6 +25,7 @@ public class GOB_E_Combattre : IA_Etat {
 
 	public override void faireEtat()
 	{
+		agent.seTournerVersPosition (princesse.transform.position);
 
 		if (agent.distanceToPrincesse() >= distanceSortieCombat) {
 			changerEtat (GetComponent<GOB_E_Poursuivre> ());
