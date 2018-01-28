@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 114231919765344164}
   - component: {fileID: 114474552997635654}
   - component: {fileID: 114105685056678634}
+  - component: {fileID: 114980849865397104}
   - component: {fileID: 114697752461141492}
   - component: {fileID: 114576495301655080}
   m_Layer: 0
@@ -1798,6 +1799,20 @@ MonoBehaviour:
   emplacementAGarder: {fileID: 0}
   vitesse: 2.5
   sonPoursuite: {fileID: 8300000, guid: ca804b62dcfe9334fa76d47070ab0299, type: 3}
+--- !u!114 &114980849865397104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661025149933492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6d4d3a42ac2a94da5b074c6746be31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulsionEsquive: 100
+  facteurVertical: 1
+  dureeEsquive: 0.6
 --- !u!136 &136611024261354854
 CapsuleCollider:
   m_ObjectHideFlags: 1

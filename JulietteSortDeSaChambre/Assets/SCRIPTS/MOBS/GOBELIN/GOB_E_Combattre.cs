@@ -34,6 +34,10 @@ public class GOB_E_Combattre : IA_Etat {
 		else if (Time.time >= timer) {
 			changerEtat(GetComponent<GOB_E_AttaquerEmpaler>());
 		}
+
+	/*	else if () {
+			changerEtat(GetComponent<GOB_E_Esquiver>());
+		}*/
 	}
 
 	public override void sortirEtat()

@@ -68,19 +68,6 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 			}
 			break;
 		}
-
-
-		/*
-
-		if (numAttaque == 1){
-
-			if (!agent.isActualAnimation (GOB_Animations.ATTAQUER_EMPALER + "2")) { // l'attaque 1 est toujours en cours
-
-
-			}
-		} else {
-			changerEtat(this.GetComponent<GOB_E_Combattre>());
-		}*/
 	}
 
 	public override void sortirEtat()
