@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GOB_E_Combattre : IA_Etat {
 
+	public float distanceSortieCombat;
 	public float delaisMaxAvantAttaque;
-//	public float 
 
 	private float timer;
 
@@ -25,7 +25,12 @@ public class GOB_E_Combattre : IA_Etat {
 
 	public override void faireEtat()
 	{
-		if (Time.time >= timer) {
+
+		if (agent.distanceToPrincesse() >= distanceSortieCombat) {
+			changerEtat (GetComponent<GOB_E_Poursuivre> ());
+		}
+
+		else if (Time.time >= timer) {
 			changerEtat(GetComponent<GOB_E_AttaquerEmpaler>());
 		}
 	}

@@ -6,6 +6,7 @@ public class GOB_E_Garder : IA_Etat {
 
 	public IA_PointInteret emplacementAGarder;
 	public float vitesse;
+	public AudioClip sonPoursuite;
 
 	private bool enDeplacement;
 	private bool enRotation;
@@ -35,7 +36,7 @@ public class GOB_E_Garder : IA_Etat {
 		if (perception.aReperer(princesse, 1.0f)) {
 			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
 
-		} else if (!enDeplacement && perception.aReperer(princesse, 2.0f)) {
+		} else if (!enDeplacement && perception.aReperer(princesse, 1.5f)) {
 			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
 
 		} else if (enDeplacement) {
@@ -56,6 +57,6 @@ public class GOB_E_Garder : IA_Etat {
 
 	public override void sortirEtat()
 	{
-
+		agent.getSoundEntity ().playOneShot (sonPoursuite);
 	}
 }

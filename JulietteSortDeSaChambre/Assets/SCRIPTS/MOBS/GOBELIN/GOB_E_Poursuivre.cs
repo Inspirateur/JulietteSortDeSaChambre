@@ -9,6 +9,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 	public float distanceEntreeCombat;
 	public float distanceDash;
 	public float pourcentageUtilisationCharge;
+	public AudioClip sonPrincessePerdu;
 
 //	public IA_Etat etatSiPrincessePerdue;
 
@@ -67,7 +68,6 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 		} else if (agent.destinationCouranteAtteinte ()) {
 			
-			Debug.Log("princesse perdu");
 			if (delaiActuelRecherche == 0.0f) {
 				princessePerdue = true;
 				delaiActuelRecherche = Time.time + dureeRecherchePrincesse;
@@ -87,6 +87,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 				}
 			} else {
+				agent.getSoundEntity ().playOneShot (sonPrincessePerdu);
 				changerEtat (agent.etatInitial);
 			}
 		}
