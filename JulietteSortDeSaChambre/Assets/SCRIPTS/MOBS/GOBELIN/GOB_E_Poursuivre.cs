@@ -59,9 +59,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 		if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
 
-//			changerEtat (this.GetComponent<gob_E_combat> ());
-			Debug.Log("debut combat");
-			sortirEtat ();
+			changerEtat (this.GetComponent<GOB_E_Combattre> ());
 
 		} else if (chargePrevue && agent.distanceToPrincesse() <= distanceDash && Vector3.Angle(this.transform.forward, princesse.transform.position - this.transform.position) <= 10.0f) {
 			
