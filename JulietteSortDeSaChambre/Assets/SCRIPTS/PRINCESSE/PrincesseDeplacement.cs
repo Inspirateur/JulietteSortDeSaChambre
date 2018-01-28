@@ -293,7 +293,7 @@ void OnTriggerExit(Collider collision)
 
 private void OnCollisionEnter(Collision collision)
 {
-	if (collision.collider.tag == "wall")
+	if (collision.collider.tag == "sol")
 	{
 		isGrounded = true;
 	}
