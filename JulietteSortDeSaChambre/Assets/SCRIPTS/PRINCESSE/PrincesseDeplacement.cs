@@ -74,75 +74,83 @@ public class PrincesseDeplacement : MonoBehaviour
             {
 				gererAnim("IsJumping");
             }
-}
-else
-{
-	if (isGrounded && anim.GetBool("IsJumping"))
-	{
-		//gererAnim("IsIdle");
-	}else if(isGrounded){
-		gererAnim ("IsIdle");
-	}
-	else
-	{
-		gererAnim();
-	}
-}
+        }
+        else
+        {
+	        if (isGrounded && anim.GetBool("IsJumping"))
+	        {
+		        //gererAnim("IsIdle");
+	        }else if(isGrounded){
+		        gererAnim ("IsIdle");
+	        }
+	        else
+	        {
+		        gererAnim();
+	        }
+        }
 
 
 
-//	Input.GetKeyDown(KeyCode.Space);
-bool saut = InputManager.GetButtonDown("Jump");
-if (saut && isGrounded)
-{
-	rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
-	gererAnim("IsJumping");
-	//rb.AddRelativeForce(new Vector3(0.0f, forceSaut, 0.0f));
-	isGrounded = false;
-}
+        //	Input.GetKeyDown(KeyCode.Space);
+        bool saut = InputManager.GetButtonDown("Jump");
+        if (saut && isGrounded)
+        {
+	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
+	        gererAnim("IsJumping");
+	        //rb.AddRelativeForce(new Vector3(0.0f, forceSaut, 0.0f));
+	        isGrounded = false;
+        }
 
-//Gestion de l attaque standard
-bool toucheAttack1 = InputManager.GetButtonDown("Fire1");
-if (toucheAttack1)
-{
-	if (anim.GetBool("IsIdle"))
-	{
-		anim.Play("attack1");
-		//princesseArme.lancerAttaque();
-	}
-	if (anim.GetBool("IsJumping"))
-	{
-		anim.Play("attack_jump");
-		rb.AddForce(transform.forward * 500f);
-		rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-		//princesseArme.lancerAttaque();
-	}
-	if (anim.GetBool("IsRunning") == true)
-	{
-		anim.Play("attack_run");
-		//princesseArme.lancerAttaque();
-	}
-	if (anim.GetBool("IsSidewalk") == true)
-	{
-		anim.Play("attack_run");
-		//princesseArme.lancerAttaque();
-	}
-}
+        //Gestion de l attaque standard
+        bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
+        if (toucheAttack1)
+        {
+	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJuming"))
+	        {
+		        anim.Play("attack1");
+                Debug.Log("Attaque idle");
+                //princesseArme.lancerAttaque();
+            }
+	        else if (anim.GetBool("IsJumping"))
+	        {
+		        anim.Play("attack_jump");
+		        rb.AddForce(transform.forward * 500f);
+		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
+                Debug.Log("Attaque saute");
+		        //princesseArme.lancerAttaque();
+	        }
+	        else if (anim.GetBool("IsRunning") == true)
+	        {
+                Debug.Log("Attaque Run");
+                anim.Play("attack_run");
+		        //princesseArme.lancerAttaque();
+	        }
+	        else if (anim.GetBool("IsSidewalk") == true)
+	        {
+                Debug.Log("Attaque RUn");
+                anim.Play("attack_run");
+                //princesseArme.lancerAttaque();
+            }else if (anim.GetBool("IsBackwalk"))
+            {
+                anim.Play("attack_backwalk");
+                Debug.Log("Attaque backwalk");
+            }
+        }
 
-//To DO clean les inputs manager (pas de Keycode.LeftShift)
-if (InputManager.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("Fire3"))
-{
-	if (CanDash == true && isGrounded == true)
-	{
-		anim.Play("fwdash");
-		rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, moveVertical).normalized * 45f, ForceMode.Impulse);
-		StartCoroutine(WaitForVelocityZero());
-		CanDash = false;
-		StartCoroutine(WaitBeforDash());
-	}
-}
+        //To DO clean les inputs manager (pas de Keycode.LeftShift)
+        if (InputManager.GetButtonDown("Dash"))
+        {
+	        if (CanDash == true && isGrounded == true)
+	        {
+		        anim.Play("fwdash");
+		        rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, moveVertical).normalized * 45f, ForceMode.Impulse);
+		        StartCoroutine(WaitForVelocityZero());
+		        CanDash = false;
+		        StartCoroutine(WaitBeforDash());
+	        }
+        }
 
-/*------------------ gerer la deplacement du cube --------
+        /*------------------ gerer la deplacement du cube --------
         if (isPushing == true)
         {
             anim.SetBool("isPushing", true);
@@ -155,7 +163,7 @@ if (InputManager.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("Fire3"))
         }*/
 
 
-}
+    }
 
 private void gererAnim(string stringToTrue)
 {
