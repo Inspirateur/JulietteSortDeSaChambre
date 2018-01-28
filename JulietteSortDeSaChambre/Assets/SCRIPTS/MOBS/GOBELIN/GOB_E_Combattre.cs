@@ -7,6 +7,8 @@ public class GOB_E_Combattre : IA_Etat {
 	public float delaisMaxAvantAttaque;
 //	public float 
 
+	private float timer;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -18,11 +20,14 @@ public class GOB_E_Combattre : IA_Etat {
 	public override void entrerEtat()
 	{
 		setAnimation (GOB_Animations.COMBATTRE);
+		timer = Time.time + delaisMaxAvantAttaque * Random.value;
 	}
 
 	public override void faireEtat()
 	{
-		
+		if (Time.time >= timer) {
+//			changerEtat(GetComponent<GOB_E_>());
+		}
 	}
 
 	public override void sortirEtat()
