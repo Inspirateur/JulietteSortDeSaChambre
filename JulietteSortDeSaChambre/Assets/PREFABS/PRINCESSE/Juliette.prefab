@@ -335,8 +335,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4259609440931172}
   - component: {fileID: 95593036929066984}
-  - component: {fileID: 136913935736515698}
   - component: {fileID: 54438497108805324}
+  - component: {fileID: 114941354916891536}
+  - component: {fileID: 65288233268211676}
+  - component: {fileID: 65933933933677106}
   m_Layer: 0
   m_Name: Juliette
   m_TagString: Player
@@ -519,8 +521,8 @@ GameObject:
   - component: {fileID: 4063036175818956}
   - component: {fileID: 137627827697876724}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: body
+  m_TagString: PrincesseBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,13 +620,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1905541780224094}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.74, y: 1.1419697, z: 0}
+  m_LocalRotation: {x: -0.6764647, y: 0, z: 0, w: 0.7364751}
+  m_LocalPosition: {x: -0.03521932, y: 1.1419697, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4259609440931172}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -85.136, y: 0, z: 0}
 --- !u!4 &4094641046587780
 Transform:
   m_ObjectHideFlags: 1
@@ -1123,7 +1125,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1131,6 +1133,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &65288233268211676
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501621892178278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.923497, y: 4.175968, z: 1.458646}
+  m_Center: {x: 0.0126604, y: 2.056466, z: 0.07787597}
+--- !u!65 &65933933933677106
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501621892178278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3992017, y: 0.1838203, z: 0.384087}
+  m_Center: {x: -0.009446794, y: 0.01889337, z: 0.0132246}
 --- !u!95 &95593036929066984
 Animator:
   serializedVersion: 3
@@ -1140,7 +1166,7 @@ Animator:
   m_GameObject: {fileID: 1501621892178278}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9cac2674a7b438a41bd94b691574f2cc, type: 3}
-  m_Controller: {fileID: 9100000, guid: db5d7037f9304f84fabe01d01c52dbaf, type: 2}
+  m_Controller: {fileID: 9100000, guid: dc139fa115e3da44c9c3739a48932ecf, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1148,19 +1174,27 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!136 &136913935736515698
-CapsuleCollider:
+--- !u!114 &114941354916891536
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 4.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.2, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daedd1a6c52bb7040ba99383a7b15518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: 5.5
+  forceSaut: 1200
+  vitesseAngulaire: 8
+  isGrounded: 0
+  feetDist: 0.1
+  bruitsPas: []
+  minPitch: 1.5
+  maxPitch: 1.7
+  minVolume: 0.35
+  maxVolume: 0.45
 --- !u!137 &137627827697876724
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1170,7 +1204,6 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1194,7 +1227,6 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

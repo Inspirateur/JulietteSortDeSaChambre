@@ -52,22 +52,12 @@ public class PrincesseDeplacement : MonoBehaviour
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
 
-       /* if(moveHorizontal!=0f || moveVertical != 0f)
-        {
-            GererDeplacement(moveHorizontal, moveVertical);
-
-            if (!anim.GetBool("IsJumping"))
-            {
-
-            }
-        }*/
-
         if (moveHorizontal != 0.0f || moveVertical != 0.0f)
         {
             GererDeplacement(moveHorizontal, moveVertical);
             if (!anim.GetBool("IsJumping"))
             {
-				if ((moveHorizontal < 0.0f && moveVertical == 0.0f || moveHorizontal > 0.0f && moveVertical == 0.0f)&&(!anim.GetBool("IsSidewalk")))
+				if ((moveHorizontal != 0.0f && moveVertical == 0.0f)&&(!anim.GetBool("IsSidewalk")))
                 {
                     gererAnim("IsSidewalk");
                 }
@@ -80,79 +70,79 @@ public class PrincesseDeplacement : MonoBehaviour
                     gererAnim("IsRunning");
                 }
             }
-           /* else
+           else
             {
 				gererAnim("IsJumping");
-            }*/
-        }
-        else
-        {
-			if (isGrounded && anim.GetBool("IsJumping"))
-            {
-                //gererAnim("IsIdle");
-			}else if(isGrounded){
-				gererAnim ("IsIdle");
-			}
-            else
-            {
-                gererAnim();
             }
-        }
+}
+else
+{
+	if (isGrounded && anim.GetBool("IsJumping"))
+	{
+		//gererAnim("IsIdle");
+	}else if(isGrounded){
+		gererAnim ("IsIdle");
+	}
+	else
+	{
+		gererAnim();
+	}
+}
 
 
-        
-        //	Input.GetKeyDown(KeyCode.Space);
-		bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded)
-        {
-            rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
-			gererAnim("IsJumping");
-            //rb.AddRelativeForce(new Vector3(0.0f, forceSaut, 0.0f));
-            isGrounded = false;
-        }
 
-        //Gestion de l attaque standard
-        bool toucheAttack1 = InputManager.GetButtonDown("Fire1");
-        if (toucheAttack1)
-        {
-            if (anim.GetBool("IsIdle"))
-            {
-                anim.Play("attack1");
-                //princesseArme.lancerAttaque();
-            }
-            if (anim.GetBool("IsJumping"))
-            {
-                anim.Play("attack_jump");
-                rb.AddForce(transform.forward * 500f);
-                rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-                //princesseArme.lancerAttaque();
-            }
-            if (anim.GetBool("IsRunning") == true)
-            {
-                anim.Play("attack_run");
-                //princesseArme.lancerAttaque();
-            }
-            if (anim.GetBool("IsSidewalk") == true)
-            {
-                anim.Play("attack_run");
-                //princesseArme.lancerAttaque();
-            }
-        }
+//	Input.GetKeyDown(KeyCode.Space);
+bool saut = InputManager.GetButtonDown("Jump");
+if (saut && isGrounded)
+{
+	rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
+	gererAnim("IsJumping");
+	//rb.AddRelativeForce(new Vector3(0.0f, forceSaut, 0.0f));
+	isGrounded = false;
+}
 
-        //To DO clean les inputs manager (pas de Keycode.LeftShift)
-        if (InputManager.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("Fire3"))
-        {
-            if (CanDash == true && isGrounded == true)
-            {
-                anim.Play("fwdash");
-                rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, moveVertical).normalized * 45f, ForceMode.Impulse);
-                StartCoroutine(WaitForVelocityZero());
-                CanDash = false;
-                StartCoroutine(WaitBeforDash());
-            }
-        }
+//Gestion de l attaque standard
+bool toucheAttack1 = InputManager.GetButtonDown("Fire1");
+if (toucheAttack1)
+{
+	if (anim.GetBool("IsIdle"))
+	{
+		anim.Play("attack1");
+		//princesseArme.lancerAttaque();
+	}
+	if (anim.GetBool("IsJumping"))
+	{
+		anim.Play("attack_jump");
+		rb.AddForce(transform.forward * 500f);
+		rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
+		//princesseArme.lancerAttaque();
+	}
+	if (anim.GetBool("IsRunning") == true)
+	{
+		anim.Play("attack_run");
+		//princesseArme.lancerAttaque();
+	}
+	if (anim.GetBool("IsSidewalk") == true)
+	{
+		anim.Play("attack_run");
+		//princesseArme.lancerAttaque();
+	}
+}
 
-        /*------------------ gerer la deplacement du cube --------
+//To DO clean les inputs manager (pas de Keycode.LeftShift)
+if (InputManager.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("Fire3"))
+{
+	if (CanDash == true && isGrounded == true)
+	{
+		anim.Play("fwdash");
+		rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, moveVertical).normalized * 45f, ForceMode.Impulse);
+		StartCoroutine(WaitForVelocityZero());
+		CanDash = false;
+		StartCoroutine(WaitBeforDash());
+	}
+}
+
+/*------------------ gerer la deplacement du cube --------
         if (isPushing == true)
         {
             anim.SetBool("isPushing", true);
@@ -165,44 +155,44 @@ public class PrincesseDeplacement : MonoBehaviour
         }*/
 
 
-    }
+}
 
-    private void gererAnim(string stringToTrue)
-    {
-        //Met tous les anim.setBool a false sauf celui du stringToTrue
-        gererAnim();
+private void gererAnim(string stringToTrue)
+{
+	//Met tous les anim.setBool a false sauf celui du stringToTrue
+	gererAnim();
 
-        anim.SetBool(stringToTrue, true);
+	anim.SetBool(stringToTrue, true);
 
-    }
+}
 
-    private void gererAnim()
-    {
-        //Met tous les anim.setBool a false sauf celui du stringToTrue
-        anim.SetBool("IsRunning", false);
-        anim.SetBool("IsBackwalk", false);
-        anim.SetBool("IsSidewalk", false);
-        anim.SetBool("IsIdle", false);
-        //anim.SetBool("isPushing", false);
-        anim.SetBool("IsJumping", false);
+private void gererAnim()
+{
+	//Met tous les anim.setBool a false sauf celui du stringToTrue
+	anim.SetBool("IsRunning", false);
+	anim.SetBool("IsBackwalk", false);
+	anim.SetBool("IsSidewalk", false);
+	anim.SetBool("IsIdle", false);
+	//anim.SetBool("isPushing", false);
+	anim.SetBool("IsJumping", false);
 
-    }
-
-
-
-    IEnumerator WaitForVelocityZero()
-    {
-        rb.velocity = Vector3.zero;
-        yield return new WaitForSeconds(0.3f);
-    }
+}
 
 
-    private void GererDeplacement(float moveHorizontal, float moveVertical)
-    {
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
-        {
-            /*float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
+IEnumerator WaitForVelocityZero()
+{
+	rb.velocity = Vector3.zero;
+	yield return new WaitForSeconds(0.3f);
+}
+
+
+private void GererDeplacement(float moveHorizontal, float moveVertical)
+{
+
+	if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
+	{
+		float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
 
             float rotation;
 
@@ -218,87 +208,90 @@ public class PrincesseDeplacement : MonoBehaviour
 
             rotation = Mathf.Clamp(difRotation, -vitesseAngulaire, vitesseAngulaire);
 
-            this.transform.Rotate(0.0f, rotation, 0.0f);*/
+            this.transform.Rotate(0.0f, rotation, 0.0f);
 
-            Vector3 mouvement = this.transform.forward * Mathf.Max(moveVertical, -0.5f);
-            float norme = Mathf.Max(mouvement.magnitude, 0.5f);
+		Vector3 mouvement = this.transform.forward * Mathf.Max(moveVertical, -0.5f);
+		float norme = Mathf.Max(mouvement.magnitude, 0.5f);
 
-            mouvement += this.transform.right * moveHorizontal * 0.5f;
+		mouvement += this.transform.right * moveHorizontal * 0.5f;
 
-            mouvement = (mouvement / mouvement.magnitude) * norme;
+		mouvement = (mouvement / mouvement.magnitude) * norme;
 
-            if (isPushing == false)
-            {
-                this.transform.position += mouvement * vitesse * Time.deltaTime;
-            }
-            else
-            {
-                this.transform.position += mouvement * vitesse / 2 * Time.deltaTime;
-                //pushableCube.transform.position += mouvement * vitesse/2 * Time.deltaTime;
-            }
-
-            if (timerStep <= Time.time && isGrounded && CanDash)
-            {
-                int indice = Random.Range(0, this.bruitsPas.Length);
-                float volume = Random.Range(minVolume, maxVolume);
-                float pitch = Random.Range(minPitch, maxPitch);
-                //sm.playOneShot(this.bruitsPas[indice], volume, pitch);
-                timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
-            }
-        }
-
-
-    }
-
-    void FixedUpdate()
-    {
-        Vector3 fwd = transform.TransformDirection(Vector3.down);
-        if (Physics.Raycast(transform.position, fwd, feetDist))
-        {
-            //gererAnim();
-            anim.SetBool("IsJumping", false);
-        }
-        else
-        {
-
-            anim.SetBool("IsJumping", true);
-        }
-    }
-
-    IEnumerator WaitBeforDash()
-    {
-        yield return new WaitForSeconds(1f);
-        CanDash = true;
-    }
-
-    void OnTriggerStay(Collider collision)
-    {
-		if (collision.tag == "sol" || collision.tag == "cube") {
-			isGrounded = true;
+		if (isPushing == false)
+		{
+			this.transform.position += mouvement * vitesse * Time.deltaTime;
 		}
-        if (collision.tag == "cube")
-        {
-            isPushing = true;
-            Debug.Log("touche la caisse");
-            //pushableCube = collision.gameObject;
-        }
-    }
-    void OnTriggerExit(Collider collision)
-    {
+		else
+		{
+			this.transform.position += mouvement * vitesse / 2 * Time.deltaTime;
+			//pushableCube.transform.position += mouvement * vitesse/2 * Time.deltaTime;
+		}
 
-        if (collision.tag == "cube")
-        {
-            isPushing = false;
+		if (timerStep <= Time.time && isGrounded && CanDash)
+		{
+			int indice = Random.Range(0, this.bruitsPas.Length);
+			float volume = Random.Range(minVolume, maxVolume);
+			float pitch = Random.Range(minPitch, maxPitch);
+			//sm.playOneShot(this.bruitsPas[indice], volume, pitch);
+			timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
+		}
+	}
 
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == "sol")
-        {
-            isGrounded = true;
-        }
-    }
 
 }
+
+void FixedUpdate()
+{
+	Vector3 fwd = transform.TransformDirection(Vector3.down);
+	if (Physics.Raycast(transform.position, fwd, feetDist))
+	{
+		//gererAnim();
+		anim.SetBool("IsJumping", false);
+	}
+	else
+	{
+
+		anim.SetBool("IsJumping", true);
+	}
+}
+
+IEnumerator WaitBeforDash()
+{
+	yield return new WaitForSeconds(1f);
+	CanDash = true;
+}
+
+void OnTriggerStay(Collider collision)
+{
+	if (collision.tag == "wall" || collision.tag == "cube") {
+		isGrounded = true;
+	}
+	if (collision.tag == "cube")
+	{
+		isPushing = true;
+		Debug.Log("touche la caisse");
+		//pushableCube = collision.gameObject;
+	}
+}
+void OnTriggerExit(Collider collision)
+{
+
+	if (collision.tag == "cube")
+	{
+		isPushing = false;
+
+	}
+}
+
+private void OnCollisionEnter(Collision collision)
+{
+	if (collision.collider.tag == "wall")
+	{
+		isGrounded = true;
+	}
+}
+
+}
+
+
+
