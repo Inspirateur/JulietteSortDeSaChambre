@@ -33,7 +33,7 @@ public class IA_MobVie : MonoBehaviour {
 	public void blesser(int degats) {
 		
 		vieCourante = Mathf.Max(vieCourante - degats, 0);
-
+		Debug.Log ("PV : " + vieCourante);
 		if (!estEnVie()) {
 			agent.mourir ();
 		}

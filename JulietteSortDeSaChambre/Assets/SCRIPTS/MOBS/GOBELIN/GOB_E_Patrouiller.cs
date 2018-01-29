@@ -12,6 +12,7 @@ public class GOB_E_Patrouiller : IA_Etat {
 	public IA_PointInteret[] chemin;
 
 	public AudioClip sonArret;
+	public AudioClip sonPoursuite;
 
     private int indiceCheminActuel;
 	private float delaisActuel;
@@ -62,13 +63,8 @@ public class GOB_E_Patrouiller : IA_Etat {
 
     public override void sortirEtat()
     {
-        
+		agent.getSoundEntity ().playOneShot (sonPoursuite);
     }
-
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
-	}
 
     private void suivreChemin()
 	{
