@@ -6,6 +6,7 @@ public class GOB_E_Combattre : IA_Etat {
 
 	public float distanceSortieCombat;
 	public float delaisMaxAvantAttaque;
+	public float pourcentageAttaqueEmpaler;
 
 	private float timer;
 
@@ -32,7 +33,13 @@ public class GOB_E_Combattre : IA_Etat {
 		}
 
 		else if (Time.time >= timer) {
-			changerEtat(GetComponent<GOB_E_AttaquerEmpaler>());
+			float choixAttaque = Random.value;
+
+			if (choixAttaque <= pourcentageAttaqueEmpaler) {
+				changerEtat (GetComponent<GOB_E_AttaquerEmpaler> ());
+			} else {
+				changerEtat (GetComponent<GOB_E_AttaquerHorizontalement> ());
+			}
 		}
 
 	/*	else if () {
