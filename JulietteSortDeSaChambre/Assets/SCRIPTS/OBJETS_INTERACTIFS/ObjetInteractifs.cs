@@ -19,9 +19,10 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 
 	public abstract void Activation();
 
-	public IconeInteraction afficheInteraction(){
-		return null;
+	public EnumIconeInterraction getIconeInteraction(){
+		return EnumIconeInterraction.icone_default;
 	}
+
 
 	public void supprimerObjet(){
 		this.gameObject.SetActive (false);

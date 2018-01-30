@@ -14,7 +14,9 @@ public class affichageInterraction : MonoBehaviour {
 		
 	}
 
-	public void activeAffichageInteractionObjet(ObjetInteractifs objet){
 
-	}
+}
+
+public enum EnumIconeInterraction{
+	icone_default,
 }
