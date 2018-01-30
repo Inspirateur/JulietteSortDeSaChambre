@@ -11,4 +11,8 @@ public class GOB_Animations {
 	public static readonly string ETRE_BLESSE = "etreBlesse";
 	public static readonly string MOURIR = "mourir";
 	public static readonly string COMBATTRE = "combattre";
+	public static readonly string GARDER = "garder";
+	public static readonly string ATTAQUER_EMPALER = "attaquerEmpaler";
+	public static readonly string ATTAQUER_HORIZONTALEMENT = "attaquerHorizontalement";
+	public static readonly string ESQUIVER = "esquiver";
 }

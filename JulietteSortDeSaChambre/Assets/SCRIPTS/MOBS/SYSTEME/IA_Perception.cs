@@ -8,8 +8,14 @@ public class IA_Perception : MonoBehaviour {
 	public float distanceVision;
 	public float rayonAudition;
 
-	public bool aReperer(GameObject cible, float niveauAttention) {
+	public bool aRepere(GameObject cible, float niveauAttention) {
 		Vector3 vecDistancePrincesse = cible.transform.position - this.transform.position;
+
+		float distancePrincesse = vecDistancePrincesse.magnitude;
+
+		if (distancePrincesse <= this.rayonAudition * niveauAttention) {
+			return true;
+		}
 
 		RaycastHit hitInfo;
 
@@ -17,12 +23,6 @@ public class IA_Perception : MonoBehaviour {
 
 		if ( ! hitInfo.collider.gameObject.Equals(cible)) {
 			return false;
-		}
-
-		float distancePrincesse = vecDistancePrincesse.magnitude;
-
-		if (distancePrincesse <= this.rayonAudition * niveauAttention) {
-			return true;
 		}
 
 		float angle = Vector3.Angle (this.transform.forward, vecDistancePrincesse.normalized);

@@ -9,6 +9,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 	public float distanceEntreeCombat;
 	public float distanceDash;
 	public float pourcentageUtilisationCharge;
+	public AudioClip sonPrincessePerdu;
 
 //	public IA_Etat etatSiPrincessePerdue;
 
@@ -19,20 +20,21 @@ public class GOB_E_Poursuivre : IA_Etat {
 	private bool chargePrevue;
 
 	// Use this for initialization
-	void Start() {
+	void Start()
+	{
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
 
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
 
-	public override void entrerEtat() {
+	public override void entrerEtat()
+	{
 		setAnimation(GOB_Animations.COURIR);
 		nav.speed = vitesse;
 		nav.enabled = true;
 		delaiActuelRecherche = 0.0f;
 		dernierePositionPrincesseConnue = princesse.transform.position;
-		//agent.definirDestination(dernierePositionPrincesseConnue);
-		agent.definirDestinationStrat();
+		agent.definirDestination(dernierePositionPrincesseConnue);
 		princessePerdue = false;
 		enRotation = true;
 		chargePrevue = Random.value < pourcentageUtilisationCharge;
@@ -43,11 +45,10 @@ public class GOB_E_Poursuivre : IA_Etat {
 		
 		if (!princessePerdue) {
 
-			if (perception.aReperer(princesse, 1.0f) && !dernierePositionPrincesseConnue.Equals (princesse.transform.position)) {
+			if (perception.aRepere(princesse, 1.0f) && !dernierePositionPrincesseConnue.Equals (princesse.transform.position)) {
 				
 				dernierePositionPrincesseConnue = princesse.transform.position;
-				//agent.definirDestination(dernierePositionPrincesseConnue);
-				agent.definirDestinationStrat();
+				agent.definirDestination (dernierePositionPrincesseConnue);
 				enRotation = true;
 			}
 		}
@@ -59,9 +60,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 		if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
 
-//			changerEtat (this.GetComponent<gob_E_combat> ());
-			Debug.Log("debut combat");
-			sortirEtat ();
+			changerEtat (this.GetComponent<GOB_E_Combattre> ());
 
 		} else if (chargePrevue && agent.distanceToPrincesse() <= distanceDash && Vector3.Angle(this.transform.forward, princesse.transform.position - this.transform.position) <= 10.0f) {
 			
@@ -69,7 +68,6 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 		} else if (agent.destinationCouranteAtteinte ()) {
 			
-			Debug.Log("princesse perdue");
 			if (delaiActuelRecherche == 0.0f) {
 				princessePerdue = true;
 				delaiActuelRecherche = Time.time + dureeRecherchePrincesse;
@@ -79,17 +77,17 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 			if(Time.time <= delaiActuelRecherche) {
 
-				if (perception.aReperer(princesse, 2.0f)) {
+				if (perception.aRepere(princesse, 2.0f)) {
 					setAnimation(GOB_Animations.COURIR);
 					princessePerdue = false;
 					delaiActuelRecherche = 0.0f;
 					dernierePositionPrincesseConnue = princesse.transform.position;
-					//agent.definirDestination(dernierePositionPrincesseConnue);
-					agent.definirDestinationStrat();
+					agent.definirDestination (dernierePositionPrincesseConnue);
 					enRotation = true;
 
 				}
 			} else {
+				agent.getSoundEntity ().playOneShot (sonPrincessePerdu);
 				changerEtat (agent.etatInitial);
 			}
 		}
@@ -98,10 +96,5 @@ public class GOB_E_Poursuivre : IA_Etat {
 	public override void sortirEtat()
 	{
 		nav.enabled = false;
-	}
-
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
 	}
 }

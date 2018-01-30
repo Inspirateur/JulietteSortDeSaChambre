@@ -26,9 +26,4 @@ public class ETAT_MODEL : IA_Etat {
     {
 
     }
-
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
-	}
 }
