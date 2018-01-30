@@ -25,6 +25,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private GameObject pushableCube;
     private float timerStep;
     private SoundManager sm;
+    public BruiteurPas bruiteurPas;
 
 
     void Start()
@@ -37,6 +38,7 @@ public class PrincesseDeplacement : MonoBehaviour
         //princesseArme = GetComponent<princesse_arme>();
         timerStep = 0.0f;
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
     }
 
     void Update()
@@ -245,10 +247,7 @@ private void GererDeplacement(float moveHorizontal, float moveVertical)
 
 		if (timerStep <= Time.time && isGrounded && CanDash)
 		{
-			int indice = Random.Range(0, this.bruitsPas.Length);
-			float volume = Random.Range(minVolume, maxVolume);
-			float pitch = Random.Range(minPitch, maxPitch);
-			//sm.playOneShot(this.bruitsPas[indice], volume, pitch);
+            bruiteurPas.pas();
 			timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
 		}
 	}
