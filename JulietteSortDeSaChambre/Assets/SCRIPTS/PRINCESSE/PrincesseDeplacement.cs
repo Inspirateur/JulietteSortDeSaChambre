@@ -250,17 +250,17 @@ private void GererDeplacement(float moveHorizontal, float moveVertical)
 
 void FixedUpdate()
 {
-	Vector3 fwd = transform.TransformDirection(Vector3.down);
-	if (Physics.Raycast(transform.position, fwd, feetDist))
-	{
-		//gererAnim();
-		anim.SetBool("IsJumping", false);
-	}
-	else
-	{
+	// Vector3 fwd = transform.TransformDirection(Vector3.down);
+	// if (Physics.Raycast(transform.position, fwd, feetDist))
+	// {
+	// 	//gererAnim();
+	// 	anim.SetBool("IsJumping", false);
+	// }
+	// else
+	// {
 
-		anim.SetBool("IsJumping", true);
-	}
+	// 	anim.SetBool("IsJumping", true);
+	// }
 }
 
 IEnumerator WaitBeforDash()

@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 114941354916891536}
   - component: {fileID: 65288233268211676}
   - component: {fileID: 65933933933677106}
+  - component: {fileID: 114372946262442800}
   m_Layer: 0
   m_Name: Juliette
   m_TagString: Player
@@ -732,7 +733,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029653306}
-  m_LocalPosition: {x: 9.13, y: 0, z: 4.91}
+  m_LocalPosition: {x: 3.0733047, y: 0, z: -2.3662195}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4792320266888180}
@@ -1152,7 +1153,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.3992017, y: 0.1838203, z: 0.384087}
@@ -1174,6 +1175,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114372946262442800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501621892178278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd0f7be026f6e4488a762071c829334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vie_max: 0
+  reculeVertical: 0
+  reculeHorizontal: 0
 --- !u!114 &114941354916891536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1204,6 +1219,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1227,6 +1243,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
