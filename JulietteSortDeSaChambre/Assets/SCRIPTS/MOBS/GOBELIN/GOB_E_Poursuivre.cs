@@ -19,21 +19,20 @@ public class GOB_E_Poursuivre : IA_Etat {
 	private bool chargePrevue;
 
 	// Use this for initialization
-	void Start()
-	{
+	void Start() {
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
 
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
 
-	public override void entrerEtat()
-	{
+	public override void entrerEtat() {
 		setAnimation(GOB_Animations.COURIR);
 		nav.speed = vitesse;
 		nav.enabled = true;
 		delaiActuelRecherche = 0.0f;
 		dernierePositionPrincesseConnue = princesse.transform.position;
-		agent.definirDestination(dernierePositionPrincesseConnue);
+		//agent.definirDestination(dernierePositionPrincesseConnue);
+		agent.definirDestinationStrat();
 		princessePerdue = false;
 		enRotation = true;
 		chargePrevue = Random.value < pourcentageUtilisationCharge;
@@ -47,7 +46,8 @@ public class GOB_E_Poursuivre : IA_Etat {
 			if (perception.aReperer(princesse, 1.0f) && !dernierePositionPrincesseConnue.Equals (princesse.transform.position)) {
 				
 				dernierePositionPrincesseConnue = princesse.transform.position;
-				agent.definirDestination (dernierePositionPrincesseConnue);
+				//agent.definirDestination(dernierePositionPrincesseConnue);
+				agent.definirDestinationStrat();
 				enRotation = true;
 			}
 		}
@@ -69,7 +69,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 		} else if (agent.destinationCouranteAtteinte ()) {
 			
-			Debug.Log("princesse perdu");
+			Debug.Log("princesse perdue");
 			if (delaiActuelRecherche == 0.0f) {
 				princessePerdue = true;
 				delaiActuelRecherche = Time.time + dureeRecherchePrincesse;
@@ -84,7 +84,8 @@ public class GOB_E_Poursuivre : IA_Etat {
 					princessePerdue = false;
 					delaiActuelRecherche = 0.0f;
 					dernierePositionPrincesseConnue = princesse.transform.position;
-					agent.definirDestination (dernierePositionPrincesseConnue);
+					//agent.definirDestination(dernierePositionPrincesseConnue);
+					agent.definirDestinationStrat();
 					enRotation = true;
 
 				}
