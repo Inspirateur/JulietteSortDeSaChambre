@@ -173,9 +173,9 @@ public class PrincesseArme : MonoBehaviour {
 //            actualWorldArme.transform.SetPositionAndRotation(this.transform.position + this.transform.forward + this.transform.up, new Quaternion());
 //            actualWorldArme.SetActive(true);
 
-			GameObject prefeb = getPrefabArmeActuel ();
+			GameObject prefab = getPrefabArmeActuel ();
 
-			Instantiate (prefeb, this.transform.position + this.transform.forward * 1.5f + this.transform.up * 1.0f, prefeb.transform.rotation);
+			Instantiate (prefab, this.transform.position + this.transform.forward * 1.5f + this.transform.up * 1.0f, prefab.transform.rotation);
         }
     }
 
