@@ -27,12 +27,12 @@ public class GOB_E_Charger : IA_Etat {
 		agent.getSoundEntity().playOneShot(sonCharge, 1.0f);
 		degatsAttaqueEffectues = false;
 		rb.AddForce (this.transform.up * impulsionVerticale + this.transform.forward * impulsionHorizontale);
-//		setAnimation ("charge");
+		setAnimation (GOB_Animations.CHARGER);
 	}
 
 	public override void faireEtat()
 	{
-//		if (!agent.isActualAnimation("idleCombat")) { // l'attaque puissante est toujours en cours
+		if (!agent.isActualAnimation(GOB_Animations.COMBATTRE)) { // l'attaque puissante est toujours en cours
 			
 			if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
@@ -41,18 +41,13 @@ public class GOB_E_Charger : IA_Etat {
 				Debug.Log ("princesse touchée par charge");
 			}
 
-//		} else {
-//			changerEtat(this.GetComponent<gob_E_combat>());
-//		}
+		} else {
+			changerEtat(this.GetComponent<GOB_E_Combattre>());
+		}
 	}
 
 	public override void sortirEtat()
 	{
-
-	}
-
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
+		
 	}
 }
