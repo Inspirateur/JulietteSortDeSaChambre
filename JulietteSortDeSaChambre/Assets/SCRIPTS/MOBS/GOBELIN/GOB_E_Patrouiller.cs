@@ -39,7 +39,7 @@ public class GOB_E_Patrouiller : IA_Etat {
     {
 		if (enChemin) {
 
-			if(perception.aReperer(princesse, niveauAttentionEnMarche)) {
+			if(perception.aRepere(princesse, niveauAttentionEnMarche)) {
 				changerEtat(this.GetComponent<GOB_E_Poursuivre>());
 			}
 			else if (agent.destinationCouranteAtteinte ()) {
@@ -56,7 +56,7 @@ public class GOB_E_Patrouiller : IA_Etat {
 			suivreChemin ();
 			enChemin = true;
 
-		} else if(perception.aReperer(princesse, niveauAttentionArret)) {
+		} else if(perception.aRepere(princesse, niveauAttentionArret)) {
 			changerEtat(this.GetComponent<GOB_E_Poursuivre>());
 		}
     }

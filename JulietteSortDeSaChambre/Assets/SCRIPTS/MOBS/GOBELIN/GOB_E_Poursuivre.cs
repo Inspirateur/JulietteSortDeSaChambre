@@ -45,7 +45,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 		
 		if (!princessePerdue) {
 
-			if (perception.aReperer(princesse, 1.0f) && !dernierePositionPrincesseConnue.Equals (princesse.transform.position)) {
+			if (perception.aRepere(princesse, 1.0f) && !dernierePositionPrincesseConnue.Equals (princesse.transform.position)) {
 				
 				dernierePositionPrincesseConnue = princesse.transform.position;
 				agent.definirDestination (dernierePositionPrincesseConnue);
@@ -77,7 +77,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 			if(Time.time <= delaiActuelRecherche) {
 
-				if (perception.aReperer(princesse, 2.0f)) {
+				if (perception.aRepere(princesse, 2.0f)) {
 					setAnimation(GOB_Animations.COURIR);
 					princessePerdue = false;
 					delaiActuelRecherche = 0.0f;

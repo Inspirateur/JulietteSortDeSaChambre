@@ -15,7 +15,7 @@ public class InteractionObjet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		juliette = GameObject.FindGameObjectWithTag ("Player");
-		hud_refractor = GameObject.FindGameObjectWithTag ("ImageInteraction").GetComponent<affichageInterraction>();
+		hud_refractor = GameObject.FindGameObjectWithTag ("HUDImageInteraction").GetComponent<affichageInterraction>();
 	}
 
 
@@ -33,19 +33,19 @@ public class InteractionObjet : MonoBehaviour {
 			float angle = Vector3.Angle (juliette.transform.forward, distance_princesse.normalized);
 
 			if (angle <= demiAngleActivationFrontal) {
-//				hud_refractor.activeAffichageInteractionObjet (objet);
+				hud_refractor.activeAffichageInteractionObjet (objet);
 				//image_detection.enabled = true;
 				if (action) {
+					hud_refractor.desactiveAffichageInteractionObjet ();
 					objet.Activation ();
-					//hud_refractor.desactiveObjet (objet);
 				}
 
 			} else {
-				//hud_refractor.desactiveObjet (objet);
+				hud_refractor.desactiveAffichageInteractionObjet ();
 				//image_detection.enabled = false;
 			}
 		} else {
-			//hud_refractor.desactiveObjet (objet);
+			hud_refractor.desactiveAffichageInteractionObjet ();
 			//image_detection.enabled = false;
 		}
 
