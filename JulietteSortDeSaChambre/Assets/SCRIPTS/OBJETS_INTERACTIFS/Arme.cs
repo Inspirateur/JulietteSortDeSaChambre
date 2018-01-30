@@ -13,4 +13,9 @@ public class Arme : ObjetInteractifs {
 	void Update () {
 		
 	}
+
+	override
+	public void Activation(){
+		Debug.Log ("Activation Arme");
+	}
 }
