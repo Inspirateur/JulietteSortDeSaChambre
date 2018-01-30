@@ -33,10 +33,10 @@ public class GOB_E_Garder : IA_Etat {
 
 	public override void faireEtat()
 	{
-		if (perception.aReperer(princesse, 1.0f)) {
+		if (perception.aRepere(princesse, 1.0f)) {
 			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
 
-		} else if (!enDeplacement && perception.aReperer(princesse, 1.5f)) {
+		} else if (!enDeplacement && perception.aRepere(princesse, 1.5f)) {
 			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
 
 		} else if (enDeplacement) {
