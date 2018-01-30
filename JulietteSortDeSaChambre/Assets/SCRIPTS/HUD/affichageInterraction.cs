@@ -18,12 +18,13 @@ public class affichageInterraction : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (listObjetInteractif.Count);
 		if (listObjetInteractif.Count > 0) {
 			var enu = listObjetInteractif.GetEnumerator ();
 			enu.MoveNext ();
 			var a = enu.Current;
 			afficheObjet (a);
-		}
+		} 
 	}
 
 	public void activeAffichageInteractionObjet(ObjetInteractifs objet){
@@ -31,11 +32,21 @@ public class affichageInterraction : MonoBehaviour {
 
 	}
 
-	public void afficheObjet(EnumIconeInterraction enu){
+	public void desactiveAffichageInteractionObjet(){
+		Debug.Log ("t");
+		listObjetInteractif.Clear ();
+		foreach (GameObject game in dico.Values) {
+			game.SetActive (false);
+		}
+	}
+
+
+	private void afficheObjet(EnumIconeInterraction enu){
 		if (dico.ContainsKey (enu)) {
 			dico [enu].SetActive (true);
 		} 
 	}
+
 
 }
 
