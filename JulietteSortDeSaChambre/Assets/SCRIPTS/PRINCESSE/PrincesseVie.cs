@@ -27,9 +27,9 @@ public class PrincesseVie : MonoBehaviour {
 		scene = SceneManager.GetActiveScene ();
 		if (scene.name == "TEST") {
 			vie_courante = vie_max;
-			//GameControl.control.vie = vie_courante;
+			GameControl.control.vie = vie_courante;
 		} else {
-			//vie_courante = GameControl.control.vie;
+			vie_courante = GameControl.control.vie;
 		}
 		gameover = false;
 		anim = GetComponent<Animator> ();
@@ -43,10 +43,10 @@ public class PrincesseVie : MonoBehaviour {
 			Debug.Log ("GAME OVER");
 			gameover = true;
 			SceneManager.LoadScene (scene.name);
-			//GameControl.control.Load ();
+			GameControl.control.Load ();
 			vie_courante = vie_max;
-			//GameControl.control.vie = vie_courante;
-			//GameControl.control.Save ();
+			GameControl.control.vie = vie_courante;
+			GameControl.control.Save ();
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {
@@ -61,7 +61,7 @@ public class PrincesseVie : MonoBehaviour {
 	public void soigner(int valeurSoin)
 	{
 		vie_courante = Mathf.Min(vie_courante + valeurSoin, vie_max);
-		//GameControl.control.vie = vie_courante;
+		GameControl.control.vie = vie_courante;
 		Debug.Log("vie courante : " + vie_courante);
 	}
 
@@ -76,7 +76,7 @@ public class PrincesseVie : MonoBehaviour {
 
 		vie_courante = Mathf.Max(vie_courante - valeurDegats, 0);
 		Debug.Log("vie courante : " + vie_courante);
-		//GameControl.control.vie = vie_courante;
+		GameControl.control.vie = vie_courante;
 	}
 
 	public bool enVie()

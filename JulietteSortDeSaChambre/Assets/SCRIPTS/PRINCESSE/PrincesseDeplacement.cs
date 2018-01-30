@@ -67,12 +67,19 @@ public class PrincesseDeplacement : MonoBehaviour
                 }
                 else if (moveVertical > 0.0f)
                 {
+                    Debug.Log("Je suis entrain de courir");
                     gererAnim("IsRunning");
                 }
             }
+            else if(isGrounded){
+                anim.SetBool("IsJumping",false);
+            }
+
            else
             {
 				gererAnim("IsJumping");
+                Debug.Log("Je suis entrain de SAUTER CONNARD !!!!!!!!!");
+
             }
         }
         else
@@ -81,6 +88,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        {
 		        //gererAnim("IsIdle");
 	        }else if(isGrounded){
+                Debug.Log("Je suis IDLE !!!!!!!!!");
 		        gererAnim ("IsIdle");
 	        }
 	        else
@@ -105,7 +113,7 @@ public class PrincesseDeplacement : MonoBehaviour
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
         if (toucheAttack1)
         {
-	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJuming"))
+	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
 		        anim.Play("attack1");
                 Debug.Log("Attaque idle");
