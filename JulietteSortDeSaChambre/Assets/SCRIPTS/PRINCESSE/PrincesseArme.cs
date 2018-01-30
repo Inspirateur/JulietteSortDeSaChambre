@@ -5,7 +5,7 @@ using UnityEngine;
 public class PrincesseArme : MonoBehaviour {
 
     public EnumArmes armeActive;
-	public List<EnumArmes> listArmeTenu;
+//	public List<EnumArmes> listArmeTenu;
 
     private GameObject actualHandArme;
 
@@ -53,7 +53,7 @@ public class PrincesseArme : MonoBehaviour {
 
 //		SetArmeActive (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
 
-		listArmeTenu = new List<EnumArmes> ();
+//		listArmeTenu = new List<EnumArmes> ();
 //		listArmeTenu = GameControl.control.listArmeTenu;
 	}
 	

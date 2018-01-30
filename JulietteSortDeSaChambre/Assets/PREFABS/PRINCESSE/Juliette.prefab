@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 95593036929066984}
   - component: {fileID: 54438497108805324}
   - component: {fileID: 114941354916891536}
+  - component: {fileID: 114181840890082974}
   - component: {fileID: 65288233268211676}
   - component: {fileID: 65933933933677106}
   m_Layer: 0
@@ -1174,6 +1175,42 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114181840890082974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501621892178278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e7992f91aca41f4cbd7b4c7e1eab3cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armeActive: 0
+  degatsPoele: 0
+  degatsPain: 0
+  degatsPiedLit: 0
+  degatsChandelier: 0
+  degatsPelle: 0
+  degatsBaguetteMagique: 0
+  facteurReculePoele: 0
+  facteurReculePain: 0
+  facteurReculePiedLit: 0
+  facteurReculeChandelier: 0
+  facteurReculePelle: 0
+  facteurReculeBaguetteMagique: 0
+  handPoele: {fileID: 0}
+  handPain: {fileID: 0}
+  handPiedLit: {fileID: 0}
+  handChandelier: {fileID: 0}
+  handPelle: {fileID: 0}
+  handBaguetteMagique: {fileID: 0}
+  prefabPoele: {fileID: 0}
+  prefabPain: {fileID: 0}
+  prefabPiedLit: {fileID: 0}
+  prefabChandelier: {fileID: 0}
+  prefabPelle: {fileID: 0}
+  prefabBaguetteMagique: {fileID: 0}
 --- !u!114 &114941354916891536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1204,6 +1241,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1227,6 +1265,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

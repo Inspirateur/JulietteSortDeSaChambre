@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Arme : ObjetInteractifs {
 
+	public EnumArmes typeArme;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +18,6 @@ public class Arme : ObjetInteractifs {
 
 	override
 	public void Activation(){
-		Debug.Log ("Activation Arme");
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseArme> ().SetArmeActive (typeArme, this.gameObject);
 	}
 }
