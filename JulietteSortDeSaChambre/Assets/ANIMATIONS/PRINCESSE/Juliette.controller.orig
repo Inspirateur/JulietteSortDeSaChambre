@@ -69,6 +69,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
 --- !u!206 &206592324093620564
 BlendTree:
   m_ObjectHideFlags: 1
@@ -1202,6 +1203,9 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &1102570039702092080
+=======
+--- !u!1102 &1102316730237624052
+>>>>>>> Test
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -1224,7 +1228,12 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
+<<<<<<< HEAD
+  m_Motion: {fileID: 7400000, guid: 06446484e0313d44cab092dfa58b180a, type: 2}
+=======
+  m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: aa5b7b09422e792498f55be40dbd54d4, type: 2}
+>>>>>>> Test
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1342,6 +1351,7 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
+<<<<<<< HEAD
     m_State: {fileID: 1102570039702092080}
     m_Position: {x: 276, y: 120, z: 0}
   - serializedVersion: 1
@@ -1383,6 +1393,10 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1102449503087473068}
     m_Position: {x: 516, y: 372, z: 0}
+=======
+    m_State: {fileID: 1102316730237624052}
+    m_Position: {x: 401.88446, y: 81.29178, z: 0}
+>>>>>>> Test
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1392,4 +1406,8 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 48, y: 24, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+<<<<<<< HEAD
   m_DefaultState: {fileID: 1102570039702092080}
+=======
+  m_DefaultState: {fileID: 1102316730237624052}
+>>>>>>> Test
