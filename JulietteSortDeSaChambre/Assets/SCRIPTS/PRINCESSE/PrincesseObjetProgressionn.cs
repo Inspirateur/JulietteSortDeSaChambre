@@ -15,7 +15,7 @@ public class PrincesseObjetProgression : MonoBehaviour {
 	void Update () {
 
 	}
-
+	//modif pour sourcetree
 	public void addItem(EnumObjetProgression objetProgression){
 		listObjet.Add (objetProgression);
 	}
