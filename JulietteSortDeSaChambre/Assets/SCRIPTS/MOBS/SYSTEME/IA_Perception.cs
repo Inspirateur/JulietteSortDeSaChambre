@@ -8,7 +8,7 @@ public class IA_Perception : MonoBehaviour {
 	public float distanceVision;
 	public float rayonAudition;
 
-	public bool aReperer(GameObject cible, float niveauAttention) {
+	public bool aRepere(GameObject cible, float niveauAttention) {
 		Vector3 vecDistancePrincesse = cible.transform.position - this.transform.position;
 
 		float distancePrincesse = vecDistancePrincesse.magnitude;
