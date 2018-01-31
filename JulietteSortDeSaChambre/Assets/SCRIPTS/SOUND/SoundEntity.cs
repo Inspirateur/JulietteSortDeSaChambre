@@ -6,7 +6,7 @@ public class SoundEntity : MonoBehaviour {
 
 	public AudioClip[] listeClips;
 
-	private AudioSource audio;
+	private new AudioSource audio;
 	private SoundManager sm;
 
 	void Awake() {
