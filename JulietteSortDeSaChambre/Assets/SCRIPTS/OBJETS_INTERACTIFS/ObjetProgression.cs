@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ObjetProgression : ObjetInteractifs {
 
-	private princesseObjetProgression juliette;
+	private PrincesseObjetProgression juliette;
 	public EnumObjetProgression objetProgression;
 	//private affichage_ObjetRamasser affichageObjetRamasser;
 	//private affichage_objetActuel affichageobjetActuel;
 
 	// Use this for initialization
 	void Start () {
-		juliette= GameObject.FindGameObjectWithTag("Player").GetComponent<princesseObjetProgression>();
+		juliette= GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseObjetProgression>();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +22,7 @@ public class ObjetProgression : ObjetInteractifs {
 	override
 	public void Activation(){
 		Debug.Log ("Activation ObjetProgression");
+		juliette.addItem (this.objetProgression);
 		supprimerObjet ();
 	}
 }

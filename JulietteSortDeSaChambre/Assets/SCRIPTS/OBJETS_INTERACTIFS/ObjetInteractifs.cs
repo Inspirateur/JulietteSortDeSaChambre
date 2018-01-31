@@ -19,7 +19,7 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 
 	public abstract void Activation();
 
-	public EnumIconeInterraction getIconeInteraction(){
+	public virtual EnumIconeInterraction getIconeInteraction(){
 		return EnumIconeInterraction.icone_default;
 	}
 
