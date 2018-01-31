@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arme : ObjetInteractifs {
 
 	public EnumArmes typeArme;
+	public EnumIconeInterraction iconeInterraction;
 
 	// Use this for initialization
 	void Start () {
@@ -19,5 +20,10 @@ public class Arme : ObjetInteractifs {
 	override
 	public void Activation(){
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseArme> ().SetArmeActive (typeArme, this.gameObject);
+	}
+
+
+	public override EnumIconeInterraction getIconeInteraction(){
+		return iconeInterraction;
 	}
 }

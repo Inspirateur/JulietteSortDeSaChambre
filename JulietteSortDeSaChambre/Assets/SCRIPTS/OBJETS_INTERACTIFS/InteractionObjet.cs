@@ -36,16 +36,16 @@ public class InteractionObjet : MonoBehaviour {
 				hud_refractor.activeAffichageInteractionObjet (objet);
 				//image_detection.enabled = true;
 				if (action) {
-					hud_refractor.desactiveAffichageInteractionObjet ();
+					hud_refractor.desactiveAffichageInteractionObjet (objet);
 					objet.Activation ();
 				}
 
 			} else {
-				hud_refractor.desactiveAffichageInteractionObjet ();
+				hud_refractor.desactiveAffichageInteractionObjet (objet);
 				//image_detection.enabled = false;
 			}
 		} else {
-			hud_refractor.desactiveAffichageInteractionObjet ();
+			hud_refractor.desactiveAffichageInteractionObjet (objet);
 			//image_detection.enabled = false;
 		}
 
