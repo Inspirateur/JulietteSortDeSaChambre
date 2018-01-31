@@ -10,10 +10,10 @@ public class PrincesseObjetProgression : MonoBehaviour {
 	void Start () {
 		listObjet = new List<EnumObjetProgression> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	public void addItem(EnumObjetProgression objetProgression){
