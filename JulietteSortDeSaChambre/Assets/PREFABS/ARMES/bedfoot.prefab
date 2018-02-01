@@ -23,7 +23,9 @@ GameObject:
   - component: {fileID: 23486127458183558}
   - component: {fileID: 65885965966239778}
   - component: {fileID: 54763072338639692}
-  m_Layer: 0
+  - component: {fileID: 114441461244009756}
+  - component: {fileID: 114298421733415412}
+  m_Layer: 2
   m_Name: bedfoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860789200596926}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 1.55, y: 0.392, z: -3.55}
+  m_LocalPosition: {x: 6.6659126, y: -0.008839205, z: 2.6833625}
   m_LocalScale: {x: 21, y: 21, z: 24.191994}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,3 +114,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0040000016, y: 0.004000001, z: 0.030250123}
   m_Center: {x: 3.4924597e-10, y: -6.984918e-10, z: 0.008125063}
+--- !u!114 &114298421733415412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860789200596926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07418d00d15d41c44bdca0fee6572aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomObjet: 
+  descriptionObjet: 
+  typeArme: 3
+--- !u!114 &114441461244009756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860789200596926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 114298421733415412}
+  distanceActivation: 1.5
+  demiAngleActivationFrontal: 90

@@ -1288,6 +1288,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+<<<<<<< HEAD
 --- !u!114 &114042103838986114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1311,6 +1312,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fee8c66f5eb7910459b4b44435b82749, type: 3}
   - {fileID: 8300000, guid: 1b2ea417f325a514594c8eeecc2e467c, type: 3}
 --- !u!114 &114372946262442800
+=======
+--- !u!114 &114181840890082974
+>>>>>>> Test
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1318,12 +1322,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501621892178278}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: dbd0f7be026f6e4488a762071c829334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   vie_max: 100
   reculeVertical: 0
   reculeHorizontal: 0
+--- !u!114 &114849292428765358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361062399756130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a326ed6e5fa24f44be588a5190f304c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPitch: 2.5
+  maxPitch: 3
+  minVolume: 0.25
+  maxVolume: 0.35
+=======
+  m_Script: {fileID: 11500000, guid: 5e7992f91aca41f4cbd7b4c7e1eab3cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   armeActive: 0
   degatsPoele: 0
   degatsPain: 0
@@ -1349,21 +1373,7 @@ MonoBehaviour:
   prefabChandelier: {fileID: 0}
   prefabPelle: {fileID: 0}
   prefabBaguetteMagique: {fileID: 0}
---- !u!114 &114849292428765358
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361062399756130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a326ed6e5fa24f44be588a5190f304c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minPitch: 2.5
-  maxPitch: 3
-  minVolume: 0.25
-  maxVolume: 0.35
+>>>>>>> Test
 --- !u!114 &114941354916891536
 MonoBehaviour:
   m_ObjectHideFlags: 1
