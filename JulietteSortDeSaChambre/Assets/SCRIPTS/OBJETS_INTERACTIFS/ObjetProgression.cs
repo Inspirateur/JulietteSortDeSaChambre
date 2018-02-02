@@ -6,12 +6,13 @@ public class ObjetProgression : ObjetInteractifs {
 
 	private PrincesseObjetProgression juliette;
 	public EnumObjetProgression objetProgression;
-	//private affichage_ObjetRamasser affichageObjetRamasser;
+	private AffichageObjetRamasser affichageObjetRamasser;
 	//private affichage_objetActuel affichageobjetActuel;
 
 	// Use this for initialization
 	void Start () {
 		juliette= GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseObjetProgression>();
+		affichageObjetRamasser = GameObject.FindGameObjectWithTag ("HUDAffichageObjetRamasser").GetComponent<AffichageObjetRamasser> ();
 	}
 	
 	// Update is called once per frame
@@ -21,7 +22,7 @@ public class ObjetProgression : ObjetInteractifs {
 
 	override
 	public void Activation(){
-		Debug.Log ("Activation ObjetProgression");
+		affichageObjetRamasser.activeObjet (this);
 		juliette.addItem (this.objetProgression);
 		supprimerObjet ();
 	}
