@@ -78,9 +78,8 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 	private void testerAttaque(){
 		if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
-//			princesseVie.blesser (degatsAttaquePuissante, this.gameObject, forceReculeAttaquePuissante);
+			princesseVie.blesser (degatsParAttaque, this.gameObject, forceRecule);
 			degatsAttaqueEffectues = true;
-			Debug.Log ("touché attaque " + numAttaque);
 		}
 	}
 }

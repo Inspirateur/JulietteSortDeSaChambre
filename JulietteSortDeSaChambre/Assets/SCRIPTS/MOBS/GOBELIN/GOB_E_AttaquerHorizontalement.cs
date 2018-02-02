@@ -6,7 +6,9 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 
 	public int degats;
 	public float forceRecule;
+	public float distanceParcourue;
 	public AudioClip sonAttaque;
+	public float vitesse;
 
 	private bool degatsAttaqueEffectues;
 	private IA_TriggerArme colliderArme;
@@ -25,6 +27,9 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 		degatsAttaqueEffectues = false;
 		setAnimation (GOB_Animations.ATTAQUER_HORIZONTALEMENT);
+		nav.enabled = true;
+		nav.speed = vitesse;
+		agent.definirDestination (this.transform.position + this.transform.forward * distanceParcourue * 0.33f);
 	}
 
 	public override void faireEtat()
@@ -32,9 +37,8 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 		if (!agent.isActualAnimation (GOB_Animations.COMBATTRE)) { // l'attaque est toujours en cours
 			if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
-	//			princesseVie.blesser (degatsAttaquePuissante, this.gameObject, forceReculeAttaquePuissante);
+				princesseVie.blesser (degats, this.gameObject, forceRecule);
 				degatsAttaqueEffectues = true;
-				Debug.Log ("horizontale touché");
 			}
 		} else {
 			changerEtat(this.GetComponent<GOB_E_Combattre>());
@@ -43,6 +47,6 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 
 	public override void sortirEtat()
 	{
-
+		nav.enabled = false;
 	}
 }
