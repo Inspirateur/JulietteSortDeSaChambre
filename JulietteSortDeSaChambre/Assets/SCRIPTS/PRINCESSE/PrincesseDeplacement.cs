@@ -25,6 +25,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private GameObject pushableCube;
     private float timerStep;
     private SoundManager sm;
+    public BruiteurPas bruiteurPas;
 
 
     void Start()
@@ -37,6 +38,7 @@ public class PrincesseDeplacement : MonoBehaviour
         //princesseArme = GetComponent<princesse_arme>();
         timerStep = 0.0f;
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
     }
 
     void Update()
@@ -67,12 +69,19 @@ public class PrincesseDeplacement : MonoBehaviour
                 }
                 else if (moveVertical > 0.0f)
                 {
+                    Debug.Log("Je suis entrain de courir");
                     gererAnim("IsRunning");
                 }
             }
+            else if(isGrounded){
+                anim.SetBool("IsJumping",false);
+            }
+
            else
             {
 				gererAnim("IsJumping");
+                Debug.Log("Je suis entrain de SAUTER CONNARD !!!!!!!!!");
+
             }
         }
         else
@@ -81,6 +90,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        {
 		        //gererAnim("IsIdle");
 	        }else if(isGrounded){
+                Debug.Log("Je suis IDLE !!!!!!!!!");
 		        gererAnim ("IsIdle");
 	        }
 	        else
@@ -105,7 +115,7 @@ public class PrincesseDeplacement : MonoBehaviour
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
         if (toucheAttack1)
         {
-	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJuming"))
+	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
 		        anim.Play("attack1");
                 Debug.Log("Attaque idle");
@@ -237,10 +247,7 @@ private void GererDeplacement(float moveHorizontal, float moveVertical)
 
 		if (timerStep <= Time.time && isGrounded && CanDash)
 		{
-			int indice = Random.Range(0, this.bruitsPas.Length);
-			float volume = Random.Range(minVolume, maxVolume);
-			float pitch = Random.Range(minPitch, maxPitch);
-			//sm.playOneShot(this.bruitsPas[indice], volume, pitch);
+            bruiteurPas.pas();
 			timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
 		}
 	}
@@ -250,17 +257,17 @@ private void GererDeplacement(float moveHorizontal, float moveVertical)
 
 void FixedUpdate()
 {
-	Vector3 fwd = transform.TransformDirection(Vector3.down);
-	if (Physics.Raycast(transform.position, fwd, feetDist))
-	{
-		//gererAnim();
-		anim.SetBool("IsJumping", false);
-	}
-	else
-	{
+	// Vector3 fwd = transform.TransformDirection(Vector3.down);
+	// if (Physics.Raycast(transform.position, fwd, feetDist))
+	// {
+	// 	//gererAnim();
+	// 	anim.SetBool("IsJumping", false);
+	// }
+	// else
+	// {
 
-		anim.SetBool("IsJumping", true);
-	}
+	// 	anim.SetBool("IsJumping", true);
+	// }
 }
 
 IEnumerator WaitBeforDash()
