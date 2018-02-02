@@ -82,12 +82,12 @@ public class PrincesseArme : MonoBehaviour {
 
 					mobTouche.subirDegats (degatsArmeActuelle, hitPoint);
 
-                    bool MobTouch = false;
+                    bool MobTouch = true;
 
                     gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
 				}
 			}
-            if (other.tag.Equals("Wall"))
+            if (other.tag.Equals("wall"))
             {
                 Vector3 hitPoint = other.ClosestPoint(this.transform.position);
                 bool MobTouch = false;
