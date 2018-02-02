@@ -41,7 +41,6 @@ public class IA_Agent : MonoBehaviour {
         pointsInteret = GameObject.FindObjectsOfType<IA_PointInteret>();
 		mobVie = GetComponent<IA_MobVie> ();
 		se = GetComponent<SoundEntity> ();
-
 		me = GameObject.FindGameObjectWithTag("MobManager").GetComponent<MobManager> ();
 		perception = GetComponent<IA_Perception> ();
     }
@@ -63,8 +62,7 @@ public class IA_Agent : MonoBehaviour {
 		}
 	}
 
-	public NavMeshAgent getNav()
-	{
+	public NavMeshAgent getNav(){
 		return nav;
 	}
 
@@ -72,33 +70,27 @@ public class IA_Agent : MonoBehaviour {
 		return anim;
 	}
 
-	public Rigidbody getRigidbody()
-	{
+	public Rigidbody getRigidbody(){
 		return rb;
 	}
 
-	public GameObject getPrincesse()
-	{
+	public GameObject getPrincesse(){
 		return princesse;
 	}
 
-//	public princesse_vie getPrincesse_Vie()
-//	{
+//	public princesse_vie getPrincesse_Vie(){
 //		return princesseVie;
 //	}
 //
-//	public princesse_arme getPrincesse_Arme()
-//	{
+//	public princesse_arme getPrincesse_Arme(){
 //		return princesseArme;
 //	}
 
-	public IA_PointInteret[] getPointsInteret()
-	{
+	public IA_PointInteret[] getPointsInteret(){
 		return pointsInteret;
 	}
 
-	public IA_MobVie getMobVie()
-	{
+	public IA_MobVie getMobVie(){
 		return mobVie;
 	}
 
@@ -114,6 +106,11 @@ public class IA_Agent : MonoBehaviour {
 		return perception;
 	}
 
+	//Utilisé par le MobManager
+	public IA_Etat getEtatCourant(){
+		return etatCourant;
+	}
+
 
 	/// <summary>
 	/// Dans le cadre de la poursuite de la princesse, définit la destination en prenant en compte les autres mobs (avec MobManager.
@@ -125,8 +122,7 @@ public class IA_Agent : MonoBehaviour {
 	/// <summary>
 	/// Définit la position de la destination actuelle de l'agent.
 	/// </summary>
-	public void definirDestination(Vector3 positionDestination)
-	{
+	public void definirDestination(Vector3 positionDestination){
 		destination = positionDestination;
 		nav.SetDestination(positionDestination);
 	}
