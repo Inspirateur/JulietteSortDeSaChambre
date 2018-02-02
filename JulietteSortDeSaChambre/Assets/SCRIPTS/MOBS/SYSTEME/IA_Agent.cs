@@ -15,6 +15,7 @@ public class IA_Agent : MonoBehaviour {
 	private IA_MobVie mobVie;
 	private Vector3 destination;
 	private SoundEntity se;
+	private MobManager me;
 	private IA_Perception perception;
     
 	public IA_Etat etatInitial;
@@ -40,11 +41,13 @@ public class IA_Agent : MonoBehaviour {
         pointsInteret = GameObject.FindObjectsOfType<IA_PointInteret>();
 		mobVie = GetComponent<IA_MobVie> ();
 		se = GetComponent<SoundEntity> ();
+		me = GameObject.FindGameObjectWithTag("MobManager").GetComponent<MobManager> ();
 		perception = GetComponent<IA_Perception> ();
     }
 
     // Use this for initialization
     void Start () {
+		me.AjouterAgent (this);
 		etatCourant = etatInitial;
         etatCourant.entrerEtat();
     }
@@ -59,8 +62,7 @@ public class IA_Agent : MonoBehaviour {
 		}
 	}
 
-	public NavMeshAgent getNav()
-	{
+	public NavMeshAgent getNav(){
 		return nav;
 	}
 
@@ -68,33 +70,27 @@ public class IA_Agent : MonoBehaviour {
 		return anim;
 	}
 
-	public Rigidbody getRigidbody()
-	{
+	public Rigidbody getRigidbody(){
 		return rb;
 	}
 
-	public GameObject getPrincesse()
-	{
+	public GameObject getPrincesse(){
 		return princesse;
 	}
 
-//	public princesse_vie getPrincesse_Vie()
-//	{
+//	public princesse_vie getPrincesse_Vie(){
 //		return princesseVie;
 //	}
 //
-//	public princesse_arme getPrincesse_Arme()
-//	{
+//	public princesse_arme getPrincesse_Arme(){
 //		return princesseArme;
 //	}
 
-	public IA_PointInteret[] getPointsInteret()
-	{
+	public IA_PointInteret[] getPointsInteret(){
 		return pointsInteret;
 	}
 
-	public IA_MobVie getMobVie()
-	{
+	public IA_MobVie getMobVie(){
 		return mobVie;
 	}
 
@@ -102,15 +98,31 @@ public class IA_Agent : MonoBehaviour {
 		return se;
 	}
 
+	public MobManager getMobManager(){
+		return me;
+	}
+
 	public IA_Perception getPerception(){
 		return perception;
 	}
 
+	//Utilisé par le MobManager
+	public IA_Etat getEtatCourant(){
+		return etatCourant;
+	}
+
+
 	/// <summary>
-	/// Définit la position de la destination actuel de l'agent.
+	/// Dans le cadre de la poursuite de la princesse, définit la destination en prenant en compte les autres mobs (avec MobManager.
 	/// </summary>
-	public void definirDestination(Vector3 positionDestination)
-	{
+	public void definirDestinationStrat() {
+		nav.SetDestination(me.getDestination(this));
+	}
+
+	/// <summary>
+	/// Définit la position de la destination actuelle de l'agent.
+	/// </summary>
+	public void definirDestination(Vector3 positionDestination){
 		destination = positionDestination;
 		nav.SetDestination(positionDestination);
 	}
