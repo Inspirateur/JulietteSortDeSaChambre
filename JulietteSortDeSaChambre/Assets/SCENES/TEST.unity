@@ -1186,10 +1186,6 @@ Prefab:
       propertyPath: m_Name
       value: barel (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1058238659644302, guid: 4538946e0353af841bf198ee1add3a6a, type: 2}
-      propertyPath: m_TagString
-      value: sol
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4538946e0353af841bf198ee1add3a6a, type: 2}
   m_IsPrefabParent: 0
@@ -1396,7 +1392,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1423,7 +1419,7 @@ MonoBehaviour:
   ParticuleMobHurt:
   - {fileID: 1386326879869430, guid: 90df33f6044effb4ca85698878036c5a, type: 2}
   SoundParticuleMobHurt:
-  - {fileID: 8300000, guid: f190569b85e8f5a418f4831754a6b828, type: 3}
+  - {fileID: 8300000, guid: 91caa77321f43e444a2aa447769202eb, type: 3}
   ParticuleWall:
   - {fileID: 1952027472288316, guid: 605269e3410fdaa4695bb16e2970425c, type: 2}
   SoundParticuleWall:
