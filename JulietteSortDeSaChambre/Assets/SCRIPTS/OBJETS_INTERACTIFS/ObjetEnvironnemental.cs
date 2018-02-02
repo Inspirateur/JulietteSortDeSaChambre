@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjetEnvironnemental : MonoBehaviour {
+public class ObjetEnvironnemental : ObjetInteractifs {
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +13,11 @@ public class ObjetEnvironnemental : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	override
+	public void Activation()
+	{
+
+	}
+
 }
