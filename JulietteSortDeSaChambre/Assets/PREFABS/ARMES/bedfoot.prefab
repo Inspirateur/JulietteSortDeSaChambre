@@ -100,7 +100,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 10
   m_CollisionDetection: 0
 --- !u!65 &65885965966239778
 BoxCollider:
@@ -128,6 +128,7 @@ MonoBehaviour:
   nomObjet: 
   descriptionObjet: 
   typeArme: 3
+  iconeInterraction: 1
 --- !u!114 &114441461244009756
 MonoBehaviour:
   m_ObjectHideFlags: 1
