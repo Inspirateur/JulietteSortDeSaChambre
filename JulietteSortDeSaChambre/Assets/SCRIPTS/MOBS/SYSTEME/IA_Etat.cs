@@ -12,8 +12,8 @@ public abstract class IA_Etat : MonoBehaviour
 	protected Animator anim;
 	protected Rigidbody rb;
     protected GameObject princesse;
-//	protected princesse_vie princesseVie;
-//	protected princesse_arme princesseArme;
+	protected PrincesseVie princesseVie;
+	protected PrincesseArme princesseArme;
 	protected IA_PointInteret[] pointsInteret;
 	protected IA_Perception perception;
 
@@ -30,8 +30,8 @@ public abstract class IA_Etat : MonoBehaviour
 		anim = agent.getAnimator ();
 		rb = agent.getRigidbody ();
         princesse = agent.getPrincesse();
-//		princesseVie = agent.getPrincesse_Vie();
-//		princesseArme = agent.getPrincesse_Arme ();
+		princesseVie = agent.getPrincesseVie();
+		princesseArme = agent.getPrincesseArme ();
         pointsInteret = agent.getPointsInteret();
 		perception = agent.getPerception();
     }
