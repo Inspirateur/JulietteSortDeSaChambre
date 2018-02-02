@@ -16,11 +16,11 @@ public class ArmesParticulesEffect : MonoBehaviour {
 
     public GameObject[] ParticuleWall;
     // ParticuleWall
-    // 0 - 
+    // 0 - Copeaux de bois
 
     public AudioClip[] SoundParticuleWall;
     // Sound ParticuleWall
-    // 0 - 
+    // 0 - Pied de lit / bois
 
     private void Start()
     {
