@@ -52,6 +52,10 @@ public abstract class IA_Etat : MonoBehaviour
 		agent.getMobVie().blesser (valeurDegats);
 	}
 
+	public virtual float getDistanceEntreeCombat(){
+		return 0;
+	}
+
 	protected void changerEtat(IA_Etat nouvelEtat)
     {
         agent.changerEtat(nouvelEtat);
