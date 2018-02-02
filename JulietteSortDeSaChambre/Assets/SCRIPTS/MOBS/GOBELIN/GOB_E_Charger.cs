@@ -36,9 +36,8 @@ public class GOB_E_Charger : IA_Etat {
 			
 			if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
-//				princesseVie.blesser (degatsAttaquePuissante, this.gameObject, forceReculeAttaquePuissante);
+				princesseVie.blesser (degats, this.gameObject, forceRecule);
 				degatsAttaqueEffectues = true;
-				Debug.Log ("princesse touchée par charge");
 			}
 
 		} else {
