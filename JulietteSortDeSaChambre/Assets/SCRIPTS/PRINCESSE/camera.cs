@@ -23,13 +23,20 @@ public class camera : MonoBehaviour {
 		skinPrincesse = GameObject.FindGameObjectWithTag ("PrincesseBody").GetComponent<SkinnedMeshRenderer>();
 	}
 
-	void Update(){
-		if(InputManager.GetKeyAxis("Mouse X") >= 0.8 || InputManager.GetKeyAxis("Mouse X") <= -0.8)
-			horizontal += InputManager.GetKeyAxis("Mouse X");
-		if(InputManager.GetKeyAxis("Mouse Y") >= 0.8 || InputManager.GetKeyAxis("Mouse Y") <= -0.8)
-			vertical += InputManager.GetKeyAxis("Mouse Y");
+    void Update() {
+        
+        if (InputManager.GetKeyAxis("Mouse X") >= 0.85 || InputManager.GetKeyAxis("Mouse X") <= -0.85) { 
+            horizontal += InputManager.GetKeyAxis("Mouse X");
+            Debug.Log(InputManager.GetKeyAxis("Mouse X"));
+        }
+        if (InputManager.GetKeyAxis("Mouse Y") > 0.85 || InputManager.GetKeyAxis("Mouse Y") <= -0.85)
+        {
+            vertical += InputManager.GetKeyAxis("Mouse Y");
+            vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
+        }
+			
 
-		vertical = Mathf.Clamp (vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
+		
 	}
 
 
