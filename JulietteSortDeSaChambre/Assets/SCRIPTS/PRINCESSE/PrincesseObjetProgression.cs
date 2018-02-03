@@ -25,11 +25,17 @@ public class PrincesseObjetProgression : MonoBehaviour {
 	}
 
 	public void removeItem(EnumObjetProgression objetProgression){
-		
-		if (listObjet [objetProgression] == 1) {
-			listObjet.Remove (objetProgression);
-		} else {
-			listObjet [objetProgression]--;
+		this.removeItem (objetProgression,1);
+	}
+
+
+	public void removeItem(EnumObjetProgression objetProgression,int nombre){
+		if(listObjet.ContainsKey(objetProgression)){
+			if (listObjet [objetProgression] <= nombre) {
+				listObjet.Remove (objetProgression);
+			} else {
+				listObjet [objetProgression]--;
+			}
 		}
 	}
 }

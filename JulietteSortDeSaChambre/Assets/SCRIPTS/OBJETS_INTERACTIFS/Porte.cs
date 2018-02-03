@@ -8,7 +8,7 @@ public class Porte : ObjetEnvironnemental {
 	private  Animator anim;
 	public bool isDecorative;
 
-	public List<ObjetNecessaire> objN;
+	public List<ObjetNecessaire> objN = new List<ObjetNecessaire>(); 
 	private PrincesseObjetProgression juliette;
 
 
@@ -16,12 +16,15 @@ public class Porte : ObjetEnvironnemental {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
-		objN = new List<ObjetNecessaire>();
 		juliette= GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseObjetProgression>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		foreach(ObjetNecessaire obj in objN){
+			Debug.Log (obj.objet);
+		}
 		
 	}
 
@@ -30,6 +33,9 @@ public class Porte : ObjetEnvironnemental {
 			if (isActivable()) {
 				anim.SetBool("isOpen", true);
 				isDecorative = true;
+				foreach (ObjetNecessaire obj in objN) {
+					juliette.removeItem (obj.objet, obj.nombre);
+				}
 			}
 
 		}
@@ -43,6 +49,8 @@ public class Porte : ObjetEnvironnemental {
 				if (juliette.listObjet [obj.objet] < obj.nombre) {
 					return false;
 				}
+			} else {
+				return false;
 			}
 		}
 
@@ -51,9 +59,16 @@ public class Porte : ObjetEnvironnemental {
 
 	public override EnumIconeInterraction getIconeInteraction ()
 	{
-		if (!isDecorative) {
+		if (isDecorative) {
 			return EnumIconeInterraction.icone_null;
 		}
-		return base.getIconeInteraction ();
+		if (isActivable ()) {
+			return EnumIconeInterraction.icone_default;
+		} else {
+			return EnumIconeInterraction.icone_non_default;
+		}
+
+
+
 	}
 }
