@@ -5,6 +5,8 @@ using UnityEngine;
 public class PrincesseArme : MonoBehaviour {
 
     public EnumArmes armeActive;
+	public float distanceLacherArme;
+	public float hauteurLacherArme;
     public List<EnumArmes> listArmeTenu;
 
     private GameObject actualHandArme;
@@ -184,7 +186,7 @@ public class PrincesseArme : MonoBehaviour {
 
 			GameObject prefab = getPrefabArmeActuel ();
 
-			Instantiate (prefab, this.transform.position + this.transform.forward * 1.5f + this.transform.up * 1.0f, prefab.transform.rotation);
+			Instantiate (prefab, this.transform.position + this.transform.forward * this.distanceLacherArme + this.transform.up * this.hauteurLacherArme, prefab.transform.rotation);
         }
     }
 
