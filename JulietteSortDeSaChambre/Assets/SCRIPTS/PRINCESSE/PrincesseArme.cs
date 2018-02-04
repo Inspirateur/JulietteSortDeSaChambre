@@ -5,7 +5,7 @@ using UnityEngine;
 public class PrincesseArme : MonoBehaviour {
 
     public EnumArmes armeActive;
-//	public List<EnumArmes> listArmeTenu;
+    public List<EnumArmes> listArmeTenu;
 
     private GameObject actualHandArme;
 
@@ -51,10 +51,10 @@ public class PrincesseArme : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		listeMobsTouches = new List<IA_Agent> ();
 
-//		SetArmeActive (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
+        SetArmeActive (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
 
-//		listArmeTenu = new List<EnumArmes> ();
-//		listArmeTenu = GameControl.control.listArmeTenu;
+        listArmeTenu = new List<EnumArmes> ();
+        listArmeTenu = GameControl.control.listArmeTenu;
 	}
 	
 	// Update is called once per frame
@@ -69,10 +69,8 @@ public class PrincesseArme : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-
-		if (attaqueEnCours) {
-
-			if (other.tag.Equals ("mob")) {
+        if (attaqueEnCours) {
+            if (other.tag.Equals ("Mob")) {
 				
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
 
@@ -83,9 +81,19 @@ public class PrincesseArme : MonoBehaviour {
 					Vector3 hitPoint = other.ClosestPoint (this.transform.position);
 
 					mobTouche.subirDegats (degatsArmeActuelle, hitPoint);
+
+                    bool MobTouch = true;
+
+                    gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
 				}
 			}
-		}
+            if (other.tag.Equals("wall"))
+            {
+                Vector3 hitPoint = other.ClosestPoint(this.transform.position);
+                bool MobTouch = false;
+                gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
+            }
+        }
 	}
 
 	public void SetArmeActive(EnumArmes typeArme, GameObject armeRamasse)
@@ -97,6 +105,7 @@ public class PrincesseArme : MonoBehaviour {
     }
 
 	public void lancerAttaque() {
+        Debug.Log("lancerAttaque");
 		attaqueEnCours = true;
 		listeMobsTouches.Clear ();
 	}
@@ -107,8 +116,8 @@ public class PrincesseArme : MonoBehaviour {
 
 	private void defineActualsArmes(GameObject armeRamasse)
     {
-//		actualWorldArme = armeRamasse;
-//		GameControl.control.ArmeCourante = armeActive;
+        //actualWorldArme = armeRamasse;
+        GameControl.control.ArmeCourante = armeActive;
 		switch (armeActive)
 		{
 		case EnumArmes.VIDE:

@@ -22,7 +22,12 @@ public class affichageInterraction : MonoBehaviour {
 			var enu = listObjetInteractif.GetEnumerator ();
 			enu.MoveNext ();
 			var a = enu.Current;
-			afficheObjet (a.getIconeInteraction());
+			Debug.Log (a.nomObjet+"/"+ a.getIconeInteraction ());
+			if (!(a.getIconeInteraction().Equals(EnumIconeInterraction.icone_null))) {
+				
+				afficheObjet (a.getIconeInteraction());
+			}
+
 		} else {
 			desafficheObjet ();
 		}
@@ -55,6 +60,8 @@ public class affichageInterraction : MonoBehaviour {
 }
 
 public enum EnumIconeInterraction{
+	icone_null,
 	icone_default,
+	icone_non_default,
 	icone_pied_de_lit,
 }
