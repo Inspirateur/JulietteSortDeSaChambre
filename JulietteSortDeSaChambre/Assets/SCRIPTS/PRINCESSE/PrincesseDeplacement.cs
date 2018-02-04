@@ -144,6 +144,7 @@ public class PrincesseDeplacement : MonoBehaviour
             {
                 anim.Play("attack_backwalk");
                 Debug.Log("Attaque backwalk");
+                princesseArme.lancerAttaque();
             }
         }
 

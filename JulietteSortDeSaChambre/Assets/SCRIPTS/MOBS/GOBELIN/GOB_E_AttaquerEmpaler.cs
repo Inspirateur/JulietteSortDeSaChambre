@@ -13,6 +13,7 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 	private bool degatsAttaqueEffectues;
 	private IA_TriggerArme colliderArme;
 	private int numAttaque;
+	private Vector3 direction;
 
 	// Use this for initialization
 	void Start()
@@ -30,13 +31,14 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 		setAnimation (GOB_Animations.ATTAQUER_EMPALER);
 		nav.enabled = true;
 		nav.speed = vitesse;
-		agent.definirDestination (this.transform.position + this.transform.forward * distanceParcourue * 0.33f);
+		this.direction = this.transform.forward;
+		agent.definirDestination (this.transform.position + this.direction * distanceParcourue * 0.33f);
 		numAttaque = 1;
 	}
 
 	public override void faireEtat()
 	{
-		
+		this.transform.forward = this.direction;
 		switch (numAttaque) {
 
 		case 1:
@@ -45,7 +47,7 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 			} else {
 				numAttaque++;
 				degatsAttaqueEffectues = false;
-				agent.definirDestination (this.transform.position + this.transform.forward * distanceParcourue * 0.33f);
+				agent.definirDestination (this.transform.position + this.direction * distanceParcourue * 0.33f);
 				setAnimation (GOB_Animations.COMBATTRE);
 			}
 			break;
@@ -56,7 +58,7 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 			} else {
 				numAttaque++;
 				degatsAttaqueEffectues = false;
-				agent.definirDestination (this.transform.position + this.transform.forward * distanceParcourue * 0.33f);
+				agent.definirDestination (this.transform.position + this.direction * distanceParcourue * 0.33f);
 			}
 			break;
 

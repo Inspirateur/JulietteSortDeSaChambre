@@ -6,9 +6,13 @@ public class GOB_E_Combattre : IA_Etat {
 
 	public float distanceSortieCombat;
 	public float delaisMaxAvantAttaque;
+	public float delaisMinAvantAttaque;
 	public float pourcentageAttaqueEmpaler;
+	public float delaisEsquive;
+	public float pourcentageEsquive;
 
-	private float timer;
+	private float timerAttaque;
+	private float timerEsquive;
 
 	// Use this for initialization
 	void Start()
@@ -16,12 +20,13 @@ public class GOB_E_Combattre : IA_Etat {
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
 
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
+		timerEsquive = Time.time;
 	}
 
 	public override void entrerEtat()
 	{
 		setAnimation (GOB_Animations.COMBATTRE);
-		timer = Time.time + delaisMaxAvantAttaque * Random.value;
+		timerAttaque = Time.time + delaisMinAvantAttaque + (delaisMaxAvantAttaque - delaisMinAvantAttaque) * Random.value;
 	}
 
 	public override void faireEtat()
@@ -32,7 +37,7 @@ public class GOB_E_Combattre : IA_Etat {
 			changerEtat (GetComponent<GOB_E_Poursuivre> ());
 		}
 
-		else if (Time.time >= timer) {
+		else if (Time.time >= timerAttaque) {
 			float choixAttaque = Random.value;
 
 			if (choixAttaque <= pourcentageAttaqueEmpaler) {
@@ -42,9 +47,12 @@ public class GOB_E_Combattre : IA_Etat {
 			}
 		}
 
-	/*	else if () {
-			changerEtat(GetComponent<GOB_E_Esquiver>());
-		}*/
+		else if (princesseArme.isAttaqueEnCours() && Time.time >= timerEsquive) {
+			timerEsquive = Time.time + delaisEsquive;
+			if(Random.value <= pourcentageEsquive){
+				changerEtat(GetComponent<GOB_E_Esquiver>());
+			}
+		}
 	}
 
 	public override void sortirEtat()

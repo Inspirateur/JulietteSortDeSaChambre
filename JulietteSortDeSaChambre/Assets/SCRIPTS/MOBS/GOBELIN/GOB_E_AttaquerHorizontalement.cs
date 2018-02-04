@@ -12,6 +12,7 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 
 	private bool degatsAttaqueEffectues;
 	private IA_TriggerArme colliderArme;
+	private float timer;
 
 	// Use this for initialization
 	void Start()
@@ -30,11 +31,12 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 		nav.enabled = true;
 		nav.speed = vitesse;
 		agent.definirDestination (this.transform.position + this.transform.forward * distanceParcourue * 0.33f);
+		timer = Time.time + 0.3f;
 	}
 
 	public override void faireEtat()
 	{
-		if (!agent.isActualAnimation (GOB_Animations.COMBATTRE)) { // l'attaque est toujours en cours
+		if (timer > Time.time) { // l'attaque est toujours en cours
 			if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
 				princesseVie.blesser (degats, this.gameObject, forceRecule);

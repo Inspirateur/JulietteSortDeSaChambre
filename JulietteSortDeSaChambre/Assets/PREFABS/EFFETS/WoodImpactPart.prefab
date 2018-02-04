@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4904954238597756}
   - component: {fileID: 198615320676894840}
+  - component: {fileID: 114009223812356196}
   - component: {fileID: 199444238084319172}
   m_Layer: 0
   m_Name: WoodImpactPart
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114009223812356196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952027472288316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235f8ac7fe8e92f4ca357d69dccd1d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198615320676894840
 ParticleSystem:
   m_ObjectHideFlags: 1
