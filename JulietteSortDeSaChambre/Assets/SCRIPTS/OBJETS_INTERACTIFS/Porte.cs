@@ -22,9 +22,6 @@ public class Porte : ObjetEnvironnemental {
 	// Update is called once per frame
 	void Update () {
 
-		foreach(ObjetNecessaire obj in objN){
-			Debug.Log (obj.objet);
-		}
 		
 	}
 
