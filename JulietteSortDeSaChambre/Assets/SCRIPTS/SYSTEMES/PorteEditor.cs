@@ -1,6 +1,11 @@
 ﻿using UnityEngine;  
+#if UNITY_EDITOR
 using UnityEditor;  
 using UnityEditorInternal;
+
+
+
+
 
 [CustomEditor(typeof(Porte))]
 public class PorteEditor : Editor {  
@@ -43,3 +48,4 @@ public class PorteEditor : Editor {
 
 	}
 }
+#endif
