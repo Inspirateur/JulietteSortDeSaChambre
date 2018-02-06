@@ -1408,7 +1408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3214f12cfab4bf245a5d17d756b5de30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listObjet: 
 --- !u!114 &114372946262442800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1421,8 +1420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vie_max: 100
-  reculeVertical: 0
-  reculeHorizontal: 0
+  reculeVertical: 100
+  reculeHorizontal: 100
 --- !u!114 &114771300554276992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1435,18 +1434,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armeActive: 0
-  degatsPoele: 0
-  degatsPain: 0
-  degatsPiedLit: 0
-  degatsChandelier: 0
-  degatsPelle: 0
-  degatsBaguetteMagique: 0
-  facteurReculePoele: 0
-  facteurReculePain: 0
-  facteurReculePiedLit: 0
-  facteurReculeChandelier: 0
-  facteurReculePelle: 0
-  facteurReculeBaguetteMagique: 0
+  distanceLacherArme: 1
+  hauteurLacherArme: 1
+  listArmeTenu: 
+  degatsPoele: 5
+  degatsPain: 5
+  degatsPiedLit: 5
+  degatsChandelier: 5
+  degatsPelle: 5
+  degatsBaguetteMagique: 5
+  facteurReculePoele: 1
+  facteurReculePain: 1
+  facteurReculePiedLit: 1
+  facteurReculeChandelier: 1
+  facteurReculePelle: 1
+  facteurReculeBaguetteMagique: 1
   handPoele: {fileID: 0}
   handPain: {fileID: 0}
   handPiedLit: {fileID: 1548911780310742}

@@ -9,8 +9,8 @@ public class IA_Agent : MonoBehaviour {
     private Animator anim;
 	private Rigidbody rb;
 	private GameObject princesse;
-//	private princesse_vie princesseVie;
-//	private princesse_arme princesseArme;
+	private PrincesseVie princesseVie;
+	private PrincesseArme princesseArme;
     private IA_PointInteret[] pointsInteret;
 	private IA_MobVie mobVie;
 	private Vector3 destination;
@@ -36,8 +36,8 @@ public class IA_Agent : MonoBehaviour {
         anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody> ();
 		princesse = GameObject.FindGameObjectWithTag("Player");
-//		princesseVie = princesse.GetComponent<princesse_vie>();
-//		princesseArme = princesse.GetComponent<princesse_arme>();
+		princesseVie = princesse.GetComponent<PrincesseVie>();
+		princesseArme = princesse.GetComponent<PrincesseArme>();
         pointsInteret = GameObject.FindObjectsOfType<IA_PointInteret>();
 		mobVie = GetComponent<IA_MobVie> ();
 		se = GetComponent<SoundEntity> ();
@@ -78,13 +78,13 @@ public class IA_Agent : MonoBehaviour {
 		return princesse;
 	}
 
-//	public princesse_vie getPrincesse_Vie(){
-//		return princesseVie;
-//	}
-//
-//	public princesse_arme getPrincesse_Arme(){
-//		return princesseArme;
-//	}
+	public PrincesseVie getPrincesseVie(){
+		return princesseVie;
+	}
+
+	public PrincesseArme getPrincesseArme(){
+		return princesseArme;
+	}
 
 	public IA_PointInteret[] getPointsInteret(){
 		return pointsInteret;

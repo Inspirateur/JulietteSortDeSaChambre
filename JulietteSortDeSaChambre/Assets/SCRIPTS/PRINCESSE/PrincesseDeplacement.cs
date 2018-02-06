@@ -21,7 +21,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool CanDash;
     private Rigidbody rb;
     private bool isPushing;
-    //private princesse_arme princesseArme;
+    private PrincesseArme princesseArme;
     private GameObject pushableCube;
     private float timerStep;
     private SoundManager sm;
@@ -35,7 +35,7 @@ public class PrincesseDeplacement : MonoBehaviour
         CanDash = true;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        //princesseArme = GetComponent<princesse_arme>();
+        princesseArme = GetComponent<PrincesseArme>();
         timerStep = 0.0f;
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 
@@ -69,7 +69,7 @@ public class PrincesseDeplacement : MonoBehaviour
                 }
                 else if (moveVertical > 0.0f)
                 {
-                    Debug.Log("Je suis entrain de courir");
+                   // Debug.Log("Je suis entrain de courir");
                     gererAnim("IsRunning");
                 }
             }
@@ -80,7 +80,7 @@ public class PrincesseDeplacement : MonoBehaviour
            else
             {
 				gererAnim("IsJumping");
-                Debug.Log("Je suis entrain de SAUTER CONNARD !!!!!!!!!");
+               // Debug.Log("Je suis entrain de SAUTER CONNARD !!!!!!!!!");
 
             }
         }
@@ -90,7 +90,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        {
 		        //gererAnim("IsIdle");
 	        }else if(isGrounded){
-                Debug.Log("Je suis IDLE !!!!!!!!!");
+               // Debug.Log("Je suis IDLE !!!!!!!!!");
 		        gererAnim ("IsIdle");
 	        }
 	        else
@@ -119,7 +119,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        {
 		        anim.Play("attack1");
                 Debug.Log("Attaque idle");
-                //princesseArme.lancerAttaque();
+                princesseArme.lancerAttaque();
             }
 	        else if (anim.GetBool("IsJumping"))
 	        {
@@ -127,23 +127,24 @@ public class PrincesseDeplacement : MonoBehaviour
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
                 Debug.Log("Attaque saute");
-		        //princesseArme.lancerAttaque();
+		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
                 Debug.Log("Attaque Run");
                 anim.Play("attack_run");
-		        //princesseArme.lancerAttaque();
+		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
                 Debug.Log("Attaque RUn");
                 anim.Play("attack_run");
-                //princesseArme.lancerAttaque();
+                princesseArme.lancerAttaque();
             }else if (anim.GetBool("IsBackwalk"))
             {
                 anim.Play("attack_backwalk");
                 Debug.Log("Attaque backwalk");
+                princesseArme.lancerAttaque();
             }
         }
 

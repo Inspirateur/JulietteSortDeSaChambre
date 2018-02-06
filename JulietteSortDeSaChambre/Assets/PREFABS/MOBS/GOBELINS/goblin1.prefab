@@ -1651,7 +1651,7 @@ MonoBehaviour:
   dureeRecherchePrincesse: 4
   distanceEntreeCombat: 1.8
   distanceDash: 6
-  pourcentageUtilisationCharge: 0
+  pourcentageUtilisationCharge: 0.5
   sonPrincessePerdu: {fileID: 8300000, guid: c4defa7d9e25e51499a71062760414ec, type: 3}
 --- !u!114 &114474552997635654
 MonoBehaviour:
@@ -1665,8 +1665,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceSortieCombat: 2.3
-  delaisMaxAvantAttaque: 0.75
+  delaisMaxAvantAttaque: 1.25
+  delaisMinAvantAttaque: 0.75
   pourcentageAttaqueEmpaler: 0.5
+  delaisEsquive: 3
+  pourcentageEsquive: 0.5
 --- !u!114 &114480212014664848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1680,7 +1683,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degats: 1
   forceRecule: 4
+  distanceParcourue: 1
   sonAttaque: {fileID: 8300000, guid: 4ac56d29b6e0c254096ff017c5481ec4, type: 3}
+  vitesse: 1.5
 --- !u!114 &114538493332204824
 MonoBehaviour:
   m_ObjectHideFlags: 1
