@@ -49,7 +49,7 @@ public class IA_Agent : MonoBehaviour {
     void Start () {
 		me.AjouterAgent (this);
 		etatCourant = etatInitial;
-        etatCourant.entrerEtat();
+		etatCourant.entrerEtat();
     }
 	
 	// Update is called once per frame
