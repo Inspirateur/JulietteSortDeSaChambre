@@ -5,7 +5,7 @@ using UnityEngine;
 public class camera : MonoBehaviour {
 
 	private const float ANGLE_MIN_Y = 20f;
-	private const float ANGLE_MAX_Y = 50f;
+	private const float ANGLE_MAX_Y = 70f;
 	private GameObject cible;
 	private SkinnedMeshRenderer skinPrincesse;
 
@@ -17,7 +17,10 @@ public class camera : MonoBehaviour {
 	public float distanceAvantTransparence;
 	public Transform camera_transform;
 
-	void Start() {
+    public float sensibiliteX;
+    public float sensibiliteY;
+
+    void Start() {
 		camera_transform = transform;
 		cible = GameObject.FindGameObjectWithTag ("Player");
 		skinPrincesse = GameObject.FindGameObjectWithTag ("PrincesseBody").GetComponent<SkinnedMeshRenderer>();
@@ -25,13 +28,13 @@ public class camera : MonoBehaviour {
 
     void Update() {
         
-        if (InputManager.GetKeyAxis("Mouse X") >= 0.85 || InputManager.GetKeyAxis("Mouse X") <= -0.85) { 
-            horizontal += InputManager.GetKeyAxis("Mouse X");
+        if (InputManager.GetKeyAxis("Mouse X") >= 0.85 || InputManager.GetKeyAxis("Mouse X") <= -0.85) {
+            horizontal += InputManager.GetKeyAxis("Mouse X")*sensibiliteX;
             //Debug.Log(InputManager.GetKeyAxis("Mouse X"));
         }
         if (InputManager.GetKeyAxis("Mouse Y") > 0.85 || InputManager.GetKeyAxis("Mouse Y") <= -0.85)
         {
-            vertical += InputManager.GetKeyAxis("Mouse Y");
+            vertical += InputManager.GetKeyAxis("Mouse Y")*sensibiliteY;
             vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
         }
 			

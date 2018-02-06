@@ -32,7 +32,7 @@ public class AffichageObjetRamasser : MonoBehaviour {
 			if (Time.timeScale != 0) {
 				Time.timeScale = 0;
 			} else {
-				if (Input.GetButtonDown("Cancel")) {
+				if (Input.GetButtonDown("Interagir")) {
 					time = true;
 					desaffiche ();
 					Time.timeScale = 1;
