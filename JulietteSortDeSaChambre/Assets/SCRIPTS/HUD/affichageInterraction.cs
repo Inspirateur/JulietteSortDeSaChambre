@@ -22,7 +22,6 @@ public class affichageInterraction : MonoBehaviour {
 			var enu = listObjetInteractif.GetEnumerator ();
 			enu.MoveNext ();
 			var a = enu.Current;
-			Debug.Log (a.nomObjet+"/"+ a.getIconeInteraction ());
 			if (!(a.getIconeInteraction().Equals(EnumIconeInterraction.icone_null))) {
 				
 				afficheObjet (a.getIconeInteraction());

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+
 
 public class Porte : ObjetEnvironnemental {
 	
@@ -22,9 +22,6 @@ public class Porte : ObjetEnvironnemental {
 	// Update is called once per frame
 	void Update () {
 
-		foreach(ObjetNecessaire obj in objN){
-			Debug.Log (obj.objet);
-		}
 		
 	}
 
