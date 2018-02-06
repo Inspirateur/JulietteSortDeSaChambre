@@ -24,7 +24,7 @@ public class InteractionObjet : MonoBehaviour {
 	void Update () {
 		Vector3 distance_princesse = this.transform.position - juliette.transform.position;
 
-		bool action = InputManager.GetButtonDown("Ramasser");
+		bool action = InputManager.GetButtonDown("Interagir");
 
 
 		if (distance_princesse.magnitude < distanceActivation) {

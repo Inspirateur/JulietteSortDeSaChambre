@@ -57,7 +57,7 @@ public class PrincesseDeplacement : MonoBehaviour
         if (moveHorizontal != 0.0f || moveVertical != 0.0f)
         {
             GererDeplacement(moveHorizontal, moveVertical);
-            if (!anim.GetBool("IsJumping"))
+            if (!anim.GetBool("IsJumping")&&isGrounded)
             {
 				if ((moveHorizontal != 0.0f && moveVertical == 0.0f)&&(!anim.GetBool("IsSidewalk")))
                 {
@@ -69,7 +69,7 @@ public class PrincesseDeplacement : MonoBehaviour
                 }
                 else if (moveVertical > 0.0f)
                 {
-                   // Debug.Log("Je suis entrain de courir");
+                    Debug.Log("Je suis entrain de courir");
                     gererAnim("IsRunning");
                 }
             }
@@ -95,6 +95,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        }
 	        else
 	        {
+                //Debug.Log("je passe ici connard !!!!!!!");
 		        gererAnim();
 	        }
         }
@@ -103,7 +104,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
         //	Input.GetKeyDown(KeyCode.Space);
         bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded)
+        if (saut && isGrounded && CanDash)
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");
@@ -305,6 +306,13 @@ private void OnCollisionEnter(Collision collision)
 	{
 		isGrounded = true;
 	}
+}
+
+private void OnCollisionExit(Collision collision){
+    if(collision.collider.tag == "sol"){
+        isGrounded=false;
+        gererAnim("IsJumping");
+    }
 }
 
 }

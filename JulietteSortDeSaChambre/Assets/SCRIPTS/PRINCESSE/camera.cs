@@ -27,7 +27,7 @@ public class camera : MonoBehaviour {
         
         if (InputManager.GetKeyAxis("Mouse X") >= 0.85 || InputManager.GetKeyAxis("Mouse X") <= -0.85) { 
             horizontal += InputManager.GetKeyAxis("Mouse X");
-            Debug.Log(InputManager.GetKeyAxis("Mouse X"));
+            //Debug.Log(InputManager.GetKeyAxis("Mouse X"));
         }
         if (InputManager.GetKeyAxis("Mouse Y") > 0.85 || InputManager.GetKeyAxis("Mouse Y") <= -0.85)
         {
