@@ -116,7 +116,7 @@ public class IA_Agent : MonoBehaviour {
 	/// Dans le cadre de la poursuite de la princesse, définit la destination en prenant en compte les autres mobs (avec MobManager.
 	/// </summary>
 	public void definirDestinationStrat() {
-		nav.SetDestination(me.getDestination(this));
+		this.definirDestination(me.getDestination(this));
 	}
 
 	/// <summary>

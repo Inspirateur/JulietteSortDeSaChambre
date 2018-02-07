@@ -71,6 +71,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 		} else if (agent.destinationCouranteAtteinte ()) {
 			
 			if (delaiActuelRecherche == 0.0f) {
+				
 				princessePerdue = true;
 				delaiActuelRecherche = Time.time + dureeRecherchePrincesse;
 				setAnimation (GOB_Animations.CHERCHER);
@@ -78,8 +79,9 @@ public class GOB_E_Poursuivre : IA_Etat {
 			}
 
 			if (Time.time <= delaiActuelRecherche) {
-
+				
 				if (perception.aRepere(princesse, 2.0f)) {
+					
 					setAnimation(GOB_Animations.COURIR);
 					princessePerdue = false;
 					delaiActuelRecherche = 0.0f;
@@ -89,6 +91,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 					enRotation = true;
 				}
 			} else {
+				
 				agent.getSoundEntity ().playOneShot (sonPrincessePerdu);
 				changerEtat (agent.etatInitial);
 			}

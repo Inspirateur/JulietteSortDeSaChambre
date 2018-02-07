@@ -60,7 +60,7 @@ public class MobManager : MonoBehaviour {
 
 	public void AjouterAgent(IA_Agent agent){
 		agents.Add (agent);
-		print ("Agent ajouté, nombre d'agent: " + agents.Count);
+		// Debug.Log ("Agent ajouté, nombre d'agent: " + agents.Count);
 	}
 
 	public void notifEtat(IA_Agent agent){
@@ -73,7 +73,7 @@ public class MobManager : MonoBehaviour {
 
 		if (!poursuivants.Contains (demandeur)) {
 			poursuivants.Add (demandeur);
-			Debug.Log ("poursuivant ajouté");
+			// Debug.Log ("poursuivant ajouté");
 		}
 		if (poursuivants.Count == 1) {
 			return princesse.transform.position;
@@ -89,7 +89,7 @@ public class MobManager : MonoBehaviour {
 			Vector3 Gob1Princesse = demandeur.transform.position - princesse.transform.position;
 			Vector3 Gob2Princesse = other.transform.position - princesse.transform.position;
 			float angle = Vector3.SignedAngle (Gob1Princesse, Gob2Princesse, new Vector3 (0, 1, 0));
-			Debug.Log ("2 poursuivants - angle: " + angle);
+			// Debug.Log ("2 poursuivants - angle: " + angle);
 			if (angle > -100 && angle < 100) {
 				//On écarte le demandeur
 				Vector3 decalageDemandeur;

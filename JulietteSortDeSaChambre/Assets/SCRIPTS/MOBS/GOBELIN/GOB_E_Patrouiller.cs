@@ -39,7 +39,6 @@ public class GOB_E_Patrouiller : IA_Etat {
 			}
 		}
 		indiceDernierPointRejoint = (int)minId - 1;
-		Debug.Log ("entrerEtat() du gobelin, indiceDernierPointRejoint = " + indiceDernierPointRejoint);
 		setAnimation(GOB_Animations.MARCHER);
 		indiceCheminActuel = indiceDernierPointRejoint;
 		nav.enabled = true;
@@ -80,9 +79,7 @@ public class GOB_E_Patrouiller : IA_Etat {
 
     private void suivreChemin()
 	{
-		Debug.Log ("suivreChemin() du gobelin, indiceCheminActuel avant modif = " + indiceCheminActuel);
 		indiceCheminActuel = (indiceCheminActuel + 1) % chemin.Length;
-		Debug.Log ("suivreChemin() du gobelin, indiceCheminActuel apres modif = " + indiceCheminActuel);
 		agent.definirDestination(chemin[indiceCheminActuel].transform.position);
         nav.speed = vitesse;
     }
