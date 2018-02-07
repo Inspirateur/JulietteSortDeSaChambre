@@ -26,6 +26,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private float timerStep;
     private SoundManager sm;
     public BruiteurPas bruiteurPas;
+    public float forceDash;
 
 
     void Start()
@@ -56,32 +57,49 @@ public class PrincesseDeplacement : MonoBehaviour
 
         if (moveHorizontal != 0.0f || moveVertical != 0.0f)
         {
-            GererDeplacement(moveHorizontal, moveVertical);
-            if (!anim.GetBool("IsJumping")&&isGrounded)
+            if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
             {
-				if ((moveHorizontal != 0.0f && moveVertical == 0.0f)&&(!anim.GetBool("IsSidewalk")))
+                if (CanDash == true && isGrounded == true)
                 {
-                    gererAnim("IsSidewalk");
-                }
-                else if (moveVertical < 0.0f && moveHorizontal == 0.0f)
-                {
-                    gererAnim("IsBackwalk");
-                }
-                else if (moveVertical > 0.0f)
-                {
-                    Debug.Log("Je suis entrain de courir");
-                    gererAnim("IsRunning");
+                    //anim.Play("fwdash");
+                    anim.Play("leftdash");
+                    gererAnim("IsDashing");
+                    rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, 0f).normalized * forceDash, ForceMode.Impulse);
+                    StartCoroutine(WaitForVelocityZero());
+                    CanDash = false;
+                    StartCoroutine(WaitBeforDash());
                 }
             }
-            else if(isGrounded){
-                anim.SetBool("IsJumping",false);
-            }
-
-           else
+            else
             {
-				gererAnim("IsJumping");
-               // Debug.Log("Je suis entrain de SAUTER CONNARD !!!!!!!!!");
+                GererDeplacement(moveHorizontal, moveVertical);
+                if (!anim.GetBool("IsJumping") && isGrounded)
+                {
+                    if ((moveHorizontal != 0.0f && moveVertical == 0.0f) && (!anim.GetBool("IsSidewalk")))
+                    {
+                        gererAnim("IsSidewalk");
+                    }
+                    else if (moveVertical < 0.0f && moveHorizontal == 0.0f)
+                    {
+                        gererAnim("IsBackwalk");
+                    }
+                    else if (moveVertical > 0.0f)
+                    {
+                        Debug.Log("Je suis entrain de courir");
+                        gererAnim("IsRunning");
+                    }
+                }
+                else if (isGrounded)
+                {
+                    anim.SetBool("IsJumping", false);
+                }
 
+                else
+                {
+                    gererAnim("IsJumping");
+                    // Debug.Log("Je suis entrain de SAUTER CONNARD !!!!!!!!!");
+
+                }
             }
         }
         else
@@ -150,17 +168,7 @@ public class PrincesseDeplacement : MonoBehaviour
         }
 
         //To DO clean les inputs manager (pas de Keycode.LeftShift)
-        if (InputManager.GetButtonDown("Dash"))
-        {
-	        if (CanDash == true && isGrounded == true)
-	        {
-		        anim.Play("fwdash");
-		        rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, moveVertical).normalized * 45f, ForceMode.Impulse);
-		        StartCoroutine(WaitForVelocityZero());
-		        CanDash = false;
-		        StartCoroutine(WaitBeforDash());
-	        }
-        }
+        
 
         /*------------------ gerer la deplacement du cube --------
         if (isPushing == true)
@@ -195,6 +203,7 @@ private void gererAnim()
 	anim.SetBool("IsIdle", false);
 	//anim.SetBool("isPushing", false);
 	anim.SetBool("IsJumping", false);
+    anim.SetBool("IsDashing", false);
 
 }
 
