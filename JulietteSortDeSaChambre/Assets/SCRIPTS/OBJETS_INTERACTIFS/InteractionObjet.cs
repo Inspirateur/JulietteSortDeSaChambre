@@ -9,6 +9,7 @@ public class InteractionObjet : MonoBehaviour {
 	public ObjetInteractifs objet;
 	public float distanceActivation;
 	public float demiAngleActivationFrontal;
+    public float minDistanceSurbrillance;
 
 	private affichageInterraction hud_refractor;
 
@@ -26,6 +27,10 @@ public class InteractionObjet : MonoBehaviour {
 
 		bool action = InputManager.GetButtonDown("Interagir");
 
+        if (distance_princesse.magnitude < minDistanceSurbrillance)
+        {
+            objet.AddSurbrillance();
+        }
 
 		if (distance_princesse.magnitude < distanceActivation) {
 			// dans la distance d'activation de l'objet

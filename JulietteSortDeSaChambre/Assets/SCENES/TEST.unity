@@ -267,7 +267,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4391119912623614, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.008839205
+      value: 0.247
       objectReference: {fileID: 0}
     - target: {fileID: 4391119912623614, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
       propertyPath: m_LocalPosition.z
@@ -301,6 +301,11 @@ Prefab:
         type: 2}
       propertyPath: distanceActivation
       value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441461244009756, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: minDistanceSurbrillance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
@@ -1086,6 +1091,7 @@ MonoBehaviour:
   objet: {fileID: 1001486811}
   distanceActivation: 1.7
   demiAngleActivationFrontal: 90
+  minDistanceSurbrillance: 0
 --- !u!114 &1001486811
 MonoBehaviour:
   m_ObjectHideFlags: 0
