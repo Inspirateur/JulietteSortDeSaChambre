@@ -23,11 +23,22 @@ public class GOB_E_Patrouiller : IA_Etat {
     void Start () {
         base.init(); // permet d'initialiser l'état, ne pas l'oublier !
 		this.delaisActuel = 0.0f;
-		indiceDernierPointRejoint = -1;
     }
 
     public override void entrerEtat()
 	{
+		//On cherche le point le plus proche
+		float minDist = float.MaxValue;
+		float minId = 0;
+		float dist;
+		for (int i = 0; i < chemin.Length; ++i) {
+			dist = (agent.transform.position - chemin [i].transform.position).magnitude;
+			if (dist < minDist) {
+				minId = i;
+				minDist = dist;
+			}
+		}
+		indiceDernierPointRejoint = (int)minId - 1;
 		setAnimation(GOB_Animations.MARCHER);
 		indiceCheminActuel = indiceDernierPointRejoint;
 		nav.enabled = true;
@@ -69,7 +80,7 @@ public class GOB_E_Patrouiller : IA_Etat {
     private void suivreChemin()
 	{
 		indiceCheminActuel = (indiceCheminActuel + 1) % chemin.Length;
-        agent.definirDestination(chemin[indiceCheminActuel].transform.position);
+		agent.definirDestination(chemin[indiceCheminActuel].transform.position);
         nav.speed = vitesse;
     }
 }

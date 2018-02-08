@@ -7,7 +7,8 @@ public class GOB_E_Poursuivre : IA_Etat {
 	public float vitesse;
 	public float dureeRecherchePrincesse;
 	public float distanceEntreeCombat;
-	public float distanceDash;
+	public float distanceMaxDash;
+	public float distanceMinDash;
 	public float pourcentageUtilisationCharge;
 	public AudioClip sonPrincessePerdu;
 
@@ -60,13 +61,17 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 			changerEtat (this.GetComponent<GOB_E_Combattre> ());
 
-		} else if (chargePrevue && agent.distanceToPrincesse() <= distanceDash && Vector3.Angle(this.transform.forward, princesse.transform.position - this.transform.position) <= 10.0f) {
+		} else if (chargePrevue &&
+			agent.distanceToPrincesse() <= distanceMaxDash &&
+			agent.distanceToPrincesse() >= distanceMinDash &&
+			Vector3.Angle(this.transform.forward, princesse.transform.position - this.transform.position) <= 10.0f) {
 			
 			changerEtat(this.GetComponent<GOB_E_Charger>());
 
 		} else if (agent.destinationCouranteAtteinte ()) {
 			
 			if (delaiActuelRecherche == 0.0f) {
+				
 				princessePerdue = true;
 				delaiActuelRecherche = Time.time + dureeRecherchePrincesse;
 				setAnimation (GOB_Animations.CHERCHER);
@@ -74,8 +79,9 @@ public class GOB_E_Poursuivre : IA_Etat {
 			}
 
 			if (Time.time <= delaiActuelRecherche) {
-
+				
 				if (perception.aRepere(princesse, 2.0f)) {
+					
 					setAnimation(GOB_Animations.COURIR);
 					princessePerdue = false;
 					delaiActuelRecherche = 0.0f;
@@ -85,6 +91,7 @@ public class GOB_E_Poursuivre : IA_Etat {
 					enRotation = true;
 				}
 			} else {
+				
 				agent.getSoundEntity ().playOneShot (sonPrincessePerdu);
 				changerEtat (agent.etatInitial);
 			}
