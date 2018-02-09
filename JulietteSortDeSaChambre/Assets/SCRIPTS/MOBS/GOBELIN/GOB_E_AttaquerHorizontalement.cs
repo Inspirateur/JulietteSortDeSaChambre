@@ -30,8 +30,8 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 		setAnimation (GOB_Animations.ATTAQUER_HORIZONTALEMENT);
 		nav.enabled = true;
 		nav.speed = vitesse;
-		agent.definirDestination (this.transform.position + this.transform.forward * distanceParcourue * 0.33f);
-		timer = Time.time + 0.3f;
+		agent.definirDestination (this.transform.position + this.transform.forward * this.distanceParcourue);
+		timer = Time.time + 1.0f;
 	}
 
 	public override void faireEtat()
