@@ -9,8 +9,10 @@ public class InteractionObjet : MonoBehaviour {
 	public ObjetInteractifs objet;
 	public float distanceActivation;
 	public float demiAngleActivationFrontal;
+    public float minDistanceSurbrillance;
+    public bool EnableSurbrillance;
 
-	private affichageInterraction hud_refractor;
+    private affichageInterraction hud_refractor;
 
 	// Use this for initialization
 	void Start () {
@@ -26,8 +28,19 @@ public class InteractionObjet : MonoBehaviour {
 
 		bool action = InputManager.GetButtonDown("Interagir");
 
+        if (EnableSurbrillance)
+        {
+            if (distance_princesse.magnitude < minDistanceSurbrillance)
+            {
+                objet.AddSurbrillance();
+            }
+            else
+            {
+                objet.removeSurbrillance();
+            }
+        }
 
-		if (distance_princesse.magnitude < distanceActivation) {
+        if (distance_princesse.magnitude < distanceActivation) {
 			// dans la distance d'activation de l'objet
 
 			float angle = Vector3.Angle (juliette.transform.forward, distance_princesse.normalized);

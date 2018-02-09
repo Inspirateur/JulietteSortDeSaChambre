@@ -27,4 +27,33 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 	public void supprimerObjet(){
 		this.gameObject.SetActive (false);
 	}
+
+
+    public void AddSurbrillance()
+    {
+        Renderer rend;
+        rend = GetComponent<Renderer>();
+
+        Material[] materials;
+        materials = rend.materials;
+
+        foreach (Material mat in materials)
+        {
+            mat.SetColor("_Color", Color.white);
+        }
+    }
+
+    public void removeSurbrillance()
+    {
+        Renderer rend;
+        rend = GetComponent<Renderer>();
+
+        Material[] materials;
+        materials = rend.materials;
+
+        foreach (Material mat in materials)
+        {
+            mat.SetColor("_Color", Color.grey);
+        }
+    }
 }

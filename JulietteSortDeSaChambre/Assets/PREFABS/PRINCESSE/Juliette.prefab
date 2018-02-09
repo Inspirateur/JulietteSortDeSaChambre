@@ -1541,7 +1541,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114017809152141382
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
@@ -1605,7 +1605,8 @@ MonoBehaviour:
   vie_max: 100
   reculeVertical: 100
   reculeHorizontal: 100
-  ParticleBlood: {fileID: 0}
+  ParticleBlood: {fileID: 1386326879869430, guid: 90df33f6044effb4ca85698878036c5a,
+    type: 2}
 --- !u!114 &114573517906380194
 MonoBehaviour:
   m_ObjectHideFlags: 1

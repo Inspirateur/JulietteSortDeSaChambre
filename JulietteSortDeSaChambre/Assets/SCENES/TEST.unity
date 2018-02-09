@@ -302,6 +302,16 @@ Prefab:
       propertyPath: distanceActivation
       value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 114441461244009756, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: minDistanceSurbrillance
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441461244009756, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: EnableSurbrillance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
   m_IsPrefabParent: 0
@@ -366,31 +376,6 @@ Prefab:
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 54438497108805324, guid: 10ed3ad8071f47242a535eef3d0d3539,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114941354916891536, guid: 10ed3ad8071f47242a535eef3d0d3539,
-        type: 2}
-      propertyPath: forceDash
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 95593036929066984, guid: 10ed3ad8071f47242a535eef3d0d3539,
-        type: 2}
-      propertyPath: m_UpdateMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 95593036929066984, guid: 10ed3ad8071f47242a535eef3d0d3539,
-        type: 2}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114941354916891536, guid: 10ed3ad8071f47242a535eef3d0d3539,
-        type: 2}
-      propertyPath: Scene
-      value: TEST2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
@@ -513,6 +498,11 @@ Prefab:
         type: 2}
       propertyPath: objN.Array.data[0].nombre
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114270276004042782, guid: 35a77f534fc9e614080e730be103bff0,
+        type: 2}
+      propertyPath: minDistanceSurbrillance
+      value: 1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
@@ -1111,6 +1101,8 @@ MonoBehaviour:
   objet: {fileID: 1001486811}
   distanceActivation: 1.7
   demiAngleActivationFrontal: 90
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
 --- !u!114 &1001486811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,6 +1290,11 @@ Prefab:
       propertyPath: m_Name
       value: door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114270276004042782, guid: 35a77f534fc9e614080e730be103bff0,
+        type: 2}
+      propertyPath: minDistanceSurbrillance
+      value: 1.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_IsPrefabParent: 0
@@ -1464,6 +1461,11 @@ Prefab:
         type: 2}
       propertyPath: objN.Array.data[1].nombre
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114270276004042782, guid: 35a77f534fc9e614080e730be103bff0,
+        type: 2}
+      propertyPath: minDistanceSurbrillance
+      value: 1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
@@ -1698,11 +1700,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 65885965966239778, guid: e5456cf484a0c304f91ac280f33f2828,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
   m_IsPrefabParent: 0
@@ -1795,6 +1792,16 @@ Prefab:
         type: 2}
       propertyPath: distanceActivation
       value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441461244009756, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: minDistanceSurbrillance
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441461244009756, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: EnableSurbrillance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
