@@ -42,7 +42,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         bool toucheDebug = Input.GetKeyDown(KeyCode.K);
@@ -118,10 +118,13 @@ public class PrincesseDeplacement : MonoBehaviour
         bool saut = InputManager.GetButtonDown("Jump");
         if (saut && isGrounded && CanDash)
         {
+            Debug.Log("Je passe ici");
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");
 	        isGrounded = false;
         }
+
+         Debug.Log(saut);   
 
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
@@ -244,20 +247,6 @@ private void GererDeplacement(float moveHorizontal, float moveVertical)
 
 }
 
-void FixedUpdate()
-{
-	// Vector3 fwd = transform.TransformDirection(Vector3.down);
-	// if (Physics.Raycast(transform.position, fwd, feetDist))
-	// {
-	// 	//gererAnim();
-	// 	anim.SetBool("IsJumping", false);
-	// }
-	// else
-	// {
-
-	// 	anim.SetBool("IsJumping", true);
-	// }
-}
 
 IEnumerator WaitBeforDash()
 {
@@ -281,7 +270,7 @@ private void OnCollisionExit(Collision collision){
 
      if(collision.collider.tag == "Decor"){
         isGrounded=false;
-        
+       
     }
 
 }
