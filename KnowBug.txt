@@ -2,4 +2,6 @@ Liste des bugs connus :
 
 Bug de deplacement :
 	- en cas de spam des boutons saut et dash + mouvements, les animations ne sont pas fluides.
-	- si tu avance et que tu saute dans la frame d apres, tu peux parfois sauter en animation idle et non en saut.
+	- si tu avance et que tu saute dans la frame d apres, tu peux parfois sauter en animation idle et non en saut(normalement réglé).
+	- si tu spam le bouton jump à coté du tonneau tu t'envoles 
+	- le boolean isJumping est a true que durant une frame. 
