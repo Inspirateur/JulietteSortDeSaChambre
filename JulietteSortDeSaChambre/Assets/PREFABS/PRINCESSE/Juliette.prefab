@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 82716957421335422}
   - component: {fileID: 114573517906380194}
   - component: {fileID: 114882417127062912}
+  - component: {fileID: 114017809152141382}
   m_Layer: 0
   m_Name: Juliette
   m_TagString: Player
@@ -1540,7 +1541,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114017809152141382
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
@@ -1604,6 +1605,7 @@ MonoBehaviour:
   vie_max: 100
   reculeVertical: 100
   reculeHorizontal: 100
+  ParticleBlood: {fileID: 0}
 --- !u!114 &114573517906380194
 MonoBehaviour:
   m_ObjectHideFlags: 1
