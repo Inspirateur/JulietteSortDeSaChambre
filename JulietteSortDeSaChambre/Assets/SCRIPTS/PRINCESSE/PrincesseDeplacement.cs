@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PrincesseDeplacement : MonoBehaviour
 {
@@ -42,15 +43,10 @@ public class PrincesseDeplacement : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void Update()
     {
 
         bool toucheDebug = Input.GetKeyDown(KeyCode.K);
-
-        if (toucheDebug)
-        {
-
-        }
 
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
