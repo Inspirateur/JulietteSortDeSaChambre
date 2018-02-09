@@ -297,6 +297,11 @@ Prefab:
       propertyPath: m_Name
       value: bedfoot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114441461244009756, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: EnableSurbrillance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
   m_IsPrefabParent: 0
@@ -486,7 +491,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1919128798290538, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
@@ -1086,6 +1091,7 @@ MonoBehaviour:
   distanceActivation: 1.7
   demiAngleActivationFrontal: 90
   minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
 --- !u!114 &1001486811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,7 +1281,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1919128798290538, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
@@ -1446,7 +1452,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1919128798290538, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
@@ -1773,6 +1779,11 @@ Prefab:
         type: 2}
       propertyPath: distanceActivation
       value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441461244009756, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: EnableSurbrillance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
