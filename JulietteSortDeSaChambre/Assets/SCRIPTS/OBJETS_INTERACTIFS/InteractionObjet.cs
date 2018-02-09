@@ -27,10 +27,11 @@ public class InteractionObjet : MonoBehaviour {
 
 		bool action = InputManager.GetButtonDown("Interagir");
 
-        if (distance_princesse.magnitude < minDistanceSurbrillance)
-        {
-            objet.AddSurbrillance();
-        }
+		if (distance_princesse.magnitude < minDistanceSurbrillance) {
+			objet.AddSurbrillance ();
+		} else {
+			objet.removeSurbrillance ();
+		}
 
 		if (distance_princesse.magnitude < distanceActivation) {
 			// dans la distance d'activation de l'objet
