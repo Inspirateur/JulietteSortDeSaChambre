@@ -120,8 +120,6 @@ public class PrincesseDeplacement : MonoBehaviour
 	        isGrounded = false;
         }
 
-         Debug.Log(saut);   
-
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
         if (toucheAttack1)
