@@ -21,7 +21,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.GetButtonDown("pouvoirGlace"))
+        if (InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxis("pouvoirGlace")<-0.75f)
         {
             sphereCollider.enabled = true;
             StartCoroutine(WaitforIcePower());
