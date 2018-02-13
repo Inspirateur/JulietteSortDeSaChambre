@@ -119,8 +119,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        gererAnim("IsJumping");
 	        isGrounded = false;
         }
-
-         Debug.Log(saut);   
+   
 
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
