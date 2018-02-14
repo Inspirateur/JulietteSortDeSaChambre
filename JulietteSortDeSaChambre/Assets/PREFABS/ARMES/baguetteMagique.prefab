@@ -38,8 +38,10 @@ GameObject:
   - component: {fileID: 4647869790295430}
   - component: {fileID: 33235121277554250}
   - component: {fileID: 23116261744278530}
-  - component: {fileID: 54866407850204858}
   - component: {fileID: 64769437440000024}
+  - component: {fileID: 54866407850204858}
+  - component: {fileID: 114091290843907050}
+  - component: {fileID: 114042441506074890}
   m_Layer: 0
   m_Name: baguetteMagique
   m_TagString: Untagged
@@ -145,6 +147,37 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0ecdfa7fa6f3d8d41a6e2d009e1c171f, type: 3}
+--- !u!114 &114042441506074890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976937219792356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07418d00d15d41c44bdca0fee6572aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomObjet: Baguette magique
+  descriptionObjet: Un bidule magique
+  typeArme: 6
+  iconeInterraction: 3
+--- !u!114 &114091290843907050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976937219792356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 114042441506074890}
+  distanceActivation: 1.5
+  demiAngleActivationFrontal: 45
+  minDistanceSurbrillance: 4.5
+  EnableSurbrillance: 1
 --- !u!198 &198724857581740800
 ParticleSystem:
   m_ObjectHideFlags: 1
