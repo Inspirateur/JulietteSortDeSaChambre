@@ -164,7 +164,6 @@ public class PrincesseArme : MonoBehaviour {
 		foreach (RaycastHit info in hitInfos){
 			if(!info.collider.gameObject.Equals(this.gameObject)){
 				distance = Mathf.Min(info.distance, distance);
-				Debug.Log("fergfreg");
 			}
 		}
 

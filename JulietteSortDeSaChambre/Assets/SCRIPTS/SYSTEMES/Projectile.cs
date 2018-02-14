@@ -27,25 +27,32 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-
-		if(ami){
+		
+		if(this.decorTouche(other)){
+			Destroy(this.gameObject);
+		}
+		else if(ami){
 			if (other.tag.Equals ("Mob")){
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
 				Vector3 hitPoint = other.ClosestPoint (this.transform.position);
 				mobTouche.subirDegats (degats, hitPoint);
+				Destroy(this.gameObject);
 			}
 		}
 		else {
 			if (other.tag.Equals ("Player")){
 				GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>().blesser (degats, this.gameObject, recul);
+				Destroy(this.gameObject);
 			}
 		}
-
-		Destroy(this.gameObject);
 	}
 
 	public void setDestination(Vector3 positionDestination){
 		destination = positionDestination - this.transform.position;
 		destination.Normalize();
+	}
+
+	private bool decorTouche(Collider other){
+		return other.tag.Equals ("sol") || other.tag.Equals ("wall") || other.tag.Equals ("Decor");
 	}
 }
