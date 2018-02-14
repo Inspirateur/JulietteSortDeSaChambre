@@ -29,6 +29,8 @@ public class PrincesseDeplacement : MonoBehaviour
     public BruiteurPas bruiteurPas;
     public float forceDash;
 
+    private float timer;
+
 
     void Start()
     {
@@ -45,6 +47,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
     void Update()
     {
+        
 
         bool toucheDebug = Input.GetKeyDown(KeyCode.K);
 
@@ -57,6 +60,7 @@ public class PrincesseDeplacement : MonoBehaviour
             {
                 if (CanDash == true && isGrounded == true)
                 {
+                    
                     //anim.Play("fwdash");
                     anim.Play("leftdash");
                    // gererAnim("IsDashing");
@@ -85,8 +89,8 @@ public class PrincesseDeplacement : MonoBehaviour
                     }
                 }
                 else if (isGrounded)
-                {
-                    anim.SetBool("IsJumping", false);
+                {       
+                         anim.SetBool("IsJumping", false);
                 }
 
                 else
@@ -100,20 +104,27 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (isGrounded && anim.GetBool("IsJumping"))
 	        {
-		        //gererAnim("IsIdle");
+		        gererAnim("IsIdle");
 	        }else if(isGrounded){
 		        gererAnim ("IsIdle");
+                               
+
 	        }
 	        else
 	        {
-		        gererAnim();
+                if(timer < Time.time)
+		            gererAnim();
+
+                Debug.Log("je dois faire mon test ici");
 	        }
         }
 
-
+        
         bool saut = InputManager.GetButtonDown("Jump");
         if (saut && isGrounded && CanDash)
         {
+            timer = Time.time + 2;
+            Debug.Log(timer + "    " + Time.time);
             Debug.Log("Je passe ici");
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");
