@@ -149,6 +149,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1299975203258094
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4661271520253930}
+  m_Layer: 2
+  m_Name: lanceurProjectile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1302452793334314
 GameObject:
   m_ObjectHideFlags: 1
@@ -840,6 +855,7 @@ Transform:
   m_LocalScale: {x: 0.059949026, y: 0.059949107, z: 0.0599489}
   m_Children:
   - {fileID: 4776933533191142}
+  - {fileID: 4661271520253930}
   m_Father: {fileID: 4925313353283416}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.467, y: 83.32001, z: -73.517006}
@@ -994,6 +1010,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4925313353283416}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4661271520253930
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299975203258094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.4449}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4245523788227664}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4661969677011782
 Transform:
@@ -1761,18 +1790,19 @@ MonoBehaviour:
   distanceLacherArme: 1
   hauteurLacherArme: 1
   listArmeTenu: 
+  delaisAvantApparitionProjetile: 0.3
   degatsPoele: 5
   degatsPain: 5
   degatsPiedLit: 5
   degatsChandelier: 5
   degatsPelle: 5
   degatsBaguetteMagique: 5
-  facteurReculePoele: 1
-  facteurReculePain: 1
-  facteurReculePiedLit: 1
-  facteurReculeChandelier: 1
-  facteurReculePelle: 1
-  facteurReculeBaguetteMagique: 1
+  facteurReculPoele: 1
+  facteurReculPain: 1
+  facteurReculPiedLit: 1
+  facteurReculChandelier: 1
+  facteurReculPelle: 1
+  facteurReculBaguetteMagique: 1
   handPoele: {fileID: 0}
   handPain: {fileID: 0}
   handPiedLit: {fileID: 1548911780310742}
@@ -1786,6 +1816,10 @@ MonoBehaviour:
   prefabChandelier: {fileID: 0}
   prefabPelle: {fileID: 0}
   prefabBaguetteMagique: {fileID: 1976937219792356, guid: 463add8660b5ed04c8d183830ea84242,
+    type: 2}
+  positionDepartProjectile: {fileID: 1299975203258094}
+  distanceMaxViseProjectile: 50
+  projectileBaguetteMagique: {fileID: 1414825647864928, guid: ad7d75c3daf0b7a4eb190406d0c011c5,
     type: 2}
 --- !u!114 &114849292428765358
 MonoBehaviour:
