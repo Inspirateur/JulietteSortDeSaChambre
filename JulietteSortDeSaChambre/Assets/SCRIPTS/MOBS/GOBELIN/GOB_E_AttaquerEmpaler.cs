@@ -9,11 +9,13 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 	public float distanceParcourue;
 	public float vitesse;
 	public AudioClip sonAttaque;
+	public float dureeChargement;
 
 	private bool degatsAttaqueEffectues;
 	private IA_TriggerArme colliderArme;
 	private int numAttaque;
 	private Vector3 direction;
+	private float timerChargement;
 
 	// Use this for initialization
 	void Start()
@@ -27,19 +29,31 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 	public override void entrerEtat()
 	{
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
-		degatsAttaqueEffectues = false;
+		degatsAttaqueEffectues = true;
 		setAnimation (GOB_Animations.ATTAQUER_EMPALER);
-		nav.enabled = true;
-		nav.speed = vitesse;
-		this.direction = this.transform.forward;
-		agent.definirDestination (this.transform.position + this.direction * distanceParcourue * 0.33f);
-		numAttaque = 1;
+		numAttaque = 0;
+		timerChargement = Time.time + this.dureeChargement;
 	}
 
 	public override void faireEtat()
 	{
-		this.transform.forward = this.direction;
 		switch (numAttaque) {
+
+		case 0:
+			if (Time.time < timerChargement) { // le chargement est toujours en cours
+				agent.seTournerVersPosition(princesse.transform.position);
+				this.direction = this.transform.forward;
+			}
+			else {
+				setAnimation (GOB_Animations.COMBATTRE);
+				this.transform.forward = this.direction;
+				numAttaque++;
+				degatsAttaqueEffectues = false;
+				nav.enabled = true;
+				nav.speed = vitesse;
+				agent.definirDestination (this.transform.position + this.direction * distanceParcourue * 0.33f);
+			}
+			break;
 
 		case 1:
 			if (!agent.isActualAnimation (GOB_Animations.ATTAQUER_EMPALER + "2")) { // l'attaque 1 est toujours en cours
@@ -48,7 +62,6 @@ public class GOB_E_AttaquerEmpaler : IA_Etat {
 				numAttaque++;
 				degatsAttaqueEffectues = false;
 				agent.definirDestination (this.transform.position + this.direction * distanceParcourue * 0.33f);
-				setAnimation (GOB_Animations.COMBATTRE);
 			}
 			break;
 

@@ -664,7 +664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1932294148997726
 GameObject:
   m_ObjectHideFlags: 1
@@ -1701,9 +1701,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceSortieCombat: 2.3
-  delaisMaxAvantAttaque: 1.25
-  delaisMinAvantAttaque: 0.75
-  pourcentageAttaqueEmpaler: 0.5
+  delaisMaxAvantAttaque: 0.25
+  delaisMinAvantAttaque: 0.2
+  pourcentageAttaqueEmpaler: 0.75
   delaisEsquive: 3
   pourcentageEsquive: 0.5
 --- !u!114 &114435705783819908
@@ -1756,10 +1756,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degatsParAttaque: 1
-  forceRecule: 4
+  forceRecule: 2.7
   distanceParcourue: 1.2
   vitesse: 1.5
   sonAttaque: {fileID: 8300000, guid: 4ac56d29b6e0c254096ff017c5481ec4, type: 3}
+  dureeChargement: 0.75
 --- !u!114 &114585374364475448
 MonoBehaviour:
   m_ObjectHideFlags: 1
