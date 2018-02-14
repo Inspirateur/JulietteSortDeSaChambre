@@ -79,7 +79,7 @@ public class PrincesseDeplacement : MonoBehaviour
                     {
                         gererAnim("IsSidewalk");
                     }
-                    else if (moveVertical < 0.0f && moveHorizontal == 0.0f)
+                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f)
                     {
                         gererAnim("IsBackwalk");
                     }
