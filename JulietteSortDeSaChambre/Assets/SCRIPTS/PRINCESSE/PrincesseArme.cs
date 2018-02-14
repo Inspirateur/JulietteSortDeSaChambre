@@ -157,17 +157,20 @@ public class PrincesseArme : MonoBehaviour {
 
 		Vector3 dirCamera = cam.transform.forward;
 
-		RaycastHit hitInfo;
+		RaycastHit[] hitInfos = Physics.RaycastAll(cam.transform.position, dirCamera, this.distanceMaxViseProjectile);
 
-		Physics.Raycast(cam.transform.position, dirCamera, out hitInfo);
+		float distance = this.distanceMaxViseProjectile;
 
-		float distance = hitInfo.distance == 0.0f ? distanceMaxViseProjectile : Mathf.Min(hitInfo.distance, distanceMaxViseProjectile);
+		foreach (RaycastHit info in hitInfos){
+			if(!info.collider.gameObject.Equals(this.gameObject)){
+				distance = Mathf.Min(info.distance, distance);
+				Debug.Log("fergfreg");
+			}
+		}
 
 		Vector3 impactPoint = cam.transform.position + (dirCamera * distance);
 
-		GameObject projectile = Instantiate(this.projectileActuel, positionDepartProjectile.transform.position, Quaternion.identity/*this.projectileActuel.transform.rotation*/);
-
-		// projectile.transform.forward = impactPoint - positionDepartProjectile.transform.position;
+		GameObject projectile = Instantiate(this.projectileActuel, positionDepartProjectile.transform.position, Quaternion.identity);
 
 		projectile.GetComponent<Projectile>().setDestination(impactPoint);
 	}
