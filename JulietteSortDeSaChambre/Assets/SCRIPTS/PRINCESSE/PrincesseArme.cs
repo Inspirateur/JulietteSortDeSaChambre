@@ -170,9 +170,11 @@ public class PrincesseArme : MonoBehaviour {
 
 		Vector3 impactPoint = cam.transform.position + (dirCamera * distance);
 
-		GameObject projectile = Instantiate(this.projectileActuel, positionDepartProjectile.transform.position, Quaternion.identity);
+		Projectile projectile = Instantiate(this.projectileActuel, positionDepartProjectile.transform.position, Quaternion.identity).GetComponent<Projectile>();
 
-		projectile.GetComponent<Projectile>().setDestination(impactPoint);
+		projectile.setDestination(impactPoint);
+		projectile.degats = degatsArmeActuelle;
+		projectile.recul = facteurReculArmeActuelle;
 	}
 
 	public bool isAttaqueEnCours() {
@@ -181,7 +183,6 @@ public class PrincesseArme : MonoBehaviour {
 
 	private void defineActualsArmes(GameObject armeRamasse)
     {
-        //actualWorldArme = armeRamasse;
         GameControl.control.ArmeCourante = armeActive;
 		switch (armeActive)
 		{

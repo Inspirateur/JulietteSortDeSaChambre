@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour {
 	public bool ami;
 	public float vitesse;
 	public int degats;
+	public float recul;
 	public float dureeDeVie;
 
 	private float timerVie;
@@ -23,6 +24,24 @@ public class Projectile : MonoBehaviour {
 		if(Time.time >= this.timerVie){
 			Destroy (this.gameObject);
 		}
+	}
+
+	void OnTriggerEnter(Collider other){
+
+		if(ami){
+			if (other.tag.Equals ("Mob")){
+				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
+				Vector3 hitPoint = other.ClosestPoint (this.transform.position);
+				mobTouche.subirDegats (degats, hitPoint);
+			}
+		}
+		else {
+			if (other.tag.Equals ("Player")){
+				GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>().blesser (degats, this.gameObject, recul);
+			}
+		}
+
+		Destroy(this.gameObject);
 	}
 
 	public void setDestination(Vector3 positionDestination){
