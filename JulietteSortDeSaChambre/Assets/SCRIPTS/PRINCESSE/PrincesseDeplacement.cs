@@ -17,6 +17,9 @@ public class PrincesseDeplacement : MonoBehaviour
     public float maxPitch;
     public float minVolume;
     public float maxVolume;
+    public BruiteurPas bruiteurPas;
+    public float forceDash;
+
 
     private GameObject cam;
     private bool CanDash;
@@ -26,9 +29,6 @@ public class PrincesseDeplacement : MonoBehaviour
     private GameObject pushableCube;
     private float timerStep;
     private SoundManager sm;
-    public BruiteurPas bruiteurPas;
-    public float forceDash;
-
     private float timer;
 
 
@@ -115,7 +115,7 @@ public class PrincesseDeplacement : MonoBehaviour
                 if(timer < Time.time)
 		            gererAnim();
 
-                Debug.Log("je dois faire mon test ici");
+              //  Debug.Log("je dois faire mon test ici");
 	        }
         }
 
@@ -123,15 +123,15 @@ public class PrincesseDeplacement : MonoBehaviour
         bool saut = InputManager.GetButtonDown("Jump");
         if (saut && isGrounded && CanDash)
         {
-            timer = Time.time + 2;
-            Debug.Log(timer + "    " + Time.time);
-            Debug.Log("Je passe ici");
+           // timer = Time.time + 2;
+           // Debug.Log(timer + "    " + Time.time);
+          //  Debug.Log("Je passe ici");
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");
 	        isGrounded = false;
         }
 
-         Debug.Log(saut);   
+       //  Debug.Log(saut);   
 
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
@@ -140,7 +140,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
 		        anim.Play("attack1");
-                Debug.Log("Attaque idle");
+               // Debug.Log("Attaque idle");
                 princesseArme.lancerAttaque();
             }
 	        else if (anim.GetBool("IsJumping"))
@@ -148,24 +148,24 @@ public class PrincesseDeplacement : MonoBehaviour
 		        anim.Play("attack_jump");
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-                Debug.Log("Attaque saute");
+              //  Debug.Log("Attaque saute");
 		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-                Debug.Log("Attaque Run");
+             //   Debug.Log("Attaque Run");
                 anim.Play("attack_run");
 		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-                Debug.Log("Attaque RUn");
+             //   Debug.Log("Attaque RUn");
                 anim.Play("attack_run");
                 princesseArme.lancerAttaque();
             }else if (anim.GetBool("IsBackwalk"))
             {
                 anim.Play("attack_backwalk");
-                Debug.Log("Attaque backwalk");
+            //    Debug.Log("Attaque backwalk");
                 princesseArme.lancerAttaque();
             }
         }
@@ -267,6 +267,11 @@ private void OnCollisionStay(Collision collision)
 	{
 		isGrounded = true;
 	}
+
+     /*if(collision.collider.tag == "Arme"){
+        Debug.Log("je passe ici");
+        Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Arme").GetComponent<Collider>(), GetComponent<Collider>());
+    }*/
 }
 
 private void OnCollisionExit(Collision collision){
@@ -276,11 +281,17 @@ private void OnCollisionExit(Collision collision){
     }
 
      if(collision.collider.tag == "Decor"){
-        isGrounded=false;
-       
+        isGrounded=false;   
     }
 
 }
+/* 
+private void OnCollisionEnter(Collision collision){
+    if(collision.collider.tag == "Arme"){
+       // Debug.Log("je passe ici");
+        Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Arme").GetComponent<Collider>(), GetComponent<Collider>());
+    }
+}*/
 
 }
 
