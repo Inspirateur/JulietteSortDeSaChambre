@@ -60,10 +60,7 @@ public class PrincesseDeplacement : MonoBehaviour
             {
                 if (CanDash == true && isGrounded == true)
                 {
-                    
-                    //anim.Play("fwdash");
                     anim.Play("leftdash");
-                   // gererAnim("IsDashing");
                     rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, 0f).normalized * forceDash, ForceMode.Impulse);
                     StartCoroutine(WaitForVelocityZero());
                     CanDash = false;
@@ -107,31 +104,22 @@ public class PrincesseDeplacement : MonoBehaviour
 		        gererAnim("IsIdle");
 	        }else if(isGrounded){
 		        gererAnim ("IsIdle");
-                               
-
 	        }
 	        else
 	        {
-                if(timer < Time.time)
-		            gererAnim();
-
-              //  Debug.Log("je dois faire mon test ici");
+		         gererAnim();
 	        }
         }
 
-        
+        Vector3 velocity = rb.velocity;  
         bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded && CanDash)
+        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8)
         {
-           // timer = Time.time + 2;
-           // Debug.Log(timer + "    " + Time.time);
-          //  Debug.Log("Je passe ici");
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");
 	        isGrounded = false;
         }
-
-       //  Debug.Log(saut);   
+  
 
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
@@ -140,7 +128,6 @@ public class PrincesseDeplacement : MonoBehaviour
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
 		        anim.Play("attack1");
-               // Debug.Log("Attaque idle");
                 princesseArme.lancerAttaque();
             }
 	        else if (anim.GetBool("IsJumping"))
@@ -148,24 +135,21 @@ public class PrincesseDeplacement : MonoBehaviour
 		        anim.Play("attack_jump");
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-              //  Debug.Log("Attaque saute");
 		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-             //   Debug.Log("Attaque Run");
                 anim.Play("attack_run");
 		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-             //   Debug.Log("Attaque RUn");
+
                 anim.Play("attack_run");
                 princesseArme.lancerAttaque();
             }else if (anim.GetBool("IsBackwalk"))
             {
                 anim.Play("attack_backwalk");
-            //    Debug.Log("Attaque backwalk");
                 princesseArme.lancerAttaque();
             }
         }
@@ -189,9 +173,7 @@ private void gererAnim()
 	anim.SetBool("IsBackwalk", false);
 	anim.SetBool("IsSidewalk", false);
 	anim.SetBool("IsIdle", false);
-	//anim.SetBool("isPushing", false);
 	anim.SetBool("IsJumping", false);
-    //anim.SetBool("IsDashing", false);
 
 }
 
@@ -241,7 +223,6 @@ private void GererDeplacement(float moveHorizontal, float moveVertical)
 		else
 		{
 			this.transform.position += mouvement * vitesse / 2 * Time.deltaTime;
-			//pushableCube.transform.position += mouvement * vitesse/2 * Time.deltaTime;
 		}
 
 		if (timerStep <= Time.time && isGrounded && CanDash)
@@ -267,31 +248,16 @@ private void OnCollisionStay(Collision collision)
 	{
 		isGrounded = true;
 	}
-
-     /*if(collision.collider.tag == "Arme"){
-        Debug.Log("je passe ici");
-        Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Arme").GetComponent<Collider>(), GetComponent<Collider>());
-    }*/
 }
 
 private void OnCollisionExit(Collision collision){
-    if(collision.collider.tag == "sol"){
+    if(collision.collider.tag == "sol" || collision.collider.tag == "Decor"){
         isGrounded=false;
         gererAnim("IsJumping");
     }
 
-     if(collision.collider.tag == "Decor"){
-        isGrounded=false;   
-    }
-
 }
-/* 
-private void OnCollisionEnter(Collision collision){
-    if(collision.collider.tag == "Arme"){
-       // Debug.Log("je passe ici");
-        Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Arme").GetComponent<Collider>(), GetComponent<Collider>());
-    }
-}*/
+
 
 }
 

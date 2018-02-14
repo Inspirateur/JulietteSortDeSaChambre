@@ -1865,6 +1865,11 @@ Prefab:
       propertyPath: sensibiliteX
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 114502576459768884, guid: 9a94a4195ae1b694084fa814ae451016,
+        type: 2}
+      propertyPath: distanceAvantTransparence
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a94a4195ae1b694084fa814ae451016, type: 2}
   m_IsPrefabParent: 0
@@ -1975,7 +1980,7 @@ Prefab:
       objectReference: {fileID: 1591351837}
     - target: {fileID: 1661025149933492, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
