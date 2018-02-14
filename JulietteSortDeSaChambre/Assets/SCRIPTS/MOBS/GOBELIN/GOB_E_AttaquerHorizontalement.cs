@@ -12,7 +12,8 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 
 	private bool degatsAttaqueEffectues;
 	private IA_TriggerArme colliderArme;
-	private float timer;
+	private float timerFinAttaque;
+	private float timerChargement;
 
 	// Use this for initialization
 	void Start()
@@ -31,17 +32,23 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 		nav.enabled = true;
 		nav.speed = vitesse;
 		agent.definirDestination (this.transform.position + this.transform.forward * this.distanceParcourue);
-		timer = Time.time + 1.0f;
+		timerChargement = Time.time + 0.5f;
+		timerFinAttaque = timerChargement + 0.96f;
 	}
 
 	public override void faireEtat()
 	{
-		if (timer > Time.time) { // l'attaque est toujours en cours
-			if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
+		if (Time.time < timerFinAttaque) { // l'attaque est toujours en cours
+			Debug.Log("en attaque");
+			if(Time.time >= timerChargement){
+				Debug.Log("fini chargement");
+				if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
-				princesseVie.blesser (degats, this.gameObject, forceRecule);
-				degatsAttaqueEffectues = true;
+					princesseVie.blesser (degats, this.gameObject, forceRecule);
+					degatsAttaqueEffectues = true;
+				}
 			}
+			
 		} else {
 			changerEtat(this.GetComponent<GOB_E_Combattre>());
 		}
