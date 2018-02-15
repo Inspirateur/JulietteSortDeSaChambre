@@ -1724,11 +1724,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114585374364475448, guid: 591dceb319e2873478808605a3e135c2,
-        type: 2}
-      propertyPath: emplacementAGarder
-      value: 
-      objectReference: {fileID: 1107563424}
     - target: {fileID: 114367643736128870, guid: 591dceb319e2873478808605a3e135c2,
         type: 2}
       propertyPath: chemin.Array.data[0]
@@ -1744,10 +1739,11 @@ Prefab:
       propertyPath: chemin.Array.data[2]
       value: 
       objectReference: {fileID: 1591351837}
-    - target: {fileID: 1921552545835090, guid: 591dceb319e2873478808605a3e135c2, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 114585374364475448, guid: 591dceb319e2873478808605a3e135c2,
+        type: 2}
+      propertyPath: emplacementAGarder
+      value: 
+      objectReference: {fileID: 1107563424}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 591dceb319e2873478808605a3e135c2, type: 2}
   m_IsPrefabParent: 0
@@ -2063,10 +2059,7 @@ Prefab:
       propertyPath: chemin.Array.data[2]
       value: 
       objectReference: {fileID: 1591351837}
-    - target: {fileID: 1661025149933492, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      value: 1
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
   m_IsPrefabParent: 0

@@ -9,7 +9,11 @@ public class PrincesseVie : MonoBehaviour {
 	public int vie_max;
 	public float reculeVertical;
 	public float reculeHorizontal;
-    public GameObject ParticleBlood;
+    
+	[Header("Particule de sang :")]
+	public GameObject ParticleBlood;
+	[Tooltip("Hauteur min : 0.5, max : 1.5")]
+	public float HauteurParticule;
 
 	private int vie_courante;
 	private Rigidbody rb;
@@ -72,7 +76,7 @@ public class PrincesseVie : MonoBehaviour {
 	{
 		anim.Play ("hurt");
 
-        Instantiate(ParticleBlood, new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), Quaternion.identity);
+        Instantiate(ParticleBlood, new Vector3(this.transform.position.x, this.transform.position.y + HauteurParticule, this.transform.position.z), Quaternion.identity);
 
         Vector3 directionRecule = (this.transform.position - sourceDegats.transform.position).normalized;
 
