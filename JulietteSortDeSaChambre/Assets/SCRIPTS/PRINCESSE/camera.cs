@@ -6,6 +6,8 @@ public class camera : MonoBehaviour {
 
 	[Header("Paramètres généraux")]
 	public float distanceMax;
+	public float smooth;
+	public float facteurZoom;
 
 	[Header("Sensibilités manette")]
 
@@ -18,13 +20,15 @@ public class camera : MonoBehaviour {
     public float sensibiliteSourisX;
     public float sensibiliteSourisY;
 
-	private const float ANGLE_MIN_Y = -3.0f;
-	private const float ANGLE_MAX_Y = 80.0f;
+	private float ANGLE_MIN_Y = -3.0f;
+	private float ANGLE_MAX_Y = 80.0f;
 	private GameObject cible;
 	private Vector3 velocity = Vector3.zero;
 	private GameObject princesse;
 	private float horizontal;
 	private float vertical;
+	private float fov;
+	private float velocityFOV = 0.0f;
 
 	void Awake() {
 		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
@@ -36,6 +40,8 @@ public class camera : MonoBehaviour {
 		this.horizontal = 180.0f;
 
 		this.transform.position = cible.transform.position + Quaternion.Euler(vertical, horizontal, 0) * new Vector3 (0, 0, -distanceMax);
+
+		this.fov = Camera.main.fieldOfView;
 	}
 
 	/* On utilise LateUpdate afin que tout les autres éléments de la scène
@@ -150,12 +156,26 @@ public class camera : MonoBehaviour {
 
 		Quaternion rotation = Quaternion.Euler(this.vertical, this.horizontal, 0);
 
-		Vector3 temp = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, 0.15f);
+		Vector3 temp = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, this.smooth);
 
 		temp.y = (cible.transform.position + rotation * dir).y;
 
 		this.transform.position = temp;
 
 		this.transform.LookAt (cible.transform.position);
+
+		Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, fov, ref velocityFOV, this.smooth);
+	}
+
+	public void zoomer(){
+		this.fov /= this.facteurZoom;
+		this.distanceMax /= this.facteurZoom;
+		this.ANGLE_MIN_Y *= 10.0f * this.facteurZoom;
+	}
+
+	public void dezoomer(){
+		this.fov *= this.facteurZoom;
+		this.distanceMax *= this.facteurZoom;
+		this.ANGLE_MIN_Y /= 10.0f * this.facteurZoom;
 	}
 }
