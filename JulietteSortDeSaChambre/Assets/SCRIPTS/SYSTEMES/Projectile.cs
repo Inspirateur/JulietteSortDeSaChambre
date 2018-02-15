@@ -35,9 +35,11 @@ public class Projectile : MonoBehaviour {
 		else if(ami){
 			if (other.tag.Equals ("Mob")){
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
-				Vector3 hitPoint = other.ClosestPoint (this.transform.position);
-				mobTouche.subirDegats (degats, hitPoint);
-				this.detruireCollision();
+				if(mobTouche.estEnVie()){
+					Vector3 hitPoint = other.ClosestPoint (this.transform.position);
+					mobTouche.subirDegats (degats, hitPoint);
+					this.detruireCollision();
+				}
 			}
 		}
 		else {
