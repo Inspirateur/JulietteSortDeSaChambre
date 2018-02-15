@@ -8,6 +8,7 @@ public class camera : MonoBehaviour {
 	private const float ANGLE_MAX_Y = 70f;
 	private GameObject cible;
 	private SkinnedMeshRenderer skinPrincesse;
+	private Vector3 velocity = Vector3.zero;
 
 	public float vitesse_rotation = 5;
 	public float horizontal;
@@ -37,6 +38,9 @@ public class camera : MonoBehaviour {
             vertical += InputManager.GetKeyAxis("Mouse Y")*sensibiliteY;
             vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
         }
+
+		camera_transform.position = Vector3.SmoothDamp(camera_transform.position,new Vector3(0, 5, -10),ref velocity, 0.3F);
+
 			
 
 		
