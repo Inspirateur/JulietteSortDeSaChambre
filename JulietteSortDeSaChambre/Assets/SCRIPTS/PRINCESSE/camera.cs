@@ -4,65 +4,71 @@ using UnityEngine;
 
 public class camera : MonoBehaviour {
 
-	private const float ANGLE_MIN_Y = 20f;
-	private const float ANGLE_MAX_Y = 70f;
-	private GameObject cible;
-	private SkinnedMeshRenderer skinPrincesse;
-	private Vector3 velocity = Vector3.zero;
+	[Header("Paramètres généraux")]
 
-	public float vitesse_rotation = 5;
-	public float horizontal;
-	public float vertical;
+	public bool manetteActive;
 	public float distanceMax;
-	public float hauteurFocus;
-	public float distanceAvantTransparence;
-	public Transform camera_transform;
 
-    public float sensibiliteX;
-    public float sensibiliteY;
+	// public float distanceAvantTransparence;
 
-    void Start() {
-		camera_transform = transform;
-		cible = GameObject.FindGameObjectWithTag ("Player");
-		skinPrincesse = GameObject.FindGameObjectWithTag ("PrincesseBody").GetComponent<SkinnedMeshRenderer>();
+	[Header("Sensibilités manette")]
+
+    public float sensibiliteManetteX;
+    public float sensibiliteManetteY;
+	public float inputMinimumManette;
+
+	[Header("Sensibilités souris")]
+
+    public float sensibiliteSourisX;
+    public float sensibiliteSourisY;
+
+	private const float ANGLE_MIN_Y = -3.0f;
+	private const float ANGLE_MAX_Y = 80.0f;
+	private GameObject cible;
+
+	// private SkinnedMeshRenderer skinPrincesse;
+	private Vector3 velocity = Vector3.zero;
+	private GameObject princesse;
+	private float horizontal;
+	private float vertical;
+
+	void Awake() {
+		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
+		princesse = GameObject.FindGameObjectWithTag("Player");
+		// skinPrincesse = GameObject.FindGameObjectWithTag ("PrincesseBody").GetComponent<SkinnedMeshRenderer>();
+
+		// On place la caméra à son point de départ pour éviter un mauvais effet au démarrage du jeu
+
+		this.horizontal = 180.0f;
+
+		this.transform.position = cible.transform.position + Quaternion.Euler(vertical, horizontal, 0) * new Vector3 (0, 0, -distanceMax);
 	}
 
-    void Update() {
-        
-        if (InputManager.GetKeyAxis("Mouse X") >= 0.85 || InputManager.GetKeyAxis("Mouse X") <= -0.85) {
-            horizontal += InputManager.GetKeyAxis("Mouse X")*sensibiliteX;
-            //Debug.Log(InputManager.GetKeyAxis("Mouse X"));
-        }
-        if (InputManager.GetKeyAxis("Mouse Y") > 0.85 || InputManager.GetKeyAxis("Mouse Y") <= -0.85)
-        {
-            vertical += InputManager.GetKeyAxis("Mouse Y")*sensibiliteY;
-            vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
-        }
+	/* On utilise LateUpdate afin que tout les autres éléments de la scène
+	 * est été mis à jour avant de positionner la caméra car sa position 
+	 * dépend de celle de la princesse.
+	 */
+	void LateUpdate() {
 
-		camera_transform.position = Vector3.SmoothDamp(camera_transform.position,new Vector3(0, 5, -10),ref velocity, 0.3F);
+		// mise à jour des entrées manettes et souris
 
-			
+		this.miseAJourInput();
 
-		
-	}
+		// on cache le curseur
 
-
-	void LateUpdate() { 
 		Cursor.visible = false;
 
-		Vector3 direction = this.transform.position - cible.transform.position;
-		RaycastHit hitInfo;
+		// on récupère la distance max à laquelle on peut placer la caméra de son point de focus
 
-		Physics.Raycast(cible.transform.position, direction, out hitInfo);
+		float distance = this.calculerDistanceFocusCamera();
 
-		float distance = hitInfo.distance == 0.0f ? distanceMax : Mathf.Min(hitInfo.distance, distanceMax);
+		// on place la caméra
 
-		Vector3 dir = new Vector3 (0, 0,-distance);
-		Quaternion rotation = Quaternion.Euler(vertical, horizontal, 0);
-		camera_transform.position = cible.transform.position + rotation * dir + cible.transform.up * hauteurFocus;
-		camera_transform.LookAt (cible.transform.position + cible.transform.up * hauteurFocus + cible.transform.forward * 0.1f);
+		this.placerCamera(distance);
 
-		camera_transform.transform.Rotate(new Vector3(-20, 0, 0));
+
+	/* 
+		// .... Transparence ....
 
 		if (distance < distanceAvantTransparence) {
 			float alpha = Mathf.Clamp(distance / (distanceAvantTransparence * 0.66f), 0.0f, 1.0f);
@@ -74,5 +80,80 @@ public class camera : MonoBehaviour {
 				skinPrincesse.materials[i].color = new Color (skinPrincesse.materials[i].color.r, skinPrincesse.materials[i].color.g, skinPrincesse.materials[i].color.b, 1.0f);
 			}
 		}
+	*/
+	}
+
+	private void miseAJourInput(){
+
+		if (manetteActive){ // manette
+
+			this.miseAJourManette();
+		}
+		else { // souris
+
+			this.miseAJourSouris();
+		}
+
+		// bornage des valeurs
+
+		horizontal = horizontal % 360.0f;
+		vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
+	}
+
+	private void miseAJourManette(){
+
+		if (InputManager.GetKeyAxis("Mouse X") > this.inputMinimumManette){
+
+			horizontal += ((InputManager.GetKeyAxis("Mouse X") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
+
+		} else if(InputManager.GetKeyAxis("Mouse X") < - this.inputMinimumManette) {
+
+			horizontal += ((InputManager.GetKeyAxis("Mouse X") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
+
+		}
+
+		if (InputManager.GetKeyAxis("Mouse Y") > this.inputMinimumManette){
+
+			vertical += ((InputManager.GetKeyAxis("Mouse Y") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
+			
+		} else if (InputManager.GetKeyAxis("Mouse Y") < -this.inputMinimumManette){
+
+			vertical += ((InputManager.GetKeyAxis("Mouse Y") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
+			
+		}
+	}
+
+	private void miseAJourSouris(){
+
+		horizontal += InputManager.GetKeyAxis("Mouse X") * sensibiliteSourisX;
+		vertical += InputManager.GetKeyAxis("Mouse Y") * sensibiliteSourisY;
+	}
+
+	private float calculerDistanceFocusCamera(){
+
+		Vector3 direction = this.transform.position - cible.transform.position;
+
+		RaycastHit[] hitInfos = Physics.RaycastAll(cible.transform.position, direction, this.distanceMax);
+
+		float distance = this.distanceMax;
+
+		foreach (RaycastHit info in hitInfos){
+			if(!info.collider.gameObject.Equals(princesse)){
+				distance = Mathf.Min(info.distance, distance);
+			}
+		}
+
+		return distance;
+	}
+
+	private void placerCamera(float distance){
+
+		Vector3 dir = new Vector3 (0, 0, - distance);
+
+		Quaternion rotation = Quaternion.Euler(this.vertical, this.horizontal, 0);
+
+		this.transform.position = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, 0.15f);
+
+		this.transform.LookAt (cible.transform.position);
 	}
 }

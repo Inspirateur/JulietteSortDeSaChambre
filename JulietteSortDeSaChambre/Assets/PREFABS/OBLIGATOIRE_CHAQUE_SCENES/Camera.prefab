@@ -185,15 +185,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd311aa65b6f88e4bb6894b8d495ab50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesse_rotation: 5
-  horizontal: 0
-  vertical: 50
-  distanceMax: 4
-  hauteurFocus: 0.3
-  distanceAvantTransparence: 1.5
-  camera_transform: {fileID: 4413871578958366}
-  sensibiliteX: 1.1
-  sensibiliteY: 1.1
+  manetteActive: 0
+  distanceMax: 2
+  sensibiliteManetteX: 1.1
+  sensibiliteManetteY: 0.8
+  inputMinimumManette: 0.85
+  sensibiliteSourisX: 1
+  sensibiliteSourisY: 1
 --- !u!124 &124441358949258762
 Behaviour:
   m_ObjectHideFlags: 1
