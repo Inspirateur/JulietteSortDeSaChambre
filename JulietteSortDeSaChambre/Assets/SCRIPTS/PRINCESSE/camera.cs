@@ -171,11 +171,19 @@ public class camera : MonoBehaviour {
 		this.fov /= this.facteurZoom;
 		this.distanceMax /= this.facteurZoom;
 		this.ANGLE_MIN_Y *= 10.0f * this.facteurZoom;
+		this.sensibiliteSourisX /= this.facteurZoom;
+		this.sensibiliteSourisY /= this.facteurZoom;
+		this.sensibiliteManetteX /= this.facteurZoom;
+		this.sensibiliteManetteY /= this.facteurZoom;
 	}
 
 	public void dezoomer(){
 		this.fov *= this.facteurZoom;
 		this.distanceMax *= this.facteurZoom;
 		this.ANGLE_MIN_Y /= 10.0f * this.facteurZoom;
+		this.sensibiliteSourisX *= this.facteurZoom;
+		this.sensibiliteSourisY *= this.facteurZoom;
+		this.sensibiliteManetteX *= this.facteurZoom;
+		this.sensibiliteManetteY *= this.facteurZoom;
 	}
 }
