@@ -68,6 +68,8 @@ public class PrincesseArme : MonoBehaviour {
 	private int degatsArmeActuelle;
 	private float facteurReculArmeActuelle;
 	private float timerAttaque;
+	private bool zoom;
+	private camera cam;
 
     // Use this for initialization
     void Start () {
@@ -81,6 +83,10 @@ public class PrincesseArme : MonoBehaviour {
 
         listArmeTenu = new List<EnumArmes> ();
         listArmeTenu = GameControl.control.listArmeTenu;
+
+		zoom = false;
+
+		this.cam = Camera.main.GetComponent<camera>();
 	}
 	
 	// Update is called once per frame
@@ -98,6 +104,36 @@ public class PrincesseArme : MonoBehaviour {
 
 		if(attaqueDistanceEnCours && Time.time >= timerApparitionProjectile && !projectileDejaCree){
 			this.lancerProjectile();
+		}
+
+		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)){
+
+			if(InputManager.GetButtonDown("Zoom")){
+
+				if(this.zoom){
+					this.zoom = false;
+					this.cam.dezoomer();
+				}
+				else{
+					this.zoom = true;
+					this.cam.zoomer();
+				}
+			}
+
+		} else if(this.zoom) {
+			this.zoom = false;
+			this.cam.dezoomer();
+		}
+
+		if(this.zoom){
+
+			Vector3 temp = this.cam.transform.forward;
+
+			temp.y = 0.0f;
+
+			temp.Normalize();
+
+			this.transform.forward = temp;
 		}
 	}
 
