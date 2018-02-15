@@ -102,21 +102,21 @@ public class camera : MonoBehaviour {
 
 		if (InputManager.GetKeyAxis("Joystick X") > this.inputMinimumManette){
 
-			horizontal += ((InputManager.GetKeyAxis("Mouse X") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
+			horizontal += ((InputManager.GetKeyAxis("Joystick X") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
 
 		} else if(InputManager.GetKeyAxis("Joystick X") < - this.inputMinimumManette) {
 
-			horizontal += ((InputManager.GetKeyAxis("Mouse X") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
+			horizontal += ((InputManager.GetKeyAxis("Joystick X") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
 
 		}
 
 		if (InputManager.GetKeyAxis("Joystick Y") > this.inputMinimumManette){
 
-			vertical += ((InputManager.GetKeyAxis("Mouse Y") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
+			vertical += ((InputManager.GetKeyAxis("Joystick Y") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
 			
 		} else if (InputManager.GetKeyAxis("Joystick Y") < -this.inputMinimumManette){
 
-			vertical += ((InputManager.GetKeyAxis("Mouse Y") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
+			vertical += ((InputManager.GetKeyAxis("Joystick Y") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
 			
 		}
 	}
