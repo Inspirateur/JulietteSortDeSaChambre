@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4245523788227664}
   - component: {fileID: 33524950598950588}
   - component: {fileID: 23698549708405974}
-  - component: {fileID: 64168450021818594}
   m_Layer: 2
   m_Name: handBaguetteMagique
   m_TagString: Untagged
@@ -544,6 +543,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1778720902326816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4165166654458322}
+  m_Layer: 8
+  m_Name: focusCamera
+  m_TagString: FocusCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1794504106672212
 GameObject:
   m_ObjectHideFlags: 1
@@ -816,6 +830,19 @@ Transform:
   m_Father: {fileID: 4925313353283416}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0.19100001, y: 78.65401, z: 21.146002}
+--- !u!4 &4165166654458322
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778720902326816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.947, y: 3.413, z: -0.266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4259609440931172}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4202617660764456
 Transform:
   m_ObjectHideFlags: 1
@@ -872,6 +899,7 @@ Transform:
   - {fileID: 4792320266888180}
   - {fileID: 4063036175818956}
   - {fileID: 4062805395152034}
+  - {fileID: 4165166654458322}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
@@ -1380,20 +1408,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!64 &64168450021818594
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1011075483477098}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0ecdfa7fa6f3d8d41a6e2d009e1c171f, type: 3}
 --- !u!65 &65221232713371184
 BoxCollider:
   m_ObjectHideFlags: 1

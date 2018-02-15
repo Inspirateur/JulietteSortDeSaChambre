@@ -6,6 +6,7 @@ public class camera : MonoBehaviour {
 
 	[Header("Paramètres généraux")]
 	public float distanceMax;
+	public float smooth;
 
 	[Header("Sensibilités manette")]
 
@@ -150,7 +151,7 @@ public class camera : MonoBehaviour {
 
 		Quaternion rotation = Quaternion.Euler(this.vertical, this.horizontal, 0);
 
-		Vector3 temp = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, 0.15f);
+		Vector3 temp = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, this.smooth);
 
 		temp.y = (cible.transform.position + rotation * dir).y;
 
