@@ -67,6 +67,7 @@ public class PrincesseArme : MonoBehaviour {
 
 	private int degatsArmeActuelle;
 	private float facteurReculArmeActuelle;
+	private float timerAttaque;
 
     // Use this for initialization
     void Start () {
@@ -85,7 +86,9 @@ public class PrincesseArme : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours) && anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")) {
+		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours)
+		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
+		&& Time.time >= timerAttaque) {
 			
 			attaqueCorpsACorpsEnCours = false;
 			attaqueDistanceEnCours = false;
@@ -135,8 +138,8 @@ public class PrincesseArme : MonoBehaviour {
     }
 
 	public void lancerAttaque() {
-        Debug.Log("lancerAttaque");
 
+		timerAttaque = Time.time + 0.1f;
 		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)) {
 			attaqueCorpsACorpsEnCours = false;
 			attaqueDistanceEnCours = true;
@@ -151,6 +154,7 @@ public class PrincesseArme : MonoBehaviour {
 	}
 
 	private void lancerProjectile(){
+		
 		projectileDejaCree = true;
 
 		GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
