@@ -5,11 +5,7 @@ using UnityEngine;
 public class camera : MonoBehaviour {
 
 	[Header("Paramètres généraux")]
-
-	public bool manetteActive;
 	public float distanceMax;
-
-	// public float distanceAvantTransparence;
 
 	[Header("Sensibilités manette")]
 
@@ -25,8 +21,6 @@ public class camera : MonoBehaviour {
 	private const float ANGLE_MIN_Y = -3.0f;
 	private const float ANGLE_MAX_Y = 80.0f;
 	private GameObject cible;
-
-	// private SkinnedMeshRenderer skinPrincesse;
 	private Vector3 velocity = Vector3.zero;
 	private GameObject princesse;
 	private float horizontal;
@@ -85,7 +79,7 @@ public class camera : MonoBehaviour {
 
 	private void miseAJourInput(){
 
-		if (manetteActive){ // manette
+		if (this.vraiSiManetteBranchee()){ // manette
 
 			this.miseAJourManette();
 		}
@@ -100,23 +94,27 @@ public class camera : MonoBehaviour {
 		vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
 	}
 
+	private bool vraiSiManetteBranchee(){
+		return Input.GetJoystickNames().Length > 0;
+	}
+
 	private void miseAJourManette(){
 
-		if (InputManager.GetKeyAxis("Mouse X") > this.inputMinimumManette){
+		if (InputManager.GetKeyAxis("Joystick X") > this.inputMinimumManette){
 
 			horizontal += ((InputManager.GetKeyAxis("Mouse X") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
 
-		} else if(InputManager.GetKeyAxis("Mouse X") < - this.inputMinimumManette) {
+		} else if(InputManager.GetKeyAxis("Joystick X") < - this.inputMinimumManette) {
 
 			horizontal += ((InputManager.GetKeyAxis("Mouse X") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
 
 		}
 
-		if (InputManager.GetKeyAxis("Mouse Y") > this.inputMinimumManette){
+		if (InputManager.GetKeyAxis("Joystick Y") > this.inputMinimumManette){
 
 			vertical += ((InputManager.GetKeyAxis("Mouse Y") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
 			
-		} else if (InputManager.GetKeyAxis("Mouse Y") < -this.inputMinimumManette){
+		} else if (InputManager.GetKeyAxis("Joystick Y") < -this.inputMinimumManette){
 
 			vertical += ((InputManager.GetKeyAxis("Mouse Y") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
 			
@@ -152,7 +150,11 @@ public class camera : MonoBehaviour {
 
 		Quaternion rotation = Quaternion.Euler(this.vertical, this.horizontal, 0);
 
-		this.transform.position = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, 0.15f);
+		Vector3 temp = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, 0.15f);
+
+		temp.y = (cible.transform.position + rotation * dir).y;
+
+		this.transform.position = temp;
 
 		this.transform.LookAt (cible.transform.position);
 	}
