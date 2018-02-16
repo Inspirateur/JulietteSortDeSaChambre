@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GOB_PouvoirGlace : MonoBehaviour {
-    private float icePowerDuration;
     private bool isIced;
+    private IA_Agent agent;
 
 	// Use this for initialization
 	void Start () {
-        icePowerDuration = GameObject.FindGameObjectWithTag("PouvoirGlace").GetComponent<PrincessePouvoirGlace>().duration;
         isIced = false;
-        Debug.Log(icePowerDuration);
+        this.agent = GetComponent<IA_Agent>();
 	}
 	
 	// Update is called once per frame
@@ -22,16 +21,12 @@ public class GOB_PouvoirGlace : MonoBehaviour {
     {
         if (other.tag == "PouvoirGlace" && !isIced)
         {
-            Debug.Log("gobelin touche");
+            agent.changerEtat(GetComponent<GOB_E_Glace>());
             isIced = true;
-            StartCoroutine(WaitforIcePower());
         }
     }
 
-    IEnumerator WaitforIcePower()
-    {
-        yield return new WaitForSeconds(icePowerDuration);
-        Debug.Log("Gobelin libere de la glace");
+    public void notifierNestPlusGlace(){
+        this.isIced = false;
     }
-
 }
