@@ -39,9 +39,9 @@ public class GOB_E_AttaquerHorizontalement : IA_Etat {
 	public override void faireEtat()
 	{
 		if (Time.time < timerFinAttaque) { // l'attaque est toujours en cours
-			Debug.Log("en attaque");
+			
 			if(Time.time >= timerChargement){
-				Debug.Log("fini chargement");
+				
 				if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
 					princesseVie.blesser (degats, this.gameObject, forceRecule);
