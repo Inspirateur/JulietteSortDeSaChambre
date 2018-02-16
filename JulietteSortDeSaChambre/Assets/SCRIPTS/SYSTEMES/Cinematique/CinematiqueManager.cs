@@ -25,6 +25,24 @@ public class CinematiqueManager : MonoBehaviour {
 				this.lancerCinematique(0);
 			}
 		}
+		
+		if(InputManager.GetKeyDown(KeyCode.V)){
+
+			if(this.isCinematiqueEnCours()){
+				this.skipCinematique();
+			} else {
+				this.lancerCinematique(1);
+			}
+		}
+		
+		if(InputManager.GetKeyDown(KeyCode.B)){
+
+			if(this.isCinematiqueEnCours()){
+				this.skipCinematique();
+			} else {
+				this.lancerCinematique(2);
+			}
+		}
 	}
 
 	public void lancerCinematique(int numCinematique){
