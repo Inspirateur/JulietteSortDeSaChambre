@@ -24,7 +24,7 @@ public class TRO_E_EtreBlesse : IA_Etat {
 	{
 		nav.enabled = false;
 //		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
-		anim.Play(GOB_Animations.ETRE_BLESSE);
+		anim.Play(TRO_Animations.ETRE_BLESSE);
 		agent.getSoundEntity().stop();
 		agent.getSoundEntity().playOneShot(sonDegat,1.0f);
 
@@ -38,7 +38,7 @@ public class TRO_E_EtreBlesse : IA_Etat {
 	public override void faireEtat()
 	{
 		if (Time.time > timer && agent.estAuSol()) {
-			changerEtat (GetComponent<GOB_E_Combattre>());
+			changerEtat (GetComponent<TRO_E_Combattre>());
 		}
 	}
 
@@ -47,9 +47,8 @@ public class TRO_E_EtreBlesse : IA_Etat {
 
 	}
 
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint)
-	{
-
+	public override void subirDegats(int valeurDegats, Vector3 hitPoint) {
+		agent.getMobVie().blesserSansEtat (valeurDegats, hitPoint);
 	}
 
 	public void setFacteurRecule(float facteurRecule){

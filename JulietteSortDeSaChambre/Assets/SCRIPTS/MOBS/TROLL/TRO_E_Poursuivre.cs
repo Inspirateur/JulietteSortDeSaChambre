@@ -55,7 +55,7 @@ public class TRO_E_Poursuivre : IA_Etat {
 
 		if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
 
-			changerEtat (this.GetComponent<GOB_E_Combattre> ());
+			changerEtat (this.GetComponent<TRO_E_Combattre> ());
 
 		} else if (agent.destinationCouranteAtteinte ()) {
 			

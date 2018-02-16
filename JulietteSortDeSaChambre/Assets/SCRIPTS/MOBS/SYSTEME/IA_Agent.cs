@@ -237,7 +237,7 @@ public class IA_Agent : MonoBehaviour {
     {
         etatCourant.sortirEtat();
         etatCourant = nouvelEtat;
-		// Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
+		Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
         etatCourant.entrerEtat();
 	}
 
@@ -256,15 +256,12 @@ public class IA_Agent : MonoBehaviour {
 		etatCourant.subirDegats(valeurDegats, hitPoint);
 	}
 
-	public void subirDegats(int valeurDegats) {
-		etatCourant.subirDegats(valeurDegats);
-	}
-
 	public bool estEnVie() {
 		return mobVie.estEnVie ();
 	}
 
 	public void mourir() {
+		Debug.Log ("je rentre dans l'etat de mort, si ça ne se voit pas tu peux crier");
 		changerEtat (etatMort);
 	}
 

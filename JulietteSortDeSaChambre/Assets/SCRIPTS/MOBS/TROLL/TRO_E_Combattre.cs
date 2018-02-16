@@ -34,10 +34,8 @@ public class TRO_E_Combattre : IA_Etat {
 		agent.seTournerVersPosition (princesse.transform.position);
 
 		if (agent.distanceToPrincesse() >= distanceSortieCombat) {
-			changerEtat (GetComponent<GOB_E_Poursuivre> ());
-		}
-
-		else if (Time.time >= timerAttaque) {
+			changerEtat (GetComponent<TRO_E_Poursuivre> ());
+		} else if (Time.time >= timerAttaque) {
 			float choixAttaque = Random.value;
 
 			if (choixAttaque <= pourcentageAttaqueEmpaler) {
@@ -46,17 +44,9 @@ public class TRO_E_Combattre : IA_Etat {
 				changerEtat (GetComponent<GOB_E_AttaquerHorizontalement> ());
 			}
 		}
-
-		else if (princesseArme.isAttaqueEnCours() && Time.time >= timerEsquive) {
-			timerEsquive = Time.time + delaisEsquive;
-			if(Random.value <= pourcentageEsquive){
-				changerEtat(GetComponent<GOB_E_Esquiver>());
-			}
-		}
 	}
 
-	public override void sortirEtat()
-	{
+	public override void sortirEtat() {
 
 	}
 }

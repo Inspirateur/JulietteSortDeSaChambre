@@ -9,7 +9,6 @@ public class TRO_E_Dormir : IA_Etat {
 	// Use this for initialization
 	void Start(){
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
-
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
 
@@ -19,7 +18,7 @@ public class TRO_E_Dormir : IA_Etat {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	public override void faireEtat () {
 		if(perception.aRepere(princesse, attentionSommeil)){
 			changerEtat(this.GetComponent<TRO_E_Poursuivre>());
 		}
@@ -27,5 +26,9 @@ public class TRO_E_Dormir : IA_Etat {
 
 	public override void sortirEtat() {
 		perception.estAveugle = false;
+	}
+
+	public override void subirDegats(int valeurDegats, Vector3 hitPoint) {
+		agent.getMobVie().blesserSansEtat (valeurDegats, hitPoint);
 	}
 }
