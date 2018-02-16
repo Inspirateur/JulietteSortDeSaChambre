@@ -7,6 +7,7 @@ public class PrincessePouvoir : MonoBehaviour {
     public string Nom;
     public string Description;
     public float duration;
+    public float cooldown;
 
 	// Use this for initialization
 	void Start () {
