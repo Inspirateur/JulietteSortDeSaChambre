@@ -395,7 +395,6 @@ GameObject:
   - component: {fileID: 82716957421335422}
   - component: {fileID: 114573517906380194}
   - component: {fileID: 114882417127062912}
-  - component: {fileID: 114017809152141382}
   m_Layer: 8
   m_Name: Juliette
   m_TagString: Player
@@ -1701,25 +1700,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114017809152141382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1501621892178278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1475701c3833514195e2c0c3fcc37f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParticuleMobHurt:
-  - {fileID: 1386326879869430, guid: 90df33f6044effb4ca85698878036c5a, type: 2}
-  SoundParticuleMobHurt:
-  - {fileID: 8300000, guid: 91caa77321f43e444a2aa447769202eb, type: 3}
-  ParticuleWall:
-  - {fileID: 1952027472288316, guid: 605269e3410fdaa4695bb16e2970425c, type: 2}
-  SoundParticuleWall:
-  - {fileID: 8300000, guid: 95b89dd51ec5b70428367ee6a2c95629, type: 3}
 --- !u!114 &114042103838986114
 MonoBehaviour:
   m_ObjectHideFlags: 1
