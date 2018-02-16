@@ -40,27 +40,40 @@ public class InteractionObjet : MonoBehaviour {
             }
         }
 
-        if (distance_princesse.magnitude < distanceActivation) {
-			// dans la distance d'activation de l'objet
+		if (objet as Item==null) 
+		{
+			if (distance_princesse.magnitude < distanceActivation) {
+				// dans la distance d'activation de l'objet
 
-			float angle = Vector3.Angle (juliette.transform.forward, distance_princesse.normalized);
+				float angle = Vector3.Angle (juliette.transform.forward, distance_princesse.normalized);
 
-			if (angle <= demiAngleActivationFrontal) {
-				hud_refractor.activeAffichageInteractionObjet (objet);
-				//image_detection.enabled = true;
-				if (action) {
+				if (angle <= demiAngleActivationFrontal) {
+					hud_refractor.activeAffichageInteractionObjet (objet);
+					//image_detection.enabled = true;
+					if (action) {
+						hud_refractor.desactiveAffichageInteractionObjet (objet);
+						objet.Activation ();
+					}
+
+				} else {
 					hud_refractor.desactiveAffichageInteractionObjet (objet);
-					objet.Activation ();
+					//image_detection.enabled = false;
 				}
-
 			} else {
 				hud_refractor.desactiveAffichageInteractionObjet (objet);
 				//image_detection.enabled = false;
 			}
-		} else {
-			hud_refractor.desactiveAffichageInteractionObjet (objet);
-			//image_detection.enabled = false;
 		}
+
+        
+
+	}
+
+	void OnTriggerEnter(Collider collision){
+		if (collision.tag == "Player") {
+			objet.Activation ();
+		}
+
 
 	}
 }
