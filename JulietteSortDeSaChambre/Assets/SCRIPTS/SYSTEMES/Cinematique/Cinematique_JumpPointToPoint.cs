@@ -8,18 +8,34 @@ public class Cinematique_JumpPointToPoint : Cinematique {
 
 	public float dureeArretAChaquePoint;
 
-    public override void miseAJourCamera()
+    private float timer;
+
+    public override void entrer()
     {
-        throw new System.NotImplementedException();
+        this.placer(this.listeCinematiquePointOfView[0]);
+        timer = Time.time + this.dureeArretAChaquePoint;
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void mettreAJour()
+    {
+        if(Time.time >= timer){
+
+            this.numPOVActuel++;
+
+            if(this.numPOVActuel == this.listeCinematiquePointOfView.Length){
+
+                this.terminer();
+            }
+            else{
+
+                this.placer(this.listeCinematiquePointOfView[this.numPOVActuel]);
+                timer = Time.time + this.dureeArretAChaquePoint;
+            }
+        }
+    }
+
+    public override void sortir()
+    {
+        this.replacerPositionAvantLancementCinematique();
+    }
 }

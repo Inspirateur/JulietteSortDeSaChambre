@@ -31,7 +31,7 @@ public class camera : MonoBehaviour {
 	private float velocityFOV = 0.0f;
 	private Vector3 lookAtPoint;
 	private Vector3 velocityLookAtPoint = Vector3.zero;
-	private bool cinematiqueEnCours;
+	private CinematiqueManager cinematiqueManager;
 
 	void Awake() {
 		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
@@ -46,7 +46,7 @@ public class camera : MonoBehaviour {
 
 		this.fov = Camera.main.fieldOfView;
 
-		this.cinematiqueEnCours = false;
+		this.cinematiqueManager = GameObject.FindGameObjectWithTag("CinematiqueManager").GetComponent<CinematiqueManager>();
 
 		this.lookAtPoint = cible.transform.position;
 	}
@@ -57,16 +57,9 @@ public class camera : MonoBehaviour {
 	 */
 	void LateUpdate() {
 
-		if(this.cinematiqueEnCours){
-
-		}
-		else{
+		if( ! this.cinematiqueManager.isCinematiqueEnCours() ){
 			this.gererCameraClassique();
 		}
-	}
-
-	public void setCinematiqueEnCours(bool vraiSiUneCinematiqueEstEnCours){
-		this.cinematiqueEnCours = vraiSiUneCinematiqueEstEnCours;
 	}
 
 	private void gererCameraClassique(){
