@@ -29,6 +29,9 @@ public class camera : MonoBehaviour {
 	private float vertical;
 	private float fov;
 	private float velocityFOV = 0.0f;
+	private Vector3 lookAtPoint;
+	private Vector3 velocityLookAtPoint = Vector3.zero;
+	private bool cinematiqueEnCours;
 
 	void Awake() {
 		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
@@ -42,6 +45,10 @@ public class camera : MonoBehaviour {
 		this.transform.position = cible.transform.position + Quaternion.Euler(vertical, horizontal, 0) * new Vector3 (0, 0, -distanceMax);
 
 		this.fov = Camera.main.fieldOfView;
+
+		this.cinematiqueEnCours = false;
+
+		this.lookAtPoint = cible.transform.position;
 	}
 
 	/* On utilise LateUpdate afin que tout les autres éléments de la scène
@@ -50,6 +57,19 @@ public class camera : MonoBehaviour {
 	 */
 	void LateUpdate() {
 
+		if(this.cinematiqueEnCours){
+
+		}
+		else{
+			this.gererCameraClassique();
+		}
+	}
+
+	public void setCinematiqueEnCours(bool vraiSiUneCinematiqueEstEnCours){
+		this.cinematiqueEnCours = vraiSiUneCinematiqueEstEnCours;
+	}
+
+	private void gererCameraClassique(){
 		// mise à jour des entrées manettes et souris
 
 		this.miseAJourInput();
@@ -162,7 +182,11 @@ public class camera : MonoBehaviour {
 
 		this.transform.position = temp;
 
-		this.transform.LookAt (cible.transform.position);
+		this.lookAtPoint = Vector3.SmoothDamp(this.lookAtPoint, cible.transform.position, ref velocityLookAtPoint, this.smooth);
+
+		this.lookAtPoint.y = cible.transform.position.y;
+
+		this.transform.LookAt (this.lookAtPoint);
 
 		Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, fov, ref velocityFOV, this.smooth);
 	}
@@ -171,11 +195,19 @@ public class camera : MonoBehaviour {
 		this.fov /= this.facteurZoom;
 		this.distanceMax /= this.facteurZoom;
 		this.ANGLE_MIN_Y *= 10.0f * this.facteurZoom;
+		this.sensibiliteSourisX /= this.facteurZoom;
+		this.sensibiliteSourisY /= this.facteurZoom;
+		this.sensibiliteManetteX /= this.facteurZoom;
+		this.sensibiliteManetteY /= this.facteurZoom;
 	}
 
 	public void dezoomer(){
 		this.fov *= this.facteurZoom;
 		this.distanceMax *= this.facteurZoom;
 		this.ANGLE_MIN_Y /= 10.0f * this.facteurZoom;
+		this.sensibiliteSourisX *= this.facteurZoom;
+		this.sensibiliteSourisY *= this.facteurZoom;
+		this.sensibiliteManetteX *= this.facteurZoom;
+		this.sensibiliteManetteY *= this.facteurZoom;
 	}
 }
