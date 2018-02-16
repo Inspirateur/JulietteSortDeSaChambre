@@ -4,65 +4,91 @@ using UnityEngine;
 
 public class camera : MonoBehaviour {
 
-	private const float ANGLE_MIN_Y = 20f;
-	private const float ANGLE_MAX_Y = 70f;
-	private GameObject cible;
-	private SkinnedMeshRenderer skinPrincesse;
-	private Vector3 velocity = Vector3.zero;
-
-	public float vitesse_rotation = 5;
-	public float horizontal;
-	public float vertical;
+	[Header("Paramètres généraux")]
 	public float distanceMax;
-	public float hauteurFocus;
-	public float distanceAvantTransparence;
-	public Transform camera_transform;
+	public float smooth;
+	public float facteurZoom;
 
-    public float sensibiliteX;
-    public float sensibiliteY;
+	[Header("Sensibilités manette")]
 
-    void Start() {
-		camera_transform = transform;
-		cible = GameObject.FindGameObjectWithTag ("Player");
-		skinPrincesse = GameObject.FindGameObjectWithTag ("PrincesseBody").GetComponent<SkinnedMeshRenderer>();
+    public float sensibiliteManetteX;
+    public float sensibiliteManetteY;
+	public float inputMinimumManette;
+
+	[Header("Sensibilités souris")]
+
+    public float sensibiliteSourisX;
+    public float sensibiliteSourisY;
+
+	private float ANGLE_MIN_Y = -3.0f;
+	private float ANGLE_MAX_Y = 80.0f;
+	private GameObject cible;
+	private Vector3 velocity = Vector3.zero;
+	private GameObject princesse;
+	private float horizontal;
+	private float vertical;
+	private float fov;
+	private float velocityFOV = 0.0f;
+	private Vector3 lookAtPoint;
+	private Vector3 velocityLookAtPoint = Vector3.zero;
+	private bool cinematiqueEnCours;
+
+	void Awake() {
+		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
+		princesse = GameObject.FindGameObjectWithTag("Player");
+		// skinPrincesse = GameObject.FindGameObjectWithTag ("PrincesseBody").GetComponent<SkinnedMeshRenderer>();
+
+		// On place la caméra à son point de départ pour éviter un mauvais effet au démarrage du jeu
+
+		this.horizontal = 180.0f;
+
+		this.transform.position = cible.transform.position + Quaternion.Euler(vertical, horizontal, 0) * new Vector3 (0, 0, -distanceMax);
+
+		this.fov = Camera.main.fieldOfView;
+
+		this.cinematiqueEnCours = false;
+
+		this.lookAtPoint = cible.transform.position;
 	}
 
-    void Update() {
-        
-        if (InputManager.GetKeyAxis("Mouse X") >= 0.85 || InputManager.GetKeyAxis("Mouse X") <= -0.85) {
-            horizontal += InputManager.GetKeyAxis("Mouse X")*sensibiliteX;
-            //Debug.Log(InputManager.GetKeyAxis("Mouse X"));
-        }
-        if (InputManager.GetKeyAxis("Mouse Y") > 0.85 || InputManager.GetKeyAxis("Mouse Y") <= -0.85)
-        {
-            vertical += InputManager.GetKeyAxis("Mouse Y")*sensibiliteY;
-            vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
-        }
+	/* On utilise LateUpdate afin que tout les autres éléments de la scène
+	 * est été mis à jour avant de positionner la caméra car sa position 
+	 * dépend de celle de la princesse.
+	 */
+	void LateUpdate() {
 
-		camera_transform.position = Vector3.SmoothDamp(camera_transform.position,new Vector3(0, 5, -10),ref velocity, 0.3F);
+		if(this.cinematiqueEnCours){
 
-			
-
-		
+		}
+		else{
+			this.gererCameraClassique();
+		}
 	}
 
+	public void setCinematiqueEnCours(bool vraiSiUneCinematiqueEstEnCours){
+		this.cinematiqueEnCours = vraiSiUneCinematiqueEstEnCours;
+	}
 
-	void LateUpdate() { 
+	private void gererCameraClassique(){
+		// mise à jour des entrées manettes et souris
+
+		this.miseAJourInput();
+
+		// on cache le curseur
+
 		Cursor.visible = false;
 
-		Vector3 direction = this.transform.position - cible.transform.position;
-		RaycastHit hitInfo;
+		// on récupère la distance max à laquelle on peut placer la caméra de son point de focus
 
-		Physics.Raycast(cible.transform.position, direction, out hitInfo);
+		float distance = this.calculerDistanceFocusCamera();
 
-		float distance = hitInfo.distance == 0.0f ? distanceMax : Mathf.Min(hitInfo.distance, distanceMax);
+		// on place la caméra
 
-		Vector3 dir = new Vector3 (0, 0,-distance);
-		Quaternion rotation = Quaternion.Euler(vertical, horizontal, 0);
-		camera_transform.position = cible.transform.position + rotation * dir + cible.transform.up * hauteurFocus;
-		camera_transform.LookAt (cible.transform.position + cible.transform.up * hauteurFocus + cible.transform.forward * 0.1f);
+		this.placerCamera(distance);
 
-		camera_transform.transform.Rotate(new Vector3(-20, 0, 0));
+
+	/* 
+		// .... Transparence ....
 
 		if (distance < distanceAvantTransparence) {
 			float alpha = Mathf.Clamp(distance / (distanceAvantTransparence * 0.66f), 0.0f, 1.0f);
@@ -74,5 +100,114 @@ public class camera : MonoBehaviour {
 				skinPrincesse.materials[i].color = new Color (skinPrincesse.materials[i].color.r, skinPrincesse.materials[i].color.g, skinPrincesse.materials[i].color.b, 1.0f);
 			}
 		}
+	*/
+	}
+
+	private void miseAJourInput(){
+
+		if (this.vraiSiManetteBranchee()){ // manette
+
+			this.miseAJourManette();
+		}
+		else { // souris
+
+			this.miseAJourSouris();
+		}
+
+		// bornage des valeurs
+
+		horizontal = horizontal % 360.0f;
+		vertical = Mathf.Clamp(vertical, ANGLE_MIN_Y, ANGLE_MAX_Y);
+	}
+
+	private bool vraiSiManetteBranchee(){
+		return Input.GetJoystickNames().Length > 0;
+	}
+
+	private void miseAJourManette(){
+
+		if (InputManager.GetKeyAxis("Joystick X") > this.inputMinimumManette){
+
+			horizontal += ((InputManager.GetKeyAxis("Joystick X") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
+
+		} else if(InputManager.GetKeyAxis("Joystick X") < - this.inputMinimumManette) {
+
+			horizontal += ((InputManager.GetKeyAxis("Joystick X") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteX;
+
+		}
+
+		if (InputManager.GetKeyAxis("Joystick Y") > this.inputMinimumManette){
+
+			vertical += ((InputManager.GetKeyAxis("Joystick Y") - this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
+			
+		} else if (InputManager.GetKeyAxis("Joystick Y") < -this.inputMinimumManette){
+
+			vertical += ((InputManager.GetKeyAxis("Joystick Y") + this.inputMinimumManette) / (1.0f - this.inputMinimumManette)) * sensibiliteManetteY;
+			
+		}
+	}
+
+	private void miseAJourSouris(){
+
+		horizontal += InputManager.GetKeyAxis("Mouse X") * sensibiliteSourisX;
+		vertical += InputManager.GetKeyAxis("Mouse Y") * sensibiliteSourisY;
+	}
+
+	private float calculerDistanceFocusCamera(){
+
+		Vector3 direction = this.transform.position - cible.transform.position;
+
+		RaycastHit[] hitInfos = Physics.RaycastAll(cible.transform.position, direction, this.distanceMax);
+
+		float distance = this.distanceMax;
+
+		foreach (RaycastHit info in hitInfos){
+			if(!info.collider.gameObject.Equals(princesse)){
+				distance = Mathf.Min(info.distance, distance);
+			}
+		}
+
+		return distance;
+	}
+
+	private void placerCamera(float distance){
+
+		Vector3 dir = new Vector3 (0, 0, - distance);
+
+		Quaternion rotation = Quaternion.Euler(this.vertical, this.horizontal, 0);
+
+		Vector3 temp = Vector3.SmoothDamp(this.transform.position, cible.transform.position + rotation * dir, ref velocity, this.smooth);
+
+		temp.y = (cible.transform.position + rotation * dir).y;
+
+		this.transform.position = temp;
+
+		this.lookAtPoint = Vector3.SmoothDamp(this.lookAtPoint, cible.transform.position, ref velocityLookAtPoint, this.smooth);
+
+		this.lookAtPoint.y = cible.transform.position.y;
+
+		this.transform.LookAt (this.lookAtPoint);
+
+		Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, fov, ref velocityFOV, this.smooth);
+	}
+
+	public void zoomer(){
+		this.fov /= this.facteurZoom;
+		this.distanceMax /= this.facteurZoom;
+		this.ANGLE_MIN_Y *= 10.0f * this.facteurZoom;
+		this.sensibiliteSourisX /= this.facteurZoom;
+		this.sensibiliteSourisY /= this.facteurZoom;
+		this.sensibiliteManetteX /= this.facteurZoom;
+		this.sensibiliteManetteY /= this.facteurZoom;
+	}
+
+	public void dezoomer(){
+		this.fov *= this.facteurZoom;
+		this.distanceMax *= this.facteurZoom;
+		this.ANGLE_MIN_Y /= 10.0f * this.facteurZoom;
+		this.sensibiliteSourisX *= this.facteurZoom;
+		this.sensibiliteSourisY *= this.facteurZoom;
+		this.sensibiliteManetteX *= this.facteurZoom;
+		this.sensibiliteManetteY *= this.facteurZoom;
 	}
 }
