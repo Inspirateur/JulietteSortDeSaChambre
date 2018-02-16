@@ -7,6 +7,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     private bool canPower;
 
     private SphereCollider sphereCollider;
+    private ParticleSystem visuel;
     //public float icePowerDuration;
 
     // Use this for initialization
@@ -17,6 +18,9 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         this.Nom = "Pouvoir de la glace";
         this.Description = "Gèle les ennemis devant vous pendant " + duration + " secondes";
         sphereCollider = GetComponent<SphereCollider>();
+        visuel=GameObject.Find("VisuelPouvoir").GetComponent<ParticleSystem>();
+        visuel.Clear();
+        visuel.Pause();
         canPower = true;
     }
 
@@ -27,8 +31,15 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         {
             sphereCollider.enabled = true;
             canPower = false;
+            //visuel.Clear();
+            visuel.Play();
+            //visuel.transform.position = sphereCollider.transform.localToWorldMatrix.MultiplyVector(sphereCollider.center);
+            visuel.transform.position=sphereCollider.transform.position;
+            visuel.transform.position.Set(visuel.transform.position.x,visuel.transform.position.y,visuel.transform.position.z+ sphereCollider.center.z);
+            Debug.Log(visuel.transform.position.ToString());
+            Debug.Log(sphereCollider.transform.position.ToString());
             StartCoroutine(WaitforIcePower());
-            StartCoroutine();
+            StartCoroutine(WaitforUseIcePower());
         }
     }
 
@@ -44,6 +55,11 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         yield return new WaitForSeconds(cooldown);
         canPower = true;
 
+    }
+
+    IEnumerator WaitforIcePowerVisual(){
+        yield return new WaitForSeconds(duration);
+        visuel.Clear();
     }
 
 }
