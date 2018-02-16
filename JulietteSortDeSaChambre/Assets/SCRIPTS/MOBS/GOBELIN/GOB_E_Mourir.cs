@@ -18,9 +18,9 @@ public class GOB_E_Mourir : IA_Etat {
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
 
-	public override void entrerEtat()
-	{
+	public override void entrerEtat() {
 		setAnimation(GOB_Animations.MOURIR);
+		Debug.Log ("askip j'ai lancé une animation de mort");
 		rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 		actualDelai = Time.time + delaiAvantDisparition;
 		sonJoue = false;

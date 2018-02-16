@@ -11,8 +11,13 @@ public class IA_MobVie : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		init ();
+	}
+
+	protected void init(){
 		vieCourante = vieMax;
 		agent = GetComponent<IA_Agent> ();
+		Debug.Log ("je suis passe par le start");
 	}
 
 	// Update is called once per frame
@@ -28,14 +33,14 @@ public class IA_MobVie : MonoBehaviour {
 		vieCourante = Mathf.Max(vieCourante - degats, 0);
 		Debug.Log ("PV : " + vieCourante);
 		if (!estEnVie ()) {
-			Debug.Log ("Et c'est la mort qui l'a assasiné");
+			agent.changerEtat (agent.etatEtreBlesseDefaut);
 			agent.mourir ();
 		} else if(conditionEtatBlesse()) {
 			agent.changerEtat (agent.etatEtreBlesseDefaut);
 		}
 	}
 
-	public virtual bool conditionEtatBlesse(){
+	protected virtual bool conditionEtatBlesse(){
 		return true;
 	}
 

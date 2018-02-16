@@ -233,12 +233,11 @@ public class IA_Agent : MonoBehaviour {
     /// <summary>
     /// Permet de sortir de l'état courant puis d'entrer dans le nouvel état.
     /// </summary>
-    public void changerEtat(IA_Etat nouvelEtat)
-    {
-        etatCourant.sortirEtat();
-        etatCourant = nouvelEtat;
+	public void changerEtat(IA_Etat nouvelEtat) {
+		etatCourant.sortirEtat();
+		etatCourant = nouvelEtat;
 		Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
-        etatCourant.entrerEtat();
+		etatCourant.entrerEtat();
 	}
 
 	public Vector3 directionToPrincesseDansPlanY0() {
