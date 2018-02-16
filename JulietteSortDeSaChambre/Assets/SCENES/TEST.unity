@@ -1734,7 +1734,8 @@ MonoBehaviour:
   nomObjet: Caisse a savon
   descriptionObjet: ceci est un caisse a savon
   soundGenerator: {fileID: 0}
-  SonRamasseObjet: []
+  sm: {fileID: 0}
+  RamasseObjet: {fileID: 0}
   objetProgression: 0
 --- !u!65 &1001486812
 BoxCollider:
@@ -2773,11 +2774,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114298421733415412, guid: e5456cf484a0c304f91ac280f33f2828,
-        type: 2}
-      propertyPath: SonRamasseObjet.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4391119912623614, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
       propertyPath: m_LocalPosition.x
       value: 6.6659126
@@ -2810,11 +2806,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 114298421733415412, guid: e5456cf484a0c304f91ac280f33f2828,
-        type: 2}
-      propertyPath: SonRamasseObjet.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
   m_IsPrefabParent: 0
