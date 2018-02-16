@@ -1884,6 +1884,7 @@ MonoBehaviour:
   commencerDirectementAuPremierPoint: 0
   arretAChaquePOV: 1
   dureeArretAChaquePOV: 3
+  arretAuPointDeDemarrage: 0
   distanceApprochePourChangementPOV: 5
   finirEnTravelingVersJuliette: 1
 --- !u!1 &1282039301
@@ -1933,9 +1934,10 @@ MonoBehaviour:
   - {fileID: 1431058189}
   skippable: 1
   vitesseTraveling: 7
-  commencerDirectementAuPremierPoint: 0
-  arretAChaquePOV: 0
-  dureeArretAChaquePOV: 0
+  commencerDirectementAuPremierPoint: 1
+  arretAChaquePOV: 1
+  dureeArretAChaquePOV: 1
+  arretAuPointDeDemarrage: 1
   distanceApprochePourChangementPOV: 5
   finirEnTravelingVersJuliette: 0
 --- !u!1 &1320764533

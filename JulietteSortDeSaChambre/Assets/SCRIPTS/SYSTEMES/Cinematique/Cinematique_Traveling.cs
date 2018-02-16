@@ -10,6 +10,7 @@ public class Cinematique_Traveling : Cinematique {
 	public bool commencerDirectementAuPremierPoint;
     public bool arretAChaquePOV;
     public float dureeArretAChaquePOV;
+    public bool arretAuPointDeDemarrage;
     public float distanceApprochePourChangementPOV;
     public bool finirEnTravelingVersJuliette;
 
@@ -31,7 +32,9 @@ public class Cinematique_Traveling : Cinematique {
 
         if(this.commencerDirectementAuPremierPoint){
             this.placer(this.listeCinematiquePointOfView[0]);
-            this.numPOVActuel++;
+            if(!this.arretAuPointDeDemarrage){
+                this.numPOVActuel++;
+            }
         }
 
         this.commencerDeplacementVers(this.listeCinematiquePointOfView[this.numPOVActuel].transform);
