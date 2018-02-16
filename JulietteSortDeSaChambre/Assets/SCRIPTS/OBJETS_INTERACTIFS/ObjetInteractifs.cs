@@ -70,10 +70,4 @@ public abstract class ObjetInteractifs : MonoBehaviour {
             mat.SetColor("_Color", Color.grey);
         }
     }
-
-    public void lanceSonRamasseObjet(){
-       // Debug.Log("je passe ici");
-       // Debug.Log(soundGenerator.listeClips[0]);
-		
-	}
 }

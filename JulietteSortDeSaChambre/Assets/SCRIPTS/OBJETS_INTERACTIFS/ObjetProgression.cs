@@ -24,7 +24,6 @@ public class ObjetProgression : ObjetInteractifs {
 	public void Activation(){
 		sm.playOneShot(RamasseObjet);
 		affichageObjetRamasser.activeObjet (this);
-		lanceSonRamasseObjet();
 		juliette.addItem (this.objetProgression);
 		supprimerObjet ();
 	}
