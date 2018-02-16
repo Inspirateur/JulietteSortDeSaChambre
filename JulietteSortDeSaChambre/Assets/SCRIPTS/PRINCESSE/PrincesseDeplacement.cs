@@ -143,13 +143,46 @@ public class PrincesseDeplacement : MonoBehaviour
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-
                 anim.Play("attack_run");
                 princesseArme.lancerAttaque();
-            }else if (anim.GetBool("IsBackwalk"))
+            }
+            else if (anim.GetBool("IsBackwalk"))
             {
                 anim.Play("attack_backwalk");
                 princesseArme.lancerAttaque();
+            }
+        }
+
+
+        bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
+        if(toucheAttackCharge)
+        {
+            if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
+	        {
+		        anim.Play("attack1");
+                princesseArme.lancerAttaqueCharge();
+            }
+	        /*else if (anim.GetBool("IsJumping"))
+	        {
+		        anim.Play("attack_jump");
+		        rb.AddForce(transform.forward * 500f);
+		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
+		        princesseArme.lancerAttaque();
+	        }*/
+	        else if (anim.GetBool("IsRunning") == true)
+	        {
+                anim.Play("attack_run");
+		        princesseArme.lancerAttaqueCharge();
+	        }
+	        else if (anim.GetBool("IsSidewalk") == true)
+	        {
+                anim.Play("attack_run");
+                princesseArme.lancerAttaqueCharge();
+            }
+            else if (anim.GetBool("IsBackwalk"))
+            {
+                anim.Play("attack_backwalk");
+                princesseArme.lancerAttaqueCharge();
             }
         }
 
