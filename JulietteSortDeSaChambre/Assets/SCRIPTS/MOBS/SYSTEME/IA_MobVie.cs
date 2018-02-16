@@ -6,12 +6,15 @@ public class IA_MobVie : MonoBehaviour {
 
 	public int vieMax;
 	public Transform hitEffect;
-
-	private int vieCourante;
+	protected int vieCourante;
 	private IA_Agent agent;
 
 	// Use this for initialization
 	void Start () {
+		init ();
+	}
+
+	protected void init(){
 		vieCourante = vieMax;
 		agent = GetComponent<IA_Agent> ();
 	}
@@ -22,16 +25,29 @@ public class IA_MobVie : MonoBehaviour {
 	}
 
 	public void blesser(int degats, Vector3 hitPoint) {
-
-		if (hitEffect != null) {
+		if (hitEffect != null && hitPoint != null) {
 			Instantiate (hitEffect, hitPoint, hitEffect.transform.rotation);
 		}
 
-		blesser (degats);
+		vieCourante = Mathf.Max(vieCourante - degats, 0);
+		Debug.Log ("PV : " + vieCourante);
+		if (!estEnVie ()) {
+			agent.changerEtat (agent.etatEtreBlesseDefaut);
+			agent.mourir ();
+		} else if(conditionEtatBlesse()) {
+			agent.changerEtat (agent.etatEtreBlesseDefaut);
+		}
 	}
 
-	public void blesser(int degats) {
-		
+	protected virtual bool conditionEtatBlesse(){
+		return true;
+	}
+
+	public void blesserSansEtat(int degats, Vector3 hitPoint) {
+		if (hitEffect != null && hitPoint != null) {
+			Instantiate (hitEffect, hitPoint, hitEffect.transform.rotation);
+		}
+
 		vieCourante = Mathf.Max(vieCourante - degats, 0);
 		Debug.Log ("PV : " + vieCourante);
 		if (!estEnVie()) {
