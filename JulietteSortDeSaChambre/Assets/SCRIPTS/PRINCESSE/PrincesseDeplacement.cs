@@ -72,7 +72,7 @@ public class PrincesseDeplacement : MonoBehaviour
                 GererDeplacement(moveHorizontal, moveVertical);
                 if (!anim.GetBool("IsJumping") && isGrounded)
                 {
-                    if ((moveHorizontal != 0.0f && moveVertical == 0.0f) && (!anim.GetBool("IsSidewalk")))
+                    if ((moveHorizontal != 0.0f && moveVertical == 0.0f))
                     {
                         gererAnim("IsSidewalk");
                     }
@@ -101,14 +101,13 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (isGrounded && anim.GetBool("IsJumping"))
 	        {
-		        gererAnim("IsIdle");
-	        }else if(isGrounded){
+                   
+		            gererAnim("IsIdle");
+                
+	        }else if(isGrounded && !anim.GetBool("IsIdle")){
 		        gererAnim ("IsIdle");
 	        }
-	        else
-	        {
-		         gererAnim();
-	        }
+
         }
 
         Vector3 velocity = rb.velocity;  
