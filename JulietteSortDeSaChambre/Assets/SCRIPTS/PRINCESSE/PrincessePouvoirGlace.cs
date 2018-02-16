@@ -34,10 +34,15 @@ public class PrincessePouvoirGlace : PrincessePouvoir
             //visuel.Clear();
             visuel.Play();
             //visuel.transform.position = sphereCollider.transform.localToWorldMatrix.MultiplyVector(sphereCollider.center);
-            visuel.transform.position=sphereCollider.transform.position;
-            visuel.transform.position.Set(visuel.transform.position.x,visuel.transform.position.y,visuel.transform.position.z+ sphereCollider.center.z);
-            Debug.Log(visuel.transform.position.ToString());
-            Debug.Log(sphereCollider.transform.position.ToString());
+            //visuel.transform.position=sphereCollider.transform.position;
+            //visuel.transform.position.Set(visuel.transform.position.x,visuel.transform.position.y,visuel.transform.position.z+ sphereCollider.center.z);
+            var visuPos = sphereCollider.transform;
+            Debug.Log(visuPos.position.ToString());
+            //visuPos.position+=visuPos.forward;
+            visuel.transform.position=visuPos.position+(visuPos.forward*2);
+            visuel.transform.rotation=visuPos.rotation;
+            //Debug.Log(visuel.transform.position.ToString());
+            //Debug.Log(sphereCollider.transform.position.ToString());
             StartCoroutine(WaitforIcePower());
             StartCoroutine(WaitforUseIcePower());
         }
