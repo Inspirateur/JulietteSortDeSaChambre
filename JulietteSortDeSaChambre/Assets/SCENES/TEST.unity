@@ -206,8 +206,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 83943547}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &35097507
 SphereCollider:
@@ -235,6 +235,7 @@ MonoBehaviour:
   Nom: 
   Description: 
   duration: 3
+  cooldown: 10
 --- !u!1001 &83943546
 Prefab:
   m_ObjectHideFlags: 0
@@ -277,6 +278,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &83943547 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539,
+    type: 2}
+  m_PrefabInternal: {fileID: 83943546}
 --- !u!1001 &153108032
 Prefab:
   m_ObjectHideFlags: 0
