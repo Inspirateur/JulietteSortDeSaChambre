@@ -7,9 +7,15 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 	public string nomObjet;
 	public string descriptionObjet;
 
+    [HideInInspector]
+    public SoundEntity soundGenerator;	
+
+	[Header("Son ramassage d'un arme")]	
+    public AudioClip SonRamasseObjet;
+
 	// Use this for initialization
 	void Start () {
-		
+		        
 	}
 	
 	// Update is called once per frame
@@ -56,4 +62,9 @@ public abstract class ObjetInteractifs : MonoBehaviour {
             mat.SetColor("_Color", Color.grey);
         }
     }
+
+    public void lanceSonRamasseObjet(){
+        Debug.Log(soundGenerator);
+		soundGenerator.playOneShot(SonRamasseObjet);
+	}
 }

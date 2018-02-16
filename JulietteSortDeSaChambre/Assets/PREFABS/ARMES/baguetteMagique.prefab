@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 54866407850204858}
   - component: {fileID: 114091290843907050}
   - component: {fileID: 114042441506074890}
+  - component: {fileID: 82517358054141834}
+  - component: {fileID: 114777573364735862}
   m_Layer: 0
   m_Name: baguetteMagique
   m_TagString: Untagged
@@ -147,6 +149,86 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0ecdfa7fa6f3d8d41a6e2d009e1c171f, type: 3}
+--- !u!82 &82517358054141834
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976937219792356}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114042441506074890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomObjet: Baguette magique
   descriptionObjet: Un bidule magique
+  soundGenerator: {fileID: 0}
+  SonRamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
   typeArme: 6
   iconeInterraction: 3
 --- !u!114 &114091290843907050
@@ -178,6 +262,18 @@ MonoBehaviour:
   demiAngleActivationFrontal: 45
   minDistanceSurbrillance: 4.5
   EnableSurbrillance: 1
+--- !u!114 &114777573364735862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976937219792356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad06e4db7c77b5c48a03a689088a90c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeClips: []
 --- !u!198 &198724857581740800
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -238,7 +334,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1662691455
+  randomSeed: 234303010
   InitialModule:
     serializedVersion: 3
     enabled: 1

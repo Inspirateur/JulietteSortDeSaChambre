@@ -8,10 +8,14 @@ public class Arme : ObjetInteractifs {
 	public EnumIconeInterraction iconeInterraction;
 	private AffichageObjetRamasser affichageObjetRamasser;
 	private PrincesseArme juliette;
+
+
 	// Use this for initialization
 	void Start () {
 		affichageObjetRamasser = GameObject.FindGameObjectWithTag ("HUDAffichageObjetRamasser").GetComponent<AffichageObjetRamasser> ();
 		juliette = GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseArme> ();
+		soundGenerator = GetComponent<SoundEntity>();
+		
 	}
 	
 	// Update is called once per frame
@@ -26,8 +30,8 @@ public class Arme : ObjetInteractifs {
 			affichageObjetRamasser.activeObjet (this);
 			//juliette.listArmeTenu.Add (typeArme);
 			GameControl.control.listArmeTenu.Add (typeArme);
-		}
-
+		}	
+		lanceSonRamasseObjet();
 		juliette.SetArmeActive (typeArme, this.gameObject);
 	}
 
