@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114159510423221434}
   - component: {fileID: 114141805667398996}
   - component: {fileID: 82186704841526562}
+  - component: {fileID: 114600927036652034}
   m_Layer: 0
   m_Name: key
   m_TagString: Untagged
@@ -130,7 +131,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -208,10 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bdd8af5356f254283cc5d00e2b30a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomObjet: 
-  descriptionObjet: 
-  SonRamasseObjet: {fileID: 0}
-  objetProgression: 0
+  nomObjet: "La cl\xE9"
+  descriptionObjet: wesh
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
+  objetProgression: 1
 --- !u!114 &114159510423221434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,10 +227,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objet: {fileID: 114141805667398996}
-  distanceActivation: 0
-  demiAngleActivationFrontal: 0
-  minDistanceSurbrillance: 0
+  distanceActivation: 2
+  demiAngleActivationFrontal: 55
+  minDistanceSurbrillance: 4.5
   EnableSurbrillance: 0
+--- !u!114 &114600927036652034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1598204431667568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad06e4db7c77b5c48a03a689088a90c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeClips: []
 --- !u!136 &136498278286151344
 CapsuleCollider:
   m_ObjectHideFlags: 1

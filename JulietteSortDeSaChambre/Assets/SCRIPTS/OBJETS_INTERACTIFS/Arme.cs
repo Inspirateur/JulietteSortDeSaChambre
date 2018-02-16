@@ -13,9 +13,8 @@ public class Arme : ObjetInteractifs {
 	// Use this for initialization
 	void Start () {
 		affichageObjetRamasser = GameObject.FindGameObjectWithTag ("HUDAffichageObjetRamasser").GetComponent<AffichageObjetRamasser> ();
-		juliette = GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseArme> ();
-		soundGenerator = GetComponent<SoundEntity>();
-		
+		juliette = GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseArme> ();	
+		soundGenerator = gameObject.GetComponent<SoundEntity>();
 	}
 	
 	// Update is called once per frame
@@ -25,13 +24,12 @@ public class Arme : ObjetInteractifs {
 
 	override
 	public void Activation(){
-
+		sm.playOneShot(RamasseObjet);
 		if (!juliette.listArmeTenu.Contains (typeArme)) {
 			affichageObjetRamasser.activeObjet (this);
 			//juliette.listArmeTenu.Add (typeArme);
 			GameControl.control.listArmeTenu.Add (typeArme);
 		}	
-		lanceSonRamasseObjet();
 		juliette.SetArmeActive (typeArme, this.gameObject);
 	}
 

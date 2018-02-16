@@ -10,8 +10,16 @@ public abstract class ObjetInteractifs : MonoBehaviour {
     [HideInInspector]
     public SoundEntity soundGenerator;	
 
-	[Header("Son ramassage d'un arme")]	
-    public AudioClip SonRamasseObjet;
+    [HideInInspector]
+    public SoundManager sm;
+
+    public AudioClip RamasseObjet;
+
+
+    void Awake () 
+    {
+        sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -64,7 +72,8 @@ public abstract class ObjetInteractifs : MonoBehaviour {
     }
 
     public void lanceSonRamasseObjet(){
-        Debug.Log(soundGenerator);
-		soundGenerator.playOneShot(SonRamasseObjet);
+       // Debug.Log("je passe ici");
+       // Debug.Log(soundGenerator.listeClips[0]);
+		
 	}
 }
