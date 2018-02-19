@@ -25,7 +25,8 @@ public class MovingPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		this.transform.position = Vector3.Lerp(this.transform.position, NouvellePosition, Vitesse);
+		this.transform.position = Vector3.MoveTowards(this.transform.position, NouvellePosition,  Vitesse * Time.deltaTime);
+		/*this.transform.position = Vector3.Lerp(this.transform.position, NouvellePosition, Vitesse * Time.deltaTime);*/
 	}
 
 	void ChangeNouvellePosition() {
