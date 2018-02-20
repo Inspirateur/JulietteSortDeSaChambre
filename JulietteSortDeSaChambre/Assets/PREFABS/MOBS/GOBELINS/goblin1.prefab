@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 114980849865397104}
   - component: {fileID: 114697752461141492}
   - component: {fileID: 114576495301655080}
-  - component: {fileID: 114817485686438106}
+  - component: {fileID: 114460525986005384}
   - component: {fileID: 114789623539095252}
   m_Layer: 2
   m_Name: goblin1
@@ -1686,7 +1686,7 @@ MonoBehaviour:
   immuniteGlacer: 0
   etatGlacer: {fileID: 114789623539095252}
   immuniteEtourdir: 0
-  etatEtourdir: {fileID: 0}
+  etatEtourdir: {fileID: 114460525986005384}
 --- !u!114 &114392253394215760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1705,6 +1705,18 @@ MonoBehaviour:
   distanceMinDash: 2.8
   pourcentageUtilisationCharge: 0.5
   sonPrincessePerdu: {fileID: 8300000, guid: c4defa7d9e25e51499a71062760414ec, type: 3}
+--- !u!114 &114460525986005384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661025149933492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eda7fab3587ef34a97db4c3ea254112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dureeEtourdissement: 3
 --- !u!114 &114474552997635654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1861,21 +1873,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dureeGlace: 3
-  degatsGlace: 9
   colorGlace: {r: 0, g: 0.17134883, b: 0.8014706, a: 0}
   iceSpawner: {fileID: 198954368421793578}
   rendererGobelin: {fileID: 137444583750818904}
---- !u!114 &114817485686438106
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1661025149933492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654b2621866fd97418674e283e1e0ce4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114852542978111274
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -187,7 +187,7 @@ public class PrincesseArme : MonoBehaviour {
 
 					Vector3 hitPoint = other.ClosestPoint (this.transform.position);
 
-					mobTouche.subirDegats (degatschargeArmeActuelle, hitPoint);
+					mobTouche.subirDegats (degatschargeArmeActuelle, hitPoint, EnumEffet.ETOURDIR);
 
                     bool MobTouch = true;
 
