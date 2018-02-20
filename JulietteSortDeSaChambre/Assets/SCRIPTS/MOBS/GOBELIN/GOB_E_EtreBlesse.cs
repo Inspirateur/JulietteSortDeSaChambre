@@ -47,10 +47,6 @@ public class GOB_E_EtreBlesse : IA_Etat {
 
 	}
 
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint) {
-		agent.getMobVie().blesserSansEtat (valeurDegats, hitPoint);
-	}
-
 	public void setFacteurRecule(float facteurRecule){
 		this.facteurRecule = facteurRecule;
 	}

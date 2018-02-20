@@ -22,14 +22,19 @@ public class IA_Agent : MonoBehaviour {
 	private IA_Etat etatCourant;
 	public float vitesseAngulaire;
 
-//	public float distanceCombatOptimale;
-//	public float distanceRepousse;
-
 	public IA_Etat etatMort;
-	public IA_Etat etatEtreBlesseDefaut;
 
 	public BruiteurPas bruiteurPas;
 	private float timerStep;
+
+	[Header("Immunités")]
+
+	public bool immuniteDouleur;
+	public IA_Etat etatEtreBlesseDefaut;
+	public bool immuniteGlacer;
+	public IA_Etat etatGlacer;
+	public bool immuniteEtourdir;
+	public IA_Etat etatEtourdir;
 
     void Awake() {
         nav = this.GetComponent<NavMeshAgent>();
@@ -251,8 +256,37 @@ public class IA_Agent : MonoBehaviour {
 		return (princesse.transform.position - this.transform.position).magnitude;
 	}
 
-	public void subirDegats(int valeurDegats, Vector3 hitPoint) {
-		etatCourant.subirDegats(valeurDegats, hitPoint);
+	public void subirDegats(int valeurDegats, Vector3 hitPoint, EnumEffet effet = EnumEffet.AUCUN) {
+
+		switch(effet){
+
+			case EnumEffet.AUCUN :
+
+				mobVie.blesser (valeurDegats, hitPoint);
+
+				if( ! immuniteDouleur){
+					changerEtat(etatEtreBlesseDefaut);
+				}
+				break;
+
+			case EnumEffet.ETOURDIR :
+				
+				mobVie.blesser (valeurDegats, hitPoint);
+				
+				if( ! immuniteEtourdir){
+					changerEtat(etatEtourdir);
+				}
+				break;
+
+			case EnumEffet.GLACER :
+			
+				if(immuniteGlacer){
+					mobVie.blesser (valeurDegats, hitPoint);
+				} else {
+					changerEtat(etatGlacer);
+				}
+				break;
+		}
 	}
 
 	public bool estEnVie() {
