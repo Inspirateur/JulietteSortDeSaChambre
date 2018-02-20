@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOB_E_Etourdie : IA_Etat {
+public class GOB_E_EtreEtourdie : IA_Etat {
 
 	public float dureeEtourdissement;
 
@@ -30,6 +30,6 @@ public class GOB_E_Etourdie : IA_Etat {
 
 	public override void sortirEtat()
 	{
-		this.anim.enabled = true;
+		
 	}
 }
