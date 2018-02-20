@@ -22,14 +22,21 @@ public class IA_Agent : MonoBehaviour {
 	private IA_Etat etatCourant;
 	public float vitesseAngulaire;
 
-//	public float distanceCombatOptimale;
-//	public float distanceRepousse;
-
 	public IA_Etat etatMort;
-	public IA_Etat etatEtreBlesseDefaut;
 
 	public BruiteurPas bruiteurPas;
 	private float timerStep;
+
+	[Header("Immunités")]
+	
+	public bool immuniteDouleur;
+	public IA_Etat etatEtreBlesse;
+	public bool immuniteGlacer;
+	public IA_Etat etatGlacer;
+	public bool immuniteEtourdir;
+	public IA_Etat etatEtourdir;
+
+	private bool mort;
 
     void Awake() {
         nav = this.GetComponent<NavMeshAgent>();
@@ -47,6 +54,7 @@ public class IA_Agent : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		mort = false;
 		me.AjouterAgent (this);
 		etatCourant = etatInitial;
 		etatCourant.entrerEtat();
@@ -232,10 +240,12 @@ public class IA_Agent : MonoBehaviour {
     /// Permet de sortir de l'état courant puis d'entrer dans le nouvel état.
     /// </summary>
 	public void changerEtat(IA_Etat nouvelEtat) {
-		etatCourant.sortirEtat();
-		etatCourant = nouvelEtat;
-		Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
-		etatCourant.entrerEtat();
+		if(!mort){
+			etatCourant.sortirEtat();
+			etatCourant = nouvelEtat;
+			Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
+			etatCourant.entrerEtat();
+		}
 	}
 
 	public Vector3 directionToPrincesseDansPlanY0() {
@@ -249,8 +259,39 @@ public class IA_Agent : MonoBehaviour {
 		return (princesse.transform.position - this.transform.position).magnitude;
 	}
 
-	public void subirDegats(int valeurDegats, Vector3 hitPoint) {
-		etatCourant.subirDegats(valeurDegats, hitPoint);
+	public void subirDegats(int valeurDegats, Vector3 hitPoint, EnumEffet effet = EnumEffet.AUCUN) {
+
+		switch(effet){
+
+			case EnumEffet.AUCUN :
+
+				mobVie.blesser (valeurDegats, hitPoint);
+
+				if( ! immuniteDouleur){
+					changerEtat(etatEtreBlesse);
+				}
+				break;
+
+			case EnumEffet.ETOURDIR :
+				
+				mobVie.blesser (valeurDegats, hitPoint);
+				
+				if( ! immuniteEtourdir){
+					changerEtat(etatEtourdir);
+				} else if( ! immuniteDouleur){
+					changerEtat(etatEtreBlesse);
+				}
+				break;
+
+			case EnumEffet.GLACER :
+			
+				if(immuniteGlacer){
+					mobVie.blesser (valeurDegats, hitPoint);
+				} else {
+					changerEtat(etatGlacer);
+				}
+				break;
+		}
 	}
 
 	public bool estEnVie() {
@@ -259,6 +300,7 @@ public class IA_Agent : MonoBehaviour {
 
 	public void mourir() {
 		changerEtat (etatMort);
+		mort = true;
 	}
 
 	public bool estAuSol(){
