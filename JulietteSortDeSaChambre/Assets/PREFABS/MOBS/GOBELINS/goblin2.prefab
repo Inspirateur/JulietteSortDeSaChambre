@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1932294148997726
 GameObject:
   m_ObjectHideFlags: 1
@@ -1766,8 +1766,13 @@ MonoBehaviour:
   etatInitial: {fileID: 114367643736128870}
   vitesseAngulaire: 8
   etatMort: {fileID: 114073390588019630}
-  etatEtreBlesseDefaut: {fileID: 114847351862711624}
   bruiteurPas: {fileID: 114240941921078174}
+  immuniteDouleur: 0
+  etatEtreBlesse: {fileID: 114847351862711624}
+  immuniteGlacer: 0
+  etatGlacer: {fileID: 114814946445686440}
+  immuniteEtourdir: 0
+  etatEtourdir: {fileID: 0}
 --- !u!114 &114443151213792120
 MonoBehaviour:
   m_ObjectHideFlags: 1

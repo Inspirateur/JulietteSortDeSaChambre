@@ -32,15 +32,16 @@ public class IA_MobVie : MonoBehaviour {
 		vieCourante = Mathf.Max(vieCourante - degats, 0);
 		Debug.Log ("PV : " + vieCourante);
 		if (!estEnVie ()) {
-			agent.changerEtat (agent.etatEtreBlesseDefaut);
+			agent.changerEtat (agent.etatEtreBlesse);
 			agent.mourir ();
-		} else if(conditionEtatBlesse()) {
-			agent.changerEtat (agent.etatEtreBlesseDefaut);
+		}
+		else {
+			this.apresPriseDegat(degats);
 		}
 	}
 
-	protected virtual bool conditionEtatBlesse(){
-		return true;
+	protected virtual void apresPriseDegat(int degatSubit){
+		
 	}
 
 	public bool estEnVie() {

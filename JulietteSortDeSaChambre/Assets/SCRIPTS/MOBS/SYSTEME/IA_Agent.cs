@@ -30,11 +30,13 @@ public class IA_Agent : MonoBehaviour {
 	[Header("Immunités")]
 
 	public bool immuniteDouleur;
-	public IA_Etat etatEtreBlesseDefaut;
+	public IA_Etat etatEtreBlesse;
 	public bool immuniteGlacer;
 	public IA_Etat etatGlacer;
 	public bool immuniteEtourdir;
 	public IA_Etat etatEtourdir;
+
+	private bool mort;
 
     void Awake() {
         nav = this.GetComponent<NavMeshAgent>();
@@ -52,6 +54,7 @@ public class IA_Agent : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		mort = false;
 		me.AjouterAgent (this);
 		etatCourant = etatInitial;
 		etatCourant.entrerEtat();
@@ -239,10 +242,12 @@ public class IA_Agent : MonoBehaviour {
     /// Permet de sortir de l'état courant puis d'entrer dans le nouvel état.
     /// </summary>
 	public void changerEtat(IA_Etat nouvelEtat) {
-		etatCourant.sortirEtat();
-		etatCourant = nouvelEtat;
-		Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
-		etatCourant.entrerEtat();
+		if(!mort){
+			etatCourant.sortirEtat();
+			etatCourant = nouvelEtat;
+			Debug.Log (this.gameObject.name + " entre dans l'état " + etatCourant.ToString());
+			etatCourant.entrerEtat();
+		}
 	}
 
 	public Vector3 directionToPrincesseDansPlanY0() {
@@ -265,7 +270,7 @@ public class IA_Agent : MonoBehaviour {
 				mobVie.blesser (valeurDegats, hitPoint);
 
 				if( ! immuniteDouleur){
-					changerEtat(etatEtreBlesseDefaut);
+					changerEtat(etatEtreBlesse);
 				}
 				break;
 
@@ -295,6 +300,7 @@ public class IA_Agent : MonoBehaviour {
 
 	public void mourir() {
 		changerEtat (etatMort);
+		mort = true;
 	}
 
 	public bool estAuSol(){
