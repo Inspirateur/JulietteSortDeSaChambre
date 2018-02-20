@@ -402,6 +402,16 @@ Prefab:
       propertyPath: degats
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114718835825931724, guid: 10ed3ad8071f47242a535eef3d0d3539,
+        type: 2}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 95593036929066984, guid: 10ed3ad8071f47242a535eef3d0d3539,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
   m_IsPrefabParent: 0
@@ -5839,7 +5849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f22a70a2f17ca4e89b42eb0123a056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increment: 0.01
+  increment: 0.003
   maxHeight: 0.5
 --- !u!4 &1502937616 stripped
 Transform:
