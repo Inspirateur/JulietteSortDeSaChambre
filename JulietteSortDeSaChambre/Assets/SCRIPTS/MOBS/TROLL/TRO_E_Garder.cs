@@ -22,7 +22,7 @@ public class TRO_E_Garder : IA_Etat {
 
 	public override void entrerEtat()
 	{
-		setAnimation(GOB_Animations.COURIR);
+		setAnimation(TRO_Animations.MARCHER);
 		nav.speed = vitesse;
 		nav.enabled = true;
 		agent.definirDestination(emplacementAGarder);
@@ -34,10 +34,10 @@ public class TRO_E_Garder : IA_Etat {
 	public override void faireEtat()
 	{
 		if (perception.aRepere(princesse, 1.0f)) {
-			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
+			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
 
 		} else if (!enDeplacement && perception.aRepere(princesse, 1.5f)) {
-			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
+			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
 
 		} else if (enDeplacement) {
 			if (agent.destinationCouranteAtteinte ()) {
@@ -51,7 +51,7 @@ public class TRO_E_Garder : IA_Etat {
 
 		} else if (!enGarde && !enRotation) {
 			enGarde = true;
-			setAnimation (GOB_Animations.GARDER);
+			setAnimation (TRO_Animations.GARDER);
 		}
 	}
 

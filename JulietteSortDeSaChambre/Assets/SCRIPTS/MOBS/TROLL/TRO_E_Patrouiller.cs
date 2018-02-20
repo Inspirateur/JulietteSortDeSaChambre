@@ -39,7 +39,7 @@ public class TRO_E_Patrouiller : IA_Etat {
 			}
 		}
 		indiceDernierPointRejoint = (int)minId - 1;
-		setAnimation(GOB_Animations.MARCHER);
+		setAnimation(TRO_Animations.MARCHER);
 		indiceCheminActuel = indiceDernierPointRejoint;
 		nav.enabled = true;
         suivreChemin();
@@ -51,24 +51,24 @@ public class TRO_E_Patrouiller : IA_Etat {
 		if (enChemin) {
 
 			if(perception.aRepere(princesse, niveauAttentionEnMarche)) {
-				changerEtat(this.GetComponent<GOB_E_Poursuivre>());
+				changerEtat(this.GetComponent<TRO_E_Poursuivre>());
 			}
 			else if (agent.destinationCouranteAtteinte ()) {
 
 				indiceDernierPointRejoint = indiceCheminActuel;
-				setAnimation(GOB_Animations.CHERCHER);
+				setAnimation(TRO_Animations.CHERCHER);
 				enChemin = false;
 				this.delaisActuel = Time.time + this.delaisAChaqueArret;
 				agent.getSoundEntity().playOneShot(sonArret, 1.0f);
 			}
 		} else if (Time.time > this.delaisActuel) {
 
-			setAnimation(GOB_Animations.MARCHER);
+			setAnimation(TRO_Animations.MARCHER);
 			suivreChemin ();
 			enChemin = true;
 
 		} else if(perception.aRepere(princesse, niveauAttentionArret)) {
-			changerEtat(this.GetComponent<GOB_E_Poursuivre>());
+			changerEtat(this.GetComponent<TRO_E_Poursuivre>());
 		}
     }
 

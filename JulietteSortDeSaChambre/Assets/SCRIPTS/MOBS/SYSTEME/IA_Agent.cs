@@ -216,15 +216,13 @@ public class IA_Agent : MonoBehaviour {
 		return Mathf.Abs(difRotation) > vitesseAngulaire ;
 	}
 
-    public void setAnimation(string nomAnimation)
-    {
-        foreach (AnimatorControllerParameter parameter in anim.parameters)
-        {
-            anim.SetBool(parameter.name, false);
-        }
+	public void setAnimation(string nomAnimation) {
+		foreach (AnimatorControllerParameter parameter in anim.parameters) {
+		    anim.SetBool(parameter.name, false);
+		}
 
 		anim.SetBool(nomAnimation, true);
-    }
+	}
 
 	public bool isActualAnimation(string nomAnimation){
 		return anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName(0) + "." + nomAnimation);
