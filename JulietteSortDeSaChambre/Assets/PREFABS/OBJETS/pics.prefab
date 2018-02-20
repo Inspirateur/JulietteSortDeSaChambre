@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 23226297467421066}
   - component: {fileID: 95167050699893668}
   - component: {fileID: 64177323949926642}
+  - component: {fileID: 65819501452821674}
   m_Layer: 0
   m_Name: spikes
   m_TagString: Untagged
@@ -71,15 +72,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416651392505052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.9999, y: 3.6999, z: -29.96}
+  m_LocalRotation: {x: -0.0018112864, y: -0.0021417357, z: 0.0000032514424, w: 0.99999607}
+  m_LocalPosition: {x: -6.8631516, y: 13.169586, z: -29.824934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4605038895351150}
   - {fileID: 4275868771810736}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.208, y: -0.245, z: 0.001}
 --- !u!4 &4275868771810736
 Transform:
   m_ObjectHideFlags: 1
@@ -198,7 +199,7 @@ MeshCollider:
   m_GameObject: {fileID: 1739973463060526}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -216,6 +217,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020000007, y: 0.020000005, z: 0.021137089}
   m_Center: {x: -4.656613e-10, y: -9.313224e-10, z: 0.0005685467}
+--- !u!65 &65819501452821674
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739973463060526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0415, y: 0.0415, z: 0.01}
+  m_Center: {x: 0.009710518, y: 0.009577495, z: 0.005}
 --- !u!95 &95086587644595054
 Animator:
   serializedVersion: 3
@@ -242,7 +255,7 @@ Animator:
   m_GameObject: {fileID: 1739973463060526}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b106416e05fb7d94e8a33337d29d6fb9, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -261,5 +274,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad2c71911c2d32419596ffdbda4fdb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBeforeStart: 0
-  TimeRepos: 2
+  TimeBeforeStart: 0.8
+  TimeRepos: 0
