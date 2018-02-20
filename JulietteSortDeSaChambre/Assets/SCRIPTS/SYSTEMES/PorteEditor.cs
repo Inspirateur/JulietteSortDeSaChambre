@@ -46,6 +46,8 @@ public class PorteEditor : Editor {
 			serializedObject.ApplyModifiedProperties();
 		}
 
+
+
 	}
 }
 #endif

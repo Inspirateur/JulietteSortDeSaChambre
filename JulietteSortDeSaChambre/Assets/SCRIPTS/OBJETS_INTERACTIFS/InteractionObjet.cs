@@ -6,6 +6,7 @@ public class InteractionObjet : MonoBehaviour {
 
 	private GameObject juliette;
 
+
 	public ObjetInteractifs objet;
 	public float distanceActivation;
 	public float demiAngleActivationFrontal;
