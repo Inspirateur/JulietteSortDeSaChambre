@@ -10,15 +10,27 @@ public class Spikes : MonoBehaviour {
 	[Header("Temps entre chaque action :")]
 	public float TimeRepos;
 
+	public bool StopSpike;
+
 	// Use this for initialization
 	void Start () {
+		StopSpike = false;
 		StartCoroutine(WaitBeforeStart());
 	}
 
 	void Update() {
-		if (gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos")) {
+		if (gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos") && !StopSpike) {
 			StartCoroutine (WaitBeforeUp ());
 		}
+	}
+
+	void StopSpikes() {
+		gameObject.GetComponent<Animator> ().SetBool ("CanUp", false);
+		StopSpike = true;
+	}
+
+	void StartSpikes() {
+		StopSpike = false;
 	}
 
 	IEnumerator WaitBeforeStart()
