@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4160209431004226}
   - component: {fileID: 95646063911793740}
+  - component: {fileID: 65038006831380282}
+  - component: {fileID: 114852184658333768}
   m_Layer: 0
   m_Name: BigDoor
   m_TagString: sol
@@ -138,15 +140,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061411128082742}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.58, y: -0.21, z: -20.3}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 44.2, y: 3.41, z: -43.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4398358061874830}
   - {fileID: 4749021085078278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &4227621255126816
 Transform:
   m_ObjectHideFlags: 1
@@ -215,6 +217,18 @@ Transform:
   m_Father: {fileID: 4674532631750694}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65038006831380282
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061411128082742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.116531, y: 0.55024815, z: 16.17445}
+  m_Center: {x: 0.044727325, y: -0.022487164, z: -4.882805}
 --- !u!95 &95646063911793740
 Animator:
   serializedVersion: 3
@@ -232,6 +246,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114852184658333768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061411128082742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5341cd3bbfd62b9459dcf58f8df2006b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137966870641973486
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
