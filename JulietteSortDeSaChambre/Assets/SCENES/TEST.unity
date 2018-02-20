@@ -397,6 +397,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 114718835825931724, guid: 10ed3ad8071f47242a535eef3d0d3539,
+        type: 2}
+      propertyPath: degats
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
   m_IsPrefabParent: 0
@@ -4528,7 +4533,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4273806390793100, guid: 3b516e12926e85a40a44ab490866eec1,
     type: 2}
   m_PrefabInternal: {fileID: 1578272062}
-  m_RootOrder: 25
 --- !u!1001 &1082164643
 Prefab:
   m_ObjectHideFlags: 0
@@ -5942,7 +5946,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4273806390793100, guid: 3b516e12926e85a40a44ab490866eec1, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 198791952345692914, guid: 3b516e12926e85a40a44ab490866eec1,
         type: 2}
@@ -6707,7 +6711,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114022605701059066, guid: 591dceb319e2873478808605a3e135c2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 591dceb319e2873478808605a3e135c2, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1739921384 stripped
@@ -7429,7 +7434,13 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114343959681518842, guid: c9a54d39a8e01f242a40b3c7ee2ba70c,
+        type: 2}
+      propertyPath: immuniteGlacer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114817485686438106, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1993568959 stripped

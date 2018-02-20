@@ -28,7 +28,7 @@ public class IA_Agent : MonoBehaviour {
 	private float timerStep;
 
 	[Header("Immunités")]
-
+	
 	public bool immuniteDouleur;
 	public IA_Etat etatEtreBlesse;
 	public bool immuniteGlacer;
