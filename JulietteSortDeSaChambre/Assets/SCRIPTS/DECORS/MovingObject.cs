@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour {
+public class MovingObject : MonoBehaviour {
 
 	[Header("Positions de la plateforme :")]
 	public Transform[] Position;
@@ -26,6 +26,7 @@ public class MovingPlatform : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		this.transform.position = Position[Etat].position;
 		if (Cycle)
 		{
 			ChangeNouvellePositionLineaire();
