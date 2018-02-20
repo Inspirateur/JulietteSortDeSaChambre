@@ -280,6 +280,8 @@ public class IA_Agent : MonoBehaviour {
 				
 				if( ! immuniteEtourdir){
 					changerEtat(etatEtourdir);
+				} else if( ! immuniteDouleur){
+					changerEtat(etatEtreBlesse);
 				}
 				break;
 
