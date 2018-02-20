@@ -11,7 +11,7 @@ public class AffichageInventaire : MonoBehaviour {
 	public GameObject objetInventaire;
 	public GameObject sac;
 	public int tempsAffichage;
-	public PrincesseObjetProgression juliette;
+	private PrincesseObjetProgression juliette;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,17 @@ public class AffichageInventaire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	/*	if (InputManager.GetButtonDown ("Select")) {
+			Debug.Log ("ddd------------");
+			afficherToutObjet ();
+		}*/
+	}
+
+	private void afficherToutObjet(){
 		
+		foreach (GameObject go in dicoInventaire.Values) {
+			go.SetActive (true);
+		}
 	}
 
 
