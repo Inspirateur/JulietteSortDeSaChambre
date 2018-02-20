@@ -23,6 +23,7 @@ public class ObjetProgression : ObjetInteractifs {
 
 	override
 	public void Activation(){
+		sm.playOneShot(RamasseObjet);
 		affichageObjetRamasser.activeObjet (this);
 		juliette.addItem (this.objetProgression);
 		affichageobjetActuel.objetRamasse (this.objetProgression);
