@@ -9,6 +9,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     private SphereCollider sphereCollider;
     private ParticleSystem visuel;
     private AudioSource audioSource;
+    private GlaceSol glaceSol;
     //public float icePowerDuration;
 
     // Use this for initialization
@@ -21,6 +22,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         sphereCollider = GetComponent<SphereCollider>();
         visuel=GameObject.Find("VisuelPouvoir").GetComponent<ParticleSystem>();
         audioSource=GameObject.Find("VisuelPouvoir").GetComponent<AudioSource>();
+        glaceSol=GameObject.Find("GlaceSol").GetComponent<GlaceSol>();
         visuel.Clear();
         visuel.Pause();
         canPower = true;
@@ -38,6 +40,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
             var visuPos = sphereCollider.transform;
             visuel.transform.position=visuPos.position+(visuPos.forward*2);
             visuel.transform.rotation=visuPos.rotation;
+            glaceSol.LaunchAnim();
             StartCoroutine(WaitforIcePower());
             StartCoroutine(WaitforUseIcePower());
         }
