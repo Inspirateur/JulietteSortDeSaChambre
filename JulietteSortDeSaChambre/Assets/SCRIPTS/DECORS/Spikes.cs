@@ -3,24 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spikes : MonoBehaviour {
+
+	[Header("Temps avant la premiere action :")]
 	public float TimeBeforeStart;
-	private bool CanUp;
+
+	[Header("Temps entre chaque action :")]
+	public float TimeRepos;
+
 	// Use this for initialization
 	void Start () {
-
 		StartCoroutine(WaitBeforeStart());
-
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (CanUp) {
-			gameObject.GetComponent<Animator> ().SetBool ("CanUp", true);
+
+	void Update() {
+		if (gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos")) {
+			StartCoroutine (WaitBeforeUp ());
 		}
 	}
+
 	IEnumerator WaitBeforeStart()
 	{
 		yield return new WaitForSeconds(TimeBeforeStart);
-		CanUp = true;
+		gameObject.GetComponent<Animator> ().SetBool ("CanUp", true);
+	}
+
+	IEnumerator WaitBeforeUp()
+	{
+		gameObject.GetComponent<Animator> ().SetBool ("CanUp", false);
+		yield return new WaitForSeconds(TimeRepos);
+		gameObject.GetComponent<Animator> ().SetBool ("CanUp", true);
 	}
 }
