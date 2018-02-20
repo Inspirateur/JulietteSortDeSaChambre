@@ -13,25 +13,45 @@ public class AffichageInventaire : MonoBehaviour {
 	public int tempsAffichage;
 	private PrincesseObjetProgression juliette;
 
+	private bool affiche;
+	private float temps;
+
 	// Use this for initialization
 	void Start () {
 		juliette = GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseObjetProgression> ();
 		dicoInventaire = new Dictionary<EnumObjetProgression, GameObject> ();
 		dicoNbObjet = new Dictionary<EnumObjetProgression, int> ();
+		affiche = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	/*	if (InputManager.GetButtonDown ("Select")) {
-			Debug.Log ("ddd------------");
-			afficherToutObjet ();
-		}*/
+		if (InputManager.GetButtonDown ("Select")) {
+			if (!affiche) {
+				afficherToutObjet ();
+				temps = Time.time;
+				affiche = true;
+			}
+
+		}
+
+		if (affiche && temps+tempsAffichage<=Time.time) {
+			affiche = false;
+			desafficherToutObjet ();
+		}
 	}
 
 	private void afficherToutObjet(){
 		
 		foreach (GameObject go in dicoInventaire.Values) {
 			go.SetActive (true);
+		}
+	}
+
+	private void desafficherToutObjet(){
+
+		foreach (GameObject go in dicoInventaire.Values) {
+			go.SetActive (false);
 		}
 	}
 
