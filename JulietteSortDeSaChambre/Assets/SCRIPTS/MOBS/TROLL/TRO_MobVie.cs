@@ -11,15 +11,15 @@ public class TRO_MobVie : IA_MobVie {
 		ancienneVie = vieCourante;
 	}
 
-	protected override bool conditionEtatBlesse() {
-		if (ancienneVie >= vieMax * seuilAnimation && vieCourante < vieMax * seuilAnimation) {
-			ancienneVie = vieCourante;
-			return true;
-		} else {
-			ancienneVie = vieCourante;
-			return false;
-		}
-	}
+	// protected override bool conditionEtatBlesse() {
+	// 	if (ancienneVie >= vieMax * seuilAnimation && vieCourante < vieMax * seuilAnimation) {
+	// 		ancienneVie = vieCourante;
+	// 		return true;
+	// 	} else {
+	// 		ancienneVie = vieCourante;
+	// 		return false;
+	// 	}
+	// }
 }
 
 
