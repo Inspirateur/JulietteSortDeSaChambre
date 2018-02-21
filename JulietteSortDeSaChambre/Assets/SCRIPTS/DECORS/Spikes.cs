@@ -10,7 +10,7 @@ public class Spikes : MonoBehaviour {
 	[Header("Temps entre chaque action :")]
 	public float TimeRepos;
 
-	public bool StopSpike;
+	private bool StopSpike;
 
 	// Use this for initialization
 	void Start () {
