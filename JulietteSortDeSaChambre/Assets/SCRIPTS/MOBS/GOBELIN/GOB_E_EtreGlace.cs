@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOB_E_Glace : IA_Etat {
+public class GOB_E_EtreGlace : IA_Etat {
 
-	public float dureeGlace;
+	public float multiplicateurDureeGlace;
 	private int degatsGlace;
 	public Color colorGlace;
 	public ParticleSystem iceSpawner;
@@ -12,6 +12,7 @@ public class GOB_E_Glace : IA_Etat {
 
 	private float timer;
 	private Color[] listeInitialColors;
+	private float dureeGlace;
 
 	// Use this for initialization
 	void Start()
@@ -21,6 +22,7 @@ public class GOB_E_Glace : IA_Etat {
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 		this.setInitialColors();
 		this.degatsGlace = ((PrincessePouvoirGlace)GameObject.FindGameObjectWithTag("PouvoirGlace").GetComponent<PrincessePouvoirGlace>()).degats;
+		this.dureeGlace = ((PrincessePouvoirGlace)GameObject.FindGameObjectWithTag("PouvoirGlace").GetComponent<PrincessePouvoirGlace>()).duration * multiplicateurDureeGlace;
 	}
 
 	public override void entrerEtat()
