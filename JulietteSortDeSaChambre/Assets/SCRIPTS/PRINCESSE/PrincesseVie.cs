@@ -70,6 +70,13 @@ public class PrincesseVie : MonoBehaviour {
 
 	}
 
+	public void mourir()
+	{
+		vie_courante = 0;
+		GameControl.control.vie = vie_courante;
+		Debug.Log("vie courante : " + vie_courante);
+	}
+
 	public void soigner(int valeurSoin)
 	{
 		vie_courante = Mathf.Min(vie_courante + valeurSoin, vie_max);
