@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34744054, g: 0.4146754, b: 0.4977309, a: 1}
+  m_IndirectSpecularColor: {r: 0.3474173, g: 0.4147607, b: 0.49781215, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -15565,6 +15565,11 @@ Prefab:
       propertyPath: TimeRepos
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+        type: 2}
+      propertyPath: SpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
   m_IsPrefabParent: 0
@@ -24570,12 +24575,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 640392637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38cc93ef7ff23614b9fa23ed87e456da, type: 3}
+  m_Script: {fileID: 11500000, guid: 44af361dfdc3cd049b37a40665d9f315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CanDown: 0
   speed: 3
-  StartYpos: 0
   DistanceToMove: 1
 --- !u!1001 &641377273
 Prefab:
@@ -30299,12 +30303,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 787443962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38cc93ef7ff23614b9fa23ed87e456da, type: 3}
+  m_Script: {fileID: 11500000, guid: 44af361dfdc3cd049b37a40665d9f315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CanDown: 0
   speed: 3
-  StartYpos: 0
   DistanceToMove: 1
 --- !u!1001 &788086206
 Prefab:
@@ -30779,7 +30782,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 794030001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 383398cfdd2eb024eb82f43a7a9dd572, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d2d9796896149d48b1761370ea55119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &794045914
@@ -48693,7 +48696,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4152944698604494, guid: f3b6168f56a99ff469f0b3959cab2e41, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.21
+      value: 15.20969
       objectReference: {fileID: 0}
     - target: {fileID: 4152944698604494, guid: f3b6168f56a99ff469f0b3959cab2e41, type: 2}
       propertyPath: m_LocalPosition.z
@@ -53899,6 +53902,11 @@ Prefab:
       propertyPath: m_Name
       value: pics (0)
       objectReference: {fileID: 0}
+    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+        type: 2}
+      propertyPath: SpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
   m_IsPrefabParent: 0
@@ -55338,12 +55346,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1409687268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38cc93ef7ff23614b9fa23ed87e456da, type: 3}
+  m_Script: {fileID: 11500000, guid: 44af361dfdc3cd049b37a40665d9f315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CanDown: 0
   speed: 3
-  StartYpos: 0
   DistanceToMove: 1
 --- !u!1001 &1410111846
 Prefab:
@@ -71270,6 +71277,11 @@ Prefab:
     - target: {fileID: 1416651392505052, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
       propertyPath: m_Name
       value: pics (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+        type: 2}
+      propertyPath: SpeedMultiplier
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
