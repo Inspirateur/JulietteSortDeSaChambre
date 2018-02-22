@@ -9,7 +9,11 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     private SphereCollider sphereCollider;
     private ParticleSystem visuel;
     private AudioSource audioSource;
+    private GlaceSol glaceSol;
     //public float icePowerDuration;
+
+    private List<IA_Agent> listeAgentGlaces;
+    public int degats;
 
     // Use this for initialization
     void Start()
@@ -21,9 +25,11 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         sphereCollider = GetComponent<SphereCollider>();
         visuel=GameObject.Find("VisuelPouvoir").GetComponent<ParticleSystem>();
         audioSource=GameObject.Find("VisuelPouvoir").GetComponent<AudioSource>();
+        glaceSol=GameObject.Find("GlaceSol").GetComponent<GlaceSol>();
         visuel.Clear();
         visuel.Pause();
         canPower = true;
+        listeAgentGlaces = new List<IA_Agent>();
     }
 
     // Update is called once per frame
@@ -31,6 +37,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     {
         if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxis("pouvoirGlace")<-0.75f)&& canPower)
         {
+            listeAgentGlaces.Clear();
             sphereCollider.enabled = true;
             canPower = false;
             visuel.Play();
@@ -38,8 +45,26 @@ public class PrincessePouvoirGlace : PrincessePouvoir
             var visuPos = sphereCollider.transform;
             visuel.transform.position=visuPos.position+(visuPos.forward*2);
             visuel.transform.rotation=visuPos.rotation;
+            glaceSol.LaunchAnim();
             StartCoroutine(WaitforIcePower());
             StartCoroutine(WaitforUseIcePower());
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Mob")
+        {
+            IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
+
+            if (!listeAgentGlaces.Contains (mobTouche) && mobTouche.estEnVie()) {
+                
+                listeAgentGlaces.Add (mobTouche);
+
+                Vector3 hitPoint = other.ClosestPoint (this.transform.position);
+
+                mobTouche.subirDegats (degats, hitPoint, EnumEffet.GLACER);
+            }
         }
     }
 

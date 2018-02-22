@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 95052440926027684}
   - component: {fileID: 114270276004042782}
   - component: {fileID: 114867074706317452}
+  - component: {fileID: 114393812946046730}
   - component: {fileID: 65106726296513080}
   m_Layer: 2
   m_Name: door
@@ -218,6 +219,17 @@ MonoBehaviour:
   demiAngleActivationFrontal: 77
   minDistanceSurbrillance: 1.7
   EnableSurbrillance: 0
+--- !u!114 &114393812946046730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919128798290538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e6e1c080ff40649a60609cecbe7ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114867074706317452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,6 +243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomObjet: 
   descriptionObjet: 
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  RamasseObjet: {fileID: 0}
   isDecorative: 0
   objN: []
 --- !u!137 &137656651613343924
