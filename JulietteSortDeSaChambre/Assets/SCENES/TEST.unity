@@ -242,8 +242,8 @@ GameObject:
   - component: {fileID: 141397909}
   - component: {fileID: 141397908}
   - component: {fileID: 141397907}
-  - component: {fileID: 141397906}
   - component: {fileID: 141397905}
+  - component: {fileID: 141397906}
   m_Layer: 0
   m_Name: Levier
   m_TagString: Untagged
@@ -283,7 +283,8 @@ MonoBehaviour:
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   RamasseObjet: {fileID: 0}
-  listEvent: {fileID: 11400000, guid: 00e0e1954f0344849abfcc57fe4c05c3, type: 2}
+  listEvenement:
+  - {fileID: 465743315}
 --- !u!23 &141397907
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1023,6 +1024,22 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 153108032}
   m_Script: {fileID: 11500000, guid: 9fa06746397656443a5ec67c0d828885, type: 3}
+--- !u!1 &465743313 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1919128798290538, guid: 35a77f534fc9e614080e730be103bff0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1455055172}
+--- !u!114 &465743315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465743313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae50b091cc7f0b4387759a211847bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &493976204
 Prefab:
   m_ObjectHideFlags: 0
@@ -1152,7 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objet: {fileID: 505283918}
+  objet: {fileID: 0}
   distanceActivation: 0.2
   demiAngleActivationFrontal: 90
   minDistanceSurbrillance: 0
@@ -1377,7 +1394,8 @@ Prefab:
       propertyPath: m_Name
       value: door (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114393812946046730, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &603015901
@@ -6355,7 +6373,7 @@ Prefab:
     - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
         type: 2}
       propertyPath: objN.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
         type: 2}
@@ -6412,7 +6430,7 @@ Prefab:
     - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
         type: 2}
       propertyPath: objN.Array.data[1].objet
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
         type: 2}
@@ -6443,7 +6461,13 @@ Prefab:
       propertyPath: m_Name
       value: door (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
+        type: 2}
+      propertyPath: objN.Array.data[1].nombre
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114393812946046730, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1485957404
@@ -6734,6 +6758,10 @@ Prefab:
       propertyPath: chemin.Array.data[2]
       value: 
       objectReference: {fileID: 1591351837}
+    - target: {fileID: 1921552545835090, guid: 591dceb319e2873478808605a3e135c2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 591dceb319e2873478808605a3e135c2, type: 2}
   m_IsPrefabParent: 0
@@ -7206,6 +7234,10 @@ Prefab:
       propertyPath: chemin.Array.data[2]
       value: 
       objectReference: {fileID: 1591351837}
+    - target: {fileID: 1661025149933492, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
   m_IsPrefabParent: 0

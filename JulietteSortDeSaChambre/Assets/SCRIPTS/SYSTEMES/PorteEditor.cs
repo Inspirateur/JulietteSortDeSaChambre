@@ -38,6 +38,7 @@ public class PorteEditor : Editor {
 
 	public override void OnInspectorGUI() {
 
+		base.OnInspectorGUI ();
 		Porte myPorte = (Porte)target;
 		myPorte.isDecorative = EditorGUILayout.Toggle ("Porte décorative :",myPorte.isDecorative);
 		if (!myPorte.isDecorative) {

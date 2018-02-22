@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Levier : ObjetEnvironnemental {
 
+	public List<Evenement> listEvenement;
 
-	public EvenementItemList listEvent;
 
 
 	// Use this for initialization
@@ -19,6 +19,9 @@ public class Levier : ObjetEnvironnemental {
 	}
 
 	public override void Activation(){
-		listEvent.activerEvenement ();
+		Debug.Log ("ok");
+		foreach (Evenement e in listEvenement) {
+			e.activation ();
+		}
 	}
 }

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PorteEvenement : ObjetEvenementiel {
+public class OuverturePorte : Evenement {
 
 	// Use this for initialization
 	void Start () {
@@ -15,16 +14,10 @@ public class PorteEvenement : ObjetEvenementiel {
 		
 	}
 
-	public void evenementOuvrir(string test){
-		Debug.Log ("Ouverture"+test);
+	override
+	public void activation(){
+		Porte p = this.GetComponent<Porte> ();
+		p.OuverturePorte ();
 	}
 
-	public void evenementFermer(){
-
-	}
-
-
-	public override void test(){
-		
-	}
 }

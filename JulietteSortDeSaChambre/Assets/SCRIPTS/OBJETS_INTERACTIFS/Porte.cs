@@ -6,8 +6,9 @@ using UnityEngine;
 public class Porte : ObjetEnvironnemental  {
 	
 	private  Animator anim;
+	[HideInInspector]
 	public bool isDecorative;
-
+	[HideInInspector]
 	public List<ObjetNecessaire> objN = new List<ObjetNecessaire>(); 
 	private PrincesseObjetProgression juliette;
 
@@ -27,11 +28,7 @@ public class Porte : ObjetEnvironnemental  {
 	public override void Activation(){
 		if (!isDecorative ) {
 			if (isActivable()) {
-				anim.SetBool("isOpen", true);
-				isDecorative = true;
-				foreach (ObjetNecessaire obj in objN) {
-					juliette.removeItem (obj.objet, obj.nombre);
-				}
+				OuverturePorte ();
 			}
 
 		}
@@ -66,5 +63,13 @@ public class Porte : ObjetEnvironnemental  {
 
 
 
+	}
+
+	public void OuverturePorte(){
+		anim.SetBool("isOpen", true);
+		isDecorative = true;
+		foreach (ObjetNecessaire obj in objN) {
+			juliette.removeItem (obj.objet, obj.nombre);
+		}
 	}
 }
