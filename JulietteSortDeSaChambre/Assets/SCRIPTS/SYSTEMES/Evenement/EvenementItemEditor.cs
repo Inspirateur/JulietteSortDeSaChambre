@@ -89,14 +89,15 @@ public class EvenementItemEditor : EditorWindow {
 
 					if (evenementItemList.listEvenement [viewIndex - 1].t >= 0) {
 						MethodBase m = t.GetMethod(evenementItemList.listEvenement [viewIndex - 1].listMethod[evenementItemList.listEvenement [viewIndex - 1].t]);
+						int i = 0;
 						foreach (ParameterInfo p in m.GetParameters()) {
-							evenementItemList.listEvenement [viewIndex - 1].listParam.Add (null);
-							Debug.Log (p.ParameterType.Name);
+							
 							switch (p.ParameterType.Name) {
 							case "String":
-								evenementItemList.listEvenement [viewIndex - 1].listParam[p.Position] = EditorGUILayout.TextField (evenementItemList.listEvenement [viewIndex - 1].listParam[p.Position] as string) ;
+								evenementItemList.listEvenement [viewIndex - 1].listParam[i] = EditorGUILayout.TextField (evenementItemList.listEvenement [viewIndex - 1].listParam[i] as string) ;
 								break;
 							}
+							i++;
 
 						}
 					}

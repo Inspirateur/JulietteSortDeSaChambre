@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PorteEvenement : ObjetEvenementiel {
 
 	// Use this for initialization
@@ -15,7 +16,7 @@ public class PorteEvenement : ObjetEvenementiel {
 	}
 
 	public void evenementOuvrir(string test){
-		Debug.Log (test);
+		Debug.Log ("Ouverture"+test);
 	}
 
 	public void evenementFermer(){

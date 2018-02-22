@@ -14,7 +14,9 @@ public class EvenementItemList : ScriptableObject {
 		foreach (EvenementItem e in listEvenement) {
 			Type t = e.objet.GetComponent<ObjetEvenementiel> ().GetType ();
 			MethodBase m = t.GetMethod (e.listMethod [e.t]);
-			m.Invoke (e.objet.GetComponent<ObjetEvenementiel> (), e.listParam.ToArray());
+			Debug.Log (m.Name);
+	//		object[] param = e.listParam;
+	//		m.Invoke (e.objet.GetComponent<ObjetEvenementiel>(),param );
 		}
 	}
 }
