@@ -28,7 +28,7 @@ public class TRO_E_Dormir : IA_Etat {
 		perception.estAveugle = false;
 	}
 
-	public override void subirDegats(int valeurDegats, Vector3 hitPoint) {
-		agent.getMobVie().blesserSansEtat (valeurDegats, hitPoint);
-	}
+	// public override void subirDegats(int valeurDegats, Vector3 hitPoint) {
+	// 	agent.getMobVie().blesserSansEtat (valeurDegats, hitPoint);
+	// }
 }

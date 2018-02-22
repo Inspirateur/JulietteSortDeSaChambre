@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 114624271029569818}
   - component: {fileID: 114847351862711624}
   - component: {fileID: 114073390588019630}
-  - component: {fileID: 114022605701059066}
+  - component: {fileID: 114828674695703810}
   - component: {fileID: 114814946445686440}
   m_Layer: 0
   m_Name: goblin2
@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1932294148997726
 GameObject:
   m_ObjectHideFlags: 1
@@ -1619,17 +1619,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114022605701059066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1921552545835090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654b2621866fd97418674e283e1e0ce4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114073390588019630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1766,8 +1755,13 @@ MonoBehaviour:
   etatInitial: {fileID: 114367643736128870}
   vitesseAngulaire: 8
   etatMort: {fileID: 114073390588019630}
-  etatEtreBlesseDefaut: {fileID: 114847351862711624}
   bruiteurPas: {fileID: 114240941921078174}
+  immuniteDouleur: 0
+  etatEtreBlesse: {fileID: 114847351862711624}
+  immuniteGlacer: 0
+  etatGlacer: {fileID: 114814946445686440}
+  immuniteEtourdir: 0
+  etatEtourdir: {fileID: 114828674695703810}
 --- !u!114 &114443151213792120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1865,11 +1859,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536c8ca7789aab143ab1cb000dc63ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dureeGlace: 3
-  degatsGlace: 9
+  multiplicateurDureeGlace: 1
   colorGlace: {r: 0, g: 0.17134883, b: 0.8014706, a: 0}
   iceSpawner: {fileID: 198918915382613654}
   rendererGobelin: {fileID: 137804542030624246}
+--- !u!114 &114828674695703810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921552545835090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eda7fab3587ef34a97db4c3ea254112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dureeEtourdissement: 3
 --- !u!114 &114847351862711624
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Porte : ObjetEnvironnemental  {
 	
 	private  Animator anim;
-	[HideInInspector]
+
 	public bool isDecorative;
 	[HideInInspector]
 	public List<ObjetNecessaire> objN = new List<ObjetNecessaire>(); 

@@ -40,10 +40,6 @@ public abstract class IA_Etat : MonoBehaviour
     public abstract void faireEtat();
     public abstract void sortirEtat();
 
-	public virtual void subirDegats(int valeurDegats, Vector3 hitPoint) {
-		agent.getMobVie().blesser (valeurDegats, hitPoint);
-	}
-
 	public virtual float getDistanceEntreeCombat(){
 		return 0;
 	}
