@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Levier : ObjetEnvironnemental {
 
-	[HideInInspector]
-	public List<Evenement> listEvent;
+
+	public EvenementItemList listEvent;
+
 
 	// Use this for initialization
 	void Start () {
@@ -15,5 +16,9 @@ public class Levier : ObjetEnvironnemental {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public override void Activation(){
+		listEvent.activerEvenement ();
 	}
 }

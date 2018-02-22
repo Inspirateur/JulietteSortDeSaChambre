@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Porte : ObjetEnvironnemental {
+public class Porte : ObjetEnvironnemental  {
 	
 	private  Animator anim;
 	public bool isDecorative;

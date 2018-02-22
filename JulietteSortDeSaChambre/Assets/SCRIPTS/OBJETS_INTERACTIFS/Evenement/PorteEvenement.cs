@@ -14,8 +14,8 @@ public class PorteEvenement : ObjetEvenementiel {
 		
 	}
 
-	public void evenementOuvrir(){
-
+	public void evenementOuvrir(string test){
+		Debug.Log (test);
 	}
 
 	public void evenementFermer(){
@@ -24,6 +24,6 @@ public class PorteEvenement : ObjetEvenementiel {
 
 
 	public override void test(){
-		Debug.Log ("testPorte");
+		
 	}
 }
