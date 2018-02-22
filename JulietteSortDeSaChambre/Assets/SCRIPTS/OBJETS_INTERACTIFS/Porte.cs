@@ -29,8 +29,10 @@ public class Porte : ObjetEnvironnemental  {
 		if (!isDecorative ) {
 			if (isActivable()) {
 				OuverturePorte ();
+				sm.playOneShot(OuvrePorte);
+			} else {
+				sm.playOneShot(BesoinItemPourActivation);
 			}
-
 		}
 	}
 

@@ -15,6 +15,10 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 
     public AudioClip RamasseObjet;
 
+    public AudioClip OuvrePorte;
+
+    public AudioClip BesoinItemPourActivation;
+
 
     void Awake () 
     {
