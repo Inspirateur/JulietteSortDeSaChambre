@@ -15,28 +15,25 @@ public class TRO_E_AttaquerVerticalement : IA_Etat{
 	private float timerChargement;
 
 	// Use this for initialization
-	void Start()
-	{
+	void Start() {
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
 		colliderArme = GetComponent<IA_TriggerArme> ();
 
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
 
-	public override void entrerEtat()
-	{
+	public override void entrerEtat() {
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 		degatsAttaqueEffectues = false;
 		setAnimation (TRO_Animations.ATTAQUER_VERTICALEMENT);
 		nav.enabled = true;
 		nav.speed = vitesse;
 		agent.definirDestination (this.transform.position + this.transform.forward * this.distanceParcourue);
-		timerChargement = Time.time + 0.5f;
-		timerFinAttaque = timerChargement + 0.96f;
+		timerChargement = Time.time + 1.6f;
+		timerFinAttaque = timerChargement + 0.3f;
 	}
 
-	public override void faireEtat()
-	{
+	public override void faireEtat() {
 		if (Time.time < timerFinAttaque) { // l'attaque est toujours en cours
 			Debug.Log("en attaque");
 			if(Time.time >= timerChargement){
@@ -53,8 +50,7 @@ public class TRO_E_AttaquerVerticalement : IA_Etat{
 		}
 	}
 
-	public override void sortirEtat()
-	{
+	public override void sortirEtat() {
 		nav.enabled = false;
 	}
 }

@@ -19,8 +19,7 @@ public class GOB_E_Mourir : IA_Etat {
 	}
 
 	public override void entrerEtat() {
-		setAnimation(GOB_Animations.MOURIR);
-		Debug.Log ("askip j'ai lancé une animation de mort");
+		anim.Play(GOB_Animations.MOURIR);
 		rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 		actualDelai = Time.time + delaiAvantDisparition;
 		sonJoue = false;

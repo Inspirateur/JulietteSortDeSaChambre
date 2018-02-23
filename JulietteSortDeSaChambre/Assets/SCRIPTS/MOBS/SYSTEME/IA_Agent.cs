@@ -260,7 +260,7 @@ public class IA_Agent : MonoBehaviour {
 	}
 
 	public void subirDegats(int valeurDegats, Vector3 hitPoint, EnumEffet effet = EnumEffet.AUCUN) {
-
+		Debug.Log ("BONJOUR J'AI PRIS UN COUP PARAIT-IL");
 		switch(effet){
 
 			case EnumEffet.AUCUN :

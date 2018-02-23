@@ -20,7 +20,7 @@ public class TRO_E_Mourir : IA_Etat {
 
 	public override void entrerEtat()
 	{
-		setAnimation(TRO_Animations.MOURIR);
+		anim.Play(TRO_Animations.MOURIR);
 		rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 		actualDelai = Time.time + delaiAvantDisparition;
 		sonJoue = false;

@@ -24,6 +24,7 @@ public class TRO_E_Poursuivre : IA_Etat {
 	}
 
 	public override void entrerEtat(){
+		setAnimation (TRO_Animations.MARCHER);
 		nav.speed = vitesse;
 		nav.enabled = true;
 		delaiActuelRecherche = 0.0f;

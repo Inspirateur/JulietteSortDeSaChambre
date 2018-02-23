@@ -11,6 +11,5 @@ public class TRO_Animations {
 	public static readonly string GARDER = "garder";
 	public static readonly string ATTAQUER_VERTICALEMENT = "attaquerVerticalement";
 	public static readonly string ENDORMIR = "endormissement";
-	public static readonly string DORMIR = "repos";
 	public static readonly string REVEIL = "reveil";
 }
