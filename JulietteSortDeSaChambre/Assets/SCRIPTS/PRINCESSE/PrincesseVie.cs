@@ -24,6 +24,8 @@ public class PrincesseVie : MonoBehaviour {
 	private Scene scene;
 	private SoundManager sm;
 
+	private AffichageVie hudVie;
+
 	/*void Awake(){
 		vie_courante = vie_max;
 		Debug.Log (vie_courante);
@@ -46,6 +48,8 @@ public class PrincesseVie : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
 		CanPlaySonHurt = true;
+		hudVie = GameObject.FindGameObjectWithTag ("HUDAffichageVie").GetComponent<AffichageVie> ();
+		setHudVie ();
 	}
 
 	// Update is called once per frame
@@ -82,6 +86,7 @@ public class PrincesseVie : MonoBehaviour {
 		vie_courante = Mathf.Min(vie_courante + valeurSoin, vie_max);
 		GameControl.control.vie = vie_courante;
 		Debug.Log("vie courante : " + vie_courante);
+		setHudVie ();
 	}
 
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)
@@ -105,6 +110,7 @@ public class PrincesseVie : MonoBehaviour {
 		vie_courante = Mathf.Max(vie_courante - valeurDegats, 0);
 		Debug.Log("vie courante : " + vie_courante);
 		GameControl.control.vie = vie_courante;
+		setHudVie ();
 	}
 
 	public bool enVie()
@@ -120,5 +126,9 @@ public class PrincesseVie : MonoBehaviour {
 	{
 		yield return new WaitForSecondsRealtime(1);
 		CanPlaySonHurt = true;
+	}
+
+	private void setHudVie(){
+		hudVie.setAffichageVie (vie_courante,vie_max);
 	}
 }

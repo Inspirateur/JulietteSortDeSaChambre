@@ -23,6 +23,5 @@ public class CoeurItem : Item {
 	{
 		juliette.soigner (valeurSoin);
 		supprimerObjet ();
-
 	}
 }

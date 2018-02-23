@@ -6,6 +6,7 @@ public class InteractionObjet : MonoBehaviour {
 
 	private GameObject juliette;
 
+
 	public ObjetInteractifs objet;
 	public float distanceActivation;
 	public float demiAngleActivationFrontal;
@@ -70,7 +71,7 @@ public class InteractionObjet : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collision){
-		if (collision.tag == "Player") {
+		if (collision.tag == "Player" && (objet as Item!=null)){
 			objet.Activation ();
 		}
 

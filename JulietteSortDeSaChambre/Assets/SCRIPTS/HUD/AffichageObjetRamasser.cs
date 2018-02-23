@@ -46,6 +46,8 @@ public class AffichageObjetRamasser : MonoBehaviour {
 		if(dicoArme.ContainsKey(arme.typeArme)){
 			dicoArme [arme.typeArme].SetActive (true);
 		}
+
+
 	}
 	private void affichageObjet(ObjetProgression objetProgression){
 		if(dicoObjet.ContainsKey(objetProgression.objetProgression)){
