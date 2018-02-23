@@ -44,9 +44,6 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         {
             animator.Play("IcePower");
             StartCoroutine(WaitForIceAnim());
-            StartCoroutine(WaitforIcePower());
-            StartCoroutine(WaitforUseIcePower());
-            StartCoroutine(WaitforIcePowerVisual());
         }
     }
 
@@ -77,13 +74,16 @@ public class PrincessePouvoirGlace : PrincessePouvoir
             visuel.transform.position=visuPos.position+(visuPos.forward*2);
             visuel.transform.rotation=visuPos.rotation;
             glaceSol.LaunchAnim();
+            StartCoroutine(WaitforIcePower());
+            StartCoroutine(WaitforUseIcePower());
+            StartCoroutine(WaitforIcePowerVisual());
     }
 
     IEnumerator WaitforIcePower()
     {
         yield return new WaitForSeconds(0.05f);
         sphereCollider.enabled = false;
-
+        Debug.Log("reset collider");
     }
 
     IEnumerator WaitforUseIcePower()
