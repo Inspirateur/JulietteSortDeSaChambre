@@ -2,22 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransitionAttaqueCharge : StateMachineBehaviour {
+public class AttaqueCharge : StateMachineBehaviour {
 
-	private PrincesseArme princesseArme;
+		private PrincesseDeplacement deplacement;
 
-	private PrincesseDeplacement deplacement;
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		princesseArme = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseArme>();
-		deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
-		//Debug.Log(princesseArme.armeActive);
-		Debug.Log("Je passe ici");
-		deplacement.vitesse = 0f;
-		princesseArme.getHandArme().GetComponent<BoxCollider>().enabled = false;
-		
-	}
+	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+	//
+	//}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -26,7 +19,9 @@ public class TransitionAttaqueCharge : StateMachineBehaviour {
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		princesseArme.getHandArme().GetComponent<BoxCollider>().enabled = true;
+			deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
+			deplacement.vitesse = 5.5f;
+
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
