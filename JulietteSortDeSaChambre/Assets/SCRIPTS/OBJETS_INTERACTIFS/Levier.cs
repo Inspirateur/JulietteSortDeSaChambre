@@ -25,6 +25,7 @@ public class Levier : ObjetEnvironnemental {
 	public override void Activation(){
 		anim.SetBool("isUp", true);
 		Debug.Log ("ok");
+		sm.playOneShot(LevierActivation);
 		foreach (Evenement e in listEvenement) {
 			e.activation ();
 		}

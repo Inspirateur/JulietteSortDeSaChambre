@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34744054, g: 0.4146754, b: 0.4977309, a: 1}
+  m_IndirectSpecularColor: {r: 0.3474173, g: 0.4147607, b: 0.49781215, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 3cff8ac8de990c7418757628267b39a1,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -675,6 +676,7 @@ MonoBehaviour:
   RamasseObjet: {fileID: 0}
   OuvrePorte: {fileID: 0}
   BesoinItemPourActivation: {fileID: 0}
+  LevierActivation: {fileID: 0}
   isDecorative: 1
   objN:
   - objet: 1
@@ -12726,6 +12728,7 @@ MonoBehaviour:
   RamasseObjet: {fileID: 0}
   OuvrePorte: {fileID: 0}
   BesoinItemPourActivation: {fileID: 0}
+  LevierActivation: {fileID: 0}
   isDecorative: 0
   objN:
   - objet: 1
@@ -81879,7 +81882,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4455658850050002, guid: 3b516e12926e85a40a44ab490866eec1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.04
+      value: -5.78
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b516e12926e85a40a44ab490866eec1, type: 2}
@@ -84401,6 +84404,11 @@ Prefab:
       propertyPath: listEvenement.Array.data[2]
       value: 
       objectReference: {fileID: 1023336159}
+    - target: {fileID: 114366564628022284, guid: 90491fdb09df5374eb8606210c9f6111,
+        type: 2}
+      propertyPath: LevierActivation
+      value: 
+      objectReference: {fileID: 8300000, guid: e88d88b28caa3b842918db0905e47215, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90491fdb09df5374eb8606210c9f6111, type: 2}
   m_IsPrefabParent: 0
