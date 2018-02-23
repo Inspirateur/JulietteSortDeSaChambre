@@ -7,7 +7,7 @@ public class IA_MobVie : MonoBehaviour {
 	public int vieMax;
 	public Transform hitEffect;
 	protected int vieCourante;
-	private IA_Agent agent;
+	protected IA_Agent agent;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +32,6 @@ public class IA_MobVie : MonoBehaviour {
 		vieCourante = Mathf.Max(vieCourante - degats, 0);
 		Debug.Log ("PV : " + vieCourante);
 		if (!estEnVie ()) {
-			agent.changerEtat (agent.etatEtreBlesse);
 			agent.mourir ();
 		}
 		else {
@@ -41,7 +40,7 @@ public class IA_MobVie : MonoBehaviour {
 	}
 
 	protected virtual void apresPriseDegat(int degatSubit){
-		
+
 	}
 
 	public bool estEnVie() {

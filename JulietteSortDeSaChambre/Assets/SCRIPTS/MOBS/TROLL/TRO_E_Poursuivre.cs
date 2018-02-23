@@ -7,8 +7,6 @@ public class TRO_E_Poursuivre : IA_Etat {
 	public float vitesse;
 	public float dureeRecherchePrincesse;
 	public float distanceEntreeCombat;
-	public float distanceMaxDash;
-	public float distanceMinDash;
 	public AudioClip sonPrincessePerdu;
 
 //	public IA_Etat etatSiPrincessePerdue;
@@ -26,6 +24,7 @@ public class TRO_E_Poursuivre : IA_Etat {
 	}
 
 	public override void entrerEtat(){
+		setAnimation (TRO_Animations.MARCHER);
 		nav.speed = vitesse;
 		nav.enabled = true;
 		delaiActuelRecherche = 0.0f;
