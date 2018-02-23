@@ -30,6 +30,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         visuel=GameObject.Find("VisuelPouvoir").GetComponent<ParticleSystem>();
         audioSource=GameObject.Find("VisuelPouvoir").GetComponent<AudioSource>();
         glaceSol=GameObject.Find("GlaceSol").GetComponent<GlaceSol>();
+        //glaceSol.SetActive(false);
         visuel.Clear();
         visuel.Pause();
         canPower = true;
