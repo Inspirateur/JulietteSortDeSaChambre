@@ -126,30 +126,25 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
-		        anim.Play("attack1");
-                princesseArme.lancerAttaque();
+		        playAttaque("attack1");
             }
 	        else if (anim.GetBool("IsJumping"))
 	        {
-		        anim.Play("attack_jump");
+		        playAttaque("attack_jump");
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-                anim.Play("attack_run");
-		        princesseArme.lancerAttaque();
+                playAttaque("attack_run");
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-                anim.Play("attack_run");
-                princesseArme.lancerAttaque();
+                playAttaque("attack_run");
             }
             else if (anim.GetBool("IsBackwalk"))
             {
-                anim.Play("attack_backwalk");
-                princesseArme.lancerAttaque();
+                playAttaque("attack_backwalk");
             }
         }
 
@@ -159,8 +154,7 @@ public class PrincesseDeplacement : MonoBehaviour
         {
             if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
-		        anim.Play("attack1");
-                princesseArme.lancerAttaqueCharge();
+		        playAttaqueCharge("attack1");
             }
 	        /*else if (anim.GetBool("IsJumping"))
 	        {
@@ -171,22 +165,33 @@ public class PrincesseDeplacement : MonoBehaviour
 	        }*/
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-                anim.Play("attack_run");
-		        princesseArme.lancerAttaqueCharge();
+                playAttaqueCharge("attack_run");
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-                anim.Play("attack_run");
-                princesseArme.lancerAttaqueCharge();
+                playAttaqueCharge("attack_run");
             }
             else if (anim.GetBool("IsBackwalk"))
             {
-                anim.Play("attack_backwalk");
-                princesseArme.lancerAttaqueCharge();
+                playAttaqueCharge("attack_backwalk");
             }
         }
 
 
+    }
+
+    private void playAttaque(string attaqueName){
+        if(princesseArme.armeActive == EnumArmes.BAGUETTE_MAGIQUE){
+            anim.Play("attaqueBaguetteMagique");
+        }else {
+            anim.Play(attaqueName);
+        }
+        princesseArme.lancerAttaque();
+    }
+
+    private void playAttaqueCharge(string attaqueName){
+        anim.Play(attaqueName);
+        princesseArme.lancerAttaqueCharge();
     }
 
 private void gererAnim(string stringToTrue)
