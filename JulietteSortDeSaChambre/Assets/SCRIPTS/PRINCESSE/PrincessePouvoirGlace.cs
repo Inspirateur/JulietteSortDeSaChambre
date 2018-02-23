@@ -5,6 +5,7 @@ using UnityEngine;
 public class PrincessePouvoirGlace : PrincessePouvoir
 {
     public bool canPower;
+    public float delay;
 
     private SphereCollider sphereCollider;
     private ParticleSystem visuel;
@@ -41,16 +42,8 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     {
         if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxis("pouvoirGlace")<-0.75f)&& canPower)
         {
-            listeAgentGlaces.Clear();
-            sphereCollider.enabled = true;
-            canPower = false;
-            visuel.Play();
-            audioSource.Play();
             animator.Play("IcePower");
-            var visuPos = sphereCollider.transform;
-            visuel.transform.position=visuPos.position+(visuPos.forward*2);
-            visuel.transform.rotation=visuPos.rotation;
-            glaceSol.LaunchAnim();
+            StartCoroutine(WaitForIceAnim());
             StartCoroutine(WaitforIcePower());
             StartCoroutine(WaitforUseIcePower());
             StartCoroutine(WaitforIcePowerVisual());
@@ -74,6 +67,18 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         }
     }
 
+    private void usePower(){
+         listeAgentGlaces.Clear();
+            sphereCollider.enabled = true;
+            canPower = false;
+            visuel.Play();
+            audioSource.Play();
+            var visuPos = sphereCollider.transform;
+            visuel.transform.position=visuPos.position+(visuPos.forward*2);
+            visuel.transform.rotation=visuPos.rotation;
+            glaceSol.LaunchAnim();
+    }
+
     IEnumerator WaitforIcePower()
     {
         yield return new WaitForSeconds(0.05f);
@@ -91,6 +96,11 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     IEnumerator WaitforIcePowerVisual(){
         yield return new WaitForSeconds(duration);
         visuel.Clear();
+    }
+
+    IEnumerator WaitForIceAnim(){
+        yield return new WaitForSeconds(delay);
+        usePower();
     }
 
 }
