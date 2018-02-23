@@ -7,6 +7,8 @@ public class Levier : ObjetEnvironnemental {
 	private  Animator anim;
 	private bool active;
 
+	public AudioClip LevierActivation;
+
 	public List<Evenement> listEvenement;
 
 

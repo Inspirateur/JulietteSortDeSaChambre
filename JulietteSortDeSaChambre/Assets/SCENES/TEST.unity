@@ -6251,7 +6251,7 @@ Prefab:
       value: door (4)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114393812946046730, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &563680465
@@ -9264,21 +9264,6 @@ Prefab:
       propertyPath: m_Name
       value: door (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 65106726296513080, guid: 35a77f534fc9e614080e730be103bff0,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
-        type: 2}
-      propertyPath: BesoinItemPourActivation
-      value: 
-      objectReference: {fileID: 8300000, guid: 73768d9f40cae254fbb5aa66833e54f3, type: 3}
-    - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
-        type: 2}
-      propertyPath: OuvrePorte
-      value: 
-      objectReference: {fileID: 8300000, guid: eb00dc2958742ac409982e781b5cff47, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_IsPrefabParent: 0
@@ -9896,7 +9881,7 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114393812946046730, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1473550371 stripped
@@ -11346,6 +11331,10 @@ Prefab:
       propertyPath: chemin.Array.data[2]
       value: 
       objectReference: {fileID: 1591351837}
+    - target: {fileID: 1661025149933492, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9a54d39a8e01f242a40b3c7ee2ba70c, type: 2}
   m_IsPrefabParent: 0

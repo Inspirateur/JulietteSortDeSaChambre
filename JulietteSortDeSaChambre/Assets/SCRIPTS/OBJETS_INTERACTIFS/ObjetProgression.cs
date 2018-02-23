@@ -9,6 +9,8 @@ public class ObjetProgression : ObjetInteractifs {
 	private AffichageObjetRamasser affichageObjetRamasser;
 	private AffichageInventaire affichageobjetActuel;
 
+	public AudioClip RamasseObjet;
+
 	// Use this for initialization
 	void Start () {
 		juliette= GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseObjetProgression>();
@@ -29,4 +31,12 @@ public class ObjetProgression : ObjetInteractifs {
 		affichageobjetActuel.objetRamasse (this.objetProgression);
 		supprimerObjet ();
 	}
+}
+public enum EnumObjetProgression 
+{
+	caisse,
+	key,
+	cristal_bleue,
+	cristal_rouge,
+	cristal_vert,
 }
