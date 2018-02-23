@@ -34,7 +34,8 @@ public class Spikes : MonoBehaviour {
 
 	}
 
-	void StopSpikes() {
+	public void StopSpikes() {
+		Debug.Log ("Test");
 		anim.SetBool ("CanUp", false);
 		StopSpike = true;
 	}

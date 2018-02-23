@@ -673,6 +673,8 @@ MonoBehaviour:
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   RamasseObjet: {fileID: 0}
+  OuvrePorte: {fileID: 0}
+  BesoinItemPourActivation: {fileID: 0}
   isDecorative: 1
   objN:
   - objet: 1
@@ -8937,6 +8939,22 @@ Transform:
   m_PrefabParentObject: {fileID: 4360237448149896, guid: 4375991dd13ecb24db31913955c9a446,
     type: 2}
   m_PrefabInternal: {fileID: 262993242}
+--- !u!1 &263151080 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1416651392505052, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 426389566}
+--- !u!114 &263151083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263151080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a7c34135511ad42935e49af413a37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &265019636
 Prefab:
   m_ObjectHideFlags: 0
@@ -12706,6 +12724,8 @@ MonoBehaviour:
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   RamasseObjet: {fileID: 0}
+  OuvrePorte: {fileID: 0}
+  BesoinItemPourActivation: {fileID: 0}
   isDecorative: 0
   objN:
   - objet: 1
@@ -40289,6 +40309,22 @@ Transform:
   m_PrefabParentObject: {fileID: 4747958135175492, guid: b44d881b5c86e5445b415bf55659b1f5,
     type: 2}
   m_PrefabInternal: {fileID: 480678060}
+--- !u!1 &1023336156 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1416651392505052, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1819108843}
+--- !u!114 &1023336159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023336156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a7c34135511ad42935e49af413a37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1024354599
 Prefab:
   m_ObjectHideFlags: 0
@@ -47264,6 +47300,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdaefcaff3bbdf4489d008f4cb104a4d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1186538160 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1416651392505052, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1374960040}
+--- !u!114 &1186538161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1186538160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a7c34135511ad42935e49af413a37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1187051269
 Prefab:
   m_ObjectHideFlags: 0
@@ -84238,6 +84290,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 299960270}
     m_Modifications:
+    - target: {fileID: 114366564628022284, guid: 90491fdb09df5374eb8606210c9f6111,
+        type: 2}
+      propertyPath: listEvenement.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4798875428060032, guid: 90491fdb09df5374eb8606210c9f6111, type: 2}
       propertyPath: m_LocalPosition.x
       value: 59.313133
@@ -84274,6 +84331,21 @@ Prefab:
       propertyPath: m_Name
       value: levier (0)
       objectReference: {fileID: 0}
+    - target: {fileID: 114366564628022284, guid: 90491fdb09df5374eb8606210c9f6111,
+        type: 2}
+      propertyPath: listEvenement.Array.data[0]
+      value: 
+      objectReference: {fileID: 1186538161}
+    - target: {fileID: 114366564628022284, guid: 90491fdb09df5374eb8606210c9f6111,
+        type: 2}
+      propertyPath: listEvenement.Array.data[1]
+      value: 
+      objectReference: {fileID: 263151083}
+    - target: {fileID: 114366564628022284, guid: 90491fdb09df5374eb8606210c9f6111,
+        type: 2}
+      propertyPath: listEvenement.Array.data[2]
+      value: 
+      objectReference: {fileID: 1023336159}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90491fdb09df5374eb8606210c9f6111, type: 2}
   m_IsPrefabParent: 0
