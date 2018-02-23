@@ -21,13 +21,13 @@ GameObject:
   - component: {fileID: 4956572216782070}
   - component: {fileID: 33975730610840084}
   - component: {fileID: 23420130180089826}
-  - component: {fileID: 64598174790237324}
+  - component: {fileID: 65701429075848126}
   m_Layer: 0
   m_Name: LavaPlateforme1
   m_TagString: sol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4956572216782070
 Transform:
@@ -35,9 +35,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087193875253182}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -8.698183, y: 5.866909, z: -15.14746}
-  m_LocalScale: {x: 200, y: 199.99994, z: 49.999985}
+  m_LocalRotation: {x: -0.70710665, y: -0, z: 0, w: -0.7071069}
+  m_LocalPosition: {x: -0.00000099182, y: 0.01, z: -0.08}
+  m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -85,8 +85,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087193875253182}
   m_Mesh: {fileID: 4300008, guid: 644dbcfcddca1604db1ad7518e674ffd, type: 3}
---- !u!64 &64598174790237324
-MeshCollider:
+--- !u!65 &65701429075848126
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -94,8 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300008, guid: 644dbcfcddca1604db1ad7518e674ffd, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.021169651, y: 0.02195992, z: 0.12056281}
+  m_Center: {x: 0.0005848361, y: -0.0009799579, z: -0.04917622}

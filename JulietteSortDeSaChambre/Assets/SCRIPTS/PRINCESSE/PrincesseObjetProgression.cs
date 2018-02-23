@@ -5,10 +5,12 @@ using UnityEngine;
 public class PrincesseObjetProgression : MonoBehaviour {
 
 	public Dictionary<EnumObjetProgression,int> listObjet;
+	private AffichageInventaire affichageobjetActuel;
 
 	// Use this for initialization
 	void Start () {
 		listObjet = new Dictionary<EnumObjetProgression,int>();
+		affichageobjetActuel =GameObject.FindGameObjectWithTag ("HUDAffichageInventaire").GetComponent<AffichageInventaire> ();
 	}
 
 	// Update is called once per frame
@@ -26,6 +28,7 @@ public class PrincesseObjetProgression : MonoBehaviour {
 
 	public void removeItem(EnumObjetProgression objetProgression){
 		this.removeItem (objetProgression,1);
+
 	}
 
 
@@ -36,12 +39,18 @@ public class PrincesseObjetProgression : MonoBehaviour {
 			} else {
 				listObjet [objetProgression]--;
 			}
+			affichageobjetActuel.objetPerdu (objetProgression);
 		}
+	}
+
+	public bool hasItem(){
+		return listObjet.Count != 0;
 	}
 }
 
-public enum EnumObjetProgression
+public enum EnumObjetProgression 
 {
 	caisse,
 	key,
+	cristal,
 }

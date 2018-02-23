@@ -7,9 +7,29 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 	public string nomObjet;
 	public string descriptionObjet;
 
+    [HideInInspector]
+    public SoundEntity soundGenerator;	
+
+    [HideInInspector]
+    public SoundManager sm;
+
+    public AudioClip RamasseObjet;
+
+    public AudioClip OuvrePorte;
+
+    public AudioClip BesoinItemPourActivation;
+
+    public AudioClip LevierActivation;
+
+
+    void Awake () 
+    {
+        sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
+    }
+
 	// Use this for initialization
 	void Start () {
-		
+		        
 	}
 	
 	// Update is called once per frame

@@ -3,13 +3,10 @@
 using UnityEditor;  
 using UnityEditorInternal;
 
-
-
-
-
 [CustomEditor(typeof(Porte))]
 public class PorteEditor : Editor {  
 	private ReorderableList list;
+
 
 	private void OnEnable() {
 		list = new ReorderableList(serializedObject, 
@@ -38,13 +35,16 @@ public class PorteEditor : Editor {
 
 	public override void OnInspectorGUI() {
 
+
+		base.OnInspectorGUI ();
 		Porte myPorte = (Porte)target;
-		myPorte.isDecorative = EditorGUILayout.Toggle ("Porte décorative :",myPorte.isDecorative);
+		//myPorte.isDecorative = EditorGUILayout.Toggle ("Porte décorative :",myPorte.isDecorative);
 		if (!myPorte.isDecorative) {
 			serializedObject.Update();
 			list.DoLayoutList();
 			serializedObject.ApplyModifiedProperties();
 		}
+
 
 	}
 }

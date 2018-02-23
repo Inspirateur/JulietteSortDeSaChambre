@@ -427,7 +427,6 @@ GameObject:
   - component: {fileID: 82716957421335422}
   - component: {fileID: 114573517906380194}
   - component: {fileID: 114882417127062912}
-  - component: {fileID: 114017809152141382}
   m_Layer: 8
   m_Name: Juliette
   m_TagString: Player
@@ -461,7 +460,7 @@ GameObject:
   - component: {fileID: 33312406171507370}
   - component: {fileID: 23067832891276738}
   - component: {fileID: 65221232713371184}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: handPiedLit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1818,25 +1817,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114017809152141382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1501621892178278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1475701c3833514195e2c0c3fcc37f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParticuleMobHurt:
-  - {fileID: 1386326879869430, guid: 90df33f6044effb4ca85698878036c5a, type: 2}
-  SoundParticuleMobHurt:
-  - {fileID: 8300000, guid: 91caa77321f43e444a2aa447769202eb, type: 3}
-  ParticuleWall:
-  - {fileID: 1952027472288316, guid: 605269e3410fdaa4695bb16e2970425c, type: 2}
-  SoundParticuleWall:
-  - {fileID: 8300000, guid: 95b89dd51ec5b70428367ee6a2c95629, type: 3}
 --- !u!114 &114042103838986114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1894,12 +1874,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd0f7be026f6e4488a762071c829334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vie_max: 100
+  vie_max: 12
   reculeVertical: 100
   reculeHorizontal: 100
   ParticleBlood: {fileID: 1386326879869430, guid: bb705fa4d217a6c43bcda89b848ccd55,
     type: 2}
   HauteurParticule: 1
+  PrincesseHurt: {fileID: 8300000, guid: 64125e2b8795e7947bc0279da129396f, type: 3}
 --- !u!114 &114573517906380194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1919,19 +1900,6 @@ MonoBehaviour:
   - {fileID: 1952027472288316, guid: 605269e3410fdaa4695bb16e2970425c, type: 2}
   SoundParticuleWall:
   - {fileID: 8300000, guid: 95b89dd51ec5b70428367ee6a2c95629, type: 3}
---- !u!114 &114732273091885378
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345854187850900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf72ed0d521dfb40a8200671ac86c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smokeEffect: {fileID: 4522069105146130, guid: 36f2f51a725d330438add98f94891220,
-    type: 2}
 --- !u!114 &114718835825931724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1946,7 +1914,23 @@ MonoBehaviour:
   Nom: 
   Description: 
   duration: 3
-  cooldown: 10
+  cooldown: 4
+  canPower: 0
+  delay: 0.3
+  degats: 4
+--- !u!114 &114732273091885378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345854187850900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf72ed0d521dfb40a8200671ac86c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smokeEffect: {fileID: 4522069105146130, guid: 36f2f51a725d330438add98f94891220,
+    type: 2}
 --- !u!114 &114771300554276992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1968,7 +1952,7 @@ MonoBehaviour:
   degatsPain: 5
   degatschargePain: 0
   degatsPiedLit: 5
-  degatschargePiedLit: 18
+  degatschargePiedLit: 0
   degatsChandelier: 5
   degatschargeChandelier: 0
   degatsPelle: 5
