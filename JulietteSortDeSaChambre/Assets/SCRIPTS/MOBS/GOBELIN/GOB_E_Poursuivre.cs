@@ -41,21 +41,6 @@ public class GOB_E_Poursuivre : IA_Etat {
 	}
 
 	public override void faireEtat(){
-		
-		if (!princessePerdue) {
-			if (perception.aRepere(princesse, 1.0f) && !dernierePositionPrincesseConnue.Equals (princesse.transform.position)) {
-				
-				dernierePositionPrincesseConnue = princesse.transform.position;
-				//agent.definirDestination (dernierePositionPrincesseConnue);
-				agent.definirDestinationStrat();
-				enRotation = true;
-			}
-		}
-
-		if (enRotation) {
-			//enRotation = agent.seTournerVersPosition (dernierePositionPrincesseConnue);
-			enRotation = agent.seTournerVersPosition (agent.getNav().destination);
-		}
 
 		if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
 
@@ -94,6 +79,22 @@ public class GOB_E_Poursuivre : IA_Etat {
 				
 				agent.getSoundEntity ().playOneShot (sonPrincessePerdu);
 				changerEtat (agent.etatInitial);
+			}
+		}
+		else {
+			if (!princessePerdue) {
+				if (perception.aRepere(princesse, 1.0f) && !dernierePositionPrincesseConnue.Equals (princesse.transform.position)) {
+					
+					dernierePositionPrincesseConnue = princesse.transform.position;
+					//agent.definirDestination (dernierePositionPrincesseConnue);
+					agent.definirDestinationStrat();
+					enRotation = true;
+				}
+			}
+
+			if (enRotation) {
+				//enRotation = agent.seTournerVersPosition (dernierePositionPrincesseConnue);
+				enRotation = agent.seTournerVersPosition (agent.getNav().destination);
 			}
 		}
 	}
