@@ -59,7 +59,7 @@ public class PrincesseDeplacement : MonoBehaviour
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
 
-        if (moveHorizontal != 0.0f || moveVertical != 0.0f)
+        if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower"))
         {
             if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
             {

@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 33312406171507370}
   - component: {fileID: 23067832891276738}
   - component: {fileID: 65221232713371184}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: handPiedLit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1914,8 +1914,10 @@ MonoBehaviour:
   Nom: 
   Description: 
   duration: 3
-  cooldown: 10
-  degats: 0
+  cooldown: 4
+  canPower: 0
+  delay: 0.3
+  degats: 4
 --- !u!114 &114732273091885378
 MonoBehaviour:
   m_ObjectHideFlags: 1

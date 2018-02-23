@@ -57,21 +57,28 @@ public class AffichageVie : MonoBehaviour {
 		foreach (GameObject go in listCoeur) {
 			if (coeurPlein >= (step)) {
 				go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_plein);
-			}else if(coeurPlein==step-1) {
-				switch (particoeurSup) {
-				case 0:go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_vide);
-					break;
-				case 1:go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_1quart);
-					break;
-				case 2:go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_moitie);
-					break;
-				case 3:go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_3quart);
-					break;
+			}else { 
+				if (coeurPlein == step - 1) {
+					switch (particoeurSup) {
+					case 0:
+						go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_vide);
+						break;
+					case 1:
+						go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_1quart);
+						break;
+					case 2:
+						go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_moitie);
+						break;
+					case 3:
+						go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_3quart);
+						break;
+					}
+				} else {
+					go.GetComponent<UnityEngine.UI.Image> ().sprite = searchSprite (EnumVieEtat.vie_vide);
 				}
 			}
 			step++;
 		}
-
 	}
 
 	private Sprite searchSprite(EnumVieEtat enu){
@@ -104,7 +111,7 @@ public class AffichageVie : MonoBehaviour {
 				temp.GetComponent<RectTransform> ().anchorMax = new Vector2 (0.5f, 0.5f);
 				temp.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (decalX, 0.0f, 0.0f);
 				temp.GetComponent<RectTransform> ().localScale = new Vector3 (0.4f, 0.4f, 0.4f);
-				Instantiate(temp);
+				//Instantiate(temp);
 				listCoeur.Add (temp);
 				break;
 			}

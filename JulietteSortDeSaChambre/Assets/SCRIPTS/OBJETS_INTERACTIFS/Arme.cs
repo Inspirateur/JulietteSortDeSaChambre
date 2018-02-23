@@ -9,6 +9,8 @@ public class Arme : ObjetInteractifs {
 	private AffichageObjetRamasser affichageObjetRamasser;
 	private PrincesseArme juliette;
 
+	public AudioClip RamasseObjet;
+
 
 	// Use this for initialization
 	void Start () {
