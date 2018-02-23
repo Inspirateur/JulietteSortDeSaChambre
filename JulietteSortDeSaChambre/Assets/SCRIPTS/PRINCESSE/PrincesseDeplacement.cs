@@ -30,6 +30,8 @@ public class PrincesseDeplacement : MonoBehaviour
     private float timerStep;
     private SoundManager sm;
     private float timer;
+    private bool attackjump;
+    private bool isCharging;
 
 
     void Start()
@@ -42,6 +44,8 @@ public class PrincesseDeplacement : MonoBehaviour
         princesseArme = GetComponent<PrincesseArme>();
         timerStep = 0.0f;
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        attackjump = false;
+        isCharging = false;
 
     }
 
@@ -50,7 +54,8 @@ public class PrincesseDeplacement : MonoBehaviour
         
 
         bool toucheDebug = Input.GetKeyDown(KeyCode.K);
-
+        AnimatorClipInfo[] clipinfo = anim.GetCurrentAnimatorClipInfo(0);
+        
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
 
@@ -72,6 +77,7 @@ public class PrincesseDeplacement : MonoBehaviour
                 GererDeplacement(moveHorizontal, moveVertical);
                 if (!anim.GetBool("IsJumping") && isGrounded)
                 {
+                    attackjump = false;
                     if ((moveHorizontal != 0.0f && moveVertical == 0.0f))
                     {
                         gererAnim("IsSidewalk");
@@ -87,7 +93,8 @@ public class PrincesseDeplacement : MonoBehaviour
                 }
                 else if (isGrounded)
                 {       
-                         anim.SetBool("IsJumping", false);
+                    attackjump = false;
+                    anim.SetBool("IsJumping", false);
                 }
 
                 else
@@ -129,8 +136,9 @@ public class PrincesseDeplacement : MonoBehaviour
 		        anim.Play("attack1");
                 princesseArme.lancerAttaque();
             }
-	        else if (anim.GetBool("IsJumping"))
+	        else if (anim.GetBool("IsJumping") && attackjump == false)
 	        {
+                attackjump = true;
 		        anim.Play("attack_jump");
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
@@ -157,34 +165,33 @@ public class PrincesseDeplacement : MonoBehaviour
         bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
         if(toucheAttackCharge)
         {
+            
             if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
-		        anim.Play("attack1");
-                princesseArme.lancerAttaqueCharge();
+                
+              anim.Play("ChargeAttaqueCharge");
+              princesseArme.lancerAttaqueCharge();
+                      
+               
             }
-	        /*else if (anim.GetBool("IsJumping"))
-	        {
-		        anim.Play("attack_jump");
-		        rb.AddForce(transform.forward * 500f);
-		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-		        princesseArme.lancerAttaque();
-	        }*/
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-                anim.Play("attack_run");
-		        princesseArme.lancerAttaqueCharge();
+                 anim.Play("ChargeAttaqueCharge");
+              princesseArme.lancerAttaqueCharge();
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-                anim.Play("attack_run");
-                princesseArme.lancerAttaqueCharge();
+                 anim.Play("ChargeAttaqueCharge");
+              princesseArme.lancerAttaqueCharge();
             }
             else if (anim.GetBool("IsBackwalk"))
             {
-                anim.Play("attack_backwalk");
-                princesseArme.lancerAttaqueCharge();
+               anim.Play("ChargeAttaqueCharge");
+              princesseArme.lancerAttaqueCharge();
             }
         }
+
+        
 
 
     }
