@@ -19,6 +19,8 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 
     public AudioClip BesoinItemPourActivation;
 
+    public AudioClip LevierActivation;
+
 
     void Awake () 
     {
