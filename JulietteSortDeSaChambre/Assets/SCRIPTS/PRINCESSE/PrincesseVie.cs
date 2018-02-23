@@ -10,15 +10,21 @@ public class PrincesseVie : MonoBehaviour {
 	public float reculeVertical;
 	public float reculeHorizontal;
     
-	[Header("Particule de sang :")]
+	[Header("Princesse prend un dégât :")]
 	public GameObject ParticleBlood;
 	[Tooltip("Hauteur min : 0.5, max : 1.5")]
 	public float HauteurParticule;
+	[Tooltip("Son quand la princesse prend des dégâts")]	
+	public AudioClip PrincesseHurt;
+	private bool CanPlaySonHurt;
 
 	private int vie_courante;
 	private Rigidbody rb;
 	private bool gameover;
 	private Scene scene;
+	private SoundManager sm;
+
+	private AffichageVie hudVie;
 
 	/*void Awake(){
 		vie_courante = vie_max;
@@ -40,7 +46,10 @@ public class PrincesseVie : MonoBehaviour {
 		gameover = false;
 		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody>();
-
+		sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
+		CanPlaySonHurt = true;
+		hudVie = GameObject.FindGameObjectWithTag ("HUDAffichageVie").GetComponent<AffichageVie> ();
+		setHudVie ();
 	}
 
 	// Update is called once per frame
@@ -65,17 +74,32 @@ public class PrincesseVie : MonoBehaviour {
 
 	}
 
+	public void mourir()
+	{
+		vie_courante = 0;
+		GameControl.control.vie = vie_courante;
+		Debug.Log("vie courante : " + vie_courante);
+	}
+
 	public void soigner(int valeurSoin)
 	{
 		vie_courante = Mathf.Min(vie_courante + valeurSoin, vie_max);
 		GameControl.control.vie = vie_courante;
 		Debug.Log("vie courante : " + vie_courante);
+		setHudVie ();
 	}
 
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)
 	{
 		anim.Play ("hurt");
 
+		if (CanPlaySonHurt)
+		{
+			CanPlaySonHurt = false;
+			sm.playOneShot(PrincesseHurt,Random.Range(0.5f,0.7f),Random.Range(0.85f,1.0f));
+			StartCoroutine(WaitForSonHurtToPlay());
+		}
+		
         Instantiate(ParticleBlood, new Vector3(this.transform.position.x, this.transform.position.y + HauteurParticule, this.transform.position.z), Quaternion.identity);
 
         Vector3 directionRecule = (this.transform.position - sourceDegats.transform.position).normalized;
@@ -86,6 +110,7 @@ public class PrincesseVie : MonoBehaviour {
 		vie_courante = Mathf.Max(vie_courante - valeurDegats, 0);
 		Debug.Log("vie courante : " + vie_courante);
 		GameControl.control.vie = vie_courante;
+		setHudVie ();
 	}
 
 	public bool enVie()
@@ -95,5 +120,15 @@ public class PrincesseVie : MonoBehaviour {
 
 	public int getVieCourante(){
 		return vie_courante;
+	}
+
+	IEnumerator WaitForSonHurtToPlay()
+	{
+		yield return new WaitForSecondsRealtime(1);
+		CanPlaySonHurt = true;
+	}
+
+	private void setHudVie(){
+		hudVie.setAffichageVie (vie_courante,vie_max);
 	}
 }

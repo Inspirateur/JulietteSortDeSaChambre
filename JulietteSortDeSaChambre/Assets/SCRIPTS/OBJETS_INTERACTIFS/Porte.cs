@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Porte : ObjetEnvironnemental {
+public class Porte : ObjetEnvironnemental  {
 	
 	private  Animator anim;
-	public bool isDecorative;
 
+	public bool isDecorative;
+	[HideInInspector]
 	public List<ObjetNecessaire> objN = new List<ObjetNecessaire>(); 
 	private PrincesseObjetProgression juliette;
 
@@ -21,20 +22,17 @@ public class Porte : ObjetEnvironnemental {
 	
 	// Update is called once per frame
 	void Update () {
-
 		
 	}
 
 	public override void Activation(){
 		if (!isDecorative ) {
 			if (isActivable()) {
-				anim.SetBool("isOpen", true);
-				isDecorative = true;
-				foreach (ObjetNecessaire obj in objN) {
-					juliette.removeItem (obj.objet, obj.nombre);
-				}
+				OuverturePorte ();
+				sm.playOneShot(OuvrePorte);
+			} else {
+				sm.playOneShot(BesoinItemPourActivation);
 			}
-
 		}
 	}
 
@@ -67,5 +65,13 @@ public class Porte : ObjetEnvironnemental {
 
 
 
+	}
+
+	public void OuverturePorte(){
+		anim.SetBool("isOpen", true);
+		isDecorative = true;
+		foreach (ObjetNecessaire obj in objN) {
+			juliette.removeItem (obj.objet, obj.nombre);
+		}
 	}
 }

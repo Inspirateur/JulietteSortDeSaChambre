@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4412287778420348}
   - component: {fileID: 33530697494256474}
   - component: {fileID: 23281045114608084}
+  - component: {fileID: 64182617489862574}
   m_Layer: 2
   m_Name: voute2
-  m_TagString: Untagged
+  m_TagString: sol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4412287778420348
 Transform:
@@ -35,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965546702408726}
   m_LocalRotation: {x: -0.0000020787118, y: 0.7071067, z: 0.7071069, w: 0.0000020712612}
-  m_LocalPosition: {x: -6.99, y: 4.817645, z: 7.31}
-  m_LocalScale: {x: 200, y: 50, z: 20}
+  m_LocalPosition: {x: -8.11, y: 20.883587, z: -65.40527}
+  m_LocalScale: {x: 216.00038, y: 72.5489, z: 21.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,4 +82,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965546702408726}
+  m_Mesh: {fileID: 4300002, guid: 92e987e96b2305443a2cb44998964293, type: 3}
+--- !u!64 &64182617489862574
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965546702408726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 92e987e96b2305443a2cb44998964293, type: 3}
