@@ -30,6 +30,8 @@ public class PrincesseDeplacement : MonoBehaviour
     private float timerStep;
     private SoundManager sm;
     private float timer;
+    private bool attackjump;
+    private bool isCharging;
 
 
     void Start()
@@ -42,6 +44,8 @@ public class PrincesseDeplacement : MonoBehaviour
         princesseArme = GetComponent<PrincesseArme>();
         timerStep = 0.0f;
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        attackjump = false;
+        isCharging = false;
 
     }
 
@@ -50,7 +54,8 @@ public class PrincesseDeplacement : MonoBehaviour
         
 
         bool toucheDebug = Input.GetKeyDown(KeyCode.K);
-
+        AnimatorClipInfo[] clipinfo = anim.GetCurrentAnimatorClipInfo(0);
+        
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
 
@@ -72,6 +77,7 @@ public class PrincesseDeplacement : MonoBehaviour
                 GererDeplacement(moveHorizontal, moveVertical);
                 if (!anim.GetBool("IsJumping") && isGrounded)
                 {
+                    attackjump = false;
                     if ((moveHorizontal != 0.0f && moveVertical == 0.0f))
                     {
                         gererAnim("IsSidewalk");
@@ -87,7 +93,8 @@ public class PrincesseDeplacement : MonoBehaviour
                 }
                 else if (isGrounded)
                 {       
-                         anim.SetBool("IsJumping", false);
+                    attackjump = false;
+                    anim.SetBool("IsJumping", false);
                 }
 
                 else
@@ -126,30 +133,26 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
-		        anim.Play("attack1");
-                princesseArme.lancerAttaque();
+		        playAttaque("attack1");
             }
-	        else if (anim.GetBool("IsJumping"))
+	        else if (anim.GetBool("IsJumping") && attackjump == false)
 	        {
-		        anim.Play("attack_jump");
+                attackjump = true;
+                playAttaque("attack_jump");
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-		        princesseArme.lancerAttaque();
 	        }
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-                anim.Play("attack_run");
-		        princesseArme.lancerAttaque();
+                playAttaque("attack_run");
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-                anim.Play("attack_run");
-                princesseArme.lancerAttaque();
+                playAttaque("attack_run");
             }
             else if (anim.GetBool("IsBackwalk"))
             {
-                anim.Play("attack_backwalk");
-                princesseArme.lancerAttaque();
+                playAttaque("attack_backwalk");
             }
         }
 
@@ -157,140 +160,136 @@ public class PrincesseDeplacement : MonoBehaviour
         bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
         if(toucheAttackCharge)
         {
+            
             if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
-		        anim.Play("attack1");
-                princesseArme.lancerAttaqueCharge();
+                playAttaqueCharge("ChargeAttaqueCharge");
             }
-	        /*else if (anim.GetBool("IsJumping"))
-	        {
-		        anim.Play("attack_jump");
-		        rb.AddForce(transform.forward * 500f);
-		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-		        princesseArme.lancerAttaque();
-	        }*/
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-                anim.Play("attack_run");
-		        princesseArme.lancerAttaqueCharge();
+                playAttaqueCharge("ChargeAttaqueCharge");
 	        }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
-                anim.Play("attack_run");
-                princesseArme.lancerAttaqueCharge();
+                playAttaqueCharge("ChargeAttaqueCharge");
             }
             else if (anim.GetBool("IsBackwalk"))
             {
-                anim.Play("attack_backwalk");
-                princesseArme.lancerAttaqueCharge();
+                playAttaqueCharge("ChargeAttaqueCharge");
+            }
+        }
+    }
+
+    private void playAttaque(string attaqueName){
+        if(princesseArme.armeActive == EnumArmes.BAGUETTE_MAGIQUE){
+            anim.Play("attaqueBaguetteMagique");
+        }else {
+            anim.Play(attaqueName);
+        }
+        princesseArme.lancerAttaque();
+    }
+
+    private void playAttaqueCharge(string attaqueName){
+        anim.Play(attaqueName);
+        princesseArme.lancerAttaqueCharge();
+    }
+
+    private void gererAnim(string stringToTrue)
+    {
+        //Met tous les anim.setBool a false sauf celui du stringToTrue
+        gererAnim();
+
+        anim.SetBool(stringToTrue, true);
+
+    }
+
+    private void gererAnim()
+    {
+        //Met tous les anim.setBool a false sauf celui du stringToTrue
+        anim.SetBool("IsRunning", false);
+        anim.SetBool("IsBackwalk", false);
+        anim.SetBool("IsSidewalk", false);
+        anim.SetBool("IsIdle", false);
+        anim.SetBool("IsJumping", false);
+
+    }
+
+    IEnumerator WaitForVelocityZero()
+    {
+        rb.velocity = Vector3.zero;
+        yield return new WaitForSeconds(0.3f);
+    }
+
+    private void GererDeplacement(float moveHorizontal, float moveVertical)
+    {
+
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
+        {
+            float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
+
+                float rotation;
+
+                if (difRotation > 180.0f)
+                {
+                    difRotation -= 360.0f;
+                }
+
+                if (difRotation < -180.0f)
+                {
+                    difRotation += 360.0f;
+                }
+
+                rotation = Mathf.Clamp(difRotation, -vitesseAngulaire, vitesseAngulaire);
+
+                this.transform.Rotate(0.0f, rotation, 0.0f);
+
+            Vector3 mouvement = this.transform.forward * Mathf.Max(moveVertical, -0.5f);
+            float norme = Mathf.Max(mouvement.magnitude, 0.5f);
+
+            mouvement += this.transform.right * moveHorizontal * 0.5f;
+
+            mouvement = (mouvement / mouvement.magnitude) * norme;
+
+            if (isPushing == false)
+            {
+                this.transform.position += mouvement * vitesse * Time.deltaTime;
+            }
+            else
+            {
+                this.transform.position += mouvement * vitesse / 2 * Time.deltaTime;
+            }
+
+            if (timerStep <= Time.time && isGrounded && CanDash)
+            {
+                bruiteurPas.pas();
+                timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
             }
         }
 
 
     }
 
-private void gererAnim(string stringToTrue)
-{
-	//Met tous les anim.setBool a false sauf celui du stringToTrue
-	gererAnim();
-
-	anim.SetBool(stringToTrue, true);
-
-}
-
-private void gererAnim()
-{
-	//Met tous les anim.setBool a false sauf celui du stringToTrue
-	anim.SetBool("IsRunning", false);
-	anim.SetBool("IsBackwalk", false);
-	anim.SetBool("IsSidewalk", false);
-	anim.SetBool("IsIdle", false);
-	anim.SetBool("IsJumping", false);
-
-}
-
-
-
-IEnumerator WaitForVelocityZero()
-{
-	rb.velocity = Vector3.zero;
-	yield return new WaitForSeconds(0.3f);
-}
-
-
-private void GererDeplacement(float moveHorizontal, float moveVertical)
-{
-
-	if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
-	{
-		float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
-
-            float rotation;
-
-            if (difRotation > 180.0f)
-            {
-                difRotation -= 360.0f;
-            }
-
-            if (difRotation < -180.0f)
-            {
-                difRotation += 360.0f;
-            }
-
-            rotation = Mathf.Clamp(difRotation, -vitesseAngulaire, vitesseAngulaire);
-
-            this.transform.Rotate(0.0f, rotation, 0.0f);
-
-		Vector3 mouvement = this.transform.forward * Mathf.Max(moveVertical, -0.5f);
-		float norme = Mathf.Max(mouvement.magnitude, 0.5f);
-
-		mouvement += this.transform.right * moveHorizontal * 0.5f;
-
-		mouvement = (mouvement / mouvement.magnitude) * norme;
-
-		if (isPushing == false)
-		{
-			this.transform.position += mouvement * vitesse * Time.deltaTime;
-		}
-		else
-		{
-			this.transform.position += mouvement * vitesse / 2 * Time.deltaTime;
-		}
-
-		if (timerStep <= Time.time && isGrounded && CanDash)
-		{
-            bruiteurPas.pas();
-			timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
-		}
-	}
-
-
-}
-
-
-IEnumerator WaitBeforDash()
-{
-	yield return new WaitForSeconds(1f);
-	CanDash = true;
-}
-
-private void OnCollisionStay(Collision collision)
-{
-	if (collision.collider.tag == "sol" || collision.collider.tag == "Decor")
-	{
-		isGrounded = true;
-	}
-}
-
-private void OnCollisionExit(Collision collision){
-    if(collision.collider.tag == "sol" || collision.collider.tag == "Decor"){
-        isGrounded=false;
-        gererAnim("IsJumping");
+    IEnumerator WaitBeforDash()
+    {
+        yield return new WaitForSeconds(1f);
+        CanDash = true;
     }
 
-}
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.tag == "sol" || collision.collider.tag == "Decor")
+        {
+            isGrounded = true;
+        }
+    }
 
+    private void OnCollisionExit(Collision collision){
+        if(collision.collider.tag == "sol" || collision.collider.tag == "Decor"){
+            isGrounded=false;
+            gererAnim("IsJumping");
+        }
 
+    }
 }
 
 

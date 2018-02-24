@@ -33,7 +33,7 @@ public class MovingObject : MonoBehaviour {
 		if (!isStop) {
 			StartPlateformeBeggening ();
 		}
-		StartCoroutine (Wait());
+		//StartCoroutine (Wait());
 	}
 
 	public void StartPlateformeBeggening() {

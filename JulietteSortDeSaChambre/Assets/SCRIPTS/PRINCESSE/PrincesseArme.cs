@@ -149,6 +149,10 @@ public class PrincesseArme : MonoBehaviour {
 		}
 	}
 
+	public GameObject getHandArme(){
+	return actualHandArme;
+	}
+
 	void OnTriggerEnter(Collider other){
         if (attaqueCorpsACorpsEnCours) {
             if (other.tag.Equals ("Mob")) {
@@ -242,7 +246,7 @@ public class PrincesseArme : MonoBehaviour {
 			break;
 
 			case EnumArmes.PIED_LIT:
-						attaqueChargeEnCours = true;
+		attaqueChargeEnCours = true;
 		attaqueCorpsACorpsEnCours = false;
 		attaqueDistanceEnCours = false;
 
@@ -432,6 +436,8 @@ public class PrincesseArme : MonoBehaviour {
 		return null;
 	}
 }
+
+
 
 public enum EnumArmes
 {
