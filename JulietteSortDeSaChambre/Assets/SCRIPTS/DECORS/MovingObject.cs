@@ -20,6 +20,9 @@ public class MovingObject : MonoBehaviour {
 	[Header("Déplacement cyclique :")]
 	public bool Cycle;
 
+	[Header("Arreté au depart")]
+	public bool isStop;
+
 	private Vector3 NouvellePosition;
 	private bool DeplacementRetour;
 	private int PostionToCheck;
@@ -27,6 +30,14 @@ public class MovingObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.transform.position = Position[Etat].position;
+		if (!isStop) {
+			StartPlateformeBeggening ();
+		}
+		//StartCoroutine (Wait());
+	}
+
+	public void StartPlateformeBeggening() {
+		isStop = false;
 		if (Cycle)
 		{
 			ChangeNouvellePositionLineaire();
@@ -37,10 +48,20 @@ public class MovingObject : MonoBehaviour {
 			ChangeNouvellePositionNonLineaire();
 		}
 	}
+
+	public void StotPlateforme() {
+		isStop = true;
+	}
+
+	public void RestartPlateforme() {
+		isStop = false;
+	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		this.transform.position = Vector3.MoveTowards(this.transform.position, NouvellePosition,  Vitesse * Time.deltaTime);
+		if (!isStop) {
+			this.transform.position = Vector3.MoveTowards(this.transform.position, NouvellePosition,  Vitesse * Time.deltaTime);
+		}
 	}
 
 	void ChangeNouvellePositionLineaire() {
@@ -63,7 +84,6 @@ public class MovingObject : MonoBehaviour {
 				i = Position.Length;
 			}
 		}
-		// Invoke("ChangeNouvellePositionLineaire", ResetTime);
 	}
 
 	void CheckPositionLineaire() {
@@ -134,5 +154,9 @@ public class MovingObject : MonoBehaviour {
 		}
 	}
 
+	IEnumerator Wait(){
+		yield return new WaitForSeconds(4f);
+		StartPlateformeBeggening ();
+	}
 
 }

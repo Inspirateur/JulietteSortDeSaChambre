@@ -11,6 +11,9 @@ public class TRO_E_Garder : IA_Etat {
 	private bool enDeplacement;
 	private bool enRotation;
 	private bool enGarde;
+	public float endormissementMin;
+	public float endormissementMax;
+	private float endormissement;
 
 	// Use this for initialization
 	void Start()
@@ -22,7 +25,7 @@ public class TRO_E_Garder : IA_Etat {
 
 	public override void entrerEtat()
 	{
-		setAnimation(GOB_Animations.COURIR);
+		setAnimation(TRO_Animations.MARCHER);
 		nav.speed = vitesse;
 		nav.enabled = true;
 		agent.definirDestination(emplacementAGarder);
@@ -31,13 +34,12 @@ public class TRO_E_Garder : IA_Etat {
 		enGarde = false;
 	}
 
-	public override void faireEtat()
-	{
-		if (perception.aRepere(princesse, 1.0f)) {
-			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
+	public override void faireEtat(){
+		if (perception.aRepere (princesse, 1.0f)) {
+			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
 
-		} else if (!enDeplacement && perception.aRepere(princesse, 1.5f)) {
-			changerEtat (this.GetComponent<GOB_E_Poursuivre> ());
+		} else if (!enDeplacement && perception.aRepere (princesse, 1.5f)) {
+			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
 
 		} else if (enDeplacement) {
 			if (agent.destinationCouranteAtteinte ()) {
@@ -46,12 +48,14 @@ public class TRO_E_Garder : IA_Etat {
 				enRotation = true;
 			}
 		} else if (enRotation) {
-
 			enRotation = agent.seTournerDansOrientationDe (emplacementAGarder.gameObject);
 
 		} else if (!enGarde && !enRotation) {
+			endormissement = Time.time + endormissementMin + (endormissementMax - endormissementMin) * Random.value;
 			enGarde = true;
-			setAnimation (GOB_Animations.GARDER);
+			setAnimation (TRO_Animations.GARDER);
+		} else if (enGarde && Time.time >= endormissement) {
+			changerEtat (this.GetComponent<TRO_E_Dormir> ());
 		}
 	}
 
