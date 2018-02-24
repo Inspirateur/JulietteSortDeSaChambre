@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjetEnvironnemental : ObjetInteractifs {
 
+	public AudioClip BesoinItemPourActivation;
+
 	// Use this for initialization
 	void Start () {
 		

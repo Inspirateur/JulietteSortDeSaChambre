@@ -15,10 +15,10 @@ public class AffichageMort : MonoBehaviour {
 	}
 
 	public void afficheMort(){
-		Time.timeScale = 0;
+		/*Time.timeScale = 0;
 		foreach(Transform t in listTransform){
 			t.gameObject.SetActive (true);
-		}
+		}*/
 	}
 
 	private void resetScene(){
