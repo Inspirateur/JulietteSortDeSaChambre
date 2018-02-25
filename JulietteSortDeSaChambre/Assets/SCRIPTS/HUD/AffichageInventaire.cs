@@ -98,6 +98,13 @@ public class AffichageInventaire : MonoBehaviour {
 
 	private void deleteObjet(EnumObjetProgression enu){
 		dicoNbObjet [enu]--;
-		dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
+		if (dicoNbObjet [enu] == 0) {
+			Destroy( dicoInventaire [enu]);
+			dicoInventaire.Remove (enu);
+			dicoNbObjet.Remove (enu);
+		} else {
+			
+			dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
+		}
 	}
 }
