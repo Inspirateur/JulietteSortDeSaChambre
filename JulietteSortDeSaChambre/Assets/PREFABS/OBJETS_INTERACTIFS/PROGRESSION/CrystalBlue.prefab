@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomObjet: Cristal bleue
-  descriptionObjet: Regardez moi ce bleue magnifique
+  descriptionObjet: '"Ce bleu est si pur que l''on pourrait presque y voir le ciel"'
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   objetProgression: 2
@@ -180,7 +180,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanRotate: 1
+  CanLevitate: 0
   Speed: 15
+  amplitude: 0.5
+  frequency: 1
   direction: 1
 --- !u!114 &114855850993485058
 MonoBehaviour:
