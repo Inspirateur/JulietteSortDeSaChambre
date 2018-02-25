@@ -37,7 +37,7 @@ public class PrincesseVie : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		scene = SceneManager.GetActiveScene ();
-		if (scene.name == "TEST") {
+		if (scene.name == "Niveau 1") {
 			GameControl.control.Save ();
 			vie_courante = vie_max;
 			GameControl.control.vie = vie_courante;
