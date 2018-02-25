@@ -931,7 +931,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958744413631244}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 3.13, y: 0.076, z: 2.7}
+  m_LocalPosition: {x: -13.953152, y: 13.778343, z: -41.864273}
   m_LocalScale: {x: 0.5324, y: 0.5324, z: 0.5324}
   m_Children:
   - {fileID: 4636113928238182}
@@ -1641,12 +1641,13 @@ MonoBehaviour:
   etatInitial: {fileID: 114359413431509586}
   vitesseAngulaire: 3
   etatMort: {fileID: 114961675448789684}
+  etatTomber: {fileID: 0}
   bruiteurPas: {fileID: 114238002297263660}
   immuniteDouleur: 1
   etatEtreBlesse: {fileID: 114017050675665280}
-  immuniteGlacer: 0
+  immuniteGlacer: 1
   etatGlacer: {fileID: 0}
-  immuniteEtourdir: 0
+  immuniteEtourdir: 1
   etatEtourdir: {fileID: 0}
 --- !u!114 &114359413431509586
 MonoBehaviour:
