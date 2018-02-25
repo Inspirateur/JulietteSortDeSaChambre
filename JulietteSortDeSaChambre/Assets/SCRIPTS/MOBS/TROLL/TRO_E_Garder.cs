@@ -14,6 +14,8 @@ public class TRO_E_Garder : IA_Etat {
 	public float endormissementMin;
 	public float endormissementMax;
 	private float endormissement;
+	private Vector3 positionGarde;
+	private Vector3 forwardPositionGarde;
 
 	// Use this for initialization
 	void Start()
@@ -25,10 +27,20 @@ public class TRO_E_Garder : IA_Etat {
 
 	public override void entrerEtat()
 	{
+		if(emplacementAGarder == null && positionGarde.Equals(Vector3.zero)){
+
+			this.positionGarde = this.transform.position;
+			this.forwardPositionGarde = this.transform.forward;
+		}
+		else if(positionGarde.Equals(Vector3.zero)) {
+
+			this.positionGarde = this.emplacementAGarder.transform.position;
+			this.forwardPositionGarde = this.emplacementAGarder.transform.forward;
+		}
 		setAnimation(TRO_Animations.MARCHER);
 		nav.speed = vitesse;
 		nav.enabled = true;
-		agent.definirDestination(emplacementAGarder);
+		agent.definirDestination(this.positionGarde);
 		enDeplacement = true;
 		enRotation = false;
 		enGarde = false;
@@ -48,7 +60,7 @@ public class TRO_E_Garder : IA_Etat {
 				enRotation = true;
 			}
 		} else if (enRotation) {
-			enRotation = agent.seTournerDansOrientationDe (emplacementAGarder.gameObject);
+			enRotation = agent.seTournerEnDirectionDe(this.forwardPositionGarde);
 
 		} else if (!enGarde && !enRotation) {
 			endormissement = Time.time + endormissementMin + (endormissementMax - endormissementMin) * Random.value;

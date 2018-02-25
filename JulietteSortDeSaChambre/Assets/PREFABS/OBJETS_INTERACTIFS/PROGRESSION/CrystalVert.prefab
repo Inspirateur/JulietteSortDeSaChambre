@@ -166,8 +166,9 @@ MonoBehaviour:
   descriptionObjet: J'aime pas le rouge. Ca fait passer au sang, a la mort et a l'enfer
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
-  objetProgression: 3
+  objetProgression: 4
   RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
+  listEvenement: []
 --- !u!114 &114631844415777450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,7 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanRotate: 1
+  CanLevitate: 0
   Speed: 15
+  amplitude: 0.5
+  frequency: 1
   direction: 1
 --- !u!114 &114633566898349938
 MonoBehaviour:

@@ -8,6 +8,7 @@ public class AffichageObjetRamasser : MonoBehaviour {
 	private Transform[] listImagePaused;
 	private Dictionary<EnumObjetProgression,GameObject> dicoObjet;
 	private Dictionary<EnumArmes,GameObject> dicoArme;
+	private SoundManager soundManager;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class AffichageObjetRamasser : MonoBehaviour {
 			dicoArme.Add (enu.typeArme, enu.gameObject);
 		}
 
-
+		soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 	}
 
 
@@ -31,11 +32,13 @@ public class AffichageObjetRamasser : MonoBehaviour {
 		if (!time) {
 			if (Time.timeScale != 0) {
 				Time.timeScale = 0;
+				soundManager.pauseAllSoundExceptMusic();
 			} else {
 				if (Input.GetButtonDown("Interagir")) {
 					time = true;
 					desaffiche ();
 					Time.timeScale = 1;
+					soundManager.resumeAllSound();
 				}
 			}
 		} 
