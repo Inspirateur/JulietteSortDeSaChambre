@@ -99,7 +99,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.3
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -107,7 +107,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.1
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -5771,6 +5771,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &184528866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 184528869}
+  - component: {fileID: 184528868}
+  - component: {fileID: 184528867}
+  m_Layer: 2
+  m_Name: TriggerTrappeGobelin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &184528867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184528866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f4f05e318ec5446af7f859b3a16fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &184528868
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184528866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &184528869
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184528866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0.98, z: -4.65}
+  m_LocalScale: {x: 15.455389, y: 1.9125018, z: 16.70274}
+  m_Children: []
+  m_Father: {fileID: 1828360534}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &186620087
 Prefab:
   m_ObjectHideFlags: 0
@@ -6031,7 +6084,7 @@ Prefab:
         type: 2}
       propertyPath: listEvenement.Array.data[1]
       value: 
-      objectReference: {fileID: 1170575834}
+      objectReference: {fileID: 184528867}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90491fdb09df5374eb8606210c9f6111, type: 2}
   m_IsPrefabParent: 0
@@ -40428,59 +40481,6 @@ Transform:
   m_Father: {fileID: 969402039}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1170575832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1170575833}
-  - component: {fileID: 1170575835}
-  - component: {fileID: 1170575834}
-  m_Layer: 0
-  m_Name: TriggerGobelinSurTrappe
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1170575833
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1170575832}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 1.21, z: -4.96}
-  m_LocalScale: {x: 14.044433, y: 2.1625, z: 15.793466}
-  m_Children: []
-  m_Father: {fileID: 1828360534}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1170575834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1170575832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11f4f05e318ec5446af7f859b3a16fb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1170575835
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1170575832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1171283316 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4882407049616606, guid: 591dceb319e2873478808605a3e135c2,
@@ -60046,7 +60046,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4578378674949832, guid: 377b1030bf105dd4197c5c592910cb5f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.419586
+      value: 13.378
       objectReference: {fileID: 0}
     - target: {fileID: 4578378674949832, guid: 377b1030bf105dd4197c5c592910cb5f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -73932,7 +73932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2129293849
 Transform:
   m_ObjectHideFlags: 0

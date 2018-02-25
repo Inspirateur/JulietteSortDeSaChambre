@@ -11,9 +11,9 @@ public class FaireTomberGobelinEvenement : Evenement {
 	}
 	
 	public override void activation(){
+
 		foreach( IA_Agent gob in listeGobelins){
-			gob.changerEtat(
-				gob.GetComponent<GOB_E_Tomber>());
+			gob.tomber();
 		}
 	}
 	
@@ -22,22 +22,29 @@ public class FaireTomberGobelinEvenement : Evenement {
 	}
 
 	void OnTriggerEnter(Collider other) {
-
-		IA_Agent gob = other.gameObject.GetComponent<IA_Agent> ();
-
-		if (!listeGobelins.Contains (gob)) {
-					
-			listeGobelins.Add (gob);
+		// Debug.Log("enter " + other.gameObject.name);
+		if(other.gameObject.tag.Equals("Mob")){
+			// Debug.Log("Add to liste");
+			IA_Agent gob = other.gameObject.GetComponent<IA_Agent> ();
+			
+			if (!listeGobelins.Contains (gob)) {
+						
+				listeGobelins.Add (gob);
+			}
 		}
     }
 
 	void OnTriggerExit(Collider other)
     {
-		IA_Agent gob = other.gameObject.GetComponent<IA_Agent> ();
+		// Debug.Log("exit " + other.gameObject.name);
+		if(other.gameObject.tag.Equals("Mob")){
+			// Debug.Log("Remove from liste");
+			IA_Agent gob = other.gameObject.GetComponent<IA_Agent> ();
 
-		if (listeGobelins.Contains (gob)) {
-					
-			listeGobelins.Remove (gob);
+			if (listeGobelins.Contains (gob)) {
+						
+				listeGobelins.Remove (gob);
+			}
 		}
     }
 }

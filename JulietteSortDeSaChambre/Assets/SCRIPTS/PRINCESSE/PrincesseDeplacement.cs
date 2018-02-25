@@ -53,7 +53,10 @@ public class PrincesseDeplacement : MonoBehaviour
     {
         
 
-        bool toucheDebug = Input.GetKeyDown(KeyCode.K);
+        bool toucheTriche = Input.GetKeyDown(KeyCode.K);
+        if(toucheTriche){
+            this.transform.position = new Vector3(-27.0f + 64.01028f + -32.14713f, 14.0f + 18.92948f + -28.89907f, -34.0f + 6.844484f + -30.98021f);
+        }
         AnimatorClipInfo[] clipinfo = anim.GetCurrentAnimatorClipInfo(0);
         
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");

@@ -23,6 +23,11 @@ public class PiegeMort : MonoBehaviour
 			Debug.Log ("Test");
 			juliette.mourir ();
 		}
+		if (col.gameObject.tag == "Mob")
+		{
+			Debug.Log ("Mob touché");
+			col.gameObject.GetComponent<IA_Agent>().mourir();
+		}
 	}
 }
 
