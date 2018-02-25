@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BontonOnclick : MonoBehaviour {
 
+
     public string NomDeLaSceneaCharger;
+
+
+
 
     public void LancerPartie()
     {
         SceneManager.LoadScene(NomDeLaSceneaCharger);
     }
+
     public void QuiterJeu()
     {
         Application.Quit();

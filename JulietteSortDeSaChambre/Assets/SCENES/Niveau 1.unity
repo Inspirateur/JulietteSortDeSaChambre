@@ -21617,8 +21617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanDown: 0
-  speed: 3
-  DistanceToMove: 1
+  speed: 2
+  DistanceToMove: 3
 --- !u!1001 &641377273
 Prefab:
   m_ObjectHideFlags: 0
@@ -26599,8 +26599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanDown: 0
-  speed: 3
-  DistanceToMove: 1
+  speed: 2
+  DistanceToMove: 3
 --- !u!1001 &788086206
 Prefab:
   m_ObjectHideFlags: 0
@@ -33786,6 +33786,8 @@ MonoBehaviour:
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   BesoinItemPourActivation: {fileID: 0}
+  BarreNumberToOpen: 2
+  SocleEvenement: {fileID: 794030001}
 --- !u!114 &976809171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34250,6 +34252,8 @@ MonoBehaviour:
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   BesoinItemPourActivation: {fileID: 0}
+  BarreNumberToOpen: 0
+  SocleEvenement: {fileID: 794030001}
 --- !u!114 &994913363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47176,6 +47180,8 @@ MonoBehaviour:
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   BesoinItemPourActivation: {fileID: 0}
+  BarreNumberToOpen: 1
+  SocleEvenement: {fileID: 794030001}
 --- !u!114 &1390590434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48220,8 +48226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanDown: 0
-  speed: 3
-  DistanceToMove: 1
+  speed: 2
+  DistanceToMove: 3
 --- !u!1001 &1410111846
 Prefab:
   m_ObjectHideFlags: 0
@@ -48596,7 +48602,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 20.57
+      value: 47.66
       objectReference: {fileID: 0}
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_LocalPosition.y
@@ -48604,7 +48610,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.7
+      value: -75.3
       objectReference: {fileID: 0}
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_LocalRotation.x
@@ -70764,6 +70770,11 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 204.12003
       objectReference: {fileID: 0}
+    - target: {fileID: 23116166564837296, guid: d539d284d53943743b839f372e638cae,
+        type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: dd2b5481099b43447bdfab3fb268aac3, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d539d284d53943743b839f372e638cae, type: 2}
   m_IsPrefabParent: 0
