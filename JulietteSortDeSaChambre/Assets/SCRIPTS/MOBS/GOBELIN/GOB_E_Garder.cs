@@ -11,6 +11,8 @@ public class GOB_E_Garder : IA_Etat {
 	private bool enDeplacement;
 	private bool enRotation;
 	private bool enGarde;
+	private Vector3 positionGarde;
+	private Vector3 forwardPositionGarde;
 
 	// Use this for initialization
 	void Start()
@@ -22,10 +24,20 @@ public class GOB_E_Garder : IA_Etat {
 
 	public override void entrerEtat()
 	{
+		if(emplacementAGarder == null && positionGarde.Equals(Vector3.zero)){
+
+			this.positionGarde = this.transform.position;
+			this.forwardPositionGarde = this.transform.forward;
+		}
+		else if(positionGarde.Equals(Vector3.zero)) {
+
+			this.positionGarde = this.emplacementAGarder.transform.position;
+			this.forwardPositionGarde = this.emplacementAGarder.transform.forward;
+		}
 		setAnimation(GOB_Animations.COURIR);
 		nav.speed = vitesse;
 		nav.enabled = true;
-		agent.definirDestination(emplacementAGarder);
+		agent.definirDestination(this.positionGarde);
 		enDeplacement = true;
 		enRotation = false;
 		enGarde = false;
@@ -47,7 +59,7 @@ public class GOB_E_Garder : IA_Etat {
 			}
 		} else if (enRotation) {
 
-			enRotation = agent.seTournerDansOrientationDe (emplacementAGarder.gameObject);
+			enRotation = agent.seTournerEnDirectionDe(this.forwardPositionGarde);
 
 		} else if (!enGarde && !enRotation) {
 			enGarde = true;
