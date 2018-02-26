@@ -7957,22 +7957,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4360237448149896, guid: 4375991dd13ecb24db31913955c9a446,
     type: 2}
   m_PrefabInternal: {fileID: 262993242}
---- !u!1 &263151080 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1416651392505052, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+--- !u!114 &263151081 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114339728321648818, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
     type: 2}
   m_PrefabInternal: {fileID: 426389566}
---- !u!114 &263151083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 263151080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71a7c34135511ad42935e49af413a37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &265019636
 Prefab:
   m_ObjectHideFlags: 0
@@ -35241,22 +35231,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4747958135175492, guid: b44d881b5c86e5445b415bf55659b1f5,
     type: 2}
   m_PrefabInternal: {fileID: 480678060}
---- !u!1 &1023336156 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1416651392505052, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+--- !u!114 &1023336157 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114339728321648818, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
     type: 2}
   m_PrefabInternal: {fileID: 1819108843}
---- !u!114 &1023336159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1023336156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71a7c34135511ad42935e49af413a37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1024354599
 Prefab:
   m_ObjectHideFlags: 0
@@ -46873,6 +46853,16 @@ Prefab:
       propertyPath: m_Name
       value: pics (0)
       objectReference: {fileID: 0}
+    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+        type: 2}
+      propertyPath: TimeRepos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+        type: 2}
+      propertyPath: SpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
   m_IsPrefabParent: 0
@@ -53925,6 +53915,11 @@ Prefab:
       propertyPath: SpeedMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+        type: 2}
+      propertyPath: TimeBeforeStart
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
   m_IsPrefabParent: 0
@@ -56130,16 +56125,6 @@ Prefab:
         type: 2}
       propertyPath: TimeRepos
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
-        type: 2}
-      propertyPath: TimeBeforeStart
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
-        type: 2}
-      propertyPath: SpeedMultiplier
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
@@ -62138,6 +62123,11 @@ Prefab:
         type: 2}
       propertyPath: SpeedMultiplier
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657328044391816, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d,
+        type: 2}
+      propertyPath: TimeRepos
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a79f4dc101c1b0409ceb3f8c33fea4d, type: 2}
@@ -73552,12 +73542,12 @@ Prefab:
         type: 2}
       propertyPath: listEvenement.Array.data[1]
       value: 
-      objectReference: {fileID: 263151083}
+      objectReference: {fileID: 263151081}
     - target: {fileID: 114366564628022284, guid: 90491fdb09df5374eb8606210c9f6111,
         type: 2}
       propertyPath: listEvenement.Array.data[2]
       value: 
-      objectReference: {fileID: 1023336159}
+      objectReference: {fileID: 1023336157}
     - target: {fileID: 114366564628022284, guid: 90491fdb09df5374eb8606210c9f6111,
         type: 2}
       propertyPath: LevierActivation
