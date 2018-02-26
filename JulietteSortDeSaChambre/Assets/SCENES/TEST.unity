@@ -717,6 +717,7 @@ MonoBehaviour:
   sm: {fileID: 0}
   objetProgression: 0
   RamasseObjet: {fileID: 0}
+  listEvenement: []
 --- !u!65 &351595342
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1549,6 +1550,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114537044205634534, guid: 6ae6a4d7212fbaa42a6869732e8a3819,
+        type: 2}
+      propertyPath: objet
+      value: 
+      objectReference: {fileID: 820959145}
+    - target: {fileID: 114957909680796840, guid: 6ae6a4d7212fbaa42a6869732e8a3819,
+        type: 2}
+      propertyPath: valeurSoin
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ae6a4d7212fbaa42a6869732e8a3819, type: 2}
   m_IsPrefabParent: 0
@@ -2003,6 +2014,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15195a04cf1e4714abf0dbf9b1fc65bc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &820959139 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1226122811010212, guid: 6ae6a4d7212fbaa42a6869732e8a3819,
+    type: 2}
+  m_PrefabInternal: {fileID: 563680465}
+--- !u!114 &820959145 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114957909680796840, guid: 6ae6a4d7212fbaa42a6869732e8a3819,
+    type: 2}
+  m_PrefabInternal: {fileID: 563680465}
+  m_Script: {fileID: 11500000, guid: fbddd943d8e055d4ebe9e1121923e396, type: 3}
+--- !u!65 &820959146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820959139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016711356, y: 0.016872127, z: 0.004631883}
+  m_Center: {x: 2.3054241e-14, y: 0.0001074085, z: 0.000018728668}
 --- !u!1001 &824232193
 Prefab:
   m_ObjectHideFlags: 0
@@ -2359,6 +2393,7 @@ MonoBehaviour:
   sm: {fileID: 0}
   objetProgression: 0
   RamasseObjet: {fileID: 0}
+  listEvenement: []
 --- !u!65 &1001486812
 BoxCollider:
   m_ObjectHideFlags: 0
