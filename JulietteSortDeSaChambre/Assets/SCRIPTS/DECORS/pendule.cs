@@ -12,30 +12,39 @@ public class pendule : MonoBehaviour {
 	[Range(0,90)]
 	public int angleZ;
 	private float angleZInitial;
+	private float angleZInitialInvert;
 
 	[Header("Reset Position Gauche ? (default = Droite) :")]
 	public bool PositionResetGauche;
 
 	[Header("Vitesse :")]
 	public float speed = 1.5f;
-	private float startTime;
-
 	private bool stop;
 	private bool canStart;
 
 	void Start () {
 		angleZInitial = this.transform.rotation.eulerAngles.z;
+		angleZInitialInvert = 360 - angleZInitial;
+		// StartCoroutine(tranquille());
 	}
 
 	void Update (){
-		startTime += Time.deltaTime;
-		if (!stop) {
+		if (!stop) 
+		{
 			if (PositionResetGauche)
 			{
-				rotationGauche ();
-			} else if (!PositionResetGauche)
-			{
 				rotationDroite ();
+			} else
+			{
+				rotationGauche ();
+			}
+		} else {
+			if (PositionResetGauche)
+			{
+				setPenduleInitialPositionGauche ();
+			} else
+			{
+				setPenduleInitialPositionDroite ();
 			}
 		}
 	}
@@ -44,7 +53,7 @@ public class pendule : MonoBehaviour {
 		transform.rotation = Quaternion.Lerp (
 			Quaternion.Euler(this.transform.rotation.x,angleY,-angleZ), 
 			Quaternion.Euler(this.transform.rotation.x,angleY,angleZ),
-			(Mathf.Sin(startTime * speed + Mathf.PI/2) + 1.0f)/ 2.0f
+			(Mathf.Sin(Time.time * speed + Mathf.PI/2) + 1.0f)/ 2.0f
 		);
 	}
 
@@ -52,7 +61,7 @@ public class pendule : MonoBehaviour {
 		transform.rotation = Quaternion.Lerp (
 			Quaternion.Euler(this.transform.rotation.x,angleY,angleZ), 
 			Quaternion.Euler(this.transform.rotation.x,angleY,-angleZ),
-			(Mathf.Sin(startTime * speed + Mathf.PI/2) + 1.0f)/ 2.0f
+			(Mathf.Sin(Time.time * speed + Mathf.PI/2) + 1.0f)/ 2.0f
 		);
 	}
 
@@ -63,29 +72,21 @@ public class pendule : MonoBehaviour {
 	public void stopPendule() {
 		canStart = false;
 		stop = true;
-		if (PositionResetGauche)
-		{
-			setPenduleInitialPositionGauche ();
-		} else if (!PositionResetGauche)
-		{
-			setPenduleInitialPositionDroite ();
-		}
 	}
 
 	void setPenduleInitialPositionGauche() {
-		Debug.Log(this.transform.rotation.eulerAngles.z);
-		if (this.transform.rotation.eulerAngles.z <= (360-angleZInitial) || this.transform.rotation.eulerAngles.z > angleZInitial) {
-			this.transform.Rotate (Vector3.forward*speed*2*Time.deltaTime);
+		if (this.transform.rotation.eulerAngles.z < angleZInitial || this.transform.rotation.eulerAngles.z > angleZInitialInvert) {
+			this.transform.Rotate (Vector3.forward * speed * Time.deltaTime);
 			Invoke ("setPenduleInitialPositionGauche",0f);
 		} else {
-			transform.rotation = Quaternion.Euler(this.transform.rotation.x,angleY,360-angleZInitial);
+			transform.rotation = Quaternion.Euler(this.transform.rotation.x,angleY,angleZInitial);
 			canStart = true;
 		}
 	}
 
 	void setPenduleInitialPositionDroite() {
-		if (this.transform.rotation.eulerAngles.z <= (360-angleZInitial) || this.transform.rotation.eulerAngles.z > angleZInitial) {
-			this.transform.Rotate (Vector3.back*speed*2*Time.deltaTime);
+		if (this.transform.rotation.eulerAngles.z < angleZInitialInvert || this.transform.rotation.eulerAngles.z > angleZInitial) {
+			this.transform.Rotate (Vector3.back * speed * Time.deltaTime);
 			Invoke ("setPenduleInitialPositionDroite",0f);
 		} else {
 			transform.rotation = Quaternion.Euler(this.transform.rotation.x,angleY,angleZInitial);
@@ -95,10 +96,16 @@ public class pendule : MonoBehaviour {
 
 	public void startPendule() {
 		if (canStart) {
-			startTime = 0;
 			stop = false;
 		} else {
 			Invoke ("startPendule",0f);
 		}
+	}
+
+	IEnumerator tranquille() {
+		yield return new WaitForSeconds(4f);
+		stopPendule();
+		yield return new WaitForSeconds(4f);
+		startPendule();
 	}
 }

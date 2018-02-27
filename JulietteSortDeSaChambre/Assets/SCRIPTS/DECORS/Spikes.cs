@@ -67,7 +67,6 @@ public class Spikes : MonoBehaviour {
 	{
 		anim.SetBool ("CanUp", false);
 		yield return new WaitForSeconds(TimeRepos);
-		Debug.Log ("je fini");
 		anim.SetBool ("CanUp", true);
 		CheckCall = true;
 	}
