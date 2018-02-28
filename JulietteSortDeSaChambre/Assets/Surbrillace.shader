@@ -1,7 +1,9 @@
-﻿Shader "Custom/Surbrillace" {
+﻿
+
+Shader "Custom/Surbrillace" {
       Properties {
         _Color ("Main Color", Color) = (0.4235294117647059,0.4745098039215686,0.7568627450980392)
-        _Start ("Start", Float) = 1.0
+        _Start ("Start", Float) = 0.0
         _End ("End", Float) = 1.0
         _Alpha ("Alpha", Float) = 1.0
     }
@@ -26,8 +28,10 @@
             v2f vert (appdata_base v)
             {
                 v2f o;
+                float4 postemp;
                 o.normal = normalize(mul((float3x3)UNITY_MATRIX_IT_MV, v.normal));
-                o.pos = UnityObjectToClipPos(v.vertex.xyz);
+                postemp = UnityObjectToClipPos(v.vertex.xyz);
+                o.pos = postemp;
                 return o;
             }
 
