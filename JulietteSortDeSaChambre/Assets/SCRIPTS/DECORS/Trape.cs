@@ -10,5 +10,6 @@ public class Trape : MonoBehaviour {
 	}
 	public void TrapeFermeture(){
 		GetComponent<Animator> ().SetBool ("CanOpen", false);
+		GetComponent<BoxCollider>().enabled=true;
 	}
 }

@@ -25,6 +25,7 @@ public class PrincesseVie : MonoBehaviour {
 	private SoundManager sm;
 
 	private AffichageVie hudVie;
+	private AffichageMort hudMort;
 
 	/*void Awake(){
 		vie_courante = vie_max;
@@ -36,7 +37,7 @@ public class PrincesseVie : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		scene = SceneManager.GetActiveScene ();
-		if (scene.name == "TEST") {
+		if (scene.name == "Niveau 1") {
 			GameControl.control.Save ();
 			vie_courante = vie_max;
 			GameControl.control.vie = vie_courante;
@@ -50,6 +51,7 @@ public class PrincesseVie : MonoBehaviour {
 		CanPlaySonHurt = true;
 		Debug.Log (vie_courante);
 		hudVie = GameObject.FindGameObjectWithTag ("HUDAffichageVie").GetComponent<AffichageVie> ();
+		hudMort = GameObject.FindGameObjectWithTag ("HUDAffichageMort").GetComponent<AffichageMort> ();
 		setHudVie ();
 	}
 
@@ -58,6 +60,7 @@ public class PrincesseVie : MonoBehaviour {
 		if (!enVie() && !gameover) {
 			Debug.Log ("GAME OVER");
 			gameover = true;
+			hudMort.afficheMort ();
 			SceneManager.LoadScene (scene.name);
 			GameControl.control.Load ();
 			Debug.Log(GameControl.control.listArmeTenu);

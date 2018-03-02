@@ -48,9 +48,3 @@ public class PrincesseObjetProgression : MonoBehaviour {
 	}
 }
 
-public enum EnumObjetProgression 
-{
-	caisse,
-	key,
-	cristal,
-}

@@ -23,6 +23,7 @@ public class IA_Agent : MonoBehaviour {
 	public float vitesseAngulaire;
 
 	public IA_Etat etatMort;
+	public IA_Etat etatTomber;
 
 	public BruiteurPas bruiteurPas;
 	private float timerStep;
@@ -224,15 +225,13 @@ public class IA_Agent : MonoBehaviour {
 		return Mathf.Abs(difRotation) > vitesseAngulaire ;
 	}
 
-    public void setAnimation(string nomAnimation)
-    {
-        foreach (AnimatorControllerParameter parameter in anim.parameters)
-        {
-            anim.SetBool(parameter.name, false);
-        }
+	public void setAnimation(string nomAnimation) {
+		foreach (AnimatorControllerParameter parameter in anim.parameters) {
+		    anim.SetBool(parameter.name, false);
+		}
 
 		anim.SetBool(nomAnimation, true);
-    }
+	}
 
 	public bool isActualAnimation(string nomAnimation){
 		return anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName(0) + "." + nomAnimation);
@@ -262,7 +261,7 @@ public class IA_Agent : MonoBehaviour {
 	}
 
 	public void subirDegats(int valeurDegats, Vector3 hitPoint, EnumEffet effet = EnumEffet.AUCUN) {
-
+		Debug.Log ("BONJOUR J'AI PRIS UN COUP PARAIT-IL");
 		switch(effet){
 
 			case EnumEffet.AUCUN :
@@ -312,5 +311,9 @@ public class IA_Agent : MonoBehaviour {
 		Physics.Raycast (this.transform.position, -this.transform.up, out hitInfo);
 
 		return hitInfo.distance <= 0.065f;
+	}
+
+	public void tomber(){
+		changerEtat(this.etatTomber);
 	}
 }

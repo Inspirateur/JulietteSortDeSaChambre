@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class barreMetalManager : MonoBehaviour {
 
-	public void BarreDown(int number){
-		this.gameObject.transform.GetChild (number).gameObject.GetComponent<barresMetalDoor> ().CanDown = true;
+
+	public void DownBarre(int barreNumber){
+		this.gameObject.transform.GetChild (barreNumber).gameObject.GetComponent<barresMetalDoor> ().CanDown = true;
 	}
 }
