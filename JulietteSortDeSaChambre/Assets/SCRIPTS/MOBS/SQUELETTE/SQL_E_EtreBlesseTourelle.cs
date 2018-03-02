@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOB_E_EtreBlesse : IA_Etat {
+public class SQL_E_EtreBlesseTourelle : IA_Etat {
 
 	public float forceReculeVertical;
 	public float forceReculeHorizontal;
@@ -24,7 +24,7 @@ public class GOB_E_EtreBlesse : IA_Etat {
 	{
 		nav.enabled = false;
 		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
-		anim.Play(GOB_Animations.ETRE_BLESSE);
+		// anim.Play(SQL_Animations.ETRE_BLESSE);
 		agent.getSoundEntity().stop();
 		agent.getSoundEntity().playOneShot(sonDegat,1.0f);
 
@@ -32,13 +32,13 @@ public class GOB_E_EtreBlesse : IA_Etat {
 
 		rb.velocity = Vector3.zero;
 		rb.AddForce ((directionRecule * (forceReculeHorizontal * facteurRecule)) + (this.transform.up * (forceReculeVertical * facteurRecule)));
-		timer = Time.time + 0.1f;
+		timer = Time.time + 0.65f;
 	}
 
 	public override void faireEtat()
 	{
-		if (Time.time > timer && agent.estAuSol()) {
-			changerEtat (GetComponent<GOB_E_Combattre>());
+		if (Time.time > timer) {
+			changerEtat (GetComponent<SQL_E_TourellePrincesse>());
 		}
 	}
 

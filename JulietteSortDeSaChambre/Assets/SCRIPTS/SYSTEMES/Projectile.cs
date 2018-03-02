@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour {
 		}
 		else {
 			if (other.tag.Equals ("Player")){
-				GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>().blesser (degats, this.gameObject, recul);
+				other.gameObject.GetComponent<PrincesseVie>().blesser (degats, this.gameObject, recul);
 				this.detruireCollision();
 			}
 		}
