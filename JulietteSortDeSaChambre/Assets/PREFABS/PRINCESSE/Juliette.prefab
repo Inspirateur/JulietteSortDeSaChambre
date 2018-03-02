@@ -2043,6 +2043,16 @@ MonoBehaviour:
   maxVolume: 0.45
   bruiteurPas: {fileID: 114849292428765358}
   forceDash: 25
+  NombreCombo: 3
+  currentComboTimer: 0.3
+  NomAttack:
+  - attack1
+  - attack2
+  - attack3
+  ComboSound:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!135 &135007083210717436
 SphereCollider:
   m_ObjectHideFlags: 1
