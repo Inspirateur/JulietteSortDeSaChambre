@@ -7,10 +7,14 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     public bool canPower;
     public float delay;
 
+    public GameObject prefab;
+
     private SphereCollider sphereCollider;
     private ParticleSystem visuel;
     private AudioSource audioSource;
     private GlaceSol glaceSol;
+
+    private GameObject clone;
     //public float icePowerDuration;
 
     private List<IA_Agent> listeAgentGlaces;
@@ -27,12 +31,12 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         this.Description = "Gèle les ennemis devant vous pendant " + duration + " secondes";
         animator=GameObject.Find("Juliette").GetComponent<Animator>();
         sphereCollider = GetComponent<SphereCollider>();
-        visuel=GameObject.Find("VisuelPouvoir").GetComponent<ParticleSystem>();
-        audioSource=GameObject.Find("VisuelPouvoir").GetComponent<AudioSource>();
-        glaceSol=GameObject.Find("GlaceSol").GetComponent<GlaceSol>();
-        //glaceSol.SetActive(false);
-        visuel.Clear();
-        visuel.Pause();
+        // visuel=GameObject.Find("VisuelPouvoir").GetComponent<ParticleSystem>();
+        // audioSource=GameObject.Find("VisuelPouvoir").GetComponent<AudioSource>();
+        // glaceSol=GameObject.Find("GlaceSol").GetComponent<GlaceSol>();
+        // //glaceSol.SetActive(false);
+        // visuel.Clear();
+        // visuel.Pause();
         canPower = true;
         listeAgentGlaces = new List<IA_Agent>();
         Debug.Log(duration);
@@ -41,7 +45,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     // Update is called once per frame
     void Update()
     {
-        if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxis("pouvoirGlace")<-0.75f)&& canPower)
+        if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower)
         {
             animator.Play("IcePower");
             StartCoroutine(WaitForIceAnim());
@@ -69,15 +73,18 @@ public class PrincessePouvoirGlace : PrincessePouvoir
          listeAgentGlaces.Clear();
             sphereCollider.enabled = true;
             canPower = false;
-            visuel.Play();
-            audioSource.Play();
-            var visuPos = sphereCollider.transform;
-            visuel.transform.position=visuPos.position+(visuPos.forward*2);
-            visuel.transform.rotation=visuPos.rotation;
-            glaceSol.LaunchAnim();
+            var visuPos = sphereCollider.GetComponent<Transform>();
+            clone = Instantiate<GameObject>(prefab,visuPos.transform.position+visuPos.forward*2,visuPos.transform.rotation);
+            Destroy(clone,duration);
+            // visuel.Play();
+            // audioSource.Play();
+            // var visuPos = sphereCollider.transform;
+            // visuel.transform.position=visuPos.position+(visuPos.forward*2);
+            // visuel.transform.rotation=visuPos.rotation;
+            // glaceSol.LaunchAnim();
             StartCoroutine(WaitforIcePower());
             StartCoroutine(WaitforUseIcePower());
-            StartCoroutine(WaitforIcePowerVisual());
+            //StartCoroutine(WaitforIcePowerVisual());
     }
 
     IEnumerator WaitforIcePower()
@@ -96,7 +103,8 @@ public class PrincessePouvoirGlace : PrincessePouvoir
 
     IEnumerator WaitforIcePowerVisual(){
         yield return new WaitForSeconds(duration);
-        visuel.Clear();
+        Destroy(clone);
+        Debug.Log("Destroy instatiate");
     }
 
     IEnumerator WaitForIceAnim(){
