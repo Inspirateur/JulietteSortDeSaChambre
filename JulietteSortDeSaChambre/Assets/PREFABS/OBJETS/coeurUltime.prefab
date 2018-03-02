@@ -19,6 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4363062723490882}
+  - component: {fileID: 65520125879562414}
+  - component: {fileID: 114033050550192738}
+  - component: {fileID: 114082825243313536}
+  - component: {fileID: 114999266134667344}
   m_Layer: 0
   m_Name: coeurUltime
   m_TagString: Untagged
@@ -80,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152838283768066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.981, y: 0.453, z: 4.461}
+  m_LocalPosition: {x: 15.981, y: 0.453, z: 3.269}
   m_LocalScale: {x: 0.2081354, y: 0.20813541, z: 0.20813541}
   m_Children:
   - {fileID: 4666660050100164}
@@ -183,3 +187,65 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402004878736766}
   m_Mesh: {fileID: 4300000, guid: cf3a461cb4fbdbb49b35c59966039b19, type: 3}
+--- !u!65 &65520125879562414
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152838283768066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114033050550192738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152838283768066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee9a381e7a49a744a4c1713eb04dfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanRotate: 1
+  CanLevitate: 1
+  Speed: 15
+  amplitude: 0.05
+  frequency: 1
+  direction: 6
+--- !u!114 &114082825243313536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152838283768066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbddd943d8e055d4ebe9e1121923e396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomObjet: 
+  descriptionObjet: 
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  soinFull: 1
+  valeurSoin: 0
+--- !u!114 &114999266134667344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152838283768066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 0}
+  distanceActivation: 0
+  demiAngleActivationFrontal: 0
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
