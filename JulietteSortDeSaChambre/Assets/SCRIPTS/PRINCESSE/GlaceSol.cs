@@ -8,32 +8,30 @@ public class GlaceSol : MonoBehaviour {
 	private GameObject glaceSol;
 	private GameObject VisuelPouvoir;
 	public float increment;
-	public float maxHeight;
+	public int nbFrame;
 
 	public bool running;
 	public float duration;
-	public bool firstRun;
+
+	private int CompteurFrame;
 	void Start () {
 		glaceSol=GameObject.Find("GlaceSol");
 		duration=GameObject.Find("PouvoirGlace").GetComponent<PrincessePouvoirGlace>().duration;
-		VisuelPouvoir=GameObject.Find("VisuelPouvoir");
+		VisuelPouvoir=GameObject.Find("VisuelPouvoir(Clone)");
 		//glaceSol.SetActive(false);
 		running=false;
-		firstRun=true;
+		CompteurFrame=0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(running){
 			var tmp = glaceSol.transform.position;
-			if(firstRun){
-				//tmp-=2*glaceSol.transform.right;
-				firstRun=false;
-			}
+			nbFrame++;
 			
 			tmp.y+=increment;
 			Debug.Log(tmp.y);
-			if(tmp.y>=(maxHeight-0.1)+VisuelPouvoir.transform.position.y){
+			if(CompteurFrame >= nbFrame){
 				running=false;
 				//Add song explosion des glacons 
 				//+ anim destruction ?? 
