@@ -93,6 +93,14 @@ public class PrincesseVie : MonoBehaviour {
 		setHudVie ();
 	}
 
+	public void fullSoigner()
+	{
+		vie_courante = vie_max;
+		GameControl.control.vie = vie_courante;
+		Debug.Log("vie courante : " + vie_courante);
+		setHudVie ();
+	}
+
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)
 	{
 		anim.Play ("hurt");
