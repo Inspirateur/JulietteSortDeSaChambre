@@ -33,6 +33,15 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool attackjump;
     private bool isCharging;
 
+    [Header("Gestion Combo :")]
+    public int NombreCombo;
+	public float currentComboTimer;
+    public string[] NomAttack;
+    public AudioClip[] ComboSound;
+	private bool ActivateTimerToReset;
+	private int currentComboState;
+	private float origTimer;
+
 
     void Start()
     {
@@ -46,6 +55,11 @@ public class PrincesseDeplacement : MonoBehaviour
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         attackjump = false;
         isCharging = false;
+
+        // Gestion Combos
+        origTimer = currentComboTimer;
+        ActivateTimerToReset = false;
+        currentComboState = 0;
 
     }
 
@@ -136,7 +150,26 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
-		        playAttaque("attack1");
+                if (currentComboState < NombreCombo) {
+					currentComboState++;
+				} else {
+					currentComboState = 0;
+				}
+				ActivateTimerToReset = true;
+
+                //Definir l'attaque selon l'etat du combo
+                for (int i = 1; i<= NombreCombo; i++)
+                {
+                    if (i == currentComboState)
+                    {
+                        Debug.Log("Combo"+i);
+                        int valeurTableau = i-1;
+                        anim.SetInteger ("attack_combo", currentComboState);
+                        playAttaque(NomAttack[valeurTableau]);
+                        sm.playOneShot (ComboSound[valeurTableau]);
+                        break;
+                    }
+                }
             }
 	        else if (anim.GetBool("IsJumping") && attackjump == false)
 	        {
@@ -271,6 +304,23 @@ public class PrincesseDeplacement : MonoBehaviour
 
 
     }
+
+    private void ResetComboState()
+	{
+		if (ActivateTimerToReset)
+		{
+			if (isGrounded) {
+				currentComboTimer -= Time.deltaTime;
+				if (currentComboTimer <= 0) {
+					currentComboState = 0;
+					ActivateTimerToReset = false;
+					currentComboTimer = origTimer;
+				}
+			} else {
+				currentComboTimer = origTimer;
+			}
+		}
+	}
 
     IEnumerator WaitBeforDash()
     {
