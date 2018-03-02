@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 114576495301655080}
   - component: {fileID: 114460525986005384}
   - component: {fileID: 114789623539095252}
+  - component: {fileID: 114815010426262794}
   m_Layer: 2
   m_Name: goblin1
   m_TagString: Mob
@@ -1677,9 +1678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  etatInitial: {fileID: 114600025527141288}
+  etatInitial: {fileID: 114933512836801624}
   vitesseAngulaire: 8
   etatMort: {fileID: 114576495301655080}
+  etatTomber: {fileID: 114815010426262794}
   bruiteurPas: {fileID: 114315657672220534}
   immuniteDouleur: 0
   etatEtreBlesse: {fileID: 114697752461141492}
@@ -1876,6 +1878,18 @@ MonoBehaviour:
   colorGlace: {r: 0, g: 0.17134883, b: 0.8014706, a: 0}
   iceSpawner: {fileID: 198954368421793578}
   rendererGobelin: {fileID: 137444583750818904}
+--- !u!114 &114815010426262794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661025149933492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9e35b5149188149a3bdda0aed913f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degatsChute: 1000
 --- !u!114 &114852542978111274
 MonoBehaviour:
   m_ObjectHideFlags: 1

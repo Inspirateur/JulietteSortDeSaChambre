@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1968243303778226}
   m_IsPrefabParent: 1
+--- !u!1 &1742996405366698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4935946091097242}
+  - component: {fileID: 108199674178052916}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1968243303778226
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,6 +37,9 @@ GameObject:
   - component: {fileID: 4201176118916154}
   - component: {fileID: 33482524381653152}
   - component: {fileID: 23200191355213620}
+  - component: {fileID: 114782763655681706}
+  - component: {fileID: 114071755912623986}
+  - component: {fileID: 114855850993485058}
   m_Layer: 0
   m_Name: CrystalBlue
   m_TagString: Untagged
@@ -35,10 +54,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968243303778226}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 1.11, y: 4.92, z: -83.87}
+  m_LocalPosition: {x: 1.1368484, y: 15.298588, z: -42.86284}
   m_LocalScale: {x: 20, y: 20, z: 20}
-  m_Children: []
+  m_Children:
+  - {fileID: 4935946091097242}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4935946091097242
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742996405366698}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.049999993, z: 0.049999993}
+  m_Children: []
+  m_Father: {fileID: 4201176118916154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23200191355213620
@@ -82,3 +115,89 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968243303778226}
   m_Mesh: {fileID: 4300012, guid: 259d0dfbc39daa743a308f3ca48ffe81, type: 3}
+--- !u!108 &108199674178052916
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742996405366698}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 0.27205884, g: 0.48793104, b: 1, a: 1}
+  m_Intensity: 2
+  m_Range: 7
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!114 &114071755912623986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968243303778226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bdd8af5356f254283cc5d00e2b30a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomObjet: Cristal bleue
+  descriptionObjet: '"Ce bleu est si pur que l''on pourrait presque y voir le ciel"'
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  objetProgression: 2
+  RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
+--- !u!114 &114782763655681706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968243303778226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee9a381e7a49a744a4c1713eb04dfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanRotate: 1
+  CanLevitate: 0
+  Speed: 15
+  amplitude: 0.5
+  frequency: 1
+  direction: 1
+--- !u!114 &114855850993485058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968243303778226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 114071755912623986}
+  distanceActivation: 2
+  demiAngleActivationFrontal: 77
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0

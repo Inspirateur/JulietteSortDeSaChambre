@@ -8,6 +8,8 @@ public class Porte : ObjetEnvironnemental  {
 	private  Animator anim;
 
 	public bool isDecorative;
+
+	public AudioClip OuvrePorte;
 	[HideInInspector]
 	public List<ObjetNecessaire> objN = new List<ObjetNecessaire>(); 
 	private PrincesseObjetProgression juliette;

@@ -14,6 +14,8 @@ public class Spikes : MonoBehaviour {
 	public float TimeRepos;
 
 	private bool StopSpike;
+	private bool BeginStopSpike;
+	private bool CheckCall;
 
 	[Range(0.1f, 5)]
 	[Tooltip("multiplication de la vitesse de l'animation, pour une vitesse normale : 1")]
@@ -21,27 +23,38 @@ public class Spikes : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		CheckCall = true;
 		StopSpike = false;
+		BeginStopSpike = false;
 		StartCoroutine(WaitBeforeStart());
 		anim = gameObject.GetComponent<Animator> ();
 		anim.speed = anim.speed * SpeedMultiplier;
 	}
 
 	void Update() {
-		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos") && !StopSpike) {
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos") && !StopSpike && CheckCall) {
+			CheckCall = false;
 			StartCoroutine (WaitBeforeUp ());
 		}
-
 	}
 
 	public void StopSpikes() {
-		Debug.Log ("Test");
-		anim.SetBool ("CanUp", false);
-		StopSpike = true;
+		BeginStopSpike = true;
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos"))
+		{
+			anim.SetBool ("CanUp", false);
+			StopSpike = true;
+			BeginStopSpike = false;
+		} else {
+			Invoke("StopSpikes",0f);
+		}	
 	}
 
 	void StartSpikes() {
-		StopSpike = false;
+		if (!BeginStopSpike)
+		{
+			StopSpike = false;
+		}
 	}
 
 	IEnumerator WaitBeforeStart()
@@ -55,6 +68,7 @@ public class Spikes : MonoBehaviour {
 		anim.SetBool ("CanUp", false);
 		yield return new WaitForSeconds(TimeRepos);
 		anim.SetBool ("CanUp", true);
+		CheckCall = true;
 	}
 }
 

@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class rotation : MonoBehaviour {
 	public bool CanRotate;
+	public bool CanLevitate;
 	public float Speed;
+	public float amplitude = 0.5f;
+    public float frequency = 1f;
+
+	Vector3 posOffset = new Vector3 ();
+    Vector3 tempPos = new Vector3 ();
 
 	[Range(1, 6)]
 	[Tooltip("Direction de la rotation : 1 = forward, 2 = back, 3 = left, 4 = right, 5 = up, 6 = down")]
 	public int direction;
 	// Use this for initialization
 	void Start () {
-
+		posOffset = transform.position;
 	}
 
 	// Update is called once per frame
@@ -42,5 +48,13 @@ public class rotation : MonoBehaviour {
 				break;
 			}
 		}
+
+		if (CanLevitate){
+			tempPos = posOffset;
+			tempPos.y += Mathf.Sin (Time.fixedTime * Mathf.PI * frequency) * amplitude;
+			transform.position = tempPos;
+		}
+
+
 	}
 }

@@ -37,7 +37,7 @@ public class PrincesseVie : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		scene = SceneManager.GetActiveScene ();
-		if (scene.name == "TEST") {
+		if (scene.name == "Niveau 1") {
 			GameControl.control.Save ();
 			vie_courante = vie_max;
 			GameControl.control.vie = vie_courante;
@@ -61,12 +61,12 @@ public class PrincesseVie : MonoBehaviour {
 			Debug.Log ("GAME OVER");
 			gameover = true;
 			hudMort.afficheMort ();
-			/*SceneManager.LoadScene (scene.name);
+			SceneManager.LoadScene (scene.name);
 			GameControl.control.Load ();
 			Debug.Log(GameControl.control.listArmeTenu);
 			vie_courante = vie_max;
 			GameControl.control.vie = vie_courante;
-			GameControl.control.Save ();*/
+			GameControl.control.Save ();
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {

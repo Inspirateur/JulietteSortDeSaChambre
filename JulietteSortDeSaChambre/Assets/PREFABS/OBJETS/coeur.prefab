@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33045115585318462}
   - component: {fileID: 23757195721597054}
   - component: {fileID: 114065492931132448}
+  - component: {fileID: 114957909680796840}
+  - component: {fileID: 114537044205634534}
   m_Layer: 0
   m_Name: coeur
   m_TagString: Untagged
@@ -95,5 +97,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanRotate: 1
+  CanLevitate: 0
   Speed: 15
+  amplitude: 0.5
+  frequency: 1
   direction: 6
+--- !u!114 &114537044205634534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1226122811010212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 0}
+  distanceActivation: 0
+  demiAngleActivationFrontal: 0
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
+--- !u!114 &114957909680796840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1226122811010212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbddd943d8e055d4ebe9e1121923e396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomObjet: 
+  descriptionObjet: 
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  valeurSoin: 0

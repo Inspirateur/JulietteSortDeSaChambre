@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7610b0148f0433f429cb2d5c37e09003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NomDeLaSceneaCharger: SCENES/TEST
+  NomDeLaSceneaCharger: SCENES/Niveau 1
 --- !u!1 &1313897104
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +643,6 @@ GameObject:
   - component: {fileID: 1371460540}
   - component: {fileID: 1371460542}
   - component: {fileID: 1371460541}
-  - component: {fileID: 1371460543}
   m_Layer: 5
   m_Name: Boutton Lancer Partie
   m_TagString: Untagged
@@ -728,23 +727,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1371460539}
---- !u!95 &1371460543
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1371460539}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1609069845
 GameObject:
   m_ObjectHideFlags: 0

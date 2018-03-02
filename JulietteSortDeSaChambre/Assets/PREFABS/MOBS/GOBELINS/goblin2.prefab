@@ -677,13 +677,14 @@ GameObject:
   - component: {fileID: 114073390588019630}
   - component: {fileID: 114828674695703810}
   - component: {fileID: 114814946445686440}
+  - component: {fileID: 114813304333222896}
   m_Layer: 0
   m_Name: goblin2
   m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1932294148997726
 GameObject:
   m_ObjectHideFlags: 1
@@ -1752,9 +1753,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  etatInitial: {fileID: 114367643736128870}
+  etatInitial: {fileID: 114585374364475448}
   vitesseAngulaire: 8
   etatMort: {fileID: 114073390588019630}
+  etatTomber: {fileID: 114813304333222896}
   bruiteurPas: {fileID: 114240941921078174}
   immuniteDouleur: 0
   etatEtreBlesse: {fileID: 114847351862711624}
@@ -1848,6 +1850,18 @@ MonoBehaviour:
   distanceMinDash: 2.8
   pourcentageUtilisationCharge: 0.5
   sonPrincessePerdu: {fileID: 8300000, guid: c4defa7d9e25e51499a71062760414ec, type: 3}
+--- !u!114 &114813304333222896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921552545835090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9e35b5149188149a3bdda0aed913f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degatsChute: 1000
 --- !u!114 &114814946445686440
 MonoBehaviour:
   m_ObjectHideFlags: 1

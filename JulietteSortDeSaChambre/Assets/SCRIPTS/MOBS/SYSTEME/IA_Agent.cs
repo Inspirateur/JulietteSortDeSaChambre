@@ -23,6 +23,7 @@ public class IA_Agent : MonoBehaviour {
 	public float vitesseAngulaire;
 
 	public IA_Etat etatMort;
+	public IA_Etat etatTomber;
 
 	public BruiteurPas bruiteurPas;
 	private float timerStep;
@@ -310,5 +311,9 @@ public class IA_Agent : MonoBehaviour {
 		Physics.Raycast (this.transform.position, -this.transform.up, out hitInfo);
 
 		return hitInfo.distance <= 0.065f;
+	}
+
+	public void tomber(){
+		changerEtat(this.etatTomber);
 	}
 }
