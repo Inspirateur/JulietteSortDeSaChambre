@@ -22,8 +22,11 @@ public class pendule : MonoBehaviour {
 	private bool stop;
 	private bool canStart;
 
+    private AudioSource audioSource;
+
 	void Start () {
-		angleZInitial = this.transform.rotation.eulerAngles.z;
+        audioSource = GetComponentInChildren<AudioSource> ();
+        angleZInitial = this.transform.rotation.eulerAngles.z;
 		angleZInitialInvert = 360 - angleZInitial;
 		// StartCoroutine(tranquille());
 	}
@@ -70,7 +73,8 @@ public class pendule : MonoBehaviour {
 	}
 
 	public void stopPendule() {
-		canStart = false;
+        audioSource.Stop();
+        canStart = false;
 		stop = true;
 	}
 
@@ -96,14 +100,15 @@ public class pendule : MonoBehaviour {
 
 	public void startPendule() {
 		if (canStart) {
-			stop = false;
+            audioSource.Play();
+            stop = false;
 		} else {
 			Invoke ("startPendule",0f);
 		}
 	}
 
 	IEnumerator tranquille() {
-		yield return new WaitForSeconds(4f);
+		yield return new WaitForSeconds(10f);
 		stopPendule();
 		yield return new WaitForSeconds(4f);
 		startPendule();
