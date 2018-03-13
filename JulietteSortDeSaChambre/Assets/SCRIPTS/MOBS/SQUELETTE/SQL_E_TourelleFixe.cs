@@ -37,6 +37,7 @@ public class SQL_E_TourelleFixe : IA_Etat {
 	{
 		if(Time.time >= this.timerChargement && !projectileDejaCree){
 			this.lancerProjectile();
+			setAnimation (SQL_Animations.GARDER);
 		}
 		else if (Time.time >= this.timerFinAttaque){
 			this.restartAttaque();
@@ -49,7 +50,7 @@ public class SQL_E_TourelleFixe : IA_Etat {
 	}
 
 	private void restartAttaque(){
-		// setAnimation (SQL_Animations.ATTAQUER);
+		setAnimation (SQL_Animations.ATTAQUER);
 		projectileDejaCree = false;
 		timerChargement = Time.time + 1.0f;
 		timerFinAttaque = timerChargement + 1.0f;

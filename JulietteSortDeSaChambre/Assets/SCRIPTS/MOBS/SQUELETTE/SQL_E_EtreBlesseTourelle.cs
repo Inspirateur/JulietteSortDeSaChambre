@@ -24,7 +24,7 @@ public class SQL_E_EtreBlesseTourelle : IA_Etat {
 	{
 		nav.enabled = false;
 		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
-		// anim.Play(SQL_Animations.ETRE_BLESSE);
+		anim.Play(SQL_Animations.ETRE_BLESSE);
 		agent.getSoundEntity().stop();
 		agent.getSoundEntity().playOneShot(sonDegat,1.0f);
 

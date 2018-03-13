@@ -19,7 +19,7 @@ public class SQL_E_Mourir : IA_Etat {
 	}
 
 	public override void entrerEtat() {
-		// anim.Play(SQL_Animations.MOURIR);
+		anim.Play(SQL_Animations.MOURIR);
 		rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 		actualDelai = Time.time + delaiAvantDisparition;
 		sonJoue = false;
