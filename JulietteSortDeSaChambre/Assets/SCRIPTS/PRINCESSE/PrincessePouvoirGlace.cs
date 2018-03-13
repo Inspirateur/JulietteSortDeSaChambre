@@ -15,9 +15,9 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     public int nbFrameMax;
     public float increment;
 
+    public Vector3 deplacementGlacon;
     private SphereCollider sphereCollider;
     private ParticleSystem visuel;
-    private AudioSource audioSource;
     private GlaceSol glaceSol;
 
     private GameObject clone;
@@ -55,14 +55,17 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower)
         {
             animator.Play("IcePower");
+            canPower=false;
             StartCoroutine(WaitForIceAnim());
         }
 
         if(running){
             var tmp = glaceSol.transform.position;
+            Debug.Log(tmp.ToString());
 			compteurFrame++;
 			
 			tmp.y+=increment;
+			tmp+=(increment*deplacementGlacon);
 			Debug.Log(tmp.y);
 			if(compteurFrame >= nbFrameMax){
 				running=false;
@@ -92,23 +95,25 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     }
 
     private void usePower(){
-         listeAgentGlaces.Clear();
-            sphereCollider.enabled = true;
-            canPower = false;
-            running=true;
-            var visuPos = sphereCollider.GetComponent<Transform>();
-            clone = Instantiate<GameObject>(prefab,visuPos.transform.position+visuPos.forward*2,visuPos.transform.rotation);
-            glaceSol=clone.GetComponentInChildren<GlaceSol>();
-            Destroy(clone,duration);
-            // visuel.Play();
-            // audioSource.Play();
-            // var visuPos = sphereCollider.transform;
-            // visuel.transform.position=visuPos.position+(visuPos.forward*2);
-            // visuel.transform.rotation=visuPos.rotation;
-            // glaceSol.LaunchAnim();
-            StartCoroutine(WaitforIcePower());
-            StartCoroutine(WaitforUseIcePower());
-            //StartCoroutine(WaitforIcePowerVisual());
+        listeAgentGlaces.Clear();   
+        sphereCollider.enabled = true;
+        canPower = false;
+        running=true;
+        var visuPos = sphereCollider.GetComponent<Transform>();
+        clone = Instantiate<GameObject>(prefab,visuPos.transform.position+visuPos.forward*2,visuPos.transform.rotation);
+        glaceSol=clone.GetComponentInChildren<GlaceSol>();
+        Destroy(clone,duration);
+        clone.GetComponent<AudioSource>().Play();
+        clone.GetComponent<ParticleSystem>().Play();
+        //visuel.Play();
+        //audioSource.Play();
+        // var visuPos = sphereCollider.transform;
+        // visuel.transform.position=visuPos.position+(visuPos.forward*2);
+        // visuel.transform.rotation=visuPos.rotation;
+        // glaceSol.LaunchAnim();
+        StartCoroutine(WaitforIcePower());
+        StartCoroutine(WaitforUseIcePower());
+        StartCoroutine(WaitforIcePowerVisual());
     }
 
     IEnumerator WaitforIcePower()
@@ -129,6 +134,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         yield return new WaitForSeconds(duration);
         compteurFrame=0;
         Destroy(clone);
+        clone=null;
         Debug.Log("Destroy instatiate");
     }
 

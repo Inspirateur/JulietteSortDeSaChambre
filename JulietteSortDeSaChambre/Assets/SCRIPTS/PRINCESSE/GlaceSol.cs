@@ -21,24 +21,26 @@ public class GlaceSol : MonoBehaviour {
 		//glaceSol.SetActive(false);
 		running=false;
 		CompteurFrame=0;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(running){
-			var tmp = glaceSol.transform.position;
-			nbFrame++;
+		// if(running){
+		// 	var tmp = glaceSol.transform.position;
+		// 	nbFrame++;
 			
-			tmp.y+=increment;
-			Debug.Log(tmp.y);
-			if(CompteurFrame >= nbFrame){
-				running=false;
-				//Add song explosion des glacons 
-				//+ anim destruction ?? 
-			}else{
-				glaceSol.transform.position=tmp;
-			}
-		}
+		// 	tmp.y+=increment;
+		// 	tmp+=(increment*deplacementGlacon);
+		// 	Debug.Log(tmp.y);
+		// 	if(CompteurFrame >= nbFrame){
+		// 		running=false;
+		// 		//Add song explosion des glacons 
+		// 		//+ anim destruction ?? 
+		// 	}else{
+		// 		glaceSol.transform.position=tmp;
+		// 	}
+		// }
 	}
 
 	public void LaunchAnim(){
