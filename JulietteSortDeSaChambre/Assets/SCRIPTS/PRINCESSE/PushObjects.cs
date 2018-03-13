@@ -26,6 +26,9 @@ public class PushObjects : ObjetEnvironnemental {
     private Vector3 princessetemp;
 
     private Vector3 sizetemp;
+
+    private Vector3 princessepostemp;
+    private Vector3 temppos;
     
 
 
@@ -63,7 +66,17 @@ public class PushObjects : ObjetEnvironnemental {
     }
 
     	public override void Activation(){
-            if(!activate)
+
+                Vector3 targetdir = this.transform.position - princesse.transform.position;
+                float angleforward = Vector3.Angle(targetdir, this.transform.forward);
+                Debug.Log(angleforward);
+                float anglemoinsforward = Vector3.Angle(targetdir, -this.transform.forward);
+                Debug.Log(anglemoinsforward);
+                float angledroite = Vector3.Angle(targetdir, this.transform.right);
+                Debug.Log(angledroite);
+                float anglemoinsdroite = Vector3.Angle(targetdir, -this.transform.right);
+                Debug.Log(anglemoinsdroite);
+           /* if(!activate)
             {
                 princesseAnimator.SetBool("isPushing", true);
             // Debug.Log(princessetemp.position.y);
@@ -78,11 +91,11 @@ public class PushObjects : ObjetEnvironnemental {
                         AudioPlayer.Stop();
                     }
                 AudioPlayer.volume = 0f;
-                AudioPlayer.pitch = 0.2f;*/
+                AudioPlayer.pitch = 0.2f;
                 }
             else{
                 activate=false;
-            }
+            }*/
         }
 
      private void Update()
@@ -103,7 +116,7 @@ public class PushObjects : ObjetEnvironnemental {
             }
 
             rb.mass = Mathf.Lerp(ObMass, PushAtMass, _PushingTime / PushingTime);
-            rb.AddForce(dir * ForceToPush, ForceMode.Force);
+           // rb.AddForce(dir * ForceToPush, ForceMode.Force);
         }
         else
         {
@@ -126,14 +139,25 @@ public class PushObjects : ObjetEnvironnemental {
             StartCoroutine(SoundChangeLow());
         }
 
-        if(activate==true && CollisionCount == 0){
-            princesse.transform.Translate(Vector3.forward * Time.deltaTime * 5);
-            sizetemp=princesse.GetComponent<BoxCollider>().size;
-            sizetemp.z = 2.3f; 
-            princesse.GetComponent<BoxCollider>().size = sizetemp;
+        if(activate==true){ 
+           if(CollisionCount == 0){
+               /* princesse.transform.Translate(Vector3.forward * Time.deltaTime * 5);
+                sizetemp=princesse.GetComponent<BoxCollider>().size;
+                sizetemp.z = 2.3f; 
+                princesse.GetComponent<BoxCollider>().size = sizetemp;
+                princessepostemp = princesse.transform.position;*/
+                
+           }
+           else if(CollisionCount > 0){
+               Debug.Log("je passe ici");
+              this.transform.position = princesse.transform.position + temppos;
+           }
         }
-       
         
+    }
+
+    private void FixedUpdate(){
+
     }
 
 
@@ -147,11 +171,14 @@ public class PushObjects : ObjetEnvironnemental {
    
                 CollisionCount++;
                 rb.isKinematic = false;
-
-                dir = collision.contacts[0].point - transform.position;
+                temppos = this.transform.position - princesse.transform.position;
+                // - position entre caisse et princesse
+                //
+                dir = princesse.transform.forward;
+                /*dir = collision.contacts[0].point - transform.position;
                 // We then get the opposite (-Vector3) and normalize it
-                dir = -dir.normalized;
-              
+                dir = -dir.normalized;*/
+                Debug.Log("COLLIDER");
          
         }
 

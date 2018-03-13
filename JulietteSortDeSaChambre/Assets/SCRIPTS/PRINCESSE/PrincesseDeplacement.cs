@@ -63,6 +63,10 @@ public class PrincesseDeplacement : MonoBehaviour
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
 
+        if(anim.GetBool("isPushing")){
+            moveHorizontal = 0;
+        }
+
         if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower"))
         {
             if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
@@ -260,15 +264,10 @@ public class PrincesseDeplacement : MonoBehaviour
 
             mouvement = (mouvement / mouvement.magnitude) * norme;
 
-            if (isPushing == false)
-            {
+          
                 this.transform.position += mouvement * vitesse * Time.deltaTime;
-            }
-            else
-            {
-                this.transform.position += mouvement * vitesse / 2 * Time.deltaTime;
-            }
-
+            
+            
             if (timerStep <= Time.time && isGrounded && CanDash)
             {
                 bruiteurPas.pas();
