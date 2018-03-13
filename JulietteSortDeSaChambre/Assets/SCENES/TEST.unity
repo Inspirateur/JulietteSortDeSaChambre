@@ -3314,7 +3314,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4564403599555894, guid: d21671333e3e8ce468407de030fae35f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.07
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 4564403599555894, guid: d21671333e3e8ce468407de030fae35f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3352,6 +3352,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 103.33035
       objectReference: {fileID: 0}
+    - target: {fileID: 1935691478484492, guid: d21671333e3e8ce468407de030fae35f, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935691478484492, guid: d21671333e3e8ce468407de030fae35f, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d21671333e3e8ce468407de030fae35f, type: 2}
   m_IsPrefabParent: 0
@@ -3371,6 +3379,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e940d621da28cbe43a9d60a10019a5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nomObjet: 
+  descriptionObjet: 
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  BesoinItemPourActivation: {fileID: 0}
   soundClip: {fileID: 0}
   ObMass: 50
   PushAtMass: 25
@@ -3472,6 +3485,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1482889217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1482889213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 1482889214}
+  distanceActivation: 3
+  demiAngleActivationFrontal: 95
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
 --- !u!1001 &1485957404
 Prefab:
   m_ObjectHideFlags: 0
@@ -3878,6 +3907,10 @@ Prefab:
       propertyPath: emplacementAGarder
       value: 
       objectReference: {fileID: 1107563424}
+    - target: {fileID: 1921552545835090, guid: 591dceb319e2873478808605a3e135c2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 591dceb319e2873478808605a3e135c2, type: 2}
   m_IsPrefabParent: 0
@@ -4353,6 +4386,11 @@ Prefab:
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_RootOrder
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 54438497108805324, guid: 10ed3ad8071f47242a535eef3d0d3539,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}

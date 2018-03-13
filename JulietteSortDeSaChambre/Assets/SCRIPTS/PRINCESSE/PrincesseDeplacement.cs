@@ -33,6 +33,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool attackjump;
     private bool isCharging;
 
+   
 
     void Start()
     {
@@ -46,7 +47,7 @@ public class PrincesseDeplacement : MonoBehaviour
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         attackjump = false;
         isCharging = false;
-
+       
     }
 
     void Update()
@@ -78,7 +79,7 @@ public class PrincesseDeplacement : MonoBehaviour
             else
             {
                 GererDeplacement(moveHorizontal, moveVertical);
-                if (!anim.GetBool("IsJumping") && isGrounded)
+                if (!anim.GetBool("IsJumping") && isGrounded )
                 {
                     attackjump = false;
                     if ((moveHorizontal != 0.0f && moveVertical == 0.0f))
@@ -89,9 +90,13 @@ public class PrincesseDeplacement : MonoBehaviour
                     {
                         gererAnim("IsBackwalk");
                     }
-                    else if (moveVertical > 0.0f)
+                    else if (moveVertical > 0.0f && !anim.GetBool("isPushing"))
                     {
                         gererAnim("IsRunning");
+                    }
+                    else if(moveVertical > 0.0f && anim.GetBool("isPushing"))
+                    {
+                        anim.Play("push");
                     }
                 }
                 else if (isGrounded)
@@ -106,6 +111,8 @@ public class PrincesseDeplacement : MonoBehaviour
 
                 }
             }
+
+         
         }
         else
         {
@@ -214,7 +221,7 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("IsSidewalk", false);
         anim.SetBool("IsIdle", false);
         anim.SetBool("IsJumping", false);
-
+        anim.SetBool("isPushing", false);
     }
 
     IEnumerator WaitForVelocityZero()

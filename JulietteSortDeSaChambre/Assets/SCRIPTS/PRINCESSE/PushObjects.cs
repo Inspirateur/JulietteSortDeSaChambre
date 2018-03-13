@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(AudioSource))]
-public class PushObjects : MonoBehaviour {
+public class PushObjects : ObjetEnvironnemental {
     public AudioClip soundClip;
     public float ObMass = 300;
     public float PushAtMass = 100;
@@ -12,11 +12,21 @@ public class PushObjects : MonoBehaviour {
     public float ForceToPush;
     Rigidbody rb;
     public float vel;
+    private GameObject princesse;
+
+    private Animator princesseAnimator;
     AudioSource AudioPlayer;
     Vector3 dir;
+    private int CollisionCount;
+    private bool activate;
 
     Vector3 lastPos ;
     float _PushingTime =0;
+
+    private Vector3 princessetemp;
+
+    private Vector3 sizetemp;
+    
 
 
     //For setup thing please watch the Demo 
@@ -35,6 +45,11 @@ public class PushObjects : MonoBehaviour {
         AudioPlayer.volume = 0;
         AudioPlayer.pitch = 0.5f;
         rb.mass = ObMass;
+        princesseAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        princesse = GameObject.FindGameObjectWithTag("Player");
+        activate=false;
+        CollisionCount = 0;
+
     }
 
     bool IsMoving()
@@ -47,21 +62,37 @@ public class PushObjects : MonoBehaviour {
 
     }
 
+    	public override void Activation(){
+            if(!activate)
+            {
+                princesseAnimator.SetBool("isPushing", true);
+            // Debug.Log(princessetemp.position.y);
+                princesse.transform.LookAt(this.transform);
+                princessetemp = princesse.transform.forward;
+                princessetemp.y = 0;
+                princesse.transform.forward = princessetemp;
+                activate=true;
+                rb.isKinematic = true;
+                   /* if (soundClip != null)
+                    {
+                        AudioPlayer.Stop();
+                    }
+                AudioPlayer.volume = 0f;
+                AudioPlayer.pitch = 0.2f;*/
+                }
+            else{
+                activate=false;
+            }
+        }
+
      private void Update()
     {
         //F key to Push
         vel = rb.velocity.magnitude;
-        if (Input.GetKeyUp(KeyCode.F))
+       /* if (InputManager.GetKeyDown(KeyCode.F))
         {
-            rb.isKinematic = true;
-            if (soundClip != null)
-            {
-                AudioPlayer.Stop();
-            }
-
-            AudioPlayer.volume = 0f;
-            AudioPlayer.pitch = 0.2f;
-        }
+            
+        }*/
 
         if (rb.isKinematic==false)
         {
@@ -94,25 +125,47 @@ public class PushObjects : MonoBehaviour {
         {
             StartCoroutine(SoundChangeLow());
         }
+
+        if(activate==true && CollisionCount == 0){
+            princesse.transform.Translate(Vector3.forward * Time.deltaTime * 5);
+            sizetemp=princesse.GetComponent<BoxCollider>().size;
+            sizetemp.z = 2.3f; 
+            princesse.GetComponent<BoxCollider>().size = sizetemp;
+        }
        
         
     }
 
+
+
     private void OnCollisionEnter(Collision collision)
     {
+       
+
         if (collision.collider.tag == "Player")
-        {
-            
-            if (Input.GetKey(KeyCode.F))
-            {
+                {
+   
+                CollisionCount++;
                 rb.isKinematic = false;
 
                 dir = collision.contacts[0].point - transform.position;
                 // We then get the opposite (-Vector3) and normalize it
                 dir = -dir.normalized;
               
-            }
+         
         }
+
+    }
+
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.tag == "Player")
+                {
+                    CollisionCount--;
+                   // Debug.Log(CollisionCount);
+                               // activate = false;
+                }
 
     }
 
