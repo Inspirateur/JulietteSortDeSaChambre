@@ -17,28 +17,17 @@ public class Spikes : MonoBehaviour {
     [Header("Son du rangement des pics :")]
     public AudioClip Ranger;
 
-    [Header("Temps avant la premiere action :")]
-	public float TimeBeforeStart;
-
-	[Header("Temps entre chaque action :")]
-	public float TimeRepos;
-
-	private bool StopSpike;
-	private bool BeginStopSpike;
-	private bool CheckCall;
-
     [Header("Quel son sont actif pour ce pic :")]
     public bool SonPicPrepare = true;
     public bool SonPicSortie = true;
     public bool SonPicRange = true;
 
-    private bool SonPicPrepareReplay;
-    private bool SonPicSortieReplay;
-    private bool SonPicRangeReplay;
-
-    [Range(0.1f, 5)]
-	[Tooltip("multiplication de la vitesse de l'animation, pour une vitesse normale : 1")]
-	public float SpeedMultiplier = 1f;
+    [HideInInspector]
+    public bool SonPicPrepareReplay;
+    [HideInInspector]
+    public bool SonPicSortieReplay;
+    [HideInInspector]
+    public bool SonPicRangeReplay;
 
 	// Use this for initialization
 	void Start () {
@@ -47,19 +36,10 @@ public class Spikes : MonoBehaviour {
         SonPicSortieReplay = SonPicSortie;
         SonPicRangeReplay = SonPicRange;
 
-        CheckCall = true;
-		StopSpike = false;
-		BeginStopSpike = false;
-        StartCoroutine(WaitBeforeStart());
 		anim = gameObject.GetComponent<Animator> ();
-		anim.speed = anim.speed * SpeedMultiplier;
 	}
 
 	void Update() {
-		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos") && !StopSpike && CheckCall) {
-			CheckCall = false;
-			StartCoroutine (WaitBeforeUp ());
-		}
         CheckAnimationToPlaySound();
     }
 
@@ -81,41 +61,5 @@ public class Spikes : MonoBehaviour {
             audioSource.PlayOneShot(Ranger);
         }
     }
-
-	public void StopSpikes() {
-		BeginStopSpike = true;
-		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("BeginRepos"))
-		{
-			anim.SetBool ("CanUp", false);
-			StopSpike = true;
-			BeginStopSpike = false;
-		} else {
-			Invoke("StopSpikes",0f);
-		}	
-	}
-
-	void StartSpikes() {
-		if (!BeginStopSpike)
-		{
-			StopSpike = false;
-		}
-	}
-
-	IEnumerator WaitBeforeStart()
-	{
-		yield return new WaitForSeconds(TimeBeforeStart);
-		anim.SetBool ("CanUp", true);
-	}
-
-	IEnumerator WaitBeforeUp()
-	{
-		anim.SetBool ("CanUp", false);
-		yield return new WaitForSeconds(TimeRepos);
-        SonPicPrepareReplay = true;
-        SonPicSortieReplay = true;
-        SonPicRangeReplay = true;
-        anim.SetBool ("CanUp", true);
-		CheckCall = true;
-	}
 }
 
