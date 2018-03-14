@@ -5,7 +5,8 @@ using UnityEngine;
 public class SQL_Cadavre : MonoBehaviour {
 
     public float delaiAvantDisparition;
-	public AudioClip sonMort;
+	public AudioClip sonMort1;
+	public AudioClip sonMort2;
     public List<Rigidbody> listeParties;
     public float forceExplosionLaterale;
     public float forceExplosionVerticale;
@@ -14,8 +15,12 @@ public class SQL_Cadavre : MonoBehaviour {
 
 	// Use this for initialization
 	void Start()
-	{
-        GetComponent<SoundEntity> ().playOneShot(sonMort,1.0f);
+	{	
+		if(Random.value < 0.5f){
+			GetComponent<SoundEntity> ().playOneShot(sonMort1, Mathf.Max(Random.value, 0.75f));
+		} else {
+			GetComponent<SoundEntity> ().playOneShot(sonMort2, Mathf.Max(Random.value, 0.75f));
+		}
 		actualDelai = Time.time + delaiAvantDisparition;
         float demiForce = forceExplosionLaterale/2.0f;
         foreach(Rigidbody r in listeParties){
