@@ -1401,11 +1401,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 9531506e7adc3904ca5f19e27ae198c7, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1612,8 +1612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5ae65c51ea49a4bb4446ccbd1ea332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delaiAvantDisparition: 3
-  sonMort: {fileID: 0}
+  prefabCadavre: {fileID: 4179207833086138, guid: 4e80bd589a6b4204cab50f7396fbbd3c,
+    type: 2}
 --- !u!122 &122684913377166606
 Halo:
   m_ObjectHideFlags: 1
