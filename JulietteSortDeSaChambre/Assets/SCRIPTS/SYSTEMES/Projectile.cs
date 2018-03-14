@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour {
 	public float recul;
 	public float dureeDeVie;
 	public GameObject effetCollision;
+	public float rotationParFrame;
 
 	private float timerVie;
 	private Vector3 destination;
@@ -21,7 +22,8 @@ public class Projectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.Translate(this.destination * this.vitesse * Time.deltaTime);
+		this.transform.Translate(this.destination * this.vitesse * Time.deltaTime, Space.World);
+		this.transform.Rotate(0.0f, this.rotationParFrame, 0.0f);
 		if(Time.time >= this.timerVie){
 			Destroy (this.gameObject);
 		}
@@ -44,7 +46,7 @@ public class Projectile : MonoBehaviour {
 		}
 		else {
 			if (other.tag.Equals ("Player")){
-				GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>().blesser (degats, this.gameObject, recul);
+				other.gameObject.GetComponent<PrincesseVie>().blesser (degats, this.gameObject, recul);
 				this.detruireCollision();
 			}
 		}

@@ -23,7 +23,7 @@ public class GOB_E_EtreBlesse : IA_Etat {
 	public override void entrerEtat()
 	{
 		nav.enabled = false;
-//		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
+		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
 		anim.Play(GOB_Animations.ETRE_BLESSE);
 		agent.getSoundEntity().stop();
 		agent.getSoundEntity().playOneShot(sonDegat,1.0f);
