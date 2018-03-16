@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SQL_E_EtreBlesseTourelle : IA_Etat {
+public class SQL_E_EtreBlesse : IA_Etat {
 
 	public float forceReculeVertical;
 	public float forceReculeHorizontal;
 	public AudioClip sonDegat;
+	public IA_Etat etatApresBlessure;
 
 	private float facteurRecule;
 
@@ -38,7 +39,7 @@ public class SQL_E_EtreBlesseTourelle : IA_Etat {
 	public override void faireEtat()
 	{
 		if (Time.time > timer) {
-			changerEtat (GetComponent<SQL_E_TourellePrincesse>());
+			changerEtat (etatApresBlessure);
 		}
 	}
 
