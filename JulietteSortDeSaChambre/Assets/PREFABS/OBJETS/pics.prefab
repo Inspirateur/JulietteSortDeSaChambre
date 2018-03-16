@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416651392505052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7968175, y: 61.32013, z: -5.620205}
+  m_LocalPosition: {x: 12.087734, y: 33.218914, z: -31.56601}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4605038895351150}
@@ -247,21 +247,21 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0.23769951
-      value: 0.81666946
-      inSlope: 0
-      outSlope: 0
+      value: 0.3689766
+      inSlope: 0.026879787
+      outSlope: 0.026879787
       tangentMode: 0
     - serializedVersion: 2
       time: 0.42466086
-      value: 0.5364889
-      inSlope: -3.699376
-      outSlope: -3.699376
+      value: 0.10232544
+      inSlope: -1.2896732
+      outSlope: -1.2896732
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.8807068
+      time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.20805016
+      outSlope: -0.20805016
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -358,6 +358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad2c71911c2d32419596ffdbda4fdb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpeedMultiplier: 1
+  TimeBegin: 0
+  TimeRepos: 4
+  Activated: 1
   Preparation: {fileID: 8300000, guid: 635ed528f82910a458ca264babec8e0b, type: 3}
   Sortie: {fileID: 8300000, guid: 858c12d4bee37634caf4286f8d9c9578, type: 3}
   Ranger: {fileID: 0}

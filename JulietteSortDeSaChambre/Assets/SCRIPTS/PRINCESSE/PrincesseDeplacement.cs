@@ -145,7 +145,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        {
                 if (!attaqueBegin)
                 {
-                    playAttaque("attack1");
+                    playAttaque("combo1");
                     attaqueBegin = true;
                 }
             }
@@ -223,6 +223,7 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("IsRunning", false);
         anim.SetBool("IsBackwalk", false);
         anim.SetBool("IsSidewalk", false);
+        anim.SetBool("AttaqueContinu", false);
         anim.SetBool("IsIdle", false);
         anim.SetBool("IsJumping", false);
 
