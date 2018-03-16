@@ -22,9 +22,7 @@ public class TRO_E_Combattre : IA_Etat {
 
 	public override void faireEtat() {
 		agent.seTournerVersPosition (princesse.transform.position);
-
 		if (agent.distanceToPrincesse() >= distanceSortieCombat) {
-			
 			changerEtat (GetComponent<TRO_E_Poursuivre> ());
 		} else if (Time.time >= timerAttaque) {
 			changerEtat (GetComponent<TRO_E_AttaquerVerticalement> ());

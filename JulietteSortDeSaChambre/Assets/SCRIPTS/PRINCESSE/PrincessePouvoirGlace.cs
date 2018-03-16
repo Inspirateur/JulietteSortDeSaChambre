@@ -67,17 +67,17 @@ public class PrincessePouvoirGlace : PrincessePouvoir
 
     private void usePower(){
          listeAgentGlaces.Clear();
-            sphereCollider.enabled = true;
-            canPower = false;
-            visuel.Play();
-            audioSource.Play();
-            var visuPos = sphereCollider.transform;
-            visuel.transform.position=visuPos.position+(visuPos.forward*2);
-            visuel.transform.rotation=visuPos.rotation;
-            glaceSol.LaunchAnim();
-            StartCoroutine(WaitforIcePower());
-            StartCoroutine(WaitforUseIcePower());
-            StartCoroutine(WaitforIcePowerVisual());
+	        sphereCollider.enabled = true;
+	        canPower = false;
+	        visuel.Play();
+	        audioSource.Play();
+	        var visuPos = sphereCollider.transform;
+	        visuel.transform.position=visuPos.position+(visuPos.forward*2);
+	        visuel.transform.rotation=visuPos.rotation;
+	        glaceSol.LaunchAnim();
+	        StartCoroutine(WaitforIcePower());
+	        StartCoroutine(WaitforUseIcePower());
+	        StartCoroutine(WaitforIcePowerVisual());
     }
 
     IEnumerator WaitforIcePower()

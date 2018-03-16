@@ -79,7 +79,7 @@ public class TRO_E_Poursuivre : IA_Etat {
 			} else {
 				
 				agent.getSoundEntity ().playOneShot (sonPrincessePerdu);
-				changerEtat (agent.etatInitial);
+				changerEtat (this.GetComponent<TRO_E_Garder> ());
 			}
 		}
 	}

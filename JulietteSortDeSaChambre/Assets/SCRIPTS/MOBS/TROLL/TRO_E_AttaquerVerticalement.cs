@@ -26,9 +26,6 @@ public class TRO_E_AttaquerVerticalement : IA_Etat{
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 		degatsAttaqueEffectues = false;
 		setAnimation (TRO_Animations.ATTAQUER_VERTICALEMENT);
-		nav.enabled = true;
-		nav.speed = vitesse;
-		agent.definirDestination (this.transform.position + this.transform.forward * this.distanceParcourue);
 		timerChargement = Time.time + 1.6f;
 		timerFinAttaque = timerChargement + 0.3f;
 	}
@@ -39,12 +36,10 @@ public class TRO_E_AttaquerVerticalement : IA_Etat{
 			if(Time.time >= timerChargement){
 				Debug.Log("fini chargement");
 				if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
-
 					princesseVie.blesser (degats, this.gameObject, forceRecule);
 					degatsAttaqueEffectues = true;
 				}
 			}
-
 		} else {
 			changerEtat(this.GetComponent<TRO_E_Combattre>());
 		}
