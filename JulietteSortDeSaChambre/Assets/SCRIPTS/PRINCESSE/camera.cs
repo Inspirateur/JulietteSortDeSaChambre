@@ -32,12 +32,14 @@ public class camera : MonoBehaviour {
 	private Vector3 lookAtPoint;
 	private Vector3 velocityLookAtPoint = Vector3.zero;
 	private bool cinematiqueEnCours;
+	private Animator anim;
 
 	private CinematiqueManager cinematiqueManager;
 
 	void Awake() {
 		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
 		princesse = GameObject.FindGameObjectWithTag("Player");
+		anim = princesse.GetComponent<Animator>();
 		// skinPrincesse = GameObject.FindGameObjectWithTag ("PrincesseBody").GetComponent<SkinnedMeshRenderer>();
 
 		// On place la caméra à son point de départ pour éviter un mauvais effet au démarrage du jeu
@@ -74,9 +76,17 @@ public class camera : MonoBehaviour {
 	}
 
 	private void gererCameraClassique(){
+		float distance = this.calculerDistanceFocusCamera();
 		// mise à jour des entrées manettes et souris
-
-		this.miseAJourInput();
+		if(anim.GetBool("isPushing")){
+			this.transform.position = cible.transform.position + princesse.transform.rotation * new Vector3 (0, 0, -distanceMax);
+			this.transform.LookAt (this.cible.transform.position);
+			princesse.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;	
+		}else{
+			this.miseAJourInput();
+			this.placerCamera(distance);
+		}
+		
 
 		// on cache le curseur
 
@@ -84,11 +94,12 @@ public class camera : MonoBehaviour {
 
 		// on récupère la distance max à laquelle on peut placer la caméra de son point de focus
 
-		float distance = this.calculerDistanceFocusCamera();
+		
+
 
 		// on place la caméra
 
-		this.placerCamera(distance);
+		
 
 
 	/* 
@@ -191,6 +202,7 @@ public class camera : MonoBehaviour {
 		this.lookAtPoint.y = cible.transform.position.y;
 
 		this.transform.LookAt (this.lookAtPoint);
+
 
 		Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, fov, ref velocityFOV, this.smooth);
 	}

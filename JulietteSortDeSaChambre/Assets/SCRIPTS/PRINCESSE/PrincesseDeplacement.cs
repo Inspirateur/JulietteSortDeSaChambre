@@ -33,6 +33,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool attackjump;
     private bool isCharging;
 
+   
 
     void Start()
     {
@@ -46,7 +47,7 @@ public class PrincesseDeplacement : MonoBehaviour
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         attackjump = false;
         isCharging = false;
-
+       
     }
 
     void Update()
@@ -61,6 +62,10 @@ public class PrincesseDeplacement : MonoBehaviour
         
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
+
+        if(anim.GetBool("isPushing")){
+            moveHorizontal = 0;
+        }
 
         if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower"))
         {
@@ -78,20 +83,24 @@ public class PrincesseDeplacement : MonoBehaviour
             else
             {
                 GererDeplacement(moveHorizontal, moveVertical);
-                if (!anim.GetBool("IsJumping") && isGrounded)
+                if (!anim.GetBool("IsJumping") && isGrounded )
                 {
                     attackjump = false;
                     if ((moveHorizontal != 0.0f && moveVertical == 0.0f))
                     {
                         gererAnim("IsSidewalk");
                     }
-                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f)
+                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f && !anim.GetBool("isPushing"))
                     {
                         gererAnim("IsBackwalk");
                     }
-                    else if (moveVertical > 0.0f)
+                    else if (moveVertical > 0.0f && !anim.GetBool("isPushing"))
                     {
                         gererAnim("IsRunning");
+                    }
+                    else if(moveVertical > 0.0f && anim.GetBool("isPushing"))
+                    {
+                        anim.Play("push");
                     }
                 }
                 else if (isGrounded)
@@ -106,6 +115,8 @@ public class PrincesseDeplacement : MonoBehaviour
 
                 }
             }
+
+         
         }
         else
         {
@@ -122,7 +133,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
         Vector3 velocity = rb.velocity;  
         bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8)
+        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing"))
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");
@@ -132,7 +143,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
-        if (toucheAttack1)
+        if (toucheAttack1 && !anim.GetBool("isPushing"))
         {
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
@@ -161,7 +172,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
 
         bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
-        if(toucheAttackCharge)
+        if(toucheAttackCharge && !anim.GetBool("isPushing"))
         {
             
             if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
@@ -184,7 +195,7 @@ public class PrincesseDeplacement : MonoBehaviour
     }
 
     private void playAttaque(string attaqueName){
-        if(princesseArme.armeActive == EnumArmes.BAGUETTE_MAGIQUE){
+        if(princesseArme.armeActive == EnumArmes.BAGUETTE_MAGIQUE && !anim.GetBool("isPushing")){
             anim.Play("attaqueBaguetteMagique");
         }else {
             anim.Play(attaqueName);
@@ -214,7 +225,7 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("IsSidewalk", false);
         anim.SetBool("IsIdle", false);
         anim.SetBool("IsJumping", false);
-
+        anim.SetBool("isPushing", false);
     }
 
     IEnumerator WaitForVelocityZero()
@@ -253,15 +264,10 @@ public class PrincesseDeplacement : MonoBehaviour
 
             mouvement = (mouvement / mouvement.magnitude) * norme;
 
-            if (isPushing == false)
-            {
+          
                 this.transform.position += mouvement * vitesse * Time.deltaTime;
-            }
-            else
-            {
-                this.transform.position += mouvement * vitesse / 2 * Time.deltaTime;
-            }
-
+            
+            
             if (timerStep <= Time.time && isGrounded && CanDash)
             {
                 bruiteurPas.pas();
