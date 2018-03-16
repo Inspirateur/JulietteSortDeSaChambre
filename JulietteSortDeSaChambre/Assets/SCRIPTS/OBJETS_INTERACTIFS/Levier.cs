@@ -38,7 +38,11 @@ public class Levier : ObjetEnvironnemental {
 					anim.SetBool("isDown", true);
 					anim.SetBool("isUp", false);
 
-					eventManager.activation ();
+					foreach (EventManager eM in GetComponents<EventManager>()) {
+						if (eM.nomEvent.Equals ("desaction")) {
+							eM.activation ();
+						}
+					}
 
 					/*foreach (Evenement e in listEvenement) {
 						e.desactivation ();
