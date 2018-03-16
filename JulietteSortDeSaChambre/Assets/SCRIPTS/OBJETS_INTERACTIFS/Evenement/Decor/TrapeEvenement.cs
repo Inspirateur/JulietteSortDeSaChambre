@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TrapeEvenement : Evenement {
 
-	// private List<IA_Agent> listeGobelins;
+    // private List<IA_Agent> listeGobelins;
+
+    private Trape trape;
 
 	void Start () {
-		// this.listeGobelins = new List<IA_Agent> ();
-	}
+        trape = this.GetComponent<Trape>();
+        // this.listeGobelins = new List<IA_Agent> ();
+    }
 	
 	public override void activation(){
-		Trape t = this.GetComponent<Trape> ();
-		t.TrapeOuverture ();
+        trape.TrapeOuverture ();
 		
 		// foreach( IA_Agent gob in listeGobelins){
 		// 	gob.tomber();
@@ -21,8 +23,7 @@ public class TrapeEvenement : Evenement {
 	}
 	
 	public override void desactivation(){
-		Trape t = this.GetComponent<Trape> ();
-		t.TrapeFermeture ();
+        trape.TrapeFermeture ();
 	}
 
 	// void OnCollisionEnter(Collision collisionInfo) {
