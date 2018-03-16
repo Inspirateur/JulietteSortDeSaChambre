@@ -34,6 +34,8 @@ public class camera : MonoBehaviour {
 	private bool cinematiqueEnCours;
 	private Animator anim;
 
+	private CinematiqueManager cinematiqueManager;
+
 	void Awake() {
 		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
 		princesse = GameObject.FindGameObjectWithTag("Player");
@@ -51,6 +53,8 @@ public class camera : MonoBehaviour {
 		this.cinematiqueEnCours = false;
 
 		this.lookAtPoint = cible.transform.position;
+
+		cinematiqueManager = GetComponent<CinematiqueManager> ();
 	}
 
 	/* On utilise LateUpdate afin que tout les autres éléments de la scène
@@ -59,7 +63,7 @@ public class camera : MonoBehaviour {
 	 */
 	void LateUpdate() {
 
-		if(this.cinematiqueEnCours){
+		if(this.cinematiqueManager.isInCinematique){
 
 		}
 		else{

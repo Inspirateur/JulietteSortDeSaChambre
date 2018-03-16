@@ -13,12 +13,15 @@ public class Levier : ObjetEnvironnemental {
 
 	public bool isReactivable;
 
+	private EventManager eventManager;
+
 
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
 		active = false;
+		eventManager = GetComponent<EventManager> ();
 	}
 	
 	// Update is called once per frame
@@ -35,9 +38,15 @@ public class Levier : ObjetEnvironnemental {
 					anim.SetBool("isDown", true);
 					anim.SetBool("isUp", false);
 
-					foreach (Evenement e in listEvenement) {
-						e.desactivation ();
+					foreach (EventManager eM in GetComponents<EventManager>()) {
+						if (eM.nomEvent.Equals ("desaction")) {
+							eM.activation ();
+						}
 					}
+
+					/*foreach (Evenement e in listEvenement) {
+						e.desactivation ();
+					}*/
 
 				}
 			} else {
@@ -47,9 +56,17 @@ public class Levier : ObjetEnvironnemental {
 				anim.SetBool("isDown", false);
 				anim.SetBool("isUp", true);
 
-				foreach (Evenement e in listEvenement) {
-					e.activation ();
+
+				foreach (EventManager eM in GetComponents<EventManager>()) {
+					if (eM.nomEvent.Equals ("action")) {
+						eM.activation ();
+					}
 				}
+
+
+				/*foreach (Evenement e in listEvenement) {
+					e.activation ();
+				}*/
 
 
 			}
