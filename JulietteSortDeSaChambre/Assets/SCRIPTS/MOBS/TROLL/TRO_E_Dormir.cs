@@ -8,6 +8,7 @@ public class TRO_E_Dormir : IA_Etat {
 	public float reveilMin;
 	public float reveilMax;
 	private float reveil;
+	private float tpsAnim;
 
 	// Use this for initialization
 	void Start(){
@@ -17,14 +18,18 @@ public class TRO_E_Dormir : IA_Etat {
 
 	public override void entrerEtat(){
 		setAnimation(TRO_Animations.ENDORMIR);
-		perception.estAveugle = true;
-		reveil = Time.time + 7.3f + reveilMin + (reveilMax - reveilMin) * Random.value;
+		tpsAnim = Time.time + 7.3f;
+		reveil = tpsAnim + reveilMin + (reveilMax - reveilMin) * Random.value;
 	}
 
 	// Update is called once per frame
 	public override void faireEtat () {
-		if (perception.aRepere (princesse, attentionSommeil) || Time.time >= reveil) {
-			Debug.Log ("JEJEJ");
+		if (Time.time >= tpsAnim) {
+			perception.estAveugle = true;
+		}
+		if (Time.time < tpsAnim && perception.aRepere (princesse, attentionSommeil)) {
+			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
+		} else if (perception.aRepere (princesse, attentionSommeil) || Time.time >= reveil) {
 			changerEtat (this.GetComponent<TRO_E_Reveil> ());
 		}
 	}
