@@ -6,10 +6,17 @@ public class PiegeArretEvenement : Evenement {
 
 	override
 	public void activation(){
-		GetComponent<Spikes> ().StopSpikes ();
+		GetComponent<ManagerSpikes> ().StopAllSpikes();
 	}
 
-	public void test(int t){
+    override
+    public void desactivation()
+    {
+        GetComponent<ManagerSpikes>().StartAllSpikes();
+    }
+    
+    public void test(int t){
 		Debug.Log (t);
 	}
+
 }
