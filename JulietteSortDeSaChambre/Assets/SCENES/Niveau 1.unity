@@ -33649,15 +33649,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224357123800284226, guid: 19ba50ecc3294564aae79a683a7a4ba3,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 75
+    - target: {fileID: 1369639212557436, guid: 19ba50ecc3294564aae79a683a7a4ba3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224357123800284226, guid: 19ba50ecc3294564aae79a683a7a4ba3,
+    - target: {fileID: 114316750688604542, guid: 19ba50ecc3294564aae79a683a7a4ba3,
         type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 400
+      propertyPath: divideAngle
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19ba50ecc3294564aae79a683a7a4ba3, type: 2}
@@ -48708,28 +48707,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -269.999
-      objectReference: {fileID: 0}
     - target: {fileID: 114718835825931724, guid: 10ed3ad8071f47242a535eef3d0d3539,
         type: 2}
       propertyPath: cooldown
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548911780310742, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65933933933677106, guid: 10ed3ad8071f47242a535eef3d0d3539,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65288233268211676, guid: 10ed3ad8071f47242a535eef3d0d3539,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
@@ -71098,17 +71079,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4455658850050002, guid: 3b516e12926e85a40a44ab490866eec1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455658850050002, guid: 3b516e12926e85a40a44ab490866eec1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 82894388059872958, guid: 3b516e12926e85a40a44ab490866eec1,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
+    - target: {fileID: 1351308158124230, guid: 3b516e12926e85a40a44ab490866eec1, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

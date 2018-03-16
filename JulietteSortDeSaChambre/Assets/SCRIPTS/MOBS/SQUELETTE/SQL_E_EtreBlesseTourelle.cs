@@ -32,7 +32,7 @@ public class SQL_E_EtreBlesseTourelle : IA_Etat {
 
 		rb.velocity = Vector3.zero;
 		rb.AddForce ((directionRecule * (forceReculeHorizontal * facteurRecule)) + (this.transform.up * (forceReculeVertical * facteurRecule)));
-		timer = Time.time + 0.65f;
+		timer = Time.time + 1.0f;
 	}
 
 	public override void faireEtat()

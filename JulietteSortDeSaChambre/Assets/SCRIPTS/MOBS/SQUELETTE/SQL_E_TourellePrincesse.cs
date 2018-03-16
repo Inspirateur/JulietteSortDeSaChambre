@@ -9,11 +9,14 @@ public class SQL_E_TourellePrincesse : IA_Etat {
 	public AudioClip sonAttaque;
 	public GameObject projectile;
 	public GameObject positionDepartProjectile;
+	public GameObject modelCoteMain;
 
 	private Transform cible;
 	private float timerFinAttaque;
 	private float timerChargement;
+	private float timerApparitionCote;
 	private bool projectileDejaCree;
+	private bool modelCoteActif;
 
 	// Use this for initialization
 	void Start()
@@ -26,15 +29,19 @@ public class SQL_E_TourellePrincesse : IA_Etat {
 
 	public override void entrerEtat()
 	{
-		Transform t = this.transform;
+		this.restartAttaque();
 	}
 
 	public override void faireEtat()
 	{
 		agent.seTournerVersPosition(cible.position);
-		if(Time.time >= this.timerChargement && !projectileDejaCree){
+		if(Time.time >= this.timerApparitionCote && !modelCoteActif){
+			modelCoteMain.SetActive(true);
+			modelCoteActif = true;
+		} else if(Time.time >= this.timerChargement && !projectileDejaCree){
 			this.lancerProjectile();
 			setAnimation (SQL_Animations.GARDER);
+			modelCoteMain.SetActive(false);
 		}
 		else if (Time.time >= this.timerFinAttaque){
 			this.restartAttaque();
@@ -43,14 +50,16 @@ public class SQL_E_TourellePrincesse : IA_Etat {
 
 	public override void sortirEtat()
 	{
-		
+		modelCoteMain.SetActive(false);
 	}
 
 	private void restartAttaque(){
 		setAnimation (SQL_Animations.ATTAQUER);
 		projectileDejaCree = false;
-		timerChargement = Time.time + 1.0f;
+		timerChargement = Time.time + 2.0f;
 		timerFinAttaque = timerChargement + 1.0f;
+		timerApparitionCote = Time.time + 1.0f;
+		modelCoteActif = false;
 	}
 
 	private void lancerProjectile(){
