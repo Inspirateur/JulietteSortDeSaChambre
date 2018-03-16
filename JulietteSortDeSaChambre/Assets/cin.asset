@@ -13,9 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - dureeArret: 2
+    dureeAcces: 0
     pos: {x: 6.73, y: 3.14, z: -17.71}
     rot: {x: 0.0775892, y: 0.0013961619, z: -0.9969847}
-  - dureeArret: 3
+    isInDeplacement: 0
+  - dureeArret: 10
+    dureeAcces: 1
     pos: {x: 21.29, y: 11.38, z: -17.71}
     rot: {x: 0.91502035, y: -0.3953851, z: 0.080053836}
-  item: 1
+    isInDeplacement: 0
+  - dureeArret: 5
+    dureeAcces: 0
+    pos: {x: 30.33, y: 11.38, z: -17.71}
+    rot: {x: 0.91502035, y: -0.3953851, z: 0.080053836}
+    isInDeplacement: 0
+  item: 2

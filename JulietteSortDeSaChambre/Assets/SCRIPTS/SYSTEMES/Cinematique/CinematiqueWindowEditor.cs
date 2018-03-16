@@ -102,9 +102,11 @@ public class CinematiqueWindowEditor : EditorWindow {
 				cinematiqueItemList.itemList [viewIndex - 1].pos = EditorGUILayout.Vector3Field ("Position", cinematiqueItemList.itemList [viewIndex - 1].pos);
 				cinematiqueItemList.itemList [viewIndex - 1].rot = EditorGUILayout.Vector3Field ("Rotation", cinematiqueItemList.itemList [viewIndex - 1].rot);
 				cinematiqueItemList.itemList [viewIndex - 1].dureeArret = EditorGUILayout.IntField ("Duree arret", cinematiqueItemList.itemList [viewIndex - 1].dureeArret);
+				cinematiqueItemList.itemList [viewIndex - 1].dureeAcces = EditorGUILayout.IntField ("Temps pour accéder au point", cinematiqueItemList.itemList [viewIndex - 1].dureeAcces);
 
 				if(GUILayout.Button("Simulation", GUILayout.ExpandWidth(false))){
-					Selection.activeObject = GameObject.FindGameObjectWithTag ("MainCamera");
+					GameObject.FindGameObjectWithTag ("MainCamera").transform.position = cinematiqueItemList.itemList [viewIndex - 1].pos;
+					GameObject.FindGameObjectWithTag ("MainCamera").transform.forward = cinematiqueItemList.itemList [viewIndex - 1].rot;
 					simulationNonActive = false;
 				}
 
