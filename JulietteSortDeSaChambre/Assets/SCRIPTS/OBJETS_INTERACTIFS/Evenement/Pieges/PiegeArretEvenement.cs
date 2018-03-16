@@ -14,5 +14,9 @@ public class PiegeArretEvenement : Evenement {
     {
         GetComponent<ManagerSpikes>().StartAllSpikes();
     }
+    
+    public void test(int t){
+		Debug.Log (t);
+	}
 
 }
