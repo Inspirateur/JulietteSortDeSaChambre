@@ -1,8 +1,8 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TRO_E_AttaquerVerticalement : IA_Etat{
+public class TRO_E_AttaquerVerticalement : IA_Etat {
 	public int degats;
 	public float forceRecule;
 	public float distanceParcourue;
@@ -26,11 +26,8 @@ public class TRO_E_AttaquerVerticalement : IA_Etat{
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 		degatsAttaqueEffectues = false;
 		setAnimation (TRO_Animations.ATTAQUER_VERTICALEMENT);
-		nav.enabled = true;
-		nav.speed = vitesse;
-		agent.definirDestination (this.transform.position + this.transform.forward * this.distanceParcourue);
-		timerChargement = Time.time + 1.6f;
-		timerFinAttaque = timerChargement + 0.3f;
+		timerChargement = Time.time + 1.1f;
+		timerFinAttaque = timerChargement + 1f;
 	}
 
 	public override void faireEtat() {
@@ -39,12 +36,10 @@ public class TRO_E_AttaquerVerticalement : IA_Etat{
 			if(Time.time >= timerChargement){
 				Debug.Log("fini chargement");
 				if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
-
 					princesseVie.blesser (degats, this.gameObject, forceRecule);
 					degatsAttaqueEffectues = true;
 				}
 			}
-
 		} else {
 			changerEtat(this.GetComponent<TRO_E_Combattre>());
 		}
@@ -54,4 +49,5 @@ public class TRO_E_AttaquerVerticalement : IA_Etat{
 		nav.enabled = false;
 	}
 }
+
 

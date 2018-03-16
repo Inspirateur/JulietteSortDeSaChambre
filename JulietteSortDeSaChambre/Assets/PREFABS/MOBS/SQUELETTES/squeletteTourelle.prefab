@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 114551385331953054}
   - component: {fileID: 114185798443376104}
   - component: {fileID: 114847944772022648}
-  - component: {fileID: 114712995634884958}
+  - component: {fileID: 114872313221521518}
   m_Layer: 2
   m_Name: squeletteTourelle
   m_TagString: Mob
@@ -1552,7 +1552,7 @@ MonoBehaviour:
   etatTomber: {fileID: 0}
   bruiteurPas: {fileID: 0}
   immuniteDouleur: 0
-  etatEtreBlesse: {fileID: 114712995634884958}
+  etatEtreBlesse: {fileID: 114872313221521518}
   immuniteGlacer: 1
   etatGlacer: {fileID: 0}
   immuniteEtourdir: 1
@@ -1575,20 +1575,6 @@ MonoBehaviour:
   positionDepartProjectile: {fileID: 1249470967941340}
   cible: {fileID: 0}
   modelCoteMain: {fileID: 1394028763598256}
---- !u!114 &114712995634884958
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1652189115961122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460ec2d5ebc24f34793d2dbad48ddd8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceReculeVertical: 0
-  forceReculeHorizontal: 0
-  sonDegat: {fileID: 0}
 --- !u!114 &114730546790189842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1614,6 +1600,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabCadavre: {fileID: 4179207833086138, guid: 4e80bd589a6b4204cab50f7396fbbd3c,
     type: 2}
+--- !u!114 &114872313221521518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652189115961122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fe575f5d0308a4c8ee1bfc9d562890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceReculeVertical: 0
+  forceReculeHorizontal: 0
+  sonDegat: {fileID: 0}
+  etatApresBlessure: {fileID: 114185798443376104}
 --- !u!122 &122684913377166606
 Halo:
   m_ObjectHideFlags: 1

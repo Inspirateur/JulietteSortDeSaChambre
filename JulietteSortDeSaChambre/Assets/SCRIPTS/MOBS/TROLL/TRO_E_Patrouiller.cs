@@ -20,13 +20,12 @@ public class TRO_E_Patrouiller : IA_Etat {
 	private int indiceDernierPointRejoint;
 
     // Use this for initialization
-    void Start () {
+    public virtual void Start () {
         base.init(); // permet d'initialiser l'état, ne pas l'oublier !
 		this.delaisActuel = 0.0f;
     }
 
-    public override void entrerEtat()
-	{
+    public override void entrerEtat() {
 		//On cherche le point le plus proche
 		float minDist = float.MaxValue;
 		float minId = 0;

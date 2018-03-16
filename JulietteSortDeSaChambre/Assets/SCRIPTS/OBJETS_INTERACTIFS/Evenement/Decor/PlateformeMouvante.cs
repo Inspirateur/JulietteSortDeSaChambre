@@ -8,4 +8,16 @@ public class PlateformeMouvante : Evenement {
 	public void activation(){
 		GetComponent<MovingObject> ().StartPlateformeBeggening ();
 	}
+
+	public void test(){
+
+	}
+
+	public void test2(int t){
+
+	}
+
+	public int test3(){
+		return 1;
+	}
 }
