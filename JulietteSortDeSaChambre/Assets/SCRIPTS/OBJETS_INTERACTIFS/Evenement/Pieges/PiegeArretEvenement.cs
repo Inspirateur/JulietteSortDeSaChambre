@@ -8,4 +8,8 @@ public class PiegeArretEvenement : Evenement {
 	public void activation(){
 		GetComponent<Spikes> ().StopSpikes ();
 	}
+
+	public void test(int t){
+		Debug.Log (t);
+	}
 }
