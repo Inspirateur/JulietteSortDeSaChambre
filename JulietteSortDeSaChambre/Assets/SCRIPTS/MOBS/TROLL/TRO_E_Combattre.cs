@@ -25,7 +25,11 @@ public class TRO_E_Combattre : IA_Etat {
 		if (agent.distanceToPrincesse() >= distanceSortieCombat) {
 			changerEtat (GetComponent<TRO_E_Poursuivre> ());
 		} else if (Time.time >= timerAttaque) {
-			changerEtat (GetComponent<TRO_E_AttaquerVerticalement> ());
+			if (agent.distanceToPrincesse () < 1.2f) {
+				changerEtat (GetComponent<TRO_E_AttaquerVerticalement> ());
+			} else {
+				changerEtat (GetComponent<TRO_E_AttaquerHorizontalement> ());
+			}
 		}
 	}
 

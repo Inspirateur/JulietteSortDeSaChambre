@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TRO_E_AttaquerVerticalement : IA_Etat {
+public class TRO_E_AttaquerHorizontalement : IA_Etat{
 	public int degats;
 	public float forceRecule;
 	public float distanceParcourue;
@@ -25,7 +25,7 @@ public class TRO_E_AttaquerVerticalement : IA_Etat {
 	public override void entrerEtat() {
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 		degatsAttaqueEffectues = false;
-		setAnimation (TRO_Animations.ATTAQUER_VERTICALEMENT);
+		setAnimation (TRO_Animations.ATTAQUER_HORIZONTALEMENT);
 		timerChargement = Time.time + 1.1f;
 		timerFinAttaque = timerChargement + 1f;
 	}
@@ -49,5 +49,4 @@ public class TRO_E_AttaquerVerticalement : IA_Etat {
 		nav.enabled = false;
 	}
 }
-
 

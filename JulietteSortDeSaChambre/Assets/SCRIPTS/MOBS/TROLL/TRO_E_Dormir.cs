@@ -24,10 +24,11 @@ public class TRO_E_Dormir : IA_Etat {
 
 	// Update is called once per frame
 	public override void faireEtat () {
-		if (Time.time < tpsAnim && perception.aRepere (princesse, 1)) {
-			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
-		} else if (Time.time >= tpsAnim) {
+		if (Time.time >= tpsAnim) {
 			perception.estAveugle = true;
+		}
+		if (Time.time < tpsAnim && perception.aRepere (princesse, attentionSommeil)) {
+			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
 		} else if (perception.aRepere (princesse, attentionSommeil) || Time.time >= reveil) {
 			changerEtat (this.GetComponent<TRO_E_Reveil> ());
 		}
