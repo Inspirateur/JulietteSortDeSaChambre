@@ -29,7 +29,7 @@ public class PushObjects : ObjetEnvironnemental {
 
     private Vector3 princessepostemp;
     private Vector3 temppos;
-    
+    private float distance;
 
 
     //For setup thing please watch the Demo 
@@ -97,7 +97,7 @@ public class PushObjects : ObjetEnvironnemental {
                     princesseAnimator.SetBool("isPushing", true);
                     
                 }
-
+                distance = Vector3.Distance(this.transform.position, princesse.transform.position);
                 activate=true;
 
             }
@@ -109,6 +109,14 @@ public class PushObjects : ObjetEnvironnemental {
             }
 
 
+        }
+
+        void Update()
+        {
+            Debug.Log(distance);
+            if(activate){
+              princesse.transform.position = (princesse.transform.position - this.transform.position).normalized * distance + this.transform.position;
+            }
         }
 
   

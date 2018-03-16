@@ -3342,14 +3342,36 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1935691478484492, guid: d21671333e3e8ce468407de030fae35f, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 54944384484922758, guid: d21671333e3e8ce468407de030fae35f,
         type: 2}
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 82542386102426354, guid: d21671333e3e8ce468407de030fae35f,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82542386102426354, guid: d21671333e3e8ce468407de030fae35f,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82862347737649456, guid: d21671333e3e8ce468407de030fae35f,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82862347737649456, guid: d21671333e3e8ce468407de030fae35f,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114429393833600326, guid: d21671333e3e8ce468407de030fae35f, type: 2}
+    - {fileID: 114888042734060902, guid: d21671333e3e8ce468407de030fae35f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d21671333e3e8ce468407de030fae35f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1485957404

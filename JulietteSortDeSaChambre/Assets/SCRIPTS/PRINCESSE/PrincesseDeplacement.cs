@@ -143,7 +143,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
-        if (toucheAttack1)
+        if (toucheAttack1 && !anim.GetBool("isPushing"))
         {
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
@@ -172,7 +172,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
 
         bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
-        if(toucheAttackCharge)
+        if(toucheAttackCharge && !anim.GetBool("isPushing"))
         {
             
             if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
@@ -195,7 +195,7 @@ public class PrincesseDeplacement : MonoBehaviour
     }
 
     private void playAttaque(string attaqueName){
-        if(princesseArme.armeActive == EnumArmes.BAGUETTE_MAGIQUE){
+        if(princesseArme.armeActive == EnumArmes.BAGUETTE_MAGIQUE && !anim.GetBool("isPushing")){
             anim.Play("attaqueBaguetteMagique");
         }else {
             anim.Play(attaqueName);
