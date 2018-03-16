@@ -93,9 +93,7 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public void pauseAllSound() {
-		foreach(AudioSource a in listAudioSource) {
-			a.Pause ();
-		}
+		this.pauseAllSoundExceptMusic();
 		levelAudioSingle.Pause ();
 		levelAudioLoop1.Pause ();
 		levelAudioLoop2.Pause ();
@@ -103,13 +101,17 @@ public class SoundManager : MonoBehaviour {
 
 	public void pauseAllSoundExceptMusic() {
 		foreach(AudioSource a in listAudioSource) {
-			a.Pause ();
+			if(a!=null){
+				a.Pause ();
+			}
 		}
 	}
 
 	public void resumeAllSound() {
 		foreach(AudioSource a in listAudioSource) {
-			a.UnPause ();
+			if(a!=null){
+				a.Pause ();
+			}
 		}
 		levelAudioSingle.UnPause ();
 		levelAudioLoop1.UnPause ();
