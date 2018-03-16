@@ -84,7 +84,6 @@ public class camera : MonoBehaviour {
 		}else{
 			this.miseAJourInput();
 			this.placerCamera(distance);
-
 		}
 		
 

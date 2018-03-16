@@ -45,7 +45,7 @@ public class PushObjects : ObjetEnvironnemental {
 
     	public override void Activation(){
 
-            if(!activate)
+            if(!activate && !princesseAnimator.GetBool("IsJumping"))
             {    
                 
                 float angleright = Vector3.Angle(this.transform.right, new Vector3(princesse.transform.position.x - this.transform.position.x, princesse.transform.position.y,princesse.transform.position.z - this.transform.position.z ));
@@ -66,7 +66,7 @@ public class PushObjects : ObjetEnvironnemental {
                 }
 
                 if(anglemoinsright < 45){
-                    princesse.transform.position = new Vector3(this.transform.position.x - GetComponent<Renderer>().bounds.size.x/2 , princesse.transform.position.y, this.transform.position.z );
+                    princesse.transform.position = new Vector3(this.transform.position.x - GetComponent<Renderer>().bounds.size.x/2 - 1f , princesse.transform.position.y, this.transform.position.z );
                     princesse.transform.LookAt(this.transform);
                     princessetemp = princesse.transform.forward;
                     princessetemp.y = 0;
@@ -77,7 +77,7 @@ public class PushObjects : ObjetEnvironnemental {
                 }
 
                 if(angleforward < 45){
-                    princesse.transform.position = new Vector3(this.transform.position.x, princesse.transform.position.y, this.transform.position.z + GetComponent<Renderer>().bounds.size.z/2);
+                    princesse.transform.position = new Vector3(this.transform.position.x, princesse.transform.position.y, this.transform.position.z + GetComponent<Renderer>().bounds.size.z/2 +1);
                     princesse.transform.LookAt(this.transform);
                     princessetemp = princesse.transform.forward;
                     princessetemp.y = 0;
@@ -88,7 +88,7 @@ public class PushObjects : ObjetEnvironnemental {
                 }
 
                 if(anglemoinsforward < 45){
-                    princesse.transform.position = new Vector3(this.transform.position.x, princesse.transform.position.y, this.transform.position.z - GetComponent<Renderer>().bounds.size.z/2);
+                    princesse.transform.position = new Vector3(this.transform.position.x, princesse.transform.position.y, this.transform.position.z - GetComponent<Renderer>().bounds.size.z/2 -1);
                     princesse.transform.LookAt(this.transform);
                     princessetemp = princesse.transform.forward;
                     princessetemp.y = 0;
@@ -97,7 +97,7 @@ public class PushObjects : ObjetEnvironnemental {
                     princesseAnimator.SetBool("isPushing", true);
                     
                 }
-                distance = Vector3.Distance(this.transform.position, princesse.transform.position);
+                distance = Vector3.Distance(princesse.transform.position,this.transform.position);
                 activate=true;
 
             }
@@ -113,9 +113,14 @@ public class PushObjects : ObjetEnvironnemental {
 
         void Update()
         {
-            Debug.Log(distance);
             if(activate){
-              princesse.transform.position = (princesse.transform.position - this.transform.position).normalized * distance + this.transform.position;
+                float disttemp =  Vector3.Distance(princesse.transform.position,this.transform.position);
+              //  Debug.Log(disttemp);
+              //  Debug.Log(distance);
+             if(disttemp != distance)
+                this.transform.parent = null;
+                princesse.transform.position = (princesse.transform.position - this.transform.position).normalized * distance + this.transform.position;
+                this.transform.parent = princesse.transform;
             }
         }
 
