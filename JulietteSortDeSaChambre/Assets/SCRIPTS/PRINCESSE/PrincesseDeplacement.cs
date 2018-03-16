@@ -90,7 +90,7 @@ public class PrincesseDeplacement : MonoBehaviour
                     {
                         gererAnim("IsSidewalk");
                     }
-                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f)
+                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f && !anim.GetBool("isPushing"))
                     {
                         gererAnim("IsBackwalk");
                     }
@@ -133,7 +133,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
         Vector3 velocity = rb.velocity;  
         bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8)
+        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing"))
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");

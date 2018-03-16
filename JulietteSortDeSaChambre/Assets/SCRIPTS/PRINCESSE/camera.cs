@@ -75,12 +75,16 @@ public class camera : MonoBehaviour {
 		float distance = this.calculerDistanceFocusCamera();
 		// mise à jour des entrées manettes et souris
 		if(anim.GetBool("isPushing")){
-			Debug.Log("je passe ici");
+			//Debug.Log("je passe ici");
 			this.transform.position = cible.transform.position + princesse.transform.rotation * new Vector3 (0, 0, -distanceMax);
+			this.transform.LookAt (this.cible.transform.position);
 			princesse.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+			//this.placerCamera(distance);
 			
 		}else{
 			this.miseAJourInput();
+			this.placerCamera(distance);
+
 		}
 		
 
@@ -90,7 +94,7 @@ public class camera : MonoBehaviour {
 
 		// on récupère la distance max à laquelle on peut placer la caméra de son point de focus
 
-		this.placerCamera(distance);
+		
 
 
 		// on place la caméra
@@ -198,6 +202,7 @@ public class camera : MonoBehaviour {
 		this.lookAtPoint.y = cible.transform.position.y;
 
 		this.transform.LookAt (this.lookAtPoint);
+
 
 		Camera.main.fieldOfView = Mathf.SmoothDamp(Camera.main.fieldOfView, fov, ref velocityFOV, this.smooth);
 	}
