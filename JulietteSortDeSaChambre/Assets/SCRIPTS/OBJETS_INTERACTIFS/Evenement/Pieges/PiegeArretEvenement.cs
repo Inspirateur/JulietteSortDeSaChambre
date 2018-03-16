@@ -9,4 +9,10 @@ public class PiegeArretEvenement : Evenement {
 		GetComponent<ManagerSpikes> ().StopAllSpikes();
 	}
 
+    override
+    public void desactivation()
+    {
+        GetComponent<ManagerSpikes>().StartAllSpikes();
+    }
+
 }

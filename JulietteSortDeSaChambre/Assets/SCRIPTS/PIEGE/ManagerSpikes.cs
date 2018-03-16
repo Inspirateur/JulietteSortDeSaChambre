@@ -17,7 +17,7 @@ public class ManagerSpikes : MonoBehaviour {
         
     }
 
-    void StartAllSpikes()
+    public void StartAllSpikes()
     {
         for (int i = 0; i < Pics.Length; i++)
         {
