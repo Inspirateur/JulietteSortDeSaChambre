@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class PiegeArretEvenement : Evenement {
 
-	public override void activation(){
-		GetComponent<Spikes> ().StopSpikes ();
+	override
+	public void activation(){
+		GetComponent<ManagerSpikes> ().StopAllSpikes();
 	}
+
+    override
+    public void desactivation()
+    {
+        GetComponent<ManagerSpikes>().StartAllSpikes();
+    }
+    
+    public void test(int t){
+		Debug.Log (t);
+	}
+
 }

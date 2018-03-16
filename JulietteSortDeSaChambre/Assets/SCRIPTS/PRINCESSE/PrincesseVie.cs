@@ -49,7 +49,6 @@ public class PrincesseVie : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
 		CanPlaySonHurt = true;
-		Debug.Log (vie_courante);
 		hudVie = GameObject.FindGameObjectWithTag ("HUDAffichageVie").GetComponent<AffichageVie> ();
 		hudMort = GameObject.FindGameObjectWithTag ("HUDAffichageMort").GetComponent<AffichageMort> ();
 		setHudVie ();
