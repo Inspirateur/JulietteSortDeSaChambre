@@ -46,7 +46,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         running=false;
         canPower = true;
         listeAgentGlaces = new List<IA_Agent>();
-//        Debug.Log(duration);
+        Debug.Log(duration);
     }
 
     // Update is called once per frame

@@ -10,7 +10,7 @@ public class CreateCinematiqueItemList  {
 	{
 		CinematiqueItemList asset = ScriptableObject.CreateInstance<CinematiqueItemList>();
 
-		AssetDatabase.CreateAsset(asset, "Assets/CINEMATIQUE/"+name+".asset");
+		AssetDatabase.CreateAsset(asset, "Assets/"+name+".asset");
 		AssetDatabase.SaveAssets();
 		return asset;
 	}

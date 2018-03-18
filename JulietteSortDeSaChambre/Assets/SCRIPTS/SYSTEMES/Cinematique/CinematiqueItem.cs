@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class CinematiqueItem {
-	
+
 	public int dureeArret = 0;
 	public int dureeAcces = 0;
 

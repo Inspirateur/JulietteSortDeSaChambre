@@ -4,9 +4,7 @@ using UnityEngine;
 
 public abstract class Evenement : MonoBehaviour{
 
-	public virtual void activation(){
-
-	}
+	public abstract void activation();
 
 	public virtual void desactivation(){
 

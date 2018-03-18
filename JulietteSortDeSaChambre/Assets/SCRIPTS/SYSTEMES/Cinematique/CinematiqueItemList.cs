@@ -14,17 +14,10 @@ public class CinematiqueItemList : ScriptableObject {
 	}
 
 	IEnumerator timer(){
-		for(var i=0;i<1;i++){
-			Debug.Log("DUREE ACCES : "+itemList [item].dureeAcces);
-			if(itemList[item].dureeAcces!=0){
-				yield return new WaitWhile (() => itemList [item].isInDeplacement);
-			}
 
-			if(itemList[item].dureeArret!=0){
-				Debug.Log ("CinemtiqueDebutTImerArret");
-				yield return new WaitForSeconds(itemList[item].dureeArret);
-				Debug.Log ("CinemtiqueDebutTImerArret");
-			}
+		Debug.Log ("test");
+		for(var i=0;i<1;i++){
+			yield return new WaitForSeconds(itemList[item].dureeArret);
 
 			if (item < itemList.Count - 1) {
 				item++;
@@ -34,9 +27,10 @@ public class CinematiqueItemList : ScriptableObject {
 			}
 
 		}
+		Debug.Log ("test2");
+
+
+
 	}
-
-
-
 }
 
