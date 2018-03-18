@@ -42,8 +42,8 @@ public class CinematiqueItem {
 
 
 		Debug.Log ("Debut corotine");
-		while(((pos - Camera.main.transform.position).magnitude)>0.01f){
-			Camera.main.transform.position = Vector3.SmoothDamp (Camera.main.transform.position, pos, ref velocity, 0.15f,dureeAcces);
+		while(((pos - Camera.main.transform.position).magnitude)>=0.5f){
+			Camera.main.transform.position = Vector3.SmoothDamp (Camera.main.transform.position, pos, ref velocity, 0.01f,dureeAcces);
 			float ratio = (pos - Camera.main.transform.position).magnitude / this.distanceInitiale;
 			Camera.main.transform.forward = this.forwardInitial * ratio + rot * (1.0f - ratio);
 			//Debug.Log (Camera.main.transform.position +"/"+ pos +":"+((pos - Camera.main.transform.position).magnitude));
@@ -51,6 +51,7 @@ public class CinematiqueItem {
 		}
 		Debug.Log ("Fin corotine");
 		isInDeplacement = false;
+
 	}
 		
 

@@ -105,6 +105,7 @@ public class CinematiqueWindowEditor : EditorWindow {
 				cinematiqueItemList.itemList [viewIndex - 1].dureeAcces = EditorGUILayout.IntField ("Temps pour accéder au point", cinematiqueItemList.itemList [viewIndex - 1].dureeAcces);
 
 				if(GUILayout.Button("Simulation", GUILayout.ExpandWidth(false))){
+					Selection.activeObject = GameObject.FindGameObjectWithTag ("MainCamera");
 					GameObject.FindGameObjectWithTag ("MainCamera").transform.position = cinematiqueItemList.itemList [viewIndex - 1].pos;
 					GameObject.FindGameObjectWithTag ("MainCamera").transform.forward = cinematiqueItemList.itemList [viewIndex - 1].rot;
 					simulationNonActive = false;
