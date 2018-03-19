@@ -36,8 +36,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4413685204215506}
+  - component: {fileID: 114846764394946374}
+  - component: {fileID: 114426729885762414}
+  - component: {fileID: 65730822607583626}
+  - component: {fileID: 114517544432743940}
   m_Layer: 0
-  m_Name: demiCoeurPrincesse
+  m_Name: Coeur-petit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +153,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a95efe9c722627e43b5ed76a34e99c3c, type: 2}
+  - {fileID: 2100002, guid: 53b4b3ca8c550e247b9e4e2764f413ec, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -183,3 +187,65 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1070757761908214}
   m_Mesh: {fileID: 4300002, guid: 53b4b3ca8c550e247b9e4e2764f413ec, type: 3}
+--- !u!65 &65730822607583626
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265039928603942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114426729885762414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265039928603942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbddd943d8e055d4ebe9e1121923e396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomObjet: 
+  descriptionObjet: 
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  soinFull: 0
+  valeurSoin: 1
+--- !u!114 &114517544432743940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265039928603942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 0}
+  distanceActivation: 0
+  demiAngleActivationFrontal: 0
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
+--- !u!114 &114846764394946374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265039928603942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee9a381e7a49a744a4c1713eb04dfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanRotate: 1
+  CanLevitate: 0
+  Speed: 15
+  amplitude: 0.5
+  frequency: 1
+  direction: 1
