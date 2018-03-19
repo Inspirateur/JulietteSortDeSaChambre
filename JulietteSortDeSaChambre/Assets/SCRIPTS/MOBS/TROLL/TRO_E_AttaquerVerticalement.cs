@@ -26,7 +26,7 @@ public class TRO_E_AttaquerVerticalement : IA_Etat {
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 		degatsAttaqueEffectues = false;
 		setAnimation (TRO_Animations.ATTAQUER_VERTICALEMENT);
-		timerChargement = Time.time + 1.1f;
+		timerChargement = Time.time + 0.6f;
 		timerFinAttaque = timerChargement + 1f;
 	}
 
