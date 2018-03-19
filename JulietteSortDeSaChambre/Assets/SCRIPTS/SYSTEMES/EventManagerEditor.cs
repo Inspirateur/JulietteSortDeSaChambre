@@ -59,7 +59,8 @@ public class EventManagerEditor : Editor {
 
 							if(m[i].GetParameters().Length<=1 && m[i].ReturnType.Name.Equals("Void")) {
 								if(m[i].GetParameters().Length==1){
-									if(m[i].GetParameters()[0].ParameterType.Equals(typeof(int))){
+									if(m[i].GetParameters()[0].ParameterType.Equals(typeof(int)) || 
+										m[i].GetParameters()[0].ParameterType.Equals(typeof(bool))){
 										myEventM.es[index].nameM.Add(m[i].Name);
 									}
 								}else{
@@ -94,6 +95,11 @@ public class EventManagerEditor : Editor {
 										EditorGUI.PropertyField(
 											new Rect(rect.x, rect.y+(2*rect.height/4),rect.width/2, EditorGUIUtility.singleLineHeight),
 											element.FindPropertyRelative("paramInt"), GUIContent.none);
+									}else if(m[i].GetParameters()[0].ParameterType.Equals(typeof(bool))){
+										myEventM.es[index].enumParam[0]=System.TypeCode.Boolean;
+										EditorGUI.PropertyField(
+											new Rect(rect.x, rect.y+(2*rect.height/4),rect.width/2, EditorGUIUtility.singleLineHeight),
+											element.FindPropertyRelative("paramBool"), GUIContent.none);
 									}else{
 										myEventM.es[index].enumParam[0]=System.TypeCode.DBNull;
 									}

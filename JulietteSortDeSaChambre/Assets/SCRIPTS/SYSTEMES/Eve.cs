@@ -17,6 +17,7 @@ public struct Eve  {
 
 	public List<System.TypeCode> enumParam;
 	public int paramInt;
+	public bool paramBool;
 
 
 	public void clearAll(){

@@ -17,20 +17,20 @@ public class AffichageCinematique : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		velocity = Vector3.zero;
+	/*	velocity = Vector3.zero;
 		BandeNoirBasFInal = BandeNoirBas.transform.position;
 		BandeNoirHautFinal = BandeNoirHaut.transform.position;
 		BandeNoirBasFInal.y += 40;
-		BandeNoirHautFinal.y -= 40;
+		BandeNoirHautFinal.y -= 40;*/
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(etatBandeNoir){
+	/*	if(etatBandeNoir){
 			BandeNoirBas.transform.position = Vector3.SmoothDamp (BandeNoirBas.transform.position, BandeNoirBasFInal, ref velocity, 0.01f, 1000);
 			BandeNoirHaut.transform.position = Vector3.SmoothDamp (BandeNoirHaut.transform.position, BandeNoirHautFinal, ref velocity, 0.01f, 1000);
-		}
+		}*/
 	}
 
 
