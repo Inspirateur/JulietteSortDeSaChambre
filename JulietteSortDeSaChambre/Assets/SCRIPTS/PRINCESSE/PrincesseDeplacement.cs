@@ -215,7 +215,11 @@ public class PrincesseDeplacement : MonoBehaviour
     }
 
     private void playAttaqueCharge(string attaqueName){
-        anim.Play(attaqueName);
+        if(princesseArme.armeActive == EnumArmes.POELE && !anim.GetBool("isPushing")){
+            anim.Play("attaqueReversPoele");
+        }else {
+            anim.Play(attaqueName);
+        }
         princesseArme.lancerAttaqueCharge();
     }
 

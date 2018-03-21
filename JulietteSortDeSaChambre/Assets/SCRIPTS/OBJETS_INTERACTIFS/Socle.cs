@@ -6,20 +6,20 @@ public class Socle : ObjetEnvironnemental {
 
 	public int BarreNumberToOpen;
 	public GameObject SocleEvenement;
-	private bool active;
+	public bool utilise;
 	private PrincesseObjetProgression juliette;
 	public EnumObjetProgression obj;
 
 	void Start () {
 		juliette= GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseObjetProgression>();
-		active = true;
+		utilise = false;
 	}
 	public override void Activation(){
-		if (active) {
+		if (!utilise) {
 			if(isActivable()){
 				this.gameObject.transform.GetChild (0).gameObject.SetActive (true);
 				SocleEvenement.GetComponent<barreMetalManager> ().DownBarre (BarreNumberToOpen);
-				active = false;
+				utilise = true;
 				juliette.removeItem (obj);
 			}
 		}
@@ -33,7 +33,7 @@ public class Socle : ObjetEnvironnemental {
 	override
 	public EnumIconeInterraction getIconeInteraction(){
 
-		if (!active) {
+		if (utilise) {
 			return EnumIconeInterraction.icone_null;
 		}
 		if(isActivable()){
@@ -44,4 +44,6 @@ public class Socle : ObjetEnvironnemental {
 
 
 	}
+
+
 }

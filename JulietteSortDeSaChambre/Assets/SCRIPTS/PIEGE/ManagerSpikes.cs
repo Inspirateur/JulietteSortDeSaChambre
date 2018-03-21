@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManagerSpikes : MonoBehaviour {
+public class ManagerSpikes : Evenement {
 
-    [Header("Pics GameObject :")]
-    public GameObject[] Pics;
+	private Spikes[] Pics;
 
     // Use this for initialization
     void Start () {
-        
+		Pics = GetComponentsInChildren<Spikes> ();
     }
 	
 	// Update is called once per frame
@@ -19,17 +18,17 @@ public class ManagerSpikes : MonoBehaviour {
 
     public void StartAllSpikes()
     {
-        for (int i = 0; i < Pics.Length; i++)
-        {
-            Pics[i].GetComponent<Spikes>().StartSpike();
-        }
+		foreach(Spikes pic in Pics)
+		{
+			pic.StartSpike();
+		}
     }
 
     public void StopAllSpikes()
     {
-        for (int i = 0; i < Pics.Length; i++)
-        {
-            Pics[i].GetComponent<Spikes>().StopSpike();
-        }
+		foreach(Spikes pic in Pics)
+		{
+			pic.StopSpike();
+		}
     }
 }

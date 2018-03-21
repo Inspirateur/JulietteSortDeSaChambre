@@ -37,7 +37,7 @@ public class AffichagePouvoir : MonoBehaviour {
 	IEnumerator pouvoirTimer(PrincessePouvoir pouvoir,GameObject go){
 
 		for(var i=1.0f;i<divideAngle+1;i++){
-			go.GetComponent<UnityEngine.UI.Image> ().fillAmount = (i/divideAngle);
+			go.GetComponent<UnityEngine.UI.Image> ().fillAmount = (1-(i/divideAngle));
 			yield return new WaitForSeconds(pouvoir.cooldown/divideAngle);
 		}
 		go.SetActive (false);

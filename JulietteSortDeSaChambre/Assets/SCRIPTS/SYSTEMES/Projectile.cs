@@ -46,6 +46,7 @@ public class Projectile : MonoBehaviour {
 		}
 		else {
 			if (other.tag.Equals ("Player")){
+				// Debug.Log("PLAYER TOUCHE");
 				other.gameObject.GetComponent<PrincesseVie>().blesser (degats, this.gameObject, recul);
 				this.detruireCollision();
 			}
@@ -64,5 +65,11 @@ public class Projectile : MonoBehaviour {
 	private void detruireCollision(){
 		Instantiate(this.effetCollision, this.transform.position, this.transform.rotation);
 		Destroy(this.gameObject);
+	}
+
+	public void renvoyer(){
+		this.ami ^= true;
+		this.timerVie = Time.time + this.dureeDeVie;
+		this.destination *= -1.0f;
 	}
 }
