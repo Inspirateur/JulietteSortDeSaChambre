@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour {
 	public string nomEvent;
 
 	public void activation(){
+		Debug.Log ("ActivationEvenement");
 		foreach(Eve e in es){
 			MethodInfo m = e.go.GetType ().GetMethod (e.nameM [e.indiceM [0]]);
 			if (e.enumParam[0] != System.TypeCode.DBNull) {

@@ -5791,7 +5791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 0}
+  - go: {fileID: 1762375852}
     name:
     - FaireAttaquerGobelinEvenement
     indice: 00000000
@@ -22578,6 +22578,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 603241812}
   m_Mesh: {fileID: 4300050, guid: 28dc73e3ba84d6147952b636e9df64b0, type: 3}
+--- !u!114 &604858213 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114343959681518842, guid: c9a54d39a8e01f242a40b3c7ee2ba70c,
+    type: 2}
+  m_PrefabInternal: {fileID: 859050762}
+  m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
 --- !u!1001 &606224105
 Prefab:
   m_ObjectHideFlags: 0
@@ -29678,6 +29684,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 377b1030bf105dd4197c5c592910cb5f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &781107315 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114343959681518842, guid: c9a54d39a8e01f242a40b3c7ee2ba70c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1418095927}
+  m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
 --- !u!1001 &783958505
 Prefab:
   m_ObjectHideFlags: 0
@@ -38083,6 +38095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26509d78dd6d12a4e9c2a3242ccbefeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: 
   descriptionObjet: 
   soundGenerator: {fileID: 0}
@@ -38843,6 +38856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26509d78dd6d12a4e9c2a3242ccbefeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: 
   descriptionObjet: 
   soundGenerator: {fileID: 0}
@@ -53106,6 +53120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26509d78dd6d12a4e9c2a3242ccbefeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: 
   descriptionObjet: 
   soundGenerator: {fileID: 0}
@@ -57033,6 +57048,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114031205574316932, guid: 816ccc3956de6f64d9628a103834f253,
+        type: 2}
+      propertyPath: declencheEvenement
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 816ccc3956de6f64d9628a103834f253, type: 2}
   m_IsPrefabParent: 0
@@ -58992,6 +59012,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 377b1030bf105dd4197c5c592910cb5f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1541949754 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114343959681518842, guid: c9a54d39a8e01f242a40b3c7ee2ba70c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2114047950}
+  m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
 --- !u!1 &1547238551
 GameObject:
   m_ObjectHideFlags: 0
@@ -66566,6 +66592,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c478518a59800ba47bc08db01f6840c1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1762375851 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1913741479011580, guid: c03d50ae3fef86848900d66df1126258,
+    type: 2}
+  m_PrefabInternal: {fileID: 460422275}
+--- !u!114 &1762375852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1762375851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636ca97da689db24eacd7223a9c0bdf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeGobelins:
+  - {fileID: 781107315}
+  - {fileID: 604858213}
+  - {fileID: 1541949754}
 --- !u!1001 &1762783460
 Prefab:
   m_ObjectHideFlags: 0
