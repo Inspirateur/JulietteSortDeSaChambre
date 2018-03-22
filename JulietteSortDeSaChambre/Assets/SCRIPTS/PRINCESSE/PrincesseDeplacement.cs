@@ -32,8 +32,6 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool attackjump;
     private bool isCharging;
 
-    [Header("Gestion Combo :")]
-    public AudioClip[] ComboSound;
     [HideInInspector]
     public bool attaqueBegin;
 
@@ -169,8 +167,13 @@ public class PrincesseDeplacement : MonoBehaviour
 	        }
 	        else if (anim.GetBool("IsRunning") == true)
 	        {
-                playAttaque("attack_run");
-	        }
+                // playAttaque("attack_run");
+                if (!attaqueBegin)
+                {
+                    playAttaque("combo1");
+                    attaqueBegin = true;
+                }
+            }
 	        else if (anim.GetBool("IsSidewalk") == true)
 	        {
                 playAttaque("attack_run");
@@ -252,8 +255,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
     private void GererDeplacement(float moveHorizontal, float moveVertical)
     {
-
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && !attaqueBegin)
         {
             float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
 
@@ -290,8 +292,6 @@ public class PrincesseDeplacement : MonoBehaviour
                 timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
             }
         }
-
-
     }
 
     IEnumerator WaitBeforDash()
