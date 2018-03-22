@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 33487423957790862}
   - component: {fileID: 23310858538757336}
   - component: {fileID: 64192553321442992}
+  - component: {fileID: 114619684361287008}
+  - component: {fileID: 114626590203538256}
+  - component: {fileID: 95039090342663948}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -36,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827935051204654}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 21.976, y: 5.268, z: -88.382}
+  m_LocalPosition: {x: 18.776752, y: 5.3001285, z: -88.00649}
   m_LocalScale: {x: 36.967155, y: 7.3920007, z: 35.573994}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,3 +100,56 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f0bceaeaf7395f442a16851e2ae8a8be, type: 3}
+--- !u!95 &95039090342663948
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827935051204654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e000d06f588b7d1438a027afacf0046f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114619684361287008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827935051204654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 114626590203538256}
+  distanceActivation: 2.5
+  demiAngleActivationFrontal: 90
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
+--- !u!114 &114626590203538256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827935051204654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415af9533031e594fbf9cb9cd3481081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomObjet: 
+  descriptionObjet: 
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  BesoinItemPourActivation: {fileID: 8300000, guid: 73768d9f40cae254fbb5aa66833e54f3,
+    type: 3}
+  isDecorative: 0
+  OuvrePorte: {fileID: 8300000, guid: eb00dc2958742ac409982e781b5cff47, type: 3}
+  objN: []
