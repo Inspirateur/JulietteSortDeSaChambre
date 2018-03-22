@@ -5,7 +5,8 @@ using UnityEngine;
 public class TransitionAttaque1 : StateMachineBehaviour {
 
 	private PrincesseDeplacement deplacement;
-	private Animator anim;
+    private GameObject princesse;
+    private Animator anim;
 	private SoundManager sm;
 	public int SonJouer;
 	public bool DernierAnim;
@@ -13,11 +14,13 @@ public class TransitionAttaque1 : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
+        princesse = GameObject.FindGameObjectWithTag("Player");
+        deplacement = princesse.GetComponent<PrincesseDeplacement>();
 		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
-		anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+		anim = princesse.GetComponent<Animator>();
         anim.SetBool("AttaqueContinu", false);
-	}
+        princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * Vector3.forward * 20, ForceMode.Impulse);
+    }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

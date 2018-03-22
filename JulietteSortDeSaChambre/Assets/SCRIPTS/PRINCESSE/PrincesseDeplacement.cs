@@ -57,8 +57,6 @@ public class PrincesseDeplacement : MonoBehaviour
 
     void Update()
     {
-        
-
         bool toucheTriche = Input.GetKeyDown(KeyCode.K);
         if(toucheTriche){
             this.transform.position = new Vector3(-27.0f + 64.01028f + -32.14713f, 14.0f + 18.92948f + -28.89907f, -34.0f + 6.844484f + -30.98021f);
@@ -113,27 +111,21 @@ public class PrincesseDeplacement : MonoBehaviour
                     attackjump = false;
                     anim.SetBool("IsJumping", false);
                 }
-
                 else
                 {
                     gererAnim("IsJumping");
-
                 }
             }
-
-         
         }
         else
         {
 	        if (isGrounded && anim.GetBool("IsJumping"))
 	        {
-                   
-		            gererAnim("IsIdle");
+		        gererAnim("IsIdle");
                 
-	        }else if(isGrounded && !anim.GetBool("IsIdle")){
+	        } else if(isGrounded && !anim.GetBool("IsIdle")){
 		        gererAnim ("IsIdle");
 	        }
-
         }
 
         Vector3 velocity = rb.velocity;  
@@ -145,12 +137,11 @@ public class PrincesseDeplacement : MonoBehaviour
 	        isGrounded = false;
         }
   
-
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
         if (toucheAttack1 && !anim.GetBool("isPushing"))
         {
-	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
+	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping") || anim.GetBool("IsRunning") || anim.GetBool("IsSidewalk") || anim.GetBool("IsBackwalk"))
 	        {
                 if (!attaqueBegin)
                 {
@@ -165,23 +156,20 @@ public class PrincesseDeplacement : MonoBehaviour
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
 	        }
-	        else if (anim.GetBool("IsRunning") == true)
+            /*
+	        else if (anim.GetBool("IsRunning"))
 	        {
                 // playAttaque("attack_run");
-                if (!attaqueBegin)
-                {
-                    playAttaque("combo1");
-                    attaqueBegin = true;
-                }
             }
-	        else if (anim.GetBool("IsSidewalk") == true)
+	        else if (anim.GetBool("IsSidewalk"))
 	        {
-                playAttaque("attack_run");
+                // playAttaque("attack_run");
             }
             else if (anim.GetBool("IsBackwalk"))
             {
-                playAttaque("attack_backwalk");
+                // playAttaque("attack_backwalk");
             }
+            */
         }
 
 
@@ -316,6 +304,3 @@ public class PrincesseDeplacement : MonoBehaviour
 
     }
 }
-
-
-
