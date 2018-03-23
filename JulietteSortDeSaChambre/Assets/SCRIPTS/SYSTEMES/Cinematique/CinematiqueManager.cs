@@ -30,6 +30,7 @@ public class CinematiqueManager : Evenement {
 	void Update () {
 		if(isPassable){
 			if(InputManager.GetButtonDown("Interagir")){
+				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
 				ActiveCinematique (false);
 			}
 		}

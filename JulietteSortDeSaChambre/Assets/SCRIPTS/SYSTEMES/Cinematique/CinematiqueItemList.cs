@@ -8,7 +8,9 @@ public class CinematiqueItemList : ScriptableObject {
 	public int item;
 	public bool isPassable;
 
+
 	private Coroutine actualCinematique;
+
 
 	public void lancer(){
 //		Debug.Log("LANCER : "+(item));

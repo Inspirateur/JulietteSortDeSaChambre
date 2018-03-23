@@ -39,11 +39,9 @@ public class AffichageCinematique : MonoBehaviour {
 	public void setActiveBandeNoir(bool etat){
 		BandeNoirBas.gameObject.SetActive (etat);
 		BandeNoirHaut.gameObject.SetActive (etat);
-
 	}
 
 	public void setActivePassable (bool active){
-		Debug.Log ("PAS : " + active);
 		passable.gameObject.SetActive (active);
 	}
 }

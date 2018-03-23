@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class CinematiqueItem {
 
+	public AudioClip son;
+
 	public int dureeArret = 0;
 	public int dureeAcces = 0;
 
@@ -35,6 +37,9 @@ public class CinematiqueItem {
 			isInDeplacement = true;
 			this.distanceInitiale = (pos - Camera.main.transform.position).magnitude;
 			this.forwardInitial = Camera.main.transform.forward;
+			if(son!=null){
+				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().playOneShot (son);
+			}
 			actualDeplacement = GameControl.control.StartCoroutine (deplacement());
 		}
 //		Debug.Log ("FinCinosh");

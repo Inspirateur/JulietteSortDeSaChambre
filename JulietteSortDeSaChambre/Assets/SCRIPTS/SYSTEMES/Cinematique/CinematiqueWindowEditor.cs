@@ -105,6 +105,8 @@ public class CinematiqueWindowEditor : EditorWindow {
 				cinematiqueItemList.itemList [viewIndex - 1].rot = EditorGUILayout.Vector3Field ("Rotation", cinematiqueItemList.itemList [viewIndex - 1].rot);
 				cinematiqueItemList.itemList [viewIndex - 1].dureeArret = EditorGUILayout.IntField ("Duree arret", cinematiqueItemList.itemList [viewIndex - 1].dureeArret);
 				cinematiqueItemList.itemList [viewIndex - 1].dureeAcces = EditorGUILayout.IntField ("Temps pour accéder au point", cinematiqueItemList.itemList [viewIndex - 1].dureeAcces);
+				// inventoryItemList.itemList[viewIndex-1].itemObject = EditorGUILayout.ObjectField ("Item Object", inventoryItemList.itemList[viewIndex-1].itemObject, typeof (Rigidbody), false) as Rigidbody;
+				cinematiqueItemList.itemList [viewIndex - 1].son = EditorGUILayout.ObjectField("Son",cinematiqueItemList.itemList [viewIndex - 1].son,typeof(AudioClip),false) as AudioClip;
 
 				if(GUILayout.Button("Simulation", GUILayout.ExpandWidth(false))){
 					Selection.activeObject = GameObject.FindGameObjectWithTag ("MainCamera");
