@@ -28,13 +28,7 @@ public class ManagerLame : Evenement {
 	{
 		foreach(pendule lame in Lames)
 		{
-            if (lame.canStop)
-            {
-                lame.StopPendule();
-            } else
-            {
-                lame.ActiveCannotStop();
-            }
+            lame.StopPendule();
 		}
 	}
 

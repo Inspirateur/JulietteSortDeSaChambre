@@ -76,6 +76,7 @@ public class PrincesseDeplacement : MonoBehaviour
             {
                 if (CanDash == true && isGrounded == true)
                 {
+                    AttaqueInteromput();
                     anim.Play("leftdash");
                     rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, 0f).normalized * forceDash, ForceMode.Impulse);
                     StartCoroutine(WaitForVelocityZero());
@@ -86,7 +87,7 @@ public class PrincesseDeplacement : MonoBehaviour
             else
             {
                 GererDeplacement(moveHorizontal, moveVertical);
-                if (!anim.GetBool("IsJumping") && isGrounded )
+                if (!anim.GetBool("IsJumping") && isGrounded && !attaqueBegin)
                 {
                     attackjump = false;
                     if ((moveHorizontal != 0.0f && moveVertical == 0.0f))
@@ -133,7 +134,8 @@ public class PrincesseDeplacement : MonoBehaviour
         if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing"))
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
-	        gererAnim("IsJumping");
+            AttaqueInteromput();
+            gererAnim("IsJumping");
 	        isGrounded = false;
         }
   
@@ -156,20 +158,6 @@ public class PrincesseDeplacement : MonoBehaviour
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
 	        }
-            /*
-	        else if (anim.GetBool("IsRunning"))
-	        {
-                // playAttaque("attack_run");
-            }
-	        else if (anim.GetBool("IsSidewalk"))
-	        {
-                // playAttaque("attack_run");
-            }
-            else if (anim.GetBool("IsBackwalk"))
-            {
-                // playAttaque("attack_backwalk");
-            }
-            */
         }
 
 
@@ -294,6 +282,10 @@ public class PrincesseDeplacement : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    public void AttaqueInteromput() {
+        attaqueBegin = false;
     }
 
     private void OnCollisionExit(Collision collision){
