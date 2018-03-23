@@ -10,6 +10,8 @@ public class AffichagePouvoir : MonoBehaviour {
 
 	public float divideAngle;
 
+	private bool visible;
+
 
 
 	// Use this for initialization
@@ -25,12 +27,12 @@ public class AffichagePouvoir : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (InputManager.GetButtonDown ("pouvoirGlace") && !(dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.active)) {
-			dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.SetActive(true);
-			StartCoroutine (pouvoirTimer (dicoPouvoir [EnumPouvoir.pouvoirGlace],dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject));
+		if (visible) {
+			if (InputManager.GetButtonDown ("pouvoirGlace") && !(dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.active)) {
+				dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.SetActive(true);
+				StartCoroutine (pouvoirTimer (dicoPouvoir [EnumPouvoir.pouvoirGlace],dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject));
+			}
 		}
-
-
 	}
 
 
@@ -43,6 +45,9 @@ public class AffichagePouvoir : MonoBehaviour {
 		go.SetActive (false);
 	}
 
+	public void setVisible(bool visible){
+		visible = true;
+	}
 
 
 }
