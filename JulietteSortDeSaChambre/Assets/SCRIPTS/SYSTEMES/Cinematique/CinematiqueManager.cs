@@ -28,12 +28,14 @@ public class CinematiqueManager : Evenement {
 	
 	// Update is called once per frame
 	void Update () {
-		if(isPassable){
-			if(InputManager.GetButtonDown("Interagir")){
-				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
-				ActiveCinematique (false);
-			}
-		}
+        if (isInCinematique) {
+            if (isPassable) {
+                if (InputManager.GetButtonDown("Interagir")) {
+                    GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().stopSon();
+                    ActiveCinematique(false);
+                }
+            }
+        }
 	}
 
 	public void ActiveCinematique(bool active){
