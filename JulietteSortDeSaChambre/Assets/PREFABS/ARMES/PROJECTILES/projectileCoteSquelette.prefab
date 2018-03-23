@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114544976380447844}
   m_Layer: 0
   m_Name: projectileCoteSquelette
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,6 +256,7 @@ MonoBehaviour:
   dureeDeVie: 3
   effetCollision: {fileID: 1690688183337326, guid: 9629c11298f41b446accfea9f56f0719,
     type: 2}
+  rotationParFrame: 0
 --- !u!114 &114544976380447844
 MonoBehaviour:
   m_ObjectHideFlags: 1

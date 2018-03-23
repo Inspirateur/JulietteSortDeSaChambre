@@ -49,7 +49,6 @@ public class PrincesseVie : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
 		CanPlaySonHurt = true;
-		Debug.Log (vie_courante);
 		hudVie = GameObject.FindGameObjectWithTag ("HUDAffichageVie").GetComponent<AffichageVie> ();
 		hudMort = GameObject.FindGameObjectWithTag ("HUDAffichageMort").GetComponent<AffichageMort> ();
 		setHudVie ();
@@ -88,6 +87,14 @@ public class PrincesseVie : MonoBehaviour {
 	public void soigner(int valeurSoin)
 	{
 		vie_courante = Mathf.Min(vie_courante + valeurSoin, vie_max);
+		GameControl.control.vie = vie_courante;
+		Debug.Log("vie courante : " + vie_courante);
+		setHudVie ();
+	}
+
+	public void fullSoigner()
+	{
+		vie_courante = vie_max;
 		GameControl.control.vie = vie_courante;
 		Debug.Log("vie courante : " + vie_courante);
 		setHudVie ();

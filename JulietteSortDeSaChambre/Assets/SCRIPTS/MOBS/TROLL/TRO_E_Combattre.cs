@@ -22,12 +22,16 @@ public class TRO_E_Combattre : IA_Etat {
 
 	public override void faireEtat() {
 		agent.seTournerVersPosition (princesse.transform.position);
-
-		if (agent.distanceToPrincesse() >= distanceSortieCombat) {
-			
+		if (agent.distanceToPrincesse () >= distanceSortieCombat) {
 			changerEtat (GetComponent<TRO_E_Poursuivre> ());
-		} else if (Time.time >= timerAttaque) {
-			changerEtat (GetComponent<TRO_E_AttaquerVerticalement> ());
+		} else if (gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("combattre") && Time.time >= timerAttaque) {
+			if (agent.distanceToPrincesse () < 1.6f) {
+				changerEtat (GetComponent<TRO_E_AttaquerVerticalement> ());
+			} else {
+				changerEtat (GetComponent<TRO_E_AttaquerHorizontalement> ());
+			}
+		} else {
+			Debug.Log ("Anim combat: " + gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).ToString ());
 		}
 	}
 

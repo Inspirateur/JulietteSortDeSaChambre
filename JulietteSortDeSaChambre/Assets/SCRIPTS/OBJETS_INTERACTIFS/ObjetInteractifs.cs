@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class ObjetInteractifs : MonoBehaviour {
 
+	public bool declencheEvenement;
+
 	public string nomObjet;
 	public string descriptionObjet;
 
@@ -26,6 +28,10 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public virtual void evenementStart(){
+
 	}
 
 	public abstract void Activation();

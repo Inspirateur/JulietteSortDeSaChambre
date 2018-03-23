@@ -6,28 +6,27 @@ public class AffichagePouvoir : MonoBehaviour {
 
 
 	private Dictionary<EnumPouvoir,GameObject> dicoPouvoirGo;
-	private Dictionary<EnumPouvoir,bool> dicoPouvoirActive;
 	private Dictionary<EnumPouvoir,PrincessePouvoir> dicoPouvoir;
+
+	public float divideAngle;
+
 
 
 	// Use this for initialization
 	void Start () {
 		dicoPouvoirGo = new Dictionary<EnumPouvoir, GameObject> ();
-		dicoPouvoirActive =new Dictionary<EnumPouvoir, bool> ();
 		dicoPouvoir =new Dictionary<EnumPouvoir, PrincessePouvoir> ();
 
 		foreach (EnumPouvoirHUD enu in GetComponentsInChildren<EnumPouvoirHUD>(true)) {
 			dicoPouvoirGo.Add (enu.pouvoir, enu.gameObject);
-			dicoPouvoirActive.Add (enu.pouvoir, false);
 		}
 		dicoPouvoir.Add(EnumPouvoir.pouvoirGlace,GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<PrincessePouvoirGlace> (true));
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (InputManager.GetButtonDown ("pouvoirGlace")) {
+		if (InputManager.GetButtonDown ("pouvoirGlace") && !(dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.active)) {
 			dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.SetActive(true);
-			dicoPouvoirActive [EnumPouvoir.pouvoirGlace] = true;
 			StartCoroutine (pouvoirTimer (dicoPouvoir [EnumPouvoir.pouvoirGlace],dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject));
 		}
 
@@ -37,10 +36,9 @@ public class AffichagePouvoir : MonoBehaviour {
 
 	IEnumerator pouvoirTimer(PrincessePouvoir pouvoir,GameObject go){
 
-		for(var i=0.0f;i<120.0f;i++){
-			Debug.Log (i / 120.0f);
-			go.GetComponent<UnityEngine.UI.Image> ().fillAmount = (i/120.0f);
-			yield return new WaitForSeconds(pouvoir.cooldown/120);
+		for(var i=1.0f;i<divideAngle+1;i++){
+			go.GetComponent<UnityEngine.UI.Image> ().fillAmount = (1-(i/divideAngle));
+			yield return new WaitForSeconds(pouvoir.cooldown/divideAngle);
 		}
 		go.SetActive (false);
 	}

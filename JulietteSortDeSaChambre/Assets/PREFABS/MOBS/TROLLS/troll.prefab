@@ -931,7 +931,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958744413631244}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -13.953152, y: 13.778343, z: -41.864273}
+  m_LocalPosition: {x: 4.1, y: 0, z: -0.29}
   m_LocalScale: {x: 0.5324, y: 0.5324, z: 0.5324}
   m_Children:
   - {fileID: 4636113928238182}
@@ -1039,7 +1039,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097639305062850}
-  m_LocalRotation: {x: 0.6834158, y: 0.29148588, z: 0.66428703, w: 0.0818644}
+  m_LocalRotation: {x: 0.6834157, y: 0.29148585, z: 0.664287, w: 0.081864394}
   m_LocalPosition: {x: 0.003982941, y: -0.005827032, z: 0.0019042797}
   m_LocalScale: {x: 0.9999996, y: 0.9999997, z: 0.999999}
   m_Children:
@@ -1663,8 +1663,8 @@ MonoBehaviour:
   emplacementAGarder: {fileID: 0}
   vitesse: 2
   sonPoursuite: {fileID: 0}
-  endormissementMin: 5
-  endormissementMax: 7
+  endormissementMin: 7
+  endormissementMax: 9
 --- !u!114 &114377628235678994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1706,8 +1706,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceSortieCombat: 3
-  delaisMaxAvantAttaque: 2
-  delaisMinAvantAttaque: 1
+  delaisMaxAvantAttaque: 1.5
+  delaisMinAvantAttaque: 0.3
 --- !u!114 &114455252645557642
 MonoBehaviour:
   m_ObjectHideFlags: 1

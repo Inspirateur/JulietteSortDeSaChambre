@@ -67,6 +67,7 @@ public class PrincesseArme : MonoBehaviour {
 	private bool attaqueDistanceEnCours;
 
 	private bool attaqueChargeEnCours;
+	private bool attaqueReversEnCours;
 	private float timerApparitionProjectile;
 	private bool projectileDejaCree;
 	private GameObject projectileActuel;
@@ -87,6 +88,7 @@ public class PrincesseArme : MonoBehaviour {
 		attaqueCorpsACorpsEnCours = false;
 		attaqueDistanceEnCours = false;
 		attaqueChargeEnCours = false;
+		attaqueReversEnCours = false;
 		anim = GetComponent<Animator> ();
 		listeMobsTouches = new List<IA_Agent> ();
 
@@ -97,19 +99,20 @@ public class PrincesseArme : MonoBehaviour {
 
 		zoom = false;
 
-		this.cam = Camera.main.GetComponent<camera>();
+		this.cam = Camera.main.GetComponent<camera>();;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours)
+		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
 		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
 		&& Time.time >= timerAttaque) {
 			
 			attaqueCorpsACorpsEnCours = false;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
+			attaqueReversEnCours = false;
 			listeMobsTouches.Clear ();
 
 		}
@@ -172,8 +175,8 @@ public class PrincesseArme : MonoBehaviour {
                     gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
 				}
 			}
-            if (other.tag.Equals("wall"))
-            {
+            else if (other.tag.Equals("wall")) {
+
                 Vector3 hitPoint = other.ClosestPoint(this.transform.position);
                 bool MobTouch = false;
                 gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
@@ -198,8 +201,44 @@ public class PrincesseArme : MonoBehaviour {
                     gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
 				}
 			}
-            if (other.tag.Equals("wall"))
-            {
+            else if (other.tag.Equals("wall")) {
+
+                Vector3 hitPoint = other.ClosestPoint(this.transform.position);
+                bool MobTouch = false;
+                gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
+            }
+        }
+
+		if (attaqueReversEnCours) {
+		Debug.Log(other.gameObject.name);
+			// Debug.Log("REVERS");
+            if (other.tag.Equals ("Mob")) {
+				
+				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
+
+				if (!listeMobsTouches.Contains (mobTouche) && mobTouche.estEnVie()) {
+					
+					listeMobsTouches.Add (mobTouche);
+
+					Vector3 hitPoint = other.ClosestPoint (this.transform.position);
+
+					mobTouche.subirDegats (degatschargeArmeActuelle, hitPoint);
+
+                    bool MobTouch = true;
+
+                    gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
+				}
+			}
+            else if (other.tag.Equals ("Projectile")) {
+				// Debug.Log("POELE TOUCHE");
+				Projectile proj = other.gameObject.GetComponent<Projectile> ();
+				if(! proj.ami){
+					proj.renvoyer();
+				}
+				
+			}
+            else if (other.tag.Equals("wall")) {
+
                 Vector3 hitPoint = other.ClosestPoint(this.transform.position);
                 bool MobTouch = false;
                 gameObject.GetComponent<ArmesParticulesEffect>().ParticulePlay(GameControl.control.ArmeCourante, hitPoint, MobTouch);
@@ -221,6 +260,7 @@ public class PrincesseArme : MonoBehaviour {
 		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)) {
 			attaqueCorpsACorpsEnCours = false;
 			attaqueChargeEnCours = false;
+			attaqueReversEnCours = false;
 			attaqueDistanceEnCours = true;
 			timerApparitionProjectile = Time.time + this.delaisAvantApparitionProjetile;
 			projectileDejaCree = false;
@@ -228,6 +268,7 @@ public class PrincesseArme : MonoBehaviour {
 			attaqueCorpsACorpsEnCours = true;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
+			attaqueReversEnCours = false;
 		}
 
 		listeMobsTouches.Clear ();
@@ -239,18 +280,28 @@ public class PrincesseArme : MonoBehaviour {
 		switch(armeActive)
 		{
 			case EnumArmes.VIDE:
-		attaqueChargeEnCours = true;
-		attaqueCorpsACorpsEnCours = false;
-		attaqueDistanceEnCours = false;
+				attaqueChargeEnCours = true;
+				attaqueReversEnCours = false;
+				attaqueCorpsACorpsEnCours = false;
+				attaqueDistanceEnCours = false;
 	
-			break;
+				break;
 
 			case EnumArmes.PIED_LIT:
-		attaqueChargeEnCours = true;
-		attaqueCorpsACorpsEnCours = false;
-		attaqueDistanceEnCours = false;
+				attaqueChargeEnCours = true;
+				attaqueReversEnCours = false;
+				attaqueCorpsACorpsEnCours = false;
+				attaqueDistanceEnCours = false;
 
-			break;
+				break;
+
+			case EnumArmes.POELE:
+				attaqueChargeEnCours = false;
+				attaqueReversEnCours = true;
+				attaqueCorpsACorpsEnCours = false;
+				attaqueDistanceEnCours = false;
+
+				break;
 
 		}
 	}
@@ -283,7 +334,7 @@ public class PrincesseArme : MonoBehaviour {
 	}
 
 	public bool isAttaqueEnCours() {
-		return attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours;
+		return attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours;
 	}
 
 	private void defineActualsArmes(GameObject armeRamasse)
