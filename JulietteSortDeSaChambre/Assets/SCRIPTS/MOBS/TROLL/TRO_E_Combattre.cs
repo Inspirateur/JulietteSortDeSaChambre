@@ -30,8 +30,6 @@ public class TRO_E_Combattre : IA_Etat {
 			} else {
 				changerEtat (GetComponent<TRO_E_AttaquerHorizontalement> ());
 			}
-		} else {
-			Debug.Log ("Anim combat: " + gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).ToString ());
 		}
 	}
 
