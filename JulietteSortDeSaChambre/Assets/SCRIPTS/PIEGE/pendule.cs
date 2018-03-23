@@ -9,7 +9,7 @@ public class pendule : MonoBehaviour {
 	public int amplitude = 80;
 
 	[Header("Temps de demarage :")]
-    [Range(0, Mathf.PI)]
+    [Range(0, (2*Mathf.PI))]
     public float TimeBegin = 0;
 
 	[Header("Vitesse :")]
