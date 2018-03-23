@@ -9,7 +9,6 @@ public class Porte : ObjetEnvironnemental  {
 
 	public bool isDecorative;
 
-	public AudioClip OuvrePorte;
 	[HideInInspector]
 	public List<ObjetNecessaire> objN = new List<ObjetNecessaire>(); 
 	private PrincesseObjetProgression juliette;
@@ -31,7 +30,6 @@ public class Porte : ObjetEnvironnemental  {
 		if (!isDecorative ) {
 			if (isActivable()) {
 				OuverturePorte ();
-				sm.playOneShot(OuvrePorte);
 			} else {
 				sm.playOneShot(BesoinItemPourActivation);
 			}
@@ -64,9 +62,6 @@ public class Porte : ObjetEnvironnemental  {
 		} else {
 			return EnumIconeInterraction.icone_non_default;
 		}
-
-
-
 	}
 
 	public void OuverturePorte(){
