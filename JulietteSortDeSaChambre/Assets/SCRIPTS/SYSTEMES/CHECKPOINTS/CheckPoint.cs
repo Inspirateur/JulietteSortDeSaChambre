@@ -5,15 +5,12 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour {
 
 	private bool triggered;
-	private PrincesseVie princesseVie;
-    public event MyDelegate onRestart;
     public event MyDelegate onTrigger;
 	
     public delegate void MyDelegate();
 
 	void Awake () {
 		this.triggered = false;
-		princesseVie = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>();
 	}
 	
 	// called whenever another collider enters our zone (if layers match)
@@ -26,27 +23,18 @@ public class CheckPoint : MonoBehaviour {
     }
 
 	// Activation du checkPoint
-    public void trigger()
-    {
+    public void trigger() {
+
+		Debug.Log("CheckPoint \" " + gameObject.name + "\" atteint");
+		
         this.triggered = true;
 
-		princesseVie.onDeath += restartCheckPoint;	// quand la princesse va mourir on exécutera restartCheckPoint()
-
-		CheckPointManager.getInstance().OnCheckPointTriggered(this);
+		CheckPointManager.getInstance().OnCheckPointTriggered();
 
 		if(onTrigger != null){
 			onTrigger();	// on notifit de l'activation d'un nouveau checkPoint
 		}
-
-		Debug.Log("CheckPoint \" " + gameObject.name + "\" atteint");
     }
 
-	// Retour au checkPoint
-	private void restartCheckPoint(){
-		Debug.Log("restartCheckPoint : " + gameObject.name);
-
-		if(onRestart != null){
-			onRestart();	// on notifit du retour au checkPoint
-		}
-	}
+	
 }

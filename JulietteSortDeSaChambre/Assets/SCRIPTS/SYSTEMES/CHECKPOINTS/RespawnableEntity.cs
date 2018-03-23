@@ -4,24 +4,11 @@ using UnityEngine;
 
 public abstract class RespawnableEntity : MonoBehaviour {
 
-	public CheckPoint checkPoint = null;    // le checkPoint responsable de cette entité
-    public bool newCheckPointTracking;
-
-    void Awake()
+    void Start()
     {
-        if (checkPoint == null){
-            Debug.LogWarning("You forgot to assign a checkpoint to object " + gameObject.ToString());
-        }
-        checkPoint.onRestart += OnRespawn;
-        checkPoint.onTrigger += setInitialState;
-
-        if(newCheckPointTracking){
-            CheckPointManager.getInstance().onCheckPointChange += updateCheckPoint;
-        }
-    }
-
-    private void updateCheckPoint(){
-        this.checkPoint = CheckPointManager.getInstance().getCurrentCheckPoint();
+        CheckPointManager.getInstance().onRestart += OnRespawn;
+        CheckPointManager.getInstance().onCheckPointChange += setInitialState;
+        setInitialState();
     }
 
     public abstract void setInitialState();

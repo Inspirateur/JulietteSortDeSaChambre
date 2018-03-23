@@ -104,6 +104,7 @@ public class PrincesseVie : MonoBehaviour {
 		GameControl.control.vie = vie_courante;
 		Debug.Log("vie courante : " + vie_courante);
 		setHudVie ();
+		gameover = false;
 	}
 
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)

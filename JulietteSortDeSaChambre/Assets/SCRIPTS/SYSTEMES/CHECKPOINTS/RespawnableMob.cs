@@ -9,20 +9,22 @@ public class RespawnableMob : RespawnableEntity {
     private Quaternion rotation;
     private int vie;
 
-    void Start() {
+    void Awake() {
         agent = GetComponent<IA_Agent>();
     }
 
     public override void setInitialState()
     {
+        Debug.Log(gameObject.ToString() + " : setInitialState");
         this.position = this.transform.position;
         this.rotation = this.transform.rotation;
-        this.vie = this.GetComponent<IA_MobVie>().getVieCourante();
+        this.vie = agent.getMobVie().getVieCourante();
+        Debug.Log(gameObject.ToString() + " : vie : " + this.vie);
     }
 
     public override void OnRespawn()
     {
-        // Debug.Log(gameObject.ToString() + " : RESTART");
+        Debug.Log(gameObject.ToString() + " : OnRespawn");
         this.agent.getMobVie().SetVie(this.vie);
         this.gameObject.SetActive(true);
         this.transform.position = this.position;

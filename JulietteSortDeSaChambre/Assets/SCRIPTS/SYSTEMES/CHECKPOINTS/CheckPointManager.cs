@@ -5,31 +5,38 @@ using UnityEngine;
 public class CheckPointManager : MonoBehaviour {
 
     private static CheckPointManager instance;
-
-    private CheckPoint currentCheckPoint;
+	private PrincesseVie princesseVie;
     public event MyDelegate onCheckPointChange;
+    public event MyDelegate onRestart;
 	
     public delegate void MyDelegate();
 
     void Awake() {
 
         CheckPointManager.instance = this;
+		princesseVie = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>();
+		princesseVie.onDeath += restartCheckPoint;	// quand la princesse va mourir on exécutera restartCheckPoint()
     }
 
 	public static CheckPointManager getInstance(){
 		return CheckPointManager.instance;
 	}
 
-	public CheckPoint getCurrentCheckPoint(){
-		return this.currentCheckPoint;
-	}
-
-    public void OnCheckPointTriggered(CheckPoint newCheckPoint)
-    {
-        this.currentCheckPoint = newCheckPoint;
-
+    public void OnCheckPointTriggered() {
+		Debug.Log(gameObject.ToString() + " : OnCheckPointTriggered");
 		if(onCheckPointChange != null){
+			Debug.Log(gameObject.ToString() + " : onCheckPointChange");
 			onCheckPointChange();
 		}
     }
+
+	// Retour au checkPoint
+	private void restartCheckPoint(){
+		Debug.Log("restartCheckPoint");
+
+		if(onRestart != null){
+			Debug.Log("onRestart");
+			onRestart();	// on notifit du retour au checkPoint
+		}
+	}
 }
