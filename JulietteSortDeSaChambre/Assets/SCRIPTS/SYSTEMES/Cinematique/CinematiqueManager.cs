@@ -52,6 +52,7 @@ public class CinematiqueManager : Evenement {
 			Camera.main.transform.position = posInit;
 			Camera.main.transform.forward = forwardInit;
 			isInCinematique = false;
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
 		}
 
 	}
