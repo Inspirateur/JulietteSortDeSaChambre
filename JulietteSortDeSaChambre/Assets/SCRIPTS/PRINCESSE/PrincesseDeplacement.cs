@@ -59,7 +59,8 @@ public class PrincesseDeplacement : MonoBehaviour
 
     void Update()
     {
-        
+
+        Debug.Log(isGrounded);   
 
         bool toucheTriche = Input.GetKeyDown(KeyCode.K);
         if(toucheTriche){
@@ -73,9 +74,10 @@ public class PrincesseDeplacement : MonoBehaviour
         if(anim.GetBool("isPushing")){
             moveHorizontal = 0;
         }
-
+        
         if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower"))
         {
+             anim.enabled = true;
             if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
             {
                 if (CanDash == true && isGrounded == true)
@@ -97,11 +99,11 @@ public class PrincesseDeplacement : MonoBehaviour
                     {
                         gererAnim("IsSidewalk");
                     }
-                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f && !anim.GetBool("isPushing"))
+                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing"))
                     {
                         gererAnim("IsBackwalk");
                     }
-                    else if (moveVertical > 0.0f && !anim.GetBool("isPushing"))
+                    else if (moveVertical > 0.0f && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing"))
                     {
                         gererAnim("IsRunning");
                     }
@@ -109,6 +111,11 @@ public class PrincesseDeplacement : MonoBehaviour
                     {
                         anim.Play("push");
                     }
+                    else if(moveVertical > 0.0f && anim.GetBool("IsClimbing")){
+                       
+                        gererAnim("IsClimbing");
+                    }
+                  
                 }
                 else if (isGrounded)
                 {       
@@ -116,8 +123,9 @@ public class PrincesseDeplacement : MonoBehaviour
                     anim.SetBool("IsJumping", false);
                 }
 
-                else
+                else if(!anim.GetBool("IsClimbing"))
                 {
+                    
                     gererAnim("IsJumping");
 
                 }
@@ -133,14 +141,19 @@ public class PrincesseDeplacement : MonoBehaviour
 		            gererAnim("IsIdle");
                 
 	        }else if(isGrounded && !anim.GetBool("IsIdle")){
+                  
 		        gererAnim ("IsIdle");
 	        }
+              else if(moveVertical == 0.0f && anim.GetBool("IsClimbing")){
+                 //   yield WaitForSeconds(5);
+                    anim.enabled = false;
+                }
 
         }
 
         Vector3 velocity = rb.velocity;  
         bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing"))
+        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing"))
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
 	        gererAnim("IsJumping");
@@ -242,6 +255,7 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("IsIdle", false);
         anim.SetBool("IsJumping", false);
         anim.SetBool("isPushing", false);
+        anim.SetBool("IsClimbing", false);
     }
 
     IEnumerator WaitForVelocityZero()
@@ -253,7 +267,7 @@ public class PrincesseDeplacement : MonoBehaviour
     private void GererDeplacement(float moveHorizontal, float moveVertical)
     {
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && !anim.GetBool("IsClimbing"))
         {
             float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
 
@@ -279,16 +293,27 @@ public class PrincesseDeplacement : MonoBehaviour
             mouvement += this.transform.right * moveHorizontal * 0.5f;
 
             mouvement = (mouvement / mouvement.magnitude) * norme;
-
           
-                this.transform.position += mouvement * vitesse * Time.deltaTime;
-            
-            
-            if (timerStep <= Time.time && isGrounded && CanDash)
+            this.transform.position += mouvement * vitesse * Time.deltaTime;
+                        
+            if (timerStep <= Time.time && isGrounded && CanDash && !anim.GetBool("isPushing"))
             {
                 bruiteurPas.pas();
                 timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
             }
+        }
+        else if(!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && anim.GetBool("IsClimbing"))
+        {
+            Debug.Log("je passe ici dans le truc pour grimper");
+
+            Vector3 mouvement = this.transform.up * Mathf.Max(moveVertical, -0.5f);
+            float norme = Mathf.Max(mouvement.magnitude, 0.5f);
+
+          //  mouvement += this.transform.right * moveHorizontal * 0.5f;
+
+            mouvement = (mouvement / mouvement.magnitude) * norme;
+          
+            this.transform.position += mouvement * vitesse * Time.deltaTime;
         }
 
 
@@ -304,14 +329,21 @@ public class PrincesseDeplacement : MonoBehaviour
     {
         if (collision.collider.tag == "sol" || collision.collider.tag == "Decor")
         {
+           
             isGrounded = true;
         }
     }
 
     private void OnCollisionExit(Collision collision){
-        if(collision.collider.tag == "sol" || collision.collider.tag == "Decor"){
+        if((collision.collider.tag == "sol" || collision.collider.tag == "Decor") && !anim.GetBool("IsClimbing")){
+            
             isGrounded=false;
             gererAnim("IsJumping");
+        }
+
+        if((collision.collider.tag == "sol" || collision.collider.tag == "Decor") && anim.GetBool("IsClimbing")){
+            
+            isGrounded=false;
         }
 
     }
