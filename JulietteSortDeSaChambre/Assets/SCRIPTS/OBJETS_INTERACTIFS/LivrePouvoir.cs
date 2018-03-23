@@ -5,6 +5,7 @@ using UnityEngine;
 public class LivrePouvoir : ObjetEnvironnemental {
 
 	private bool active;
+	public EnumPouvoir pouvoir;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,7 @@ public class LivrePouvoir : ObjetEnvironnemental {
 	public override void Activation(){
 		if (active) {
 			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<PrincessePouvoirGlace> (true).isUnlocked=true;
-			GameObject.FindGameObjectWithTag ("AffichagePouvoir").GetComponentInChildren<AffichagePouvoir> (true).setVisible(true);
+			GameObject.FindGameObjectWithTag ("AffichagePouvoir").GetComponentInChildren<AffichagePouvoir> (true).setVisible(pouvoir);
 			gameObject.SetActive (false);
 			active = false;
 		}
