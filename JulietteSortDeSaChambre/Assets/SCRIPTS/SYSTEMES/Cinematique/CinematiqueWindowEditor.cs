@@ -66,7 +66,9 @@ public class CinematiqueWindowEditor : EditorWindow {
 		{
 			GUILayout.BeginHorizontal ();
 
-
+			cinematiqueItemList.isPassable = EditorGUILayout.Toggle ("Est passable : ", cinematiqueItemList.isPassable);
+			GUILayout.EndHorizontal ();
+			GUILayout.BeginHorizontal ();
 
 			if (GUILayout.Button("Prev", GUILayout.ExpandWidth(false))) 
 			{

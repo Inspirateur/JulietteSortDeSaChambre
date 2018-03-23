@@ -18,40 +18,48 @@ public class CinematiqueItem {
 	private float distanceInitiale;
 	private Vector3 forwardInitial;
 
+	private Coroutine actualDeplacement;
+
+
 	public bool isInDeplacement;
 
 	public void start(){
-		Debug.Log ("DebutCinosh");
+	//	Debug.Log ("DebutCinosh");
 		velocity = Vector3.zero;
 		if (dureeAcces == 0) {
-			Debug.Log ("instant");
+	//		Debug.Log ("instant");
 			Camera.main.transform.position = pos;
 			Camera.main.transform.LookAt (pos + rot);
 		} else {
-			Debug.Log ("traveling");
+	//		Debug.Log ("traveling");
 			isInDeplacement = true;
 			this.distanceInitiale = (pos - Camera.main.transform.position).magnitude;
 			this.forwardInitial = Camera.main.transform.forward;
-			GameControl.control.StartCoroutine (deplacement());
+			actualDeplacement = GameControl.control.StartCoroutine (deplacement());
 		}
-		Debug.Log ("FinCinosh");
+//		Debug.Log ("FinCinosh");
 	}
 
 
 	IEnumerator deplacement(){
 
 
-		Debug.Log ("Debut corotine");
+	//	Debug.Log ("Debut corotine");
 		while(((pos - Camera.main.transform.position).magnitude)>=0.5f){
+	//		Debug.Log ("deplacement");
 			Camera.main.transform.position = Vector3.SmoothDamp (Camera.main.transform.position, pos, ref velocity, 0.01f,dureeAcces);
 			float ratio = (pos - Camera.main.transform.position).magnitude / this.distanceInitiale;
 			Camera.main.transform.forward = this.forwardInitial * ratio + rot * (1.0f - ratio);
 			//Debug.Log (Camera.main.transform.position +"/"+ pos +":"+((pos - Camera.main.transform.position).magnitude));
 			yield return new WaitForFixedUpdate ();
 		}
-		Debug.Log ("Fin corotine");
+	//	Debug.Log ("Fin corotine");
 		isInDeplacement = false;
 
+	}
+
+	public void stop(){
+		GameControl.control.StopCoroutine (actualDeplacement);
 	}
 		
 
