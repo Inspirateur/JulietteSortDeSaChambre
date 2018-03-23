@@ -304,6 +304,11 @@ public class IA_Agent : MonoBehaviour {
 		mort = true;
 	}
 
+	public void respawn() {
+		mort = false;
+		changerEtat (etatInitial);
+	}
+
 	public bool estAuSol(){
 
 		RaycastHit hitInfo;

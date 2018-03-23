@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CheckPointableEntity : MonoBehaviour {
+public abstract class RespawnableEntity : MonoBehaviour {
 
 	public CheckPoint checkPoint = null;
 
     void Awake()
     {
-        Debug.Log("CheckPointableEntity Awake start");
         if (checkPoint == null){
             Debug.LogWarning("You forgot to assign a checkpoint to object " + gameObject.ToString());
         }
         checkPoint.onRestart += OnRespawn;
-        Debug.Log("CheckPointableEntity Awake end");
+        checkPoint.onTrigger += setInitialState;
+        // setInitialState();
     }
+
+    public abstract void setInitialState();
 
     public abstract void OnRespawn();
 }

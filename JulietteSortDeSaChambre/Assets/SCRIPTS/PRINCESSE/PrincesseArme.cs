@@ -161,7 +161,7 @@ public class PrincesseArme : MonoBehaviour {
             if (other.tag.Equals ("Mob")) {
 				
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
-
+				Debug.Log("vie mob touche : " + mobTouche.GetComponent<IA_MobVie>().getVieCourante());
 				if (!listeMobsTouches.Contains (mobTouche) && mobTouche.estEnVie()) {
 					
 					listeMobsTouches.Add (mobTouche);

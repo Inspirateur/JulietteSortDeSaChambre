@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour {
 	private bool triggered;
 	private PrincesseVie princesseVie;
     public event MyDelegate onRestart;
+    public event MyDelegate onTrigger;
 	
     public delegate void MyDelegate();
 
@@ -28,6 +29,10 @@ public class CheckPoint : MonoBehaviour {
         this.triggered = true;
 
 		princesseVie.onDeath += restartCheckPoint;
+
+		if(onTrigger != null){
+			onTrigger();
+		}
 
 		Debug.Log("CheckPoint atteint");
     }
