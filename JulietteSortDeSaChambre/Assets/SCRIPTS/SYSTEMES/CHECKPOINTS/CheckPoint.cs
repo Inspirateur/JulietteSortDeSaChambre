@@ -24,24 +24,29 @@ public class CheckPoint : MonoBehaviour {
 			trigger();
         }
     }
+
+	// Activation du checkPoint
     public void trigger()
     {
         this.triggered = true;
 
-		princesseVie.onDeath += restartCheckPoint;
+		princesseVie.onDeath += restartCheckPoint;	// quand la princesse va mourir on exécutera restartCheckPoint()
+
+		CheckPointManager.getInstance().OnCheckPointTriggered(this);
 
 		if(onTrigger != null){
-			onTrigger();
+			onTrigger();	// on notifit de l'activation d'un nouveau checkPoint
 		}
 
-		Debug.Log("CheckPoint atteint");
+		Debug.Log("CheckPoint \" " + gameObject.name + "\" atteint");
     }
 
+	// Retour au checkPoint
 	private void restartCheckPoint(){
-		Debug.Log("restartCheckPoint");
+		Debug.Log("restartCheckPoint : " + gameObject.name);
 
 		if(onRestart != null){
-			onRestart();
+			onRestart();	// on notifit du retour au checkPoint
 		}
 	}
 }

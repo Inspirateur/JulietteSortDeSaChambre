@@ -28,7 +28,7 @@ public class PrincesseVie : MonoBehaviour {
 	private AffichageMort hudMort;
 
 	public delegate void MyDelegate();
-	public event MyDelegate onDeath;
+	public event MyDelegate onDeath;	// event quand la princesse meurt
 
 	/*void Awake(){
 		vie_courante = vie_max;
@@ -70,7 +70,7 @@ public class PrincesseVie : MonoBehaviour {
 			// GameControl.control.vie = vie_courante;
 			// GameControl.control.Save ();
 			if(onDeath != null){
-				onDeath();
+				onDeath();	// on notifit de la mort de la princesse
 			}
 		}
 

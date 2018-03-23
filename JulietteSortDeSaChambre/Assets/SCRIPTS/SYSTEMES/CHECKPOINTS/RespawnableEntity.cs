@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class RespawnableEntity : MonoBehaviour {
 
-	public CheckPoint checkPoint = null;
+	public CheckPoint checkPoint = null;    // le checkPoint responsable de cette entité
+    public bool newCheckPointTracking;
 
     void Awake()
     {
@@ -13,7 +14,14 @@ public abstract class RespawnableEntity : MonoBehaviour {
         }
         checkPoint.onRestart += OnRespawn;
         checkPoint.onTrigger += setInitialState;
-        // setInitialState();
+
+        if(newCheckPointTracking){
+            CheckPointManager.getInstance().onCheckPointChange += updateCheckPoint;
+        }
+    }
+
+    private void updateCheckPoint(){
+        this.checkPoint = CheckPointManager.getInstance().getCurrentCheckPoint();
     }
 
     public abstract void setInitialState();
