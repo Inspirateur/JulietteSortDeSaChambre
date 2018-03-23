@@ -28,6 +28,7 @@ public class Grimper : ObjetEnvironnemental {
             princesse.transform.forward = princessetemp;
 			princesse.GetComponent<Rigidbody>().useGravity = false;
 			princesseAnimator.SetBool("IsClimbing", true);
+			princesseAnimator.SetBool("IsIdle", false);
 			
 			
 		}

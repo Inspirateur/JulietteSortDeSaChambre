@@ -60,8 +60,8 @@ public class PrincesseDeplacement : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(isGrounded);   
-
+        Debug.Log(anim.speed);   
+        
         bool toucheTriche = Input.GetKeyDown(KeyCode.K);
         if(toucheTriche){
             this.transform.position = new Vector3(-27.0f + 64.01028f + -32.14713f, 14.0f + 18.92948f + -28.89907f, -34.0f + 6.844484f + -30.98021f);
@@ -77,7 +77,8 @@ public class PrincesseDeplacement : MonoBehaviour
         
         if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower"))
         {
-             anim.enabled = true;
+             //anim.enabled = true;
+             anim.speed = 1;
             if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
             {
                 if (CanDash == true && isGrounded == true)
@@ -145,8 +146,10 @@ public class PrincesseDeplacement : MonoBehaviour
 		        gererAnim ("IsIdle");
 	        }
               else if(moveVertical == 0.0f && anim.GetBool("IsClimbing")){
-                 //   yield WaitForSeconds(5);
-                    anim.enabled = false;
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("grimper")){
+                        Debug.Log("STOP");
+                    anim.speed = 0;
+                    }
                 }
 
         }
@@ -313,7 +316,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
             mouvement = (mouvement / mouvement.magnitude) * norme;
           
-            this.transform.position += mouvement * vitesse * Time.deltaTime;
+            this.transform.position += mouvement * Time.deltaTime;
         }
 
 
