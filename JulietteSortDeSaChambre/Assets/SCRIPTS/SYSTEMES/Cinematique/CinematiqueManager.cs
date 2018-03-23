@@ -13,6 +13,9 @@ public class CinematiqueManager : Evenement {
 	private AffichageCinematique hudCinematique;
 	private GameObject hud;
 
+	private bool isPassable;
+	private int indice;
+
 
 	// Use this for initialization
 	void Start () {
@@ -25,32 +28,44 @@ public class CinematiqueManager : Evenement {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if(isPassable){
+			if(InputManager.GetButtonDown("Interagir")){
+				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
+				ActiveCinematique (false);
+			}
+		}
 	}
 
 	public void ActiveCinematique(bool active){
 		if(active){
 			hudCinematique.setActiveBandeNoir (true);
+			hudCinematique.setActivePassable (isPassable);
 			hud.SetActive (false);
 			posInit = Camera.main.transform.position;
 			forwardInit = Camera.main.transform.forward;
 			isInCinematique = true;
 		}else{
+			cinematique [indice].stopCinematique ();
 			hudCinematique.setActiveBandeNoir (false);
+			hudCinematique.setActivePassable (false);
 			hud.SetActive (true);
 			Camera.main.transform.position = posInit;
 			Camera.main.transform.forward = forwardInit;
 			isInCinematique = false;
+			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
 		}
 
 	}
 
 
 	public void lanceCinématique(int indice){
+		this.indice = indice;
 		if (indice >= 0 && indice < cinematique.Count) {
+			isPassable = cinematique [indice].isPassable;
 			ActiveCinematique (true);
 			cinematique[indice].item = 0;
 			cinematique[indice].lancer ();
+
 		}
 
 	}

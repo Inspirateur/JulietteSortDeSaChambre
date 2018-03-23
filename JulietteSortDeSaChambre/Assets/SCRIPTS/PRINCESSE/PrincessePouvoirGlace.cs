@@ -47,6 +47,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         compteurFrame=0;
         running=false;
         canPower = true;
+        isUnlocked=false;
         listeAgentGlaces = new List<IA_Agent>();
         Debug.Log(duration);
         deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
@@ -55,7 +56,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     // Update is called once per frame
     void Update()
     {
-        if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower)
+        if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower && isUnlocked)
         {
             deplacement.AttaqueInteromput();
             animator.Play("IcePower");
@@ -65,12 +66,12 @@ public class PrincessePouvoirGlace : PrincessePouvoir
 
         if(running){
             var tmp = glaceSol.transform.position;
-            Debug.Log(tmp.ToString());
+//            Debug.Log(tmp.ToString());
 			compteurFrame++;
 			
 			tmp.y+=increment;
 			tmp+=(increment*deplacementGlacon);
-			Debug.Log(tmp.y);
+			//Debug.Log(tmp.y);
 			if(compteurFrame >= nbFrameMax){
 				running=false;
 				//Add song explosion des glacons 
