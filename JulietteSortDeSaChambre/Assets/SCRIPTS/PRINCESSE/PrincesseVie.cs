@@ -27,6 +27,9 @@ public class PrincesseVie : MonoBehaviour {
 	private AffichageVie hudVie;
 	private AffichageMort hudMort;
 
+	public delegate void MyDelegate();
+	public event MyDelegate onDeath;
+
 	/*void Awake(){
 		vie_courante = vie_max;
 		Debug.Log (vie_courante);
@@ -60,12 +63,15 @@ public class PrincesseVie : MonoBehaviour {
 			Debug.Log ("GAME OVER");
 			gameover = true;
 			hudMort.afficheMort ();
-			SceneManager.LoadScene (scene.name);
-			GameControl.control.Load ();
-			Debug.Log(GameControl.control.listArmeTenu);
-			vie_courante = vie_max;
-			GameControl.control.vie = vie_courante;
-			GameControl.control.Save ();
+			// SceneManager.LoadScene (scene.name);
+			// GameControl.control.Load ();
+			// Debug.Log(GameControl.control.listArmeTenu);
+			// vie_courante = vie_max;
+			// GameControl.control.vie = vie_courante;
+			// GameControl.control.Save ();
+			if(onDeath != null){
+				onDeath();
+			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {

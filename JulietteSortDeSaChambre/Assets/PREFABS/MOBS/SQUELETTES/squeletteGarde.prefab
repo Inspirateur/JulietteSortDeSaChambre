@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 114475444580178190}
   - component: {fileID: 114095426618728970}
   - component: {fileID: 114289544253720670}
+  - component: {fileID: 114612607719167806}
   - component: {fileID: 114173290880092310}
   - component: {fileID: 114793867034360464}
   - component: {fileID: 114065053375791460}
@@ -1594,6 +1595,18 @@ MonoBehaviour:
   etatGlacer: {fileID: 0}
   immuniteEtourdir: 1
   etatEtourdir: {fileID: 0}
+--- !u!114 &114612607719167806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162136597146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b323417f6ea45774490490bdf9ee1019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPoint: {fileID: 0}
 --- !u!114 &114793867034360464
 MonoBehaviour:
   m_ObjectHideFlags: 1
