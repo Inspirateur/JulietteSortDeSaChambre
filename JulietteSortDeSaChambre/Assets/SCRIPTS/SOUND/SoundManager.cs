@@ -158,4 +158,8 @@ public class SoundManager : MonoBehaviour {
 
 		return volume == 1.0f;
 	}
+
+	public void stopSon(){
+		levelAudioSingle.Stop ();
+	}
 }

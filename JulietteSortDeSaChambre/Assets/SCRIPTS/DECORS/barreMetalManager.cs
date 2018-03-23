@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class barreMetalManager : MonoBehaviour {
 
-
-	public void DownBarre(int barreNumber){
-		this.gameObject.transform.GetChild (barreNumber).gameObject.GetComponent<barresMetalDoor> ().CanDown = true;
+	public void StartOpenBarre(int barreNumber){
+		this.gameObject.transform.GetChild (barreNumber).gameObject.GetComponent<barresMetalDoor> ().OpenBarre();
 	}
+
+    public void StartCloseBarre(int barreNumber)
+    {
+        this.gameObject.transform.GetChild(barreNumber).gameObject.GetComponent<barresMetalDoor>().CloseBarre();
+    }
+
 }

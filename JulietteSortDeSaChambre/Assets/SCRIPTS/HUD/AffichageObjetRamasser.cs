@@ -9,6 +9,7 @@ public class AffichageObjetRamasser : MonoBehaviour {
 	private Dictionary<EnumObjetProgression,GameObject> dicoObjet;
 	private Dictionary<EnumArmes,GameObject> dicoArme;
 	private SoundManager soundManager;
+	private ObjetInteractifs objetActuel;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +40,9 @@ public class AffichageObjetRamasser : MonoBehaviour {
 					desaffiche ();
 					Time.timeScale = 1;
 					soundManager.resumeAllSound();
+					if(objetActuel.declencheEvenement){
+						objetActuel.evenementStart ();
+					}
 				}
 			}
 		} 
@@ -49,6 +53,7 @@ public class AffichageObjetRamasser : MonoBehaviour {
 		if(dicoArme.ContainsKey(arme.typeArme)){
 			dicoArme [arme.typeArme].SetActive (true);
 		}
+		objetActuel = arme;
 
 
 	}
@@ -56,6 +61,7 @@ public class AffichageObjetRamasser : MonoBehaviour {
 		if(dicoObjet.ContainsKey(objetProgression.objetProgression)){
 			dicoObjet [objetProgression.objetProgression].SetActive (true);
 		}
+		objetActuel = objetProgression;
 	}
 
 	public void activeObjet(ObjetInteractifs objet){
