@@ -14,6 +14,11 @@ public class pendule : MonoBehaviour {
 	private float angleZInitial;
 	private float angleZInitialInvert;
 
+	[Header("Temps de demarage :")]
+	public float TimeBegin = 0;
+
+	private float ActivationTime;
+
 	[Header("Reset Position Gauche ? (default = Droite) :")]
 	public bool PositionResetGauche;
 
@@ -28,11 +33,12 @@ public class pendule : MonoBehaviour {
         audioSource = GetComponentInChildren<AudioSource> ();
         angleZInitial = this.transform.rotation.eulerAngles.z;
 		angleZInitialInvert = 360 - angleZInitial;
+		ActivationTime = Time.time + TimeBegin;
 		// StartCoroutine(tranquille());
 	}
 
 	void Update (){
-		if (!stop) 
+		if (!stop && Time.time > ActivationTime) 
 		{
 			if (PositionResetGauche)
 			{

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PrincesseDeplacement : MonoBehaviour
 {
-
     static Animator anim;
     public float vitesse;
     public float forceSaut;
@@ -33,6 +32,11 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool attackjump;
     private bool isCharging;
 
+    [Header("Gestion Combo :")]
+    public AudioClip[] ComboSound;
+    [HideInInspector]
+    public bool attaqueBegin;
+
    
 
     void Start()
@@ -48,6 +52,9 @@ public class PrincesseDeplacement : MonoBehaviour
         attackjump = false;
         isCharging = false;
        
+        // Gestion Combos
+        attaqueBegin = false;
+
     }
 
     void Update()
@@ -147,7 +154,11 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
 	        {
-		        playAttaque("attack1");
+                if (!attaqueBegin)
+                {
+                    playAttaque("combo1");
+                    attaqueBegin = true;
+                }
             }
 	        else if (anim.GetBool("IsJumping") && attackjump == false)
 	        {
@@ -204,7 +215,11 @@ public class PrincesseDeplacement : MonoBehaviour
     }
 
     private void playAttaqueCharge(string attaqueName){
-        anim.Play(attaqueName);
+        if(princesseArme.armeActive == EnumArmes.POELE && !anim.GetBool("isPushing")){
+            anim.Play("attaqueReversPoele");
+        }else {
+            anim.Play(attaqueName);
+        }
         princesseArme.lancerAttaqueCharge();
     }
 
@@ -223,6 +238,7 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("IsRunning", false);
         anim.SetBool("IsBackwalk", false);
         anim.SetBool("IsSidewalk", false);
+        anim.SetBool("AttaqueContinu", false);
         anim.SetBool("IsIdle", false);
         anim.SetBool("IsJumping", false);
         anim.SetBool("isPushing", false);

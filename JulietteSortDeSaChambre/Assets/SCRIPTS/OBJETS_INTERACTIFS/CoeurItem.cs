@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoeurItem : Item {
 
 	PrincesseVie juliette ;
+	public bool soinFull;
 	public int valeurSoin;
 
 	// Use this for initialization
@@ -21,7 +22,16 @@ public class CoeurItem : Item {
 	override
 	public void Activation()
 	{
-		juliette.soigner (valeurSoin);
-		supprimerObjet ();
+		if (juliette.getVieCourante()!=juliette.vie_max) {
+			if (soinFull) {
+				juliette.fullSoigner ();
+			} else {
+				juliette.soigner (valeurSoin);
+			}
+			supprimerObjet ();
+		}
+
+
+
 	}
 }

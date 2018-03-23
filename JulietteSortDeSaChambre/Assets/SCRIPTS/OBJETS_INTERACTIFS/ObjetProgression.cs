@@ -10,7 +10,6 @@ public class ObjetProgression : ObjetInteractifs {
 	private AffichageInventaire affichageobjetActuel;
 
 	public AudioClip RamasseObjet;
-	public List<Evenement> listEvenement;
 
 	// Use this for initialization
 	void Start () {
@@ -30,10 +29,16 @@ public class ObjetProgression : ObjetInteractifs {
 		affichageObjetRamasser.activeObjet (this);
 		juliette.addItem (this.objetProgression);
 		affichageobjetActuel.objetRamasse (this.objetProgression);
-		foreach (Evenement e in listEvenement) {
-			e.activation ();
-		}
 		supprimerObjet ();
+	}
+
+
+	override
+	public void evenementStart(){
+		if(GetComponent<EventManager>()!=null){
+			GetComponent<EventManager> ().activation ();
+		}
+
 	}
 }
 public enum EnumObjetProgression 
