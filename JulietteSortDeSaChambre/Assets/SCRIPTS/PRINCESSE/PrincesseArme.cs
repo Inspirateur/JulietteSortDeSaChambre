@@ -92,7 +92,7 @@ public class PrincesseArme : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		listeMobsTouches = new List<IA_Agent> ();
 
-        SetArmeActive (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
+        RamasserArme (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
 
         listArmeTenu = new List<EnumArmes> ();
         listArmeTenu = GameControl.control.listArmeTenu;
@@ -161,7 +161,7 @@ public class PrincesseArme : MonoBehaviour {
             if (other.tag.Equals ("Mob")) {
 				
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
-
+				Debug.Log("vie mob touche : " + mobTouche.GetComponent<IA_MobVie>().getVieCourante());
 				if (!listeMobsTouches.Contains (mobTouche) && mobTouche.estEnVie()) {
 					
 					listeMobsTouches.Add (mobTouche);
@@ -246,7 +246,18 @@ public class PrincesseArme : MonoBehaviour {
         }
 	}
 
-	public void SetArmeActive(EnumArmes typeArme, GameObject armeRamasse)
+	public void SetArmeActive(EnumArmes typeArme)
+    {
+        if(armeActive != EnumArmes.VIDE)
+        {
+            actualHandArme.SetActive(false);
+		}
+        armeActive = typeArme;
+		defineActualsArmes(null);
+        activerArme();
+    }
+
+	public void RamasserArme(EnumArmes typeArme, GameObject armeRamasse = null)
     {
         poserArme();
         armeActive = typeArme;
@@ -400,7 +411,10 @@ public class PrincesseArme : MonoBehaviour {
 			break;
 		}
 
-		Destroy (armeRamasse);
+		if(armeRamasse != null){
+			// Destroy (armeRamasse);
+			armeRamasse.SetActive(false);
+		}
     }
 
     private void poserArme()
