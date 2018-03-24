@@ -32,7 +32,7 @@ public class Arme : ObjetInteractifs {
 			//juliette.listArmeTenu.Add (typeArme);
 			GameControl.control.listArmeTenu.Add (typeArme);
 		}	
-		juliette.SetArmeActive (typeArme, this.gameObject);
+		juliette.RamasserArme (typeArme, this.gameObject);
 	}
 
 

@@ -10,16 +10,26 @@ public class CheckPointManager : MonoBehaviour {
     public event MyDelegate onRestart;
 	
     public delegate void MyDelegate();
+	private bool sceneStart;
 
     void Awake() {
 
         CheckPointManager.instance = this;
 		princesseVie = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>();
 		princesseVie.onDeath += restartCheckPoint;	// quand la princesse va mourir on exécutera restartCheckPoint()
+		sceneStart = true;
     }
+
+	void Update() {
+		sceneStart = false;
+	}
 
 	public static CheckPointManager getInstance(){
 		return CheckPointManager.instance;
+	}
+
+	public bool isSceneStart() {
+		return this.sceneStart;
 	}
 
     public void OnCheckPointTriggered() {
