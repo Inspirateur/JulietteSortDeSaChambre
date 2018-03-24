@@ -27,7 +27,7 @@ public class TRO_E_AttaquerHorizontalement : IA_Etat{
 		degatsAttaqueEffectues = false;
 		setAnimation (TRO_Animations.ATTAQUER_HORIZONTALEMENT);
 		timerChargement = Time.time + 1.1f;
-		timerFinAttaque = timerChargement + 1f;
+		timerFinAttaque = timerChargement + 0.8f;
 	}
 
 	public override void faireEtat() {

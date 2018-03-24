@@ -8,6 +8,8 @@ public class AffichageCinematique : MonoBehaviour {
 	public UnityEngine.UI.Image BandeNoirHaut;
 	public UnityEngine.UI.Image BandeNoirBas;
 
+	public UnityEngine.UI.Text passable;
+
 
 	public Vector3 BandeNoirHautFinal;
 	public Vector3 BandeNoirBasFInal;
@@ -35,17 +37,12 @@ public class AffichageCinematique : MonoBehaviour {
 
 
 	public void setActiveBandeNoir(bool etat){
-		if (etat) {
-			BandeNoirBas.gameObject.SetActive (etat);
-			BandeNoirHaut.gameObject.SetActive (etat);
-			etatBandeNoir = true;
-		} else {
-			BandeNoirBas.gameObject.SetActive (etat);
-			BandeNoirHaut.gameObject.SetActive (etat);
-			etatBandeNoir = false;
-		}
+		BandeNoirBas.gameObject.SetActive (etat);
+		BandeNoirHaut.gameObject.SetActive (etat);
+	}
 
-
+	public void setActivePassable (bool active){
+		passable.gameObject.SetActive (active);
 	}
 }
 

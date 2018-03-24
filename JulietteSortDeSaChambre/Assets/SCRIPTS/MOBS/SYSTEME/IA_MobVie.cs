@@ -10,11 +10,12 @@ public class IA_MobVie : MonoBehaviour {
 	protected IA_Agent agent;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		init ();
 	}
 
 	protected void init(){
+		Debug.Log("init mob vie");
 		vieCourante = vieMax;
 		agent = GetComponent<IA_Agent> ();
 	}
@@ -45,5 +46,13 @@ public class IA_MobVie : MonoBehaviour {
 
 	public bool estEnVie() {
 		return vieCourante > 0;
+	}
+
+	public void SetVie(int vie){
+		this.vieCourante = vie;
+	}
+
+	public int getVieCourante(){
+		return this.vieCourante;
 	}
 }

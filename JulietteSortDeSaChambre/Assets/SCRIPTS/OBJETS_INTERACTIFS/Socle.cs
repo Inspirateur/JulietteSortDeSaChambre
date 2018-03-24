@@ -18,7 +18,7 @@ public class Socle : ObjetEnvironnemental {
 		if (!utilise) {
 			if(isActivable()){
 				this.gameObject.transform.GetChild (0).gameObject.SetActive (true);
-				SocleEvenement.GetComponent<barreMetalManager> ().DownBarre (BarreNumberToOpen);
+				SocleEvenement.GetComponent<barreMetalManager> ().StartOpenBarre(BarreNumberToOpen);
 				utilise = true;
 				juliette.removeItem (obj);
 			}

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class TRO_MobVie : IA_MobVie {
-	void Start () {
+	void Awake () {
 		base.init ();
 	}
 
