@@ -21,11 +21,12 @@ public class TransitionAttaque1 : StateMachineBehaviour {
         anim.SetBool("AttaqueContinu", false);
         float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
         float moveVertical = InputManager.GetKeyAxis("Vertical");
-        princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * new Vector3(moveHorizontal * 20, 0, moveVertical * 20), ForceMode.Impulse);
+        princesse.transform.localEulerAngles = new Vector3(0, Mathf.Atan2(moveVertical, -moveHorizontal) * Mathf.Rad2Deg, 0);
+        princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * Vector3.forward * 20, ForceMode.Impulse);
     }
 
-	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		if (InputManager.GetButtonDown("AttaqueSimple") && !DernierAnim)
 		{
             anim.SetBool("AttaqueContinu", true);
