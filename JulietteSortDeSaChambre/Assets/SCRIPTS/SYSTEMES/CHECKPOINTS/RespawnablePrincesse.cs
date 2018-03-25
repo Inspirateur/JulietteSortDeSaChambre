@@ -25,15 +25,6 @@ public class RespawnablePrincesse : RespawnableEntity {
         this.listObjet = new Dictionary<EnumObjetProgression, int>(this.princesseObjetProgression.listObjet);
     }
 
-    void Update(){
-        if(InputManager.GetKeyDown(KeyCode.H)){
-            foreach (var pair in this.listObjet)
-            {
-                Debug.Log(pair);
-            }
-        }
-    }
-
     public override void onRespawn()
     {
         Debug.Log(gameObject.ToString() + " : OnRespawn");
