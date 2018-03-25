@@ -98,5 +98,13 @@ public class Levier : ObjetEnvironnemental {
 		return EnumIconeInterraction.icone_default;
 	}
 
+	public bool getActive(){
+		return active;
+	}
 
+	public void setActive(bool b){
+		active = b;
+		anim.SetBool("isDown", !b);
+		anim.SetBool("isUp", b);
+	}
 }

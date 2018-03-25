@@ -83,7 +83,7 @@ public class PrincesseArme : MonoBehaviour {
 	private camera cam;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
 		
 		attaqueCorpsACorpsEnCours = false;
 		attaqueDistanceEnCours = false;
@@ -92,7 +92,8 @@ public class PrincesseArme : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		listeMobsTouches = new List<IA_Agent> ();
 
-        RamasserArme (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
+        // RamasserArme (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
+		SetArmeActive(GameControl.control.ArmeCourante);
 
         listArmeTenu = new List<EnumArmes> ();
         listArmeTenu = GameControl.control.listArmeTenu;
@@ -257,7 +258,7 @@ public class PrincesseArme : MonoBehaviour {
         activerArme();
     }
 
-	public void RamasserArme(EnumArmes typeArme, GameObject armeRamasse = null)
+	public void RamasserArme(EnumArmes typeArme, GameObject armeRamasse)
     {
         poserArme();
         armeActive = typeArme;
@@ -284,7 +285,6 @@ public class PrincesseArme : MonoBehaviour {
 
 		listeMobsTouches.Clear ();
 	}
-
 
 	public void lancerAttaqueCharge(){
 
@@ -441,37 +441,37 @@ public class PrincesseArme : MonoBehaviour {
 		return facteurReculArmeActuelle;
 	}
 
-	public GameObject CreerUneArmeDepuisLEnum(EnumArmes arme)
-	{
-		GameObject template = null;
-		switch (arme) {
-		case EnumArmes.PIED_LIT:
-			template = handPiedLit;
-			break;
-		case EnumArmes.POELE:
-			template = handPoele;
-			break;
-		case EnumArmes.VIDE:
-			template = null;
-			break;
-		case EnumArmes.PAIN:
-			template = handPain;
-			break;
-		case EnumArmes.CHANDELIER:
-			template = handChandelier;
-			break;
-		case EnumArmes.BAGUETTE_MAGIQUE:
-			template = handBaguetteMagique;
-			break;
-		case EnumArmes.PELLE:
-			template = handPelle;
-			break;
-		}
+	// public GameObject CreerUneArmeDepuisLEnum(EnumArmes arme)
+	// {
+	// 	GameObject template = null;
+	// 	switch (arme) {
+	// 	case EnumArmes.PIED_LIT:
+	// 		template = handPiedLit;
+	// 		break;
+	// 	case EnumArmes.POELE:
+	// 		template = handPoele;
+	// 		break;
+	// 	case EnumArmes.VIDE:
+	// 		template = null;
+	// 		break;
+	// 	case EnumArmes.PAIN:
+	// 		template = handPain;
+	// 		break;
+	// 	case EnumArmes.CHANDELIER:
+	// 		template = handChandelier;
+	// 		break;
+	// 	case EnumArmes.BAGUETTE_MAGIQUE:
+	// 		template = handBaguetteMagique;
+	// 		break;
+	// 	case EnumArmes.PELLE:
+	// 		template = handPelle;
+	// 		break;
+	// 	}
 
-		if (template == null)
-			return null;
-		return GameObject.Instantiate (template);
-	}
+	// 	if (template == null)
+	// 		return null;
+	// 	return GameObject.Instantiate (template);
+	// }
 
 	private GameObject getPrefabArmeActuel(){
 		switch (armeActive)
