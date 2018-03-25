@@ -19,7 +19,9 @@ public class TransitionAttaque1 : StateMachineBehaviour {
 		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		anim = princesse.GetComponent<Animator>();
         anim.SetBool("AttaqueContinu", false);
-        princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * Vector3.forward * 20, ForceMode.Impulse);
+        float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
+        float moveVertical = InputManager.GetKeyAxis("Vertical");
+        princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * new Vector3(moveHorizontal * 20, 0, moveVertical * 20), ForceMode.Impulse);
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
