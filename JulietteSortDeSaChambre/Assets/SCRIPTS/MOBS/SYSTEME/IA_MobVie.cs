@@ -15,7 +15,6 @@ public class IA_MobVie : MonoBehaviour {
 	}
 
 	protected void init(){
-		Debug.Log("init mob vie");
 		vieCourante = vieMax;
 		agent = GetComponent<IA_Agent> ();
 	}

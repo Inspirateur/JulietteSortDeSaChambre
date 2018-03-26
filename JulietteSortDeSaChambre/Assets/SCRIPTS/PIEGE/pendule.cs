@@ -33,7 +33,7 @@ public class pendule : MonoBehaviour {
 
     private AudioSource audioSource;
 
-    void Start () {
+    void Awake () {
         audioSource = GetComponentInChildren<AudioSource> ();
         time = TimeBegin;
     }
@@ -68,4 +68,11 @@ public class pendule : MonoBehaviour {
         stop = false;
 	}
 
+    public void setTime(float time){
+        this.time = time;
+    }
+
+    public float getTime(){
+        return this.time;
+    }
 }
