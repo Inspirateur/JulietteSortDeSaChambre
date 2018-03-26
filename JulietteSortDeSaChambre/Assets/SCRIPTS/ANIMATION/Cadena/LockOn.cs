@@ -20,6 +20,7 @@ public class LockOn : MonoBehaviour {
     void Start () {
         objectLockAnim = objectLock.GetComponent<Animator>();
         lockerAnim = locker.GetComponent<Animator>();
+        objectLockAnim.SetBool(boolToUnlock, false);
     }
 	
 	// Update is called once per frame
