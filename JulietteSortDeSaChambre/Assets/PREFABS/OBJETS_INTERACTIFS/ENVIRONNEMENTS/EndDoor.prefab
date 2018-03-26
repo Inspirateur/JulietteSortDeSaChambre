@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798190829057412}
   m_LocalRotation: {x: -0, y: -0.7071064, z: -0, w: 0.7071072}
-  m_LocalPosition: {x: 58.77159, y: 29.188072, z: -10.052946}
+  m_LocalPosition: {x: 59.31672, y: 7.699999, z: -72.71015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4221288829231618}
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415af9533031e594fbf9cb9cd3481081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: 
   descriptionObjet: 
   soundGenerator: {fileID: 0}
@@ -233,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objet: {fileID: 114626590203538256, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
+  objet: {fileID: 114355599995083388}
   distanceActivation: 2.5
-  demiAngleActivationFrontal: 90
-  minDistanceSurbrillance: 0
+  demiAngleActivationFrontal: 77
+  minDistanceSurbrillance: 1.7
   EnableSurbrillance: 0
