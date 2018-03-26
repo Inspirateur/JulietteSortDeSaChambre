@@ -8,8 +8,7 @@ public class barreMetalManager : MonoBehaviour {
 		this.gameObject.transform.GetChild (barreNumber).gameObject.GetComponent<barresMetalDoor> ().OpenBarre();
 	}
 
-    public void StartCloseBarre(int barreNumber)
-    {
+    public void StartCloseBarre(int barreNumber){
         this.gameObject.transform.GetChild(barreNumber).gameObject.GetComponent<barresMetalDoor>().CloseBarre();
     }
 

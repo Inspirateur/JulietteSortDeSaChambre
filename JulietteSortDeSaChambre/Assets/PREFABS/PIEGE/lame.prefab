@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 64122130154780586}
   - component: {fileID: 114245455459815156}
   - component: {fileID: 114160245835239958}
+  - component: {fileID: 114748765354344400}
   m_Layer: 2
   m_Name: lame
   m_TagString: Untagged
@@ -289,12 +290,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6324c6af8bc55fa408d8082b72a95ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleY: 90
-  angleZ: 80
+  amplitude: 80
   TimeBegin: 0
-  PositionResetGauche: 1
   speed: 2
+  speedMecanique: 5
   canStop: 1
+  stop: 0
+  ArretScripte: 0
 --- !u!114 &114245455459815156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,6 +306,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93c3a713863c8ee4aa29a0450124413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114748765354344400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484702047199774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3143662854c87a545912d2d0cf8dfe81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198187081026547726

@@ -13,7 +13,7 @@ Prefab:
   m_IsPrefabParent: 1
 --- !u!1 &1417850051444022
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -68,27 +68,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437976793626936}
-  m_LocalRotation: {x: 0.49999848, y: -0.50000143, z: -0.5000014, w: -0.49999872}
-  m_LocalPosition: {x: 11.03, y: 6.15, z: -73.44}
+  m_LocalRotation: {x: -0.50000226, y: -0.4999975, z: -0.4999971, w: 0.50000316}
+  m_LocalPosition: {x: 15.593, y: -14.08, z: -72.7}
   m_LocalScale: {x: 19.199999, y: 3.1999998, z: 48}
   m_Children:
   - {fileID: 4362897609480576}
-  - {fileID: 4329155737423178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -270}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -809.999}
 --- !u!4 &4329155737423178
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417850051444022}
-  m_LocalRotation: {x: 0.5000001, y: 0.50000006, z: 0.49999997, w: 0.5}
-  m_LocalPosition: {x: 0.00083335687, y: -0.093250014, z: 0.01804167}
-  m_LocalScale: {x: 0.3125, y: 0.02083334, z: 0.052083343}
+  m_LocalRotation: {x: 0.7071068, y: 0.000000029802314, z: 0.000000044703473, w: 0.7071068}
+  m_LocalPosition: {x: 0.0034374935, y: -0.005416851, z: 0.006377098}
+  m_LocalScale: {x: 0.3906251, y: 0.026041675, z: 0.06510419}
   m_Children: []
-  m_Father: {fileID: 4002118030721798}
-  m_RootOrder: 1
+  m_Father: {fileID: 4362897609480576}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4362897609480576
 Transform:
@@ -99,7 +98,8 @@ Transform:
   m_LocalRotation: {x: 0.000000029802322, y: 0.000000059604645, z: 0.70710677, w: 0.7071069}
   m_LocalPosition: {x: -0.0035, y: -0.096, z: 0.01294}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
-  m_Children: []
+  m_Children:
+  - {fileID: 4329155737423178}
   m_Father: {fileID: 4002118030721798}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,7 +164,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 8
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -174,16 +174,16 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
-      value: 0.49689484
-      inSlope: -0.44001192
-      outSlope: -0.44001192
+      time: 0.00607872
+      value: 0.4208603
+      inSlope: 0.0652171
+      outSlope: 0.0652171
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
-      inSlope: -0.25497177
-      outSlope: -0.25497177
+      value: 0.004470825
+      inSlope: 0.11520819
+      outSlope: 0.11520819
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -320,7 +320,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1525092942
+  randomSeed: -2028774957
   InitialModule:
     serializedVersion: 3
     enabled: 1

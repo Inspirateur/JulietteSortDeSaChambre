@@ -8,9 +8,9 @@ public class PrincesseObjetProgression : MonoBehaviour {
 	private AffichageInventaire affichageobjetActuel;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		listObjet = new Dictionary<EnumObjetProgression,int>();
-		affichageobjetActuel =GameObject.FindGameObjectWithTag ("HUDAffichageInventaire").GetComponent<AffichageInventaire> ();
+		affichageobjetActuel = GameObject.FindGameObjectWithTag ("HUDAffichageInventaire").GetComponent<AffichageInventaire> ();
 	}
 
 	// Update is called once per frame

@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114631844415777450}
   - component: {fileID: 114031205574316932}
   - component: {fileID: 114633566898349938}
+  - component: {fileID: 114935672122130580}
   m_Layer: 0
   m_Name: CrystalRouge
   m_TagString: Untagged
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bdd8af5356f254283cc5d00e2b30a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: Cristal Rouge
   descriptionObjet: "\"J'aime pas le rouge. Ca fait penser au sang, \xE0 la mort et
     a l'enfer\""
@@ -202,3 +204,14 @@ MonoBehaviour:
   demiAngleActivationFrontal: 77
   minDistanceSurbrillance: 0
   EnableSurbrillance: 0
+--- !u!114 &114935672122130580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620868328223654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aca3446ac9eff499ec645041aa95b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

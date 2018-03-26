@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114098058086754812}
   - component: {fileID: 54176204954271954}
   - component: {fileID: 65271174971750962}
+  - component: {fileID: 114107556540267076}
   m_Layer: 0
   m_Name: key
   m_TagString: Untagged
@@ -236,13 +237,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bdd8af5356f254283cc5d00e2b30a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: "Petite Cl\xE9 Scintillante"
   descriptionObjet: "Cela doit probablement servir \xE0 ouvrir quelque chose..."
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   objetProgression: 1
   RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
-  evenenement: 0
+--- !u!114 &114107556540267076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1598204431667568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aca3446ac9eff499ec645041aa95b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114942589128132602
 MonoBehaviour:
   m_ObjectHideFlags: 1

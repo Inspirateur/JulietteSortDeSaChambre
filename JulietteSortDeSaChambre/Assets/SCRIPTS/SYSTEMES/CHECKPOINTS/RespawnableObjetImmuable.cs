@@ -10,11 +10,11 @@ public class RespawnableObjetImmuable : RespawnableEntity {
 
     public override void setInitialState()
     {
-        Debug.Log(gameObject.ToString() + " : setInitialState");
+        // Debug.Log(gameObject.ToString() + " : setInitialState");
     }
 
     public override void onRespawn()
     {
-        Debug.Log(gameObject.ToString() + " : OnRespawn");
+        // Debug.Log(gameObject.ToString() + " : OnRespawn");
     }
 }
