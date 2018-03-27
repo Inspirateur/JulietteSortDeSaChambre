@@ -20,7 +20,7 @@ public class ManagerLame : Evenement {
 	{
 		foreach(pendule lame in Lames)
 		{
-			lame.startPendule();
+			lame.StartPendule();
 		}
 	}
 
@@ -28,7 +28,7 @@ public class ManagerLame : Evenement {
 	{
 		foreach(pendule lame in Lames)
 		{
-			lame.stopPendule();
+            lame.StopPendule();
 		}
 	}
 

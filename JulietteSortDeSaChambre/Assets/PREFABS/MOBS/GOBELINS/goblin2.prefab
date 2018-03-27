@@ -665,6 +665,7 @@ GameObject:
   - component: {fileID: 114435705783819908}
   - component: {fileID: 114283357160146360}
   - component: {fileID: 114370853126575224}
+  - component: {fileID: 114622133681823436}
   - component: {fileID: 114367643736128870}
   - component: {fileID: 114585374364475448}
   - component: {fileID: 114740082993805282}
@@ -1817,6 +1818,17 @@ MonoBehaviour:
   emplacementAGarder: {fileID: 0}
   vitesse: 2.5
   sonPoursuite: {fileID: 8300000, guid: ca804b62dcfe9334fa76d47070ab0299, type: 3}
+--- !u!114 &114622133681823436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921552545835090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b323417f6ea45774490490bdf9ee1019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114624271029569818
 MonoBehaviour:
   m_ObjectHideFlags: 1

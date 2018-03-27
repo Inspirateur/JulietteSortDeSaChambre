@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114782763655681706}
   - component: {fileID: 114071755912623986}
   - component: {fileID: 114855850993485058}
+  - component: {fileID: 114681133018509906}
   m_Layer: 0
   m_Name: CrystalBlue
   m_TagString: Untagged
@@ -162,12 +163,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bdd8af5356f254283cc5d00e2b30a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: Cristal bleue
   descriptionObjet: '"Ce bleu est si pur que l''on pourrait presque y voir le ciel"'
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   objetProgression: 2
   RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
+--- !u!114 &114681133018509906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968243303778226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aca3446ac9eff499ec645041aa95b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114782763655681706
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 114042441506074890}
   - component: {fileID: 82517358054141834}
   - component: {fileID: 114777573364735862}
+  - component: {fileID: 114820011758094094}
   m_Layer: 0
   m_Name: baguetteMagique
   m_TagString: Untagged
@@ -240,13 +241,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07418d00d15d41c44bdca0fee6572aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: Baguette magique
   descriptionObjet: Un bidule magique
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
-  RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
   typeArme: 6
   iconeInterraction: 1
+  RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
 --- !u!114 &114091290843907050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +277,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listeClips: []
+--- !u!114 &114820011758094094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976937219792356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aca3446ac9eff499ec645041aa95b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198724857581740800
 ParticleSystem:
   m_ObjectHideFlags: 1
