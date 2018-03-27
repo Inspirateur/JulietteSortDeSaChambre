@@ -15594,6 +15594,107 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb42ea02904f29a4fa8880d30966e792, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &363805223 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1387485754313874, guid: c03d50ae3fef86848900d66df1126258,
+    type: 2}
+  m_PrefabInternal: {fileID: 460422275}
+--- !u!114 &363805224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 363805223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2110d27ffba3c40b9074bf32005f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listSocle:
+  - {fileID: 976809170}
+  - {fileID: 1390590433}
+  - {fileID: 994913362}
+--- !u!114 &363805225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 363805223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd73194a8ed6d048ac6abb2465216ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  es:
+  - go: {fileID: 1118147890}
+    name:
+    - VisibleObjetEvenement
+    indice: 00000000
+    nameM:
+    - setvisibleObjet
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 03000000
+    paramInt: 1
+    paramBool: 1
+  - go: {fileID: 947690596}
+    name:
+    - VisibleObjetEvenement
+    indice: 00000000
+    nameM:
+    - setvisibleObjet
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 03000000
+    paramInt: 1
+    paramBool: 0
+  - go: {fileID: 2039211817}
+    name:
+    - CinematiqueManager
+    indice: 00000000
+    nameM:
+    - ActiveCinematique
+    - "lanceCin\xE9matique"
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 09000000
+    paramInt: 1
+    paramBool: 0
+  - go: {fileID: 1203123636}
+    name:
+    - FaireCasserMurTrollEvenement
+    indice: 00000000
+    nameM:
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 02000000
+    paramInt: 1
+    paramBool: 0
+  nomEvent: 
 --- !u!1001 &364614425
 Prefab:
   m_ObjectHideFlags: 0
@@ -18700,6 +18801,35 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec9868dd379c8db42bcd20237b411d7d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &443043036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 443043037}
+  - component: {fileID: 555565990}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &443043037
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443043036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1988228695}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &446495933
 Prefab:
   m_ObjectHideFlags: 0
@@ -42248,8 +42378,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
+    m_RemovedComponents: [{fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}]
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &950086498 stripped
@@ -54360,6 +54490,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 377b1030bf105dd4197c5c592910cb5f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1203123636 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114137151876046506, guid: 6c42ec9c9ebb5b54592ed44027c5b31f,
+    type: 2}
+  m_PrefabInternal: {fileID: 520593116}
+  m_Script: {fileID: 11500000, guid: 86142e27c77b7f5488c3908928f921b6, type: 3}
 --- !u!1001 &1203870386
 Prefab:
   m_ObjectHideFlags: 0
@@ -88299,6 +88435,35 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec9868dd379c8db42bcd20237b411d7d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1988228694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1988228695}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1988228695
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1988228694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 443043037}
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990422997
 GameObject:
   m_ObjectHideFlags: 0
@@ -90656,6 +90821,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 687741b0a9189fa4abc3900488213d02, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2039211817 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1176551827}
+  m_Script: {fileID: 11500000, guid: 1824ad55717418c4383cc78e8d1195ca, type: 3}
 --- !u!1001 &2040229957
 Prefab:
   m_ObjectHideFlags: 0
