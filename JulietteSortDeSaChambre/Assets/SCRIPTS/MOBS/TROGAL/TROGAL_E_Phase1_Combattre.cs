@@ -37,7 +37,7 @@ public class TROGAL_E_Phase1_Combattre : IA_Etat {
 			if (choixAttaque <= pourcentageAttaqueTourbillon) {
 				changerEtat (GetComponent<TROGAL_E_Phase1_AttaqueTourbillon> ());
 			} else {
-				changerEtat (GetComponent<TROGAL_E_Phase1_AttaqueTourbillon> ());
+				changerEtat (GetComponent<TROGAL_E_Phase1_AttaqueChocSismique> ());
 			}
 		}
 	}

@@ -32,12 +32,12 @@ public class TROGAL_E_Phase1_EtreBlesse : IA_Etat {
 
 		rb.velocity = Vector3.zero;
 		rb.AddForce ((directionRecule * (forceReculeHorizontal * facteurRecule)) + (this.transform.up * (forceReculeVertical * facteurRecule)));
-		timer = Time.time + 0.1f;
+		timer = Time.time + 2.0f;
 	}
 
 	public override void faireEtat()
 	{
-		if (Time.time > timer && agent.estAuSol()) {
+		if (Time.time > timer /*&& agent.estAuSol()*/) {
 			changerEtat (GetComponent<TROGAL_E_Phase1_Combattre>()); // A MODIFIER POUR PHASE 2 !!!!
 		}
 	}

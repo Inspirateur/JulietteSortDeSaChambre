@@ -14,12 +14,13 @@ public class TROGAL_E_Phase1_AttaqueTourbillon : IA_Etat {
 	private bool degatsAttaqueEffectues;
 	private IA_TriggerArme colliderArme;
 	private float timer;
+	private float angleTotalRotation;
 
 	// Use this for initialization
 	void Start()
 	{
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
-		// colliderArme = GetComponent<IA_TriggerArme> ();
+		colliderArme = GetComponent<IA_TriggerArme> ();
 
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
@@ -30,6 +31,7 @@ public class TROGAL_E_Phase1_AttaqueTourbillon : IA_Etat {
 		degatsAttaqueEffectues = false;
 		// setAnimation (GOB_Animations.ATTAQUER_HORIZONTALEMENT);
 		timer = Time.time + this.dureeAttaque;
+		angleTotalRotation = 0.0f;
 	}
 
 	public override void faireEtat()
@@ -38,11 +40,11 @@ public class TROGAL_E_Phase1_AttaqueTourbillon : IA_Etat {
 		this.tourner();
 
 		if (timer > Time.time) { // l'attaque est toujours en cours
-			// if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
+			if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 
-			// 	princesseVie.blesser (degats, this.gameObject, forceRecule);
-			// 	degatsAttaqueEffectues = true;
-			// }
+				princesseVie.blesser (degats, this.gameObject, forceRecule);
+				degatsAttaqueEffectues = true;
+			}
 		} else {
 			changerEtat(this.GetComponent<TROGAL_E_Phase1_Desoriente>());
 		}
@@ -62,6 +64,14 @@ public class TROGAL_E_Phase1_AttaqueTourbillon : IA_Etat {
 
 		this.transform.Translate(dir, Space.World);
 
-		this.transform.Rotate(0.0f, vitesseRotation * Time.deltaTime, 0.0f);
+		float angle = vitesseRotation * Time.deltaTime;
+		angleTotalRotation += angle;
+
+		if(angleTotalRotation >= 360.0f){
+			angleTotalRotation -= 360.0f;
+			degatsAttaqueEffectues = false;
+		}
+
+		this.transform.Rotate(0.0f, angle, 0.0f);
 	}
 }
