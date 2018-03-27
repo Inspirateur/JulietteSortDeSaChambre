@@ -6,6 +6,7 @@ public class TransitionAttaque1 : StateMachineBehaviour {
 
 	private PrincesseDeplacement deplacement;
     private GameObject princesse;
+    private GameObject cam;
     private Animator anim;
 	private SoundManager sm;
 	public int SonJouer;
@@ -15,13 +16,15 @@ public class TransitionAttaque1 : StateMachineBehaviour {
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         princesse = GameObject.FindGameObjectWithTag("Player");
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
         deplacement = princesse.GetComponent<PrincesseDeplacement>();
 		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		anim = princesse.GetComponent<Animator>();
         anim.SetBool("AttaqueContinu", false);
-        float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
-        float moveVertical = InputManager.GetKeyAxis("Vertical");
-        princesse.transform.localEulerAngles = new Vector3(0, Mathf.Atan2(moveVertical, -moveHorizontal) * Mathf.Rad2Deg, 0);
+        // float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
+        // float moveVertical = InputManager.GetKeyAxis("Vertical");
+        // princesse.transform.localEulerAngles = new Vector3(0, Mathf.Atan2(moveVertical, -moveHorizontal) * Mathf.Rad2Deg, 0);
+        princesse.transform.localEulerAngles = new Vector3(0, cam.transform.localEulerAngles.y, 0);
         princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * Vector3.forward * 20, ForceMode.Impulse);
     }
 

@@ -107,8 +107,8 @@ public class PrincesseArme : MonoBehaviour {
 	void Update () {
 		
 		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
-		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
-		&& Time.time >= timerAttaque) {
+		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1") || anim.GetCurrentAnimatorStateInfo(0).IsName("combo2") || anim.GetCurrentAnimatorStateInfo(0).IsName("combo3")
+        && Time.time >= timerAttaque) {
 			
 			attaqueCorpsACorpsEnCours = false;
 			attaqueDistanceEnCours = false;
