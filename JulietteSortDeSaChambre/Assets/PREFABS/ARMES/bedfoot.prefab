@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 114298421733415412}
   - component: {fileID: 82821937112210168}
   - component: {fileID: 114796140996141310}
+  - component: {fileID: 114214715799046592}
   m_Layer: 9
   m_Name: bedfoot
   m_TagString: Arme
@@ -214,7 +215,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -227,6 +228,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114214715799046592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860789200596926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aca3446ac9eff499ec645041aa95b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114298421733415412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,15 +250,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07418d00d15d41c44bdca0fee6572aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: Pied de lit
   descriptionObjet: Faut bien commencer par une arme, non ?
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
-  RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
-  OuvrePorte: {fileID: 0}
-  BesoinItemPourActivation: {fileID: 0}
   typeArme: 3
   iconeInterraction: 3
+  RamasseObjet: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
 --- !u!114 &114441461244009756
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -152,8 +152,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919128798290538}
-  m_LocalRotation: {x: -0, y: 0.000004485249, z: -0, w: -1}
-  m_LocalPosition: {x: 53.140133, y: 34.134064, z: -57.56862}
+  m_LocalRotation: {x: -0, y: 0.7071089, z: -0, w: -0.7071047}
+  m_LocalPosition: {x: 2.5, y: 1.42, z: -4.57}
   m_LocalScale: {x: 0.7641993, y: 0.74532986, z: 0.75476474}
   m_Children:
   - {fileID: 4093771876217772}
@@ -233,10 +233,12 @@ MonoBehaviour:
   descriptionObjet: 
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
+  RamasseObjet: {fileID: 0}
+  OuvrePorte: {fileID: 8300000, guid: eb00dc2958742ac409982e781b5cff47, type: 3}
   BesoinItemPourActivation: {fileID: 8300000, guid: 73768d9f40cae254fbb5aa66833e54f3,
     type: 3}
+  LevierActivation: {fileID: 0}
   isDecorative: 0
-  OuvrePorte: {fileID: 8300000, guid: eb00dc2958742ac409982e781b5cff47, type: 3}
   objN: []
 --- !u!137 &137656651613343924
 SkinnedMeshRenderer:
