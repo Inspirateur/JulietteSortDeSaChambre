@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		this.transform.Translate(this.destination * this.vitesse * Time.deltaTime, Space.World);
-		this.transform.Rotate(0.0f, this.rotationParFrame, 0.0f);
+		this.transform.Rotate(0.0f, this.rotationParFrame*Time.timeScale, 0.0f);
 		if(Time.time >= this.timerVie){
 			Destroy (this.gameObject);
 		}

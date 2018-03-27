@@ -19,21 +19,18 @@ public class SQL_E_Attaquer : IA_Etat {
 	private bool modelCoteActif;
 
 	// Use this for initialization
-	void Start()
-	{
+	void Start() {
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
 
 		this.cible = GameObject.FindGameObjectWithTag("Player").transform;
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
 
-	public override void entrerEtat()
-	{
+	public override void entrerEtat() {
 		this.restartAttaque();
 	}
 
-	public override void faireEtat()
-	{
+	public override void faireEtat() {
 		agent.seTournerVersPosition(cible.position);
 		if(Time.time >= this.timerApparitionCote && !modelCoteActif){
 			modelCoteMain.SetActive(true);
@@ -44,12 +41,7 @@ public class SQL_E_Attaquer : IA_Etat {
 			modelCoteMain.SetActive(false);
 		}
 		else if (Time.time >= this.timerFinAttaque){
-			if(perception.aRepere(princesse, 1.0f)){
-				this.restartAttaque();
-			} else {
-				changerEtat(GetComponent<SQL_E_Garder>());
-			}
-			
+			changerEtat(GetComponent<SQL_E_Garder>());
 		}
 	}
 

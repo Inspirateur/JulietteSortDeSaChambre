@@ -51,14 +51,14 @@ public class SQL_E_Garder : IA_Etat {
 		}
 	}
 
-	public override void faireEtat()
-	{
-		if (perception.aRepere(princesse, 1.0f)) {
-			changerEtat (this.GetComponent<SQL_E_Attaquer> ());
-
-		} else if (!enDeplacement && perception.aRepere(princesse, 1.5f)) {
-			changerEtat (this.GetComponent<SQL_E_Attaquer> ());
-
+	public override void faireEtat() {
+		if (perception.aRepere(princesse, 1.0f) || !enDeplacement && perception.aRepere(princesse, 1.5f)) {
+			Debug.Log ("squel to princesse: "+agent.distanceToPrincesse ());
+			if (agent.distanceToPrincesse () <= 2) {
+				changerEtat (this.GetComponent<SQL_E_Repousser> ());
+			} else {
+				changerEtat (this.GetComponent<SQL_E_Attaquer> ());
+			}
 		} else if (enDeplacement) {
 			if (agent.destinationCouranteAtteinte ()) {
 				nav.enabled = false;
@@ -66,17 +66,14 @@ public class SQL_E_Garder : IA_Etat {
 				enRotation = true;
 			}
 		} else if (enRotation) {
-
 			enRotation = agent.seTournerEnDirectionDe(this.forwardPositionGarde);
-
 		} else if (!enGarde && !enRotation) {
 			enGarde = true;
 			setAnimation (SQL_Animations.GARDER);
 		}
 	}
 
-	public override void sortirEtat()
-	{
+	public override void sortirEtat() {
 		agent.getSoundEntity ().playOneShot (sonPoursuite);
 	}
 }

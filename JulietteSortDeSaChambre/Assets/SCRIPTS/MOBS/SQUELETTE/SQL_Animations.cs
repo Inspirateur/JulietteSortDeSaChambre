@@ -13,4 +13,5 @@ public class SQL_Animations {
 	public static readonly string GARDER = "garder";
 	// public static readonly string ATTAQUER_EMPALER = "attaquerEmpaler";
 	public static readonly string ATTAQUER = "attaquer";
+	public static readonly string REPOUSSER = "repousser";
 }

@@ -107,12 +107,14 @@ GameObject:
   - component: {fileID: 82126189489479596}
   - component: {fileID: 114074618935879956}
   - component: {fileID: 114475444580178190}
+  - component: {fileID: 114119530249492908}
   - component: {fileID: 114095426618728970}
   - component: {fileID: 114289544253720670}
   - component: {fileID: 114173290880092310}
   - component: {fileID: 114793867034360464}
   - component: {fileID: 114065053375791460}
   - component: {fileID: 114226241540365698}
+  - component: {fileID: 114522956569687618}
   m_Layer: 2
   m_Name: squeletteGarde
   m_TagString: Mob
@@ -450,6 +452,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4476713181541742}
+  - component: {fileID: 65455332721410920}
   m_Layer: 2
   m_Name: Bone.003
   m_TagString: Untagged
@@ -1380,6 +1383,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 556f3fbf3b1ef9741bff328f1f114671, type: 3}
+--- !u!65 &65455332721410920
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641213225071772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.027874531, y: 0.055862315, z: 0.052927557}
+  m_Center: {x: 0.0013695619, y: 0.020088647, z: 0.014940654}
 --- !u!65 &65542737578247234
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1530,6 +1545,17 @@ MonoBehaviour:
   rayonAudition: 0
   estAveugle: 0
   estSourd: 1
+--- !u!114 &114119530249492908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162136597146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dac74c4d05b564d9294fb8518875ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114173290880092310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1594,6 +1620,20 @@ MonoBehaviour:
   etatGlacer: {fileID: 0}
   immuniteEtourdir: 1
   etatEtourdir: {fileID: 0}
+--- !u!114 &114522956569687618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162136597146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e25e63a1a4152409784838d66ca919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degats: 1
+  forceRecul: 15
+  sonAttaque: {fileID: 0}
 --- !u!114 &114793867034360464
 MonoBehaviour:
   m_ObjectHideFlags: 1
