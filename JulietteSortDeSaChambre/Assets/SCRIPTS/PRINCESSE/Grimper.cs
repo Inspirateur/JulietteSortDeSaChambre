@@ -10,10 +10,16 @@ public class Grimper : ObjetEnvironnemental {
 	private GameObject princesse;
 	private Vector3 princessetemp;
 
+	private PrincesseDeplacement rb;
+	private float speed;
+
+
 	// Use this for initialization
 	void Start () {
 		princesseAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 		princesse = GameObject.FindGameObjectWithTag("Player");
+		speed = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>().vitesse;
+		rb = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
 		activate = false;
 	}
 
@@ -21,7 +27,8 @@ public class Grimper : ObjetEnvironnemental {
 
 		if(!activate){
 			activate = true;
-			princesse.transform.position = new Vector3(princesse.transform.position.x,princesse.transform.position.y+1,princesse.transform.position.z);
+			//princesse.transform.position = Vector3.MoveTowards(princesse.transform.position, transform.position, speed * Time.deltaTime);
+			princesse.transform.position = new Vector3(transform.position.x + 0.6f,princesse.transform.position.y + 0.1f,transform.position.z);
 			princesse.transform.LookAt(this.transform);
             princessetemp = princesse.transform.forward;
             princessetemp.y = 0;
@@ -37,6 +44,9 @@ public class Grimper : ObjetEnvironnemental {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(activate && rb.isGrounded){
+			activate = false;
+			princesse.GetComponent<Rigidbody>().useGravity = true;
+		}
 	}
 }
