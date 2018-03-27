@@ -25,9 +25,16 @@ public class PrincesseArme : MonoBehaviour {
 	public int degatsPelle;
 	public int degatschargePelle;
 	public int degatsBaguetteMagique;
-	public int degatschargeBaguetteMagique;
 
-	[Header("Recul des armes")]
+    [Header("Dégâts des armes full combo")]
+
+    public int degatsPoeleMaxCombo;
+    public int degatsPainMaxCombo;
+    public int degatsPiedLitMaxCombo;
+    public int degatsChandelierMaxCombo;
+    public int degatsPelleMaxCombo;
+
+    [Header("Recul des armes")]
 
 	public float facteurReculPoele;
 	public float facteurReculPain;
@@ -75,8 +82,9 @@ public class PrincesseArme : MonoBehaviour {
 	private List<IA_Agent> listeMobsTouches;
 
 	private int degatsArmeActuelle;
+    private int degatsArmeActuelleMaxCombo;
 
-	private int degatschargeArmeActuelle;
+    private int degatschargeArmeActuelle;
 	private float facteurReculArmeActuelle;
 	private float timerAttaque;
 	private bool zoom;
@@ -107,7 +115,7 @@ public class PrincesseArme : MonoBehaviour {
 	void Update () {
 		
 		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
-		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1") || anim.GetCurrentAnimatorStateInfo(0).IsName("combo2") || anim.GetCurrentAnimatorStateInfo(0).IsName("combo3")
+		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
         && Time.time >= timerAttaque) {
 			
 			attaqueCorpsACorpsEnCours = false;
@@ -169,7 +177,11 @@ public class PrincesseArme : MonoBehaviour {
 
 					Vector3 hitPoint = other.ClosestPoint (this.transform.position);
 
-					mobTouche.subirDegats (degatsArmeActuelle, hitPoint);
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("combo3")) {
+                        mobTouche.subirDegats(degatsArmeActuelleMaxCombo, hitPoint);
+                    } else {
+                        mobTouche.subirDegats(degatsArmeActuelle, hitPoint);
+                    }
 
                     bool MobTouch = true;
 
@@ -357,7 +369,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = null;
 			degatsArmeActuelle = 0;
-			degatschargeArmeActuelle = 0;
+            degatsArmeActuelleMaxCombo = 0;
+            degatschargeArmeActuelle = 0;
 			facteurReculArmeActuelle = 0.0f;
 			break;
 
@@ -365,7 +378,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPoele;
 			degatsArmeActuelle = degatsPoele;
-			degatschargeArmeActuelle = degatschargePoele;
+            degatsArmeActuelleMaxCombo = degatsPoeleMaxCombo;
+            degatschargeArmeActuelle = degatschargePoele;
 			facteurReculArmeActuelle = facteurReculPoele;
 			break;
 
@@ -373,7 +387,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPain;
 			degatsArmeActuelle = degatsPain;
-			degatschargeArmeActuelle = degatschargePain;
+            degatsArmeActuelleMaxCombo = degatsPainMaxCombo;
+            degatschargeArmeActuelle = degatschargePain;
 			facteurReculArmeActuelle = facteurReculPain;
 			break;
 
@@ -381,7 +396,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPiedLit;
 			degatsArmeActuelle = degatsPiedLit;
-			degatschargeArmeActuelle = degatschargePiedLit;
+            degatsArmeActuelleMaxCombo = degatsPiedLitMaxCombo;
+            degatschargeArmeActuelle = degatschargePiedLit;
 			facteurReculArmeActuelle = facteurReculPiedLit;
 			break;
 
@@ -389,7 +405,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handChandelier;
 			degatsArmeActuelle = degatsChandelier;
-			degatschargeArmeActuelle = degatschargeChandelier;
+            degatsArmeActuelleMaxCombo = degatsChandelierMaxCombo;
+            degatschargeArmeActuelle = degatschargeChandelier;
 			facteurReculArmeActuelle = facteurReculChandelier;
 			break;
 
@@ -397,7 +414,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPelle;
 			degatsArmeActuelle = degatsPelle;
-			degatschargeArmeActuelle = degatschargePelle;
+            degatsArmeActuelleMaxCombo = degatsPelleMaxCombo;
+            degatschargeArmeActuelle = degatschargePelle;
 			facteurReculArmeActuelle = facteurReculPelle;
 			break;
 
@@ -405,7 +423,6 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handBaguetteMagique;
 			degatsArmeActuelle = degatsBaguetteMagique;
-			degatschargeArmeActuelle = degatschargeBaguetteMagique;
 			facteurReculArmeActuelle = facteurReculBaguetteMagique;
 			projectileActuel = projectileBaguetteMagique;
 			break;
