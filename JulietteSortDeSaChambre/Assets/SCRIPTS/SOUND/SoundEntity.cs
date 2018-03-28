@@ -9,9 +9,12 @@ public class SoundEntity : MonoBehaviour {
 	private new AudioSource audio;
 	private SoundManager sm;
 
+	public int volumeGeneral;
+
 	void Awake() {
 		sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
 		audio = GetComponent<AudioSource> ();
+		volumeGeneral=100;
 	}
 
 	// Use this for initialization
@@ -50,7 +53,7 @@ public class SoundEntity : MonoBehaviour {
 
 	public void playOneShot(AudioClip music, float volume, float pitch) {
 		audio.pitch = pitch;
-		audio.PlayOneShot (music, volume);
+		audio.PlayOneShot (music, (volume*volumeGeneral/100));//tweak
 	}
 
 	public void playOneShot(int indice) {
