@@ -5,7 +5,6 @@ using UnityEngine;
 public class CheckPointManager : MonoBehaviour {
 
     private static CheckPointManager instance;
-	private PrincesseVie princesseVie;
     public event MyDelegate onCheckPointChange;
     public event MyDelegate onRestart;
 	
@@ -15,8 +14,6 @@ public class CheckPointManager : MonoBehaviour {
     void Awake() {
 
         CheckPointManager.instance = this;
-		princesseVie = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>();
-		princesseVie.onDeath += restartCheckPoint;	// quand la princesse va mourir on exécutera restartCheckPoint()
 		sceneStart = true;
     }
 
@@ -41,7 +38,7 @@ public class CheckPointManager : MonoBehaviour {
     }
 
 	// Retour au checkPoint
-	private void restartCheckPoint(){
+	public void restartCheckPoint(){
 		Debug.Log("restartCheckPoint");
 
 		if(onRestart != null){
