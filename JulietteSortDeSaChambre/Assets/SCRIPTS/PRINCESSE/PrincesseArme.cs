@@ -86,6 +86,8 @@ public class PrincesseArme : MonoBehaviour {
 
     private int degatschargeArmeActuelle;
 	private float facteurReculArmeActuelle;
+    [HideInInspector]
+    public bool finAttaqueCombo;
 	private float timerAttaque;
 	private bool zoom;
 	private camera cam;
@@ -115,15 +117,14 @@ public class PrincesseArme : MonoBehaviour {
 	void Update () {
 		
 		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
-		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
-        && Time.time >= timerAttaque) {
-			
+           && finAttaqueCombo)
+		/*&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
+           && Time.time >= timerAttaque)*/ {	
 			attaqueCorpsACorpsEnCours = false;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
 			listeMobsTouches.Clear ();
-
 		}
 
 		if(attaqueDistanceEnCours && Time.time >= timerApparitionProjectile && !projectileDejaCree){
@@ -280,7 +281,7 @@ public class PrincesseArme : MonoBehaviour {
 
 	public void lancerAttaque() {
 
-		timerAttaque = Time.time + 0.1f;
+		// timerAttaque = Time.time + 0.1f;
 		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)) {
 			attaqueCorpsACorpsEnCours = false;
 			attaqueChargeEnCours = false;
@@ -293,7 +294,7 @@ public class PrincesseArme : MonoBehaviour {
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
-		}
+        }
 
 		listeMobsTouches.Clear ();
 	}
