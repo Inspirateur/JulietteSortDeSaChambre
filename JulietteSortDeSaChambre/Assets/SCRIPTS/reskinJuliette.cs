@@ -10,6 +10,8 @@ public class reskinJuliette : MonoBehaviour {
 	public Material[] buste;
 	public int skinIndex;
 
+	AudioSource audiosource;
+	public AudioClip clothSound;
 
 
 
@@ -18,15 +20,22 @@ public class reskinJuliette : MonoBehaviour {
 	void Start () {
 		skinIndex = 1;
 
+		audiosource = GetComponent<AudioSource> ();
 
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		/*
+		if (Input.GetKeyDown (KeyCode.I)) {
+			Reskin ();
+		}
+	*/
 
-		if(Input.GetKeyDown(KeyCode.I)){
+	}
+	public void Reskin(){
+		
 			if (skinIndex >= bras.Length) {
 				skinIndex = 0;
 			}
@@ -36,9 +45,8 @@ public class reskinJuliette : MonoBehaviour {
 			mats[5] = epaules[skinIndex];
 			mats[7] = bras[skinIndex];
 			gameObject.GetComponent<Renderer>().materials =  mats;
-
+		audiosource.PlayOneShot (clothSound, 0.5f);
 			skinIndex++;
 		}
 
-	}
 }
