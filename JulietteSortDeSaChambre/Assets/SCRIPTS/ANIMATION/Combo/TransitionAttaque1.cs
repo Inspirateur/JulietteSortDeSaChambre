@@ -9,9 +9,7 @@ public class TransitionAttaque1 : StateMachineBehaviour {
     private GameObject princesse;
     private GameObject cam;
     private Animator anim;
-	private SoundManager sm;
 
-	public int SonJouer;
 	public bool DernierAnim;
 
 
@@ -19,7 +17,6 @@ public class TransitionAttaque1 : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         princesse = GameObject.FindGameObjectWithTag("Player");
         cam = GameObject.FindGameObjectWithTag("MainCamera");
-        sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         deplacement = princesse.GetComponent<PrincesseDeplacement>();
         arme = princesse.GetComponent<PrincesseArme>();
         anim = princesse.GetComponent<Animator>();
