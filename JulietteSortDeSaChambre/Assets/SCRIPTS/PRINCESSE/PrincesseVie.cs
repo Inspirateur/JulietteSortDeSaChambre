@@ -70,7 +70,7 @@ public class PrincesseVie : MonoBehaviour {
 			// GameControl.control.vie = vie_courante;
 			// GameControl.control.Save ();
 
-			CheckPointManager.getInstance().restartCheckPoint();
+			// CheckPointManager.getInstance().restartCheckPoint();
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {
