@@ -148,7 +148,6 @@ public class PrincesseDeplacement : MonoBehaviour
                 if (!attaqueBegin)
                 {
                     playAttaque("combo1");
-                    attaqueBegin = true;
                 }
             }
 	        else if (anim.GetBool("IsJumping") && attackjump == false)
