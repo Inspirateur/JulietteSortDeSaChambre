@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TROGAL_E_Phase1_Marcher : IA_Etat {
+public class TROGAL_E_Phase2_Courir : IA_Etat {
 
 	public float vitesse;
 	public float distanceEntreeCombat;
+	public float pourcentageCharge;
+
+	private bool doitCharger;
 
 	// Use this for initialization
 	void Start(){
@@ -17,6 +20,7 @@ public class TROGAL_E_Phase1_Marcher : IA_Etat {
 	public override void entrerEtat(){
 		// setAnimation(GOB_Animations.COURIR);
 		nav.enabled = true;
+		doitCharger = Random.value <= pourcentageCharge;
 	}
 
 	public override void faireEtat(){
@@ -24,11 +28,14 @@ public class TROGAL_E_Phase1_Marcher : IA_Etat {
 		agent.definirDestination (princesse.transform.position);
 		nav.speed = vitesse;
 
-		agent.seTournerVersPosition (princesse.transform.position);
+		bool orientationOK = !agent.seTournerVersPosition (princesse.transform.position);
 
-		if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
+		if(orientationOK && doitCharger){
+			changerEtat (this.GetComponent<TROGAL_E_Phase2_DebutCharge> ());
+		}
+		else if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
 
-			changerEtat (this.GetComponent<TROGAL_E_Phase1_Combattre> ());
+			changerEtat (this.GetComponent<TROGAL_E_Phase2_Combattre> ());
 		}
 	}
 

@@ -2145,11 +2145,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4270007165107966, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270007165107966, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.0000030398364
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270007165107966, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
       propertyPath: m_LocalRotation.z
@@ -2214,6 +2214,26 @@ Prefab:
     - target: {fileID: 4270007165107966, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.45367703
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746057038200618, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560207581929330, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282755828931128, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682003101020700, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270007165107966, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f73edcadb1fd8c04c965d07d7e3659cc, type: 2}
@@ -6850,6 +6870,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
+  - go: {fileID: 2039211817}
+    name:
+    - CinematiqueManager
+    indice: 00000000
+    nameM:
+    - ActiveCinematique
+    - "lanceCin\xE9matique"
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 09000000
+    paramInt: 2
+    paramBool: 0
   - go: {fileID: 460422304}
     name:
     - FaireAttaquerGobelinEvenement
@@ -6866,6 +6904,7 @@ MonoBehaviour:
     enumParam: 02000000
     paramInt: 0
     paramBool: 0
+  index: 0
   nomEvent: 
 --- !u!1001 &166143872
 Prefab:
@@ -15694,6 +15733,7 @@ MonoBehaviour:
     enumParam: 02000000
     paramInt: 1
     paramBool: 0
+  index: 0
   nomEvent: 
 --- !u!1001 &364614425
 Prefab:
@@ -26607,6 +26647,7 @@ MonoBehaviour:
     enumParam: 02000000
     paramInt: 0
     paramBool: 0
+  index: 0
   nomEvent: desaction
 --- !u!114 &606418732
 MonoBehaviour:
@@ -26652,6 +26693,7 @@ MonoBehaviour:
     enumParam: 02000000
     paramInt: 0
     paramBool: 0
+  index: 0
   nomEvent: action
 --- !u!1 &607479384
 GameObject:
@@ -42451,8 +42493,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
+    m_RemovedComponents: [{fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}]
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &950086498 stripped
@@ -53813,38 +53855,49 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 22.96533
+      value: 31.959242
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.47
+      value: 5.2676506
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.51
+      value: -85
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.15293817
+      value: -0.0006250757
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.0003859762
+      value: 0.9979674
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.000059737904
+      value: 0.06295002
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.9882357
+      value: 0.00990148
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
   m_IsPrefabParent: 0
@@ -70005,6 +70058,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
+  - go: {fileID: 2039211817}
+    name:
+    - CinematiqueManager
+    indice: 00000000
+    nameM:
+    - ActiveCinematique
+    - "lanceCin\xE9matique"
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 09000000
+    paramInt: 0
+    paramBool: 0
   - go: {fileID: 1951404484}
     name:
     - CinematiqueManager
@@ -70023,6 +70094,7 @@ MonoBehaviour:
     enumParam: 09000000
     paramInt: 0
     paramBool: 0
+  index: 0
   nomEvent: 
 --- !u!114 &1589594629
 MonoBehaviour:
@@ -79214,6 +79286,7 @@ MonoBehaviour:
     enumParam: 02000000
     paramInt: 0
     paramBool: 0
+  index: 0
   nomEvent: action
 --- !u!1001 &1794346649
 Prefab:

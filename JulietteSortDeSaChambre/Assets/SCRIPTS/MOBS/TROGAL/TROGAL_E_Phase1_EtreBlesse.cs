@@ -23,7 +23,7 @@ public class TROGAL_E_Phase1_EtreBlesse : IA_Etat {
 	public override void entrerEtat()
 	{
 		nav.enabled = false;
-//		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
+		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
 		// anim.Play(GOB_Animations.ETRE_BLESSE);
 		agent.getSoundEntity().stop();
 		// agent.getSoundEntity().playOneShot(sonDegat,1.0f);
@@ -37,8 +37,8 @@ public class TROGAL_E_Phase1_EtreBlesse : IA_Etat {
 
 	public override void faireEtat()
 	{
-		if (Time.time > timer /*&& agent.estAuSol()*/) {
-			changerEtat (GetComponent<TROGAL_E_Phase1_Combattre>()); // A MODIFIER POUR PHASE 2 !!!!
+		if (Time.time > timer) {
+			changerEtat (GetComponent<TROGAL_E_Phase2_Combattre>());
 		}
 	}
 
