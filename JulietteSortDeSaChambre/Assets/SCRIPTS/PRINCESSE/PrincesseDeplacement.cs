@@ -19,7 +19,6 @@ public class PrincesseDeplacement : MonoBehaviour
     public BruiteurPas bruiteurPas;
     public float forceDash;
 
-
     private GameObject cam;
     private bool CanDash;
     private Rigidbody rb;
@@ -36,6 +35,8 @@ public class PrincesseDeplacement : MonoBehaviour
     public AudioClip[] ComboSound;
     [HideInInspector]
     public bool attaqueBegin;
+    public bool canMove;
+
 
    
 
@@ -51,16 +52,16 @@ public class PrincesseDeplacement : MonoBehaviour
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         attackjump = false;
         isCharging = false;
-       
+        canMove = true;
         // Gestion Combos
         attaqueBegin = false;
-
+        anim.speed = 1;
     }
 
     void Update()
     {
 
-        Debug.Log(anim.speed);   
+        //Debug.Log(anim.speed);   
         
         bool toucheTriche = Input.GetKeyDown(KeyCode.K);
         if(toucheTriche){
@@ -75,7 +76,7 @@ public class PrincesseDeplacement : MonoBehaviour
             moveHorizontal = 0;
         }
         
-        if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower"))
+        if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower") && canMove)
         {
              //anim.enabled = true;
              anim.speed = 1;
@@ -148,7 +149,7 @@ public class PrincesseDeplacement : MonoBehaviour
               else if(moveVertical == 0.0f && anim.GetBool("IsClimbing")){
                     if (anim.GetCurrentAnimatorStateInfo(0).IsName("grimper")){
                         Debug.Log("STOP");
-                    anim.speed = 0;
+                        anim.speed = 0;
                     }
                 }
 
@@ -239,7 +240,7 @@ public class PrincesseDeplacement : MonoBehaviour
         princesseArme.lancerAttaqueCharge();
     }
 
-    private void gererAnim(string stringToTrue)
+    public void gererAnim(string stringToTrue)
     {
         //Met tous les anim.setBool a false sauf celui du stringToTrue
         gererAnim();
@@ -248,7 +249,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
     }
 
-    private void gererAnim()
+    public void gererAnim()
     {
         //Met tous les anim.setBool a false sauf celui du stringToTrue
         anim.SetBool("IsRunning", false);

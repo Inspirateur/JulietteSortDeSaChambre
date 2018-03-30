@@ -11,13 +11,16 @@ public class Grimper : ObjetEnvironnemental {
 	private Vector3 princessetemp;
 
 	private PrincesseDeplacement rb;
+	private PrincesseArme arme;
 	private float speed;
+	private float time;
 
 
 	// Use this for initialization
 	void Start () {
 		princesseAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 		princesse = GameObject.FindGameObjectWithTag("Player");
+		arme = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseArme>();
 		speed = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>().vitesse;
 		rb = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
 		activate = false;
@@ -25,18 +28,23 @@ public class Grimper : ObjetEnvironnemental {
 
 	public override void Activation(){
 
-		if(!activate){
+		if(!activate && !princesseAnimator.GetBool("IsJumping")){
+			time = Time.time + 1f;
 			activate = true;
-			//princesse.transform.position = Vector3.MoveTowards(princesse.transform.position, transform.position, speed * Time.deltaTime);
-			princesse.transform.position = new Vector3(transform.position.x + 0.6f,princesse.transform.position.y + 0.1f,transform.position.z);
+			princesse.transform.position = new Vector3(transform.position.x + 0.6f,princesse.transform.position.y + 0.2f,transform.position.z);
 			princesse.transform.LookAt(this.transform);
             princessetemp = princesse.transform.forward;
             princessetemp.y = 0;
             princesse.transform.forward = princessetemp;
 			princesse.GetComponent<Rigidbody>().useGravity = false;
-			princesseAnimator.SetBool("IsClimbing", true);
-			princesseAnimator.SetBool("IsIdle", false);
-			
+			//arme.armeActive
+			rb.canMove = false;
+			princesseAnimator.Play("idle1");
+			rb.gererAnim("IsClimbing");
+			rb.canMove = true;
+		/*	princesseAnimator.Play("idle1");
+			rb.gererAnim("IsClimbing");
+			rb.canMove = true;*/
 			
 		}
 		
@@ -44,9 +52,11 @@ public class Grimper : ObjetEnvironnemental {
 	
 	// Update is called once per frame
 	void Update () {
-		if(activate && rb.isGrounded){
+
+		if(activate && rb.isGrounded && time < Time.time){
 			activate = false;
 			princesse.GetComponent<Rigidbody>().useGravity = true;
+			princesseAnimator.Play("idle1");
 		}
 	}
 }

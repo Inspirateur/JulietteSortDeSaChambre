@@ -82,6 +82,7 @@ public class PrincesseArme : MonoBehaviour {
 	private bool zoom;
 	private camera cam;
 
+
     // Use this for initialization
     void Start () {
 		
@@ -100,6 +101,7 @@ public class PrincesseArme : MonoBehaviour {
 		zoom = false;
 
 		this.cam = Camera.main.GetComponent<camera>();;
+
 	}
 	
 	// Update is called once per frame
@@ -149,6 +151,13 @@ public class PrincesseArme : MonoBehaviour {
 			temp.Normalize();
 
 			this.transform.forward = temp;
+		}
+
+		if(anim.GetBool("IsClimbing") && armeActive != EnumArmes.VIDE){
+			actualHandArme.SetActive(false);
+		}
+		else if(!anim.GetBool("IsClimbing") && armeActive != EnumArmes.VIDE){
+			actualHandArme.SetActive(true);
 		}
 	}
 
