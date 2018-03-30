@@ -24,6 +24,7 @@ public class TROGAL_E_Phase2_DebutCharge : IA_Etat {
 
 	public override void faireEtat()
 	{
+		agent.seTournerVersPosition (princesse.transform.position);
 
 		if (Time.time > timer) {
 			changerEtat(this.GetComponent<TROGAL_E_Phase2_Charge>());

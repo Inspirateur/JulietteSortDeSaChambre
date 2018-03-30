@@ -8,7 +8,7 @@ public class TROGAL_E_Phase2_Charge : IA_Etat {
 	public float forceRecule;
 	public float vitesseDeplacement;
 	public AudioClip sonAttaque;
-	public TROGAL_ColliderCharge colliderCharge;
+	public TROGAL_Collider colliderCharge;
 
 	// Use this for initialization
 	void Start()

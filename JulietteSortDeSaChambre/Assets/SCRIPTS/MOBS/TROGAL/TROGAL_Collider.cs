@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TROGAL_ColliderCharge : MonoBehaviour {
+public class TROGAL_Collider : MonoBehaviour {
 
 	private bool princesseTouchee;
 	private bool wallTouche;

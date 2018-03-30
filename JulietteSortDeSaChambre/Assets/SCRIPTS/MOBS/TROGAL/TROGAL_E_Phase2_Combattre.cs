@@ -7,7 +7,7 @@ public class TROGAL_E_Phase2_Combattre : IA_Etat {
 	public float distanceSortieCombat;
 	public float delaisMaxAvantAttaque;
 	public float delaisMinAvantAttaque;
-	
+
 	private float timerAttaque;
 
 	// Use this for initialization
@@ -30,7 +30,7 @@ public class TROGAL_E_Phase2_Combattre : IA_Etat {
 			changerEtat (GetComponent<TROGAL_E_Phase2_Courir> ());
 		}
 		else if (Time.time >= timerAttaque) {
-			// changerEtat (GetComponent<TROGAL_E_Phase1_AttaqueChocSismique> ());
+			changerEtat(this.GetComponent<TROGAL_E_Phase2_AttaquePoingGauche>());
 		}
 	}
 
