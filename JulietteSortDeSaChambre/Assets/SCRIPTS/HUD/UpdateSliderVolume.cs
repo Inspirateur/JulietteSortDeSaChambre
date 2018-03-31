@@ -27,6 +27,7 @@ public class UpdateSliderVolume : MonoBehaviour {
 	void UpdateText(){
 		soundManager.volumeGeneral=(int)slider.value;
 		soundEntity.volumeGeneral=(int)slider.value;
+		PlayerPrefs.SetInt("volumeGeneral",soundManager.volumeGeneral);
 		text.text=slider.value.ToString("0");
 	}
 }

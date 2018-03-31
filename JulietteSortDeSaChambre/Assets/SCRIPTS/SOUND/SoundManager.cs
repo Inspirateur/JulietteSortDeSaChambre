@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour {
 
 		i = 0;
 		paused = false;
-		volumeGeneral=100;
+		volumeGeneral=PlayerPrefs.GetInt("volumeGeneral",volumeGeneral);
 	}
 	
 	// Update is called once per frame

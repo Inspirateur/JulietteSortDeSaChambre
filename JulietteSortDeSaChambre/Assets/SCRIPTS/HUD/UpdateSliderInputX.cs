@@ -24,6 +24,7 @@ public class UpdateSliderInputX : MonoBehaviour {
 
 	void UpdateInputX(){
 		camScript.sensibiliteManetteX=slider.value;
+		PlayerPrefs.SetFloat("sensibiliteManetteX",camScript.sensibiliteManetteX);
 		text.text=cam.GetComponent<camera>().sensibiliteManetteX.ToString("0.0");
 	}
 }

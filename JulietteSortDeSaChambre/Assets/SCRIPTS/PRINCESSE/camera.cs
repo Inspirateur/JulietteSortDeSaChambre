@@ -55,6 +55,10 @@ public class camera : MonoBehaviour {
 		this.lookAtPoint = cible.transform.position;
 
 		cinematiqueManager = GetComponent<CinematiqueManager> ();
+
+		//playerPref
+		sensibiliteManetteX=PlayerPrefs.GetFloat("sensibiliteManetteX",sensibiliteManetteX);
+		sensibiliteManetteY=PlayerPrefs.GetFloat("sensibiliteManetteY",sensibiliteManetteY);
 	}
 
 	/* On utilise LateUpdate afin que tout les autres éléments de la scène
