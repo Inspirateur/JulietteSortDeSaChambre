@@ -53,7 +53,7 @@ public class SoundEntity : MonoBehaviour {
 
 	public void playOneShot(AudioClip music, float volume, float pitch) {
 		audio.pitch = pitch;
-		audio.PlayOneShot (music, (volume*volumeGeneral/100));//tweak
+		audio.PlayOneShot (music, volume*(volumeGeneral/10));//tweak
 	}
 
 	public void playOneShot(int indice) {
