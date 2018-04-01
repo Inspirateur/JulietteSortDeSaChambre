@@ -26,6 +26,9 @@ public class pendule : MonoBehaviour {
     [Header("Est-il arrété ? :")]
     public bool stop = false;
 
+    [Header("Sparkle de la lame :")]
+    public GameObject sparkle;
+
     [Header("Remonté sciptée ? :")]
     public bool ArretScripte = false;
 
@@ -74,5 +77,9 @@ public class pendule : MonoBehaviour {
 
     public float getTime(){
         return this.time;
+    }
+
+    public void StartSpikle() {
+        sparkle.SetActive(true);
     }
 }
