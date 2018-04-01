@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114669913676235936}
   - component: {fileID: 114610790726161270}
   - component: {fileID: 114914517886323632}
+  - component: {fileID: 114016889485656866}
   m_Layer: 0
   m_Name: movinplateform
   m_TagString: sol
@@ -99,6 +100,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.019999996, z: 0.03925331}
   m_Center: {x: 0, y: 0, z: -0.008121992}
+--- !u!114 &114016889485656866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1001352519201290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60fab9bd0dd06db4a956e62b21a33fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114610790726161270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,8 +137,12 @@ MonoBehaviour:
   Etat: 0
   Vitesse: 0
   TimeWaitForCheck: 0
+  OriginalResetTime: 0
   Cycle: 0
   isStop: 0
+  NouvellePosition: {x: 0, y: 0, z: 0}
+  DeplacementRetour: 0
+  PostionToCheck: 0
 --- !u!114 &114914517886323632
 MonoBehaviour:
   m_ObjectHideFlags: 1

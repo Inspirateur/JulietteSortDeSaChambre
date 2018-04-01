@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64122130154780586}
   - component: {fileID: 114245455459815156}
   - component: {fileID: 114160245835239958}
+  - component: {fileID: 114748765354344400}
   m_Layer: 2
   m_Name: lame
   m_TagString: Untagged
@@ -54,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484702047199774}
   m_LocalRotation: {x: -0.45451945, y: 0.54167527, z: -0.45451945, w: 0.54167527}
-  m_LocalPosition: {x: 10.9177, y: 33.11439, z: -30.299465}
-  m_LocalScale: {x: 28.062323, y: 28.062304, z: 10.069217}
+  m_LocalPosition: {x: 10.168118, y: -0.30006826, z: -37.46155}
+  m_LocalScale: {x: 28.062347, y: 28.062326, z: 10.069217}
   m_Children:
   - {fileID: 4690436024612734}
   m_Father: {fileID: 0}
@@ -161,27 +162,27 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.99568176
-      inSlope: -0.02598519
-      outSlope: -0.02598519
+      value: 1.0087891
+      inSlope: -0.068595394
+      outSlope: -0.068595394
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.72931516
-      value: 0.82923126
-      inSlope: -0.9966458
-      outSlope: -0.9966458
+      time: 0.5318751
+      value: 0.990801
+      inSlope: -0.19387713
+      outSlope: -0.19387713
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.8573044
-      value: 0.48976135
-      inSlope: -2.629006
-      outSlope: -2.629006
+      time: 0.6559699
+      value: 0.0043640137
+      inSlope: 0.02888154
+      outSlope: 0.02888154
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0.008514404
-      inSlope: 0.37365702
-      outSlope: 0.37365702
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -215,7 +216,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 1.0178871
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -233,10 +234,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6324c6af8bc55fa408d8082b72a95ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleY: 90
-  angleZ: 80
-  PositionResetGauche: 0
+  amplitude: 80
+  TimeBegin: 0
   speed: 2
+  speedMecanique: 5
+  canStop: 1
+  stop: 0
+  sparkle: {fileID: 0}
+  ArretScripte: 0
 --- !u!114 &114245455459815156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,5 +251,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93c3a713863c8ee4aa29a0450124413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114748765354344400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484702047199774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3143662854c87a545912d2d0cf8dfe81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

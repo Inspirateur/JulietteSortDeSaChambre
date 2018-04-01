@@ -20,6 +20,7 @@ public class CinematiqueManager : Evenement {
 	// Use this for initialization
 	void Start () {
 		//cinematique = new List<CinematiqueItemList> ();
+
 		isInCinematique = false;
 		hudCinematique = GameObject.FindGameObjectWithTag ("HUDAffichageCinematique").GetComponent<AffichageCinematique>();
 		hud = GameObject.FindGameObjectWithTag ("HUD");
@@ -28,12 +29,15 @@ public class CinematiqueManager : Evenement {
 	
 	// Update is called once per frame
 	void Update () {
-		if(isPassable){
-			if(InputManager.GetButtonDown("Interagir")){
-				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
-				ActiveCinematique (false);
-			}
-		}
+        if (isInCinematique) {
+            if (isPassable) {
+                if (InputManager.GetButtonDown("Interagir")) {
+                    GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().stopSon();
+					cinematique [indice].stopCinematique ();
+                    ActiveCinematique(false);
+                }
+            }
+        }
 	}
 
 	public void ActiveCinematique(bool active){
@@ -45,7 +49,7 @@ public class CinematiqueManager : Evenement {
 			forwardInit = Camera.main.transform.forward;
 			isInCinematique = true;
 		}else{
-			cinematique [indice].stopCinematique ();
+			
 			hudCinematique.setActiveBandeNoir (false);
 			hudCinematique.setActivePassable (false);
 			hud.SetActive (true);
@@ -53,12 +57,14 @@ public class CinematiqueManager : Evenement {
 			Camera.main.transform.forward = forwardInit;
 			isInCinematique = false;
 			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
+
 		}
 
 	}
 
 
 	public void lanceCinématique(int indice){
+
 		this.indice = indice;
 		if (indice >= 0 && indice < cinematique.Count) {
 			isPassable = cinematique [indice].isPassable;
@@ -68,6 +74,11 @@ public class CinematiqueManager : Evenement {
 
 		}
 
+	}
+
+	override
+	public bool evenementIsEnCours(){
+		return isInCinematique;
 	}
 
 

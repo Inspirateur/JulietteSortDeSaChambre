@@ -7,6 +7,7 @@ public class AffichagePause : MonoBehaviour {
 
 	private Transform[] affiche_Pause;
 	public bool etat;
+    private PrincesseVie princesseVie;
 
 	public Slider[] sliders;
 	public Slider activeSlider;
@@ -14,9 +15,10 @@ public class AffichagePause : MonoBehaviour {
 	private float incValue;
 
 
-	// Use this for initialization
-	void Start () {
-		affiche_Pause = gameObject.GetComponentsInChildren<Transform>(true);
+    // Use this for initialization
+    void Start () {
+        princesseVie = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>();
+        affiche_Pause = gameObject.GetComponentsInChildren<Transform>(true);
 		sliders = gameObject.GetComponentsInChildren<Slider>(true);
 		indexSlider=0;
 		activeSlider=sliders[0];
@@ -26,7 +28,7 @@ public class AffichagePause : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Pause")) {
+		if (Input.GetButtonDown ("Pause") && princesseVie.enVie()) {
 			if (etat) {
 				Pause ();
 			} else {

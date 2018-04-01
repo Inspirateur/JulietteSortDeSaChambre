@@ -7,7 +7,7 @@ public class AffichageInventaire : MonoBehaviour {
 	[HideInInspector]
 	public List<ObjetInventaire> listObjet;
 	private Dictionary<EnumObjetProgression,GameObject> dicoInventaire;
-	private Dictionary<EnumObjetProgression,int> dicoNbObjet;
+	// private Dictionary<EnumObjetProgression,int> dicoNbObjet;
 	public GameObject objetInventaire;
 	public GameObject sac;
 	public int tempsAffichage;
@@ -15,13 +15,15 @@ public class AffichageInventaire : MonoBehaviour {
 
 	private bool affiche;
 	private float temps;
+	private static AffichageInventaire instance;
 
 	// Use this for initialization
 	void Start () {
 		juliette = GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseObjetProgression> ();
 		dicoInventaire = new Dictionary<EnumObjetProgression, GameObject> ();
-		dicoNbObjet = new Dictionary<EnumObjetProgression, int> ();
+		// dicoNbObjet = new Dictionary<EnumObjetProgression, int> ();
 		affiche = false;
+		instance = this;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +41,10 @@ public class AffichageInventaire : MonoBehaviour {
 			affiche = false;
 			desafficherToutObjet ();
 		}
+	}
+
+	public static AffichageInventaire getInstance(){
+		return instance;
 	}
 
 	private void afficherToutObjet(){
@@ -86,25 +92,38 @@ public class AffichageInventaire : MonoBehaviour {
 		temp.GetComponent<UnityEngine.UI.Image> ().sprite = objet.image;
 		temp.SetActive (false);
 		dicoInventaire.Add (enu, temp);
-		dicoNbObjet.Add(enu, 1);
+		// dicoNbObjet.Add(enu, 1);
 
 
 	}
 
 	private void addObjet(EnumObjetProgression enu){
-		dicoNbObjet [enu]++;
-		dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
+		// dicoNbObjet [enu]++;
+		// dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
+		dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + juliette.listObjet [enu];
 	}
 
 	private void deleteObjet(EnumObjetProgression enu){
-		dicoNbObjet [enu]--;
-		if (dicoNbObjet [enu] == 0) {
+		// dicoNbObjet [enu]--;
+		// if (dicoNbObjet [enu] == 0) {
+		if (juliette.listObjet [enu] == 0) {
 			Destroy( dicoInventaire [enu]);
 			dicoInventaire.Remove (enu);
-			dicoNbObjet.Remove (enu);
+			// dicoNbObjet.Remove (enu);
 		} else {
 			
-			dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
+			// dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
+			dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + juliette.listObjet [enu];
+		}
+	}
+
+	public void recreateDicoInventaireFromPrincesse(){
+		dicoInventaire = new Dictionary<EnumObjetProgression, GameObject> ();
+		sac.SetActive (false);
+
+		foreach (var pair in juliette.listObjet){
+			objetRamasse(pair.Key);
+			dicoInventaire [pair.Key].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + juliette.listObjet [pair.Key];
 		}
 	}
 }

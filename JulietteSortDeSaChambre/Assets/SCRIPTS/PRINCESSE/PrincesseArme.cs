@@ -25,9 +25,16 @@ public class PrincesseArme : MonoBehaviour {
 	public int degatsPelle;
 	public int degatschargePelle;
 	public int degatsBaguetteMagique;
-	public int degatschargeBaguetteMagique;
 
-	[Header("Recul des armes")]
+    [Header("Dégâts des armes full combo")]
+
+    public int degatsPoeleMaxCombo;
+    public int degatsPainMaxCombo;
+    public int degatsPiedLitMaxCombo;
+    public int degatsChandelierMaxCombo;
+    public int degatsPelleMaxCombo;
+
+    [Header("Recul des armes")]
 
 	public float facteurReculPoele;
 	public float facteurReculPain;
@@ -63,7 +70,8 @@ public class PrincesseArme : MonoBehaviour {
 
 	public GameObject projectileBaguetteMagique;
 
-	private bool attaqueCorpsACorpsEnCours;
+    [HideInInspector]
+	public bool attaqueCorpsACorpsEnCours;
 	private bool attaqueDistanceEnCours;
 
 	private bool attaqueChargeEnCours;
@@ -72,18 +80,20 @@ public class PrincesseArme : MonoBehaviour {
 	private bool projectileDejaCree;
 	private GameObject projectileActuel;
 	private Animator anim;
-	private List<IA_Agent> listeMobsTouches;
+	[HideInInspector]
+	public List<IA_Agent> listeMobsTouches;
 
 	private int degatsArmeActuelle;
+    private int degatsArmeActuelleMaxCombo;
 
-	private int degatschargeArmeActuelle;
+    private int degatschargeArmeActuelle;
 	private float facteurReculArmeActuelle;
 	private float timerAttaque;
 	private bool zoom;
 	private camera cam;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
 		
 		attaqueCorpsACorpsEnCours = false;
 		attaqueDistanceEnCours = false;
@@ -92,7 +102,8 @@ public class PrincesseArme : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		listeMobsTouches = new List<IA_Agent> ();
 
-        SetArmeActive (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
+        // RamasserArme (GameControl.control.ArmeCourante, CreerUneArmeDepuisLEnum (GameControl.control.ArmeCourante));
+		SetArmeActive(GameControl.control.ArmeCourante);
 
         listArmeTenu = new List<EnumArmes> ();
         listArmeTenu = GameControl.control.listArmeTenu;
@@ -105,16 +116,13 @@ public class PrincesseArme : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
-		&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
-		&& Time.time >= timerAttaque) {
-			
-			attaqueCorpsACorpsEnCours = false;
+		if (attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
+		/*&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
+           && Time.time >= timerAttaque)*/ {	
+			// attaqueCorpsACorpsEnCours = false;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
-			listeMobsTouches.Clear ();
-
 		}
 
 		if(attaqueDistanceEnCours && Time.time >= timerApparitionProjectile && !projectileDejaCree){
@@ -161,14 +169,18 @@ public class PrincesseArme : MonoBehaviour {
             if (other.tag.Equals ("Mob")) {
 				
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
-
+				
 				if (!listeMobsTouches.Contains (mobTouche) && mobTouche.estEnVie()) {
 					
 					listeMobsTouches.Add (mobTouche);
 
 					Vector3 hitPoint = other.ClosestPoint (this.transform.position);
 
-					mobTouche.subirDegats (degatsArmeActuelle, hitPoint);
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("combo3")) {
+                        mobTouche.subirDegats(degatsArmeActuelleMaxCombo, hitPoint);
+                    } else {
+                        mobTouche.subirDegats(degatsArmeActuelle, hitPoint);
+                    }
 
                     bool MobTouch = true;
 
@@ -210,8 +222,6 @@ public class PrincesseArme : MonoBehaviour {
         }
 
 		if (attaqueReversEnCours) {
-		Debug.Log(other.gameObject.name);
-			// Debug.Log("REVERS");
             if (other.tag.Equals ("Mob")) {
 				
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
@@ -230,7 +240,6 @@ public class PrincesseArme : MonoBehaviour {
 				}
 			}
             else if (other.tag.Equals ("Projectile")) {
-				// Debug.Log("POELE TOUCHE");
 				Projectile proj = other.gameObject.GetComponent<Projectile> ();
 				if(! proj.ami){
 					proj.renvoyer();
@@ -246,7 +255,18 @@ public class PrincesseArme : MonoBehaviour {
         }
 	}
 
-	public void SetArmeActive(EnumArmes typeArme, GameObject armeRamasse)
+	public void SetArmeActive(EnumArmes typeArme)
+    {
+        if(armeActive != EnumArmes.VIDE)
+        {
+            actualHandArme.SetActive(false);
+		}
+        armeActive = typeArme;
+		defineActualsArmes(null);
+        activerArme();
+    }
+
+	public void RamasserArme(EnumArmes typeArme, GameObject armeRamasse)
     {
         poserArme();
         armeActive = typeArme;
@@ -256,24 +276,21 @@ public class PrincesseArme : MonoBehaviour {
 
 	public void lancerAttaque() {
 
-		timerAttaque = Time.time + 0.1f;
+		// timerAttaque = Time.time + 0.1f;
 		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)) {
-			attaqueCorpsACorpsEnCours = false;
+			// attaqueCorpsACorpsEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
 			attaqueDistanceEnCours = true;
 			timerApparitionProjectile = Time.time + this.delaisAvantApparitionProjetile;
 			projectileDejaCree = false;
 		} else {
-			attaqueCorpsACorpsEnCours = true;
+			// attaqueCorpsACorpsEnCours = true;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
-		}
-
-		listeMobsTouches.Clear ();
+        }
 	}
-
 
 	public void lancerAttaqueCharge(){
 
@@ -346,7 +363,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = null;
 			degatsArmeActuelle = 0;
-			degatschargeArmeActuelle = 0;
+            degatsArmeActuelleMaxCombo = 0;
+            degatschargeArmeActuelle = 0;
 			facteurReculArmeActuelle = 0.0f;
 			break;
 
@@ -354,7 +372,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPoele;
 			degatsArmeActuelle = degatsPoele;
-			degatschargeArmeActuelle = degatschargePoele;
+            degatsArmeActuelleMaxCombo = degatsPoeleMaxCombo;
+            degatschargeArmeActuelle = degatschargePoele;
 			facteurReculArmeActuelle = facteurReculPoele;
 			break;
 
@@ -362,7 +381,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPain;
 			degatsArmeActuelle = degatsPain;
-			degatschargeArmeActuelle = degatschargePain;
+            degatsArmeActuelleMaxCombo = degatsPainMaxCombo;
+            degatschargeArmeActuelle = degatschargePain;
 			facteurReculArmeActuelle = facteurReculPain;
 			break;
 
@@ -370,7 +390,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPiedLit;
 			degatsArmeActuelle = degatsPiedLit;
-			degatschargeArmeActuelle = degatschargePiedLit;
+            degatsArmeActuelleMaxCombo = degatsPiedLitMaxCombo;
+            degatschargeArmeActuelle = degatschargePiedLit;
 			facteurReculArmeActuelle = facteurReculPiedLit;
 			break;
 
@@ -378,7 +399,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handChandelier;
 			degatsArmeActuelle = degatsChandelier;
-			degatschargeArmeActuelle = degatschargeChandelier;
+            degatsArmeActuelleMaxCombo = degatsChandelierMaxCombo;
+            degatschargeArmeActuelle = degatschargeChandelier;
 			facteurReculArmeActuelle = facteurReculChandelier;
 			break;
 
@@ -386,7 +408,8 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handPelle;
 			degatsArmeActuelle = degatsPelle;
-			degatschargeArmeActuelle = degatschargePelle;
+            degatsArmeActuelleMaxCombo = degatsPelleMaxCombo;
+            degatschargeArmeActuelle = degatschargePelle;
 			facteurReculArmeActuelle = facteurReculPelle;
 			break;
 
@@ -394,13 +417,15 @@ public class PrincesseArme : MonoBehaviour {
 
 			actualHandArme = handBaguetteMagique;
 			degatsArmeActuelle = degatsBaguetteMagique;
-			degatschargeArmeActuelle = degatschargeBaguetteMagique;
 			facteurReculArmeActuelle = facteurReculBaguetteMagique;
 			projectileActuel = projectileBaguetteMagique;
 			break;
 		}
 
-		Destroy (armeRamasse);
+		if(armeRamasse != null){
+			// Destroy (armeRamasse);
+			armeRamasse.SetActive(false);
+		}
     }
 
     private void poserArme()
@@ -427,37 +452,37 @@ public class PrincesseArme : MonoBehaviour {
 		return facteurReculArmeActuelle;
 	}
 
-	public GameObject CreerUneArmeDepuisLEnum(EnumArmes arme)
-	{
-		GameObject template = null;
-		switch (arme) {
-		case EnumArmes.PIED_LIT:
-			template = handPiedLit;
-			break;
-		case EnumArmes.POELE:
-			template = handPoele;
-			break;
-		case EnumArmes.VIDE:
-			template = null;
-			break;
-		case EnumArmes.PAIN:
-			template = handPain;
-			break;
-		case EnumArmes.CHANDELIER:
-			template = handChandelier;
-			break;
-		case EnumArmes.BAGUETTE_MAGIQUE:
-			template = handBaguetteMagique;
-			break;
-		case EnumArmes.PELLE:
-			template = handPelle;
-			break;
-		}
+	// public GameObject CreerUneArmeDepuisLEnum(EnumArmes arme)
+	// {
+	// 	GameObject template = null;
+	// 	switch (arme) {
+	// 	case EnumArmes.PIED_LIT:
+	// 		template = handPiedLit;
+	// 		break;
+	// 	case EnumArmes.POELE:
+	// 		template = handPoele;
+	// 		break;
+	// 	case EnumArmes.VIDE:
+	// 		template = null;
+	// 		break;
+	// 	case EnumArmes.PAIN:
+	// 		template = handPain;
+	// 		break;
+	// 	case EnumArmes.CHANDELIER:
+	// 		template = handChandelier;
+	// 		break;
+	// 	case EnumArmes.BAGUETTE_MAGIQUE:
+	// 		template = handBaguetteMagique;
+	// 		break;
+	// 	case EnumArmes.PELLE:
+	// 		template = handPelle;
+	// 		break;
+	// 	}
 
-		if (template == null)
-			return null;
-		return GameObject.Instantiate (template);
-	}
+	// 	if (template == null)
+	// 		return null;
+	// 	return GameObject.Instantiate (template);
+	// }
 
 	private GameObject getPrefabArmeActuel(){
 		switch (armeActive)

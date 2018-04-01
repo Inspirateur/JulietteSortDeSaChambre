@@ -18,13 +18,18 @@ public class Socle : ObjetEnvironnemental {
 		if (!utilise) {
 			if(isActivable()){
 				this.gameObject.transform.GetChild (0).gameObject.SetActive (true);
-				SocleEvenement.GetComponent<barreMetalManager> ().DownBarre (BarreNumberToOpen);
+				SocleEvenement.GetComponent<barreMetalManager> ().StartOpenBarre(BarreNumberToOpen);
 				utilise = true;
 				juliette.removeItem (obj);
 			}
 		}
 	}
 
+	public void Desactivation(){
+		this.gameObject.transform.GetChild (0).gameObject.SetActive (false);
+		utilise = false;
+		SocleEvenement.GetComponent<barreMetalManager> ().StartCloseBarre(BarreNumberToOpen);
+	}
 
 	public bool isActivable(){
 		return juliette.listObjet.ContainsKey(obj);

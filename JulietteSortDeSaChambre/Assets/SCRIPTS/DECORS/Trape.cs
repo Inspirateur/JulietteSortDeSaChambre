@@ -5,28 +5,28 @@ using UnityEngine;
 public class Trape : MonoBehaviour {
 
     private Animator Anim;
+    [HideInInspector]
+    public bool etatOuvert;
 
-    // public MeshCollider Door1;
-    // public MeshCollider Door2;
-
-    void Start()
+    void Awake()
     {
         Anim = GetComponent<Animator>();
-        Anim.SetBool("CanOpen", false);
+        etatOuvert = false;
+        updateEtat();
     }
 
     public void TrapeOuverture(){
-        Anim.SetBool ("CanOpen", true);
-        GetComponent<BoxCollider>().enabled = false;
-        // Door1.enabled = false;
-        // Door2.enabled = false;
+        etatOuvert = true;
+        updateEtat();
     }
 
 	public void TrapeFermeture(){
-        Anim.SetBool ("CanOpen", false);
-        GetComponent<BoxCollider>().enabled = true;
-        // Door1.enabled = true;
-        // Door2.enabled = true;
+        etatOuvert = false;
+        updateEtat();
     }
 
+    public void updateEtat(){
+        Anim.SetBool ("CanOpen", etatOuvert);
+        GetComponent<BoxCollider>().enabled = !etatOuvert;
+    }
 }

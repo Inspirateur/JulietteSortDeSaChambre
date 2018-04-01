@@ -44,15 +44,11 @@ public class camera : MonoBehaviour {
 
 		// On place la caméra à son point de départ pour éviter un mauvais effet au démarrage du jeu
 
-		this.horizontal = 180.0f;
-
-		this.transform.position = cible.transform.position + Quaternion.Euler(vertical, horizontal, 0) * new Vector3 (0, 0, -distanceMax);
+		centrerCamera();
 
 		this.fov = Camera.main.fieldOfView;
 
-		this.cinematiqueEnCours = false;
-
-		this.lookAtPoint = cible.transform.position;
+		// this.cinematiqueEnCours = false;
 
 		cinematiqueManager = GetComponent<CinematiqueManager> ();
 
@@ -78,18 +74,18 @@ public class camera : MonoBehaviour {
 		}
 	}
 
-	public void setCinematiqueEnCours(bool vraiSiUneCinematiqueEstEnCours){
-		this.cinematiqueEnCours = vraiSiUneCinematiqueEstEnCours;
-	}
+	// public void setCinematiqueEnCours(bool vraiSiUneCinematiqueEstEnCours){
+	// 	this.cinematiqueEnCours = vraiSiUneCinematiqueEstEnCours;
+	// }
 
 	private void gererCameraClassique(){
-		float distance = this.calculerDistanceFocusCamera();
-		// mise à jour des entrées manettes et souris
 		if(anim.GetBool("isPushing")){
 			this.transform.position = cible.transform.position + princesse.transform.rotation * new Vector3 (0, 0, -distanceMax);
 			this.transform.LookAt (this.cible.transform.position);
 			princesse.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;	
 		}else{
+			float distance = this.calculerDistanceFocusCamera();
+			// mise à jour des entrées manettes et souris
 			this.miseAJourInput();
 			this.placerCamera(distance);
 		}
@@ -98,31 +94,6 @@ public class camera : MonoBehaviour {
 		// on cache le curseur
 
 		Cursor.visible = false;
-
-		// on récupère la distance max à laquelle on peut placer la caméra de son point de focus
-
-		
-
-
-		// on place la caméra
-
-		
-
-
-	/* 
-		// .... Transparence ....
-
-		if (distance < distanceAvantTransparence) {
-			float alpha = Mathf.Clamp(distance / (distanceAvantTransparence * 0.66f), 0.0f, 1.0f);
-			for (int i=0; i<skinPrincesse.materials.Length; i++) {
-				skinPrincesse.materials[i].color = new Color (skinPrincesse.materials[i].color.r, skinPrincesse.materials[i].color.g, skinPrincesse.materials[i].color.b, 0.0f);
-			}
-		} else {
-			for (int i=0; i<skinPrincesse.materials.Length; i++) {
-				skinPrincesse.materials[i].color = new Color (skinPrincesse.materials[i].color.r, skinPrincesse.materials[i].color.g, skinPrincesse.materials[i].color.b, 1.0f);
-			}
-		}
-	*/
 	}
 
 	private void miseAJourInput(){
@@ -232,5 +203,20 @@ public class camera : MonoBehaviour {
 		this.sensibiliteSourisY *= this.facteurZoom;
 		this.sensibiliteManetteX *= this.facteurZoom;
 		this.sensibiliteManetteY *= this.facteurZoom;
+	}
+
+	public void centrerCamera(){
+		this.transform.position = cible.transform.position + cible.transform.rotation * new Vector3 (0, 0, -distanceMax);
+
+		this.lookAtPoint = cible.transform.position;
+
+		this.transform.LookAt (this.lookAtPoint);
+
+		Vector3 v = this.transform.rotation.eulerAngles;
+		this.vertical = v.x;
+		this.horizontal = v.y;
+
+		this.velocity = Vector3.zero;
+		this.velocityLookAtPoint = Vector3.zero;
 	}
 }

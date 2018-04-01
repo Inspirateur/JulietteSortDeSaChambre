@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 82716957421335422}
   - component: {fileID: 114573517906380194}
   - component: {fileID: 114882417127062912}
+  - component: {fileID: 114936326576863198}
   m_Layer: 8
   m_Name: Juliette
   m_TagString: Player
@@ -1000,7 +1001,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
-  m_LocalRotation: {x: -0, y: -0.70711, z: -0, w: -0.70710367}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 19.98, y: 4.283, z: 1.27}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
@@ -1011,7 +1012,7 @@ Transform:
   - {fileID: 4000038190379346}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -269.999, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4293968296782972
 Transform:
   m_ObjectHideFlags: 1
@@ -2106,6 +2107,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listeClips: []
   volumeGeneral: 10
+--- !u!114 &114936326576863198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501621892178278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d809cffc6d494d814b12173749c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114941354916891536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2139,10 +2151,6 @@ MonoBehaviour:
   maxVolume: 0.45
   bruiteurPas: {fileID: 114849292428765358}
   forceDash: 25
-  ComboSound:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   attaqueBegin: 0
 --- !u!135 &135007083210717436
 SphereCollider:
