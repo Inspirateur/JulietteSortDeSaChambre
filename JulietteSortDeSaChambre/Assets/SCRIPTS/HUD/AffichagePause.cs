@@ -8,8 +8,6 @@ public class AffichagePause : MonoBehaviour {
 	private Transform[] affiche_Pause;
 	public bool etat;
     private PrincesseVie princesseVie;
-
-	public Slider[] sliders;
 	public Slider activeSlider;
 	private int indexSlider;
 	private float incValue;
@@ -36,34 +34,6 @@ public class AffichagePause : MonoBehaviour {
 			} else {
 				finPause ();
 			}
-		}
-		float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
-        float moveVertical = InputManager.GetKeyAxis("Vertical");
-		Debug.Log(moveHorizontal);
-		if(moveVertical > 0.0f && !etat){
-			indexSlider++;
-			if(indexSlider>=sliders.Length){
-				indexSlider=sliders.Length-1;
-			}
-			activeSlider=sliders[indexSlider];
-			incValue=activeSlider.maxValue/20;
-		}
-
-		if(moveVertical < 0.0f && !etat){
-			indexSlider--;
-			if(indexSlider<0){
-				indexSlider=0;
-			}
-			activeSlider=sliders[indexSlider];
-			incValue=activeSlider.maxValue/20;
-		}
-
-		if(moveHorizontal > 0.0f && !etat){
-			activeSlider.value+=incValue;
-		}
-
-		if(moveHorizontal < 0.0f && !etat){
-			activeSlider.value-=incValue;
 		}
 	}
 

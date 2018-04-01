@@ -19,6 +19,7 @@ public class UpdateSliderVolume : MonoBehaviour {
 		slider.value=soundManager.volumeGeneral;
 		text.text=slider.value.ToString("0");
 		slider.onValueChanged.AddListener(delegate {UpdateText(); });
+		soundEntitys=FindObjectsOfType<SoundEntity>();
 		//selectThis();
 	}
 	
@@ -39,10 +40,5 @@ public class UpdateSliderVolume : MonoBehaviour {
 
 	public void selectThis(){
 		slider.Select();
-	}
-
-	void OnSceneLoaded(){
-		Debug.Log("Scene loaded");
-		soundEntitys=FindObjectsOfType<SoundEntity>();
 	}
 }
