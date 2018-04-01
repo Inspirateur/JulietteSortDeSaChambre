@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114074036217945254}
   - component: {fileID: 114376817624446330}
   m_Layer: 2
-  m_Name: Trogal
+  m_Name: trogal
   m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,6 +411,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e1590821f2e05e14b918f017156f95db, type: 3}
   - {fileID: 8300000, guid: fee8c66f5eb7910459b4b44435b82749, type: 3}
   - {fileID: 8300000, guid: 1b2ea417f325a514594c8eeecc2e467c, type: 3}
+  volumeGeneral: 0
 --- !u!114 &114074036217945254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listeClips: []
+  volumeGeneral: 0
 --- !u!114 &114590656807821440
 MonoBehaviour:
   m_ObjectHideFlags: 1

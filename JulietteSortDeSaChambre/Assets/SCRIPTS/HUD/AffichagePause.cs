@@ -19,9 +19,11 @@ public class AffichagePause : MonoBehaviour {
     void Start () {
         princesseVie = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseVie>();
         affiche_Pause = gameObject.GetComponentsInChildren<Transform>(true);
-		sliders = gameObject.GetComponentsInChildren<Slider>(true);
+		//sliders = gameObject.GetComponentsInChildren<Slider>(true);
 		indexSlider=0;
-		activeSlider=sliders[0];
+		//activeSlider=sliders[0];
+		activeSlider=gameObject.GetComponentInChildren<Slider>(true);
+		//activeSlider.GetComponent<UpdateSliderVolume>().selectThis();
 		etat = true;
 		Cursor.visible=true;
 	}
@@ -70,12 +72,14 @@ public class AffichagePause : MonoBehaviour {
 		for (int i = 1; i < affiche_Pause.Length; i++) {
 			affiche_Pause[i].gameObject.SetActive (true);
 		}
+		activeSlider.Select();
 		etat = false;
 		Cursor.visible=true;
 	}
 
 	public void finPause(){
 		Time.timeScale = 1;
+		activeSlider.Select();
 		for (int i = 1; i < affiche_Pause.Length; i++) {
 			affiche_Pause[i].gameObject.SetActive (false);
 		}
