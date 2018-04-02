@@ -70,7 +70,8 @@ public class PrincesseArme : MonoBehaviour {
 
 	public GameObject projectileBaguetteMagique;
 
-	private bool attaqueCorpsACorpsEnCours;
+    [HideInInspector]
+	public bool attaqueCorpsACorpsEnCours;
 	private bool attaqueDistanceEnCours;
 
 	private bool attaqueChargeEnCours;
@@ -79,15 +80,14 @@ public class PrincesseArme : MonoBehaviour {
 	private bool projectileDejaCree;
 	private GameObject projectileActuel;
 	private Animator anim;
-	private List<IA_Agent> listeMobsTouches;
+	[HideInInspector]
+	public List<IA_Agent> listeMobsTouches;
 
 	private int degatsArmeActuelle;
     private int degatsArmeActuelleMaxCombo;
 
     private int degatschargeArmeActuelle;
 	private float facteurReculArmeActuelle;
-    [HideInInspector]
-    public bool finAttaqueCombo;
 	private float timerAttaque;
 	private bool zoom;
 	private camera cam;
@@ -116,15 +116,13 @@ public class PrincesseArme : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if ((attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
-           && finAttaqueCombo)
+		if (attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
 		/*&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
            && Time.time >= timerAttaque)*/ {	
-			attaqueCorpsACorpsEnCours = false;
+			// attaqueCorpsACorpsEnCours = false;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
-			listeMobsTouches.Clear ();
 		}
 
 		if(attaqueDistanceEnCours && Time.time >= timerApparitionProjectile && !projectileDejaCree){
@@ -224,8 +222,6 @@ public class PrincesseArme : MonoBehaviour {
         }
 
 		if (attaqueReversEnCours) {
-		Debug.Log(other.gameObject.name);
-			// Debug.Log("REVERS");
             if (other.tag.Equals ("Mob")) {
 				
 				IA_Agent mobTouche = other.gameObject.GetComponent<IA_Agent> ();
@@ -244,7 +240,6 @@ public class PrincesseArme : MonoBehaviour {
 				}
 			}
             else if (other.tag.Equals ("Projectile")) {
-				// Debug.Log("POELE TOUCHE");
 				Projectile proj = other.gameObject.GetComponent<Projectile> ();
 				if(! proj.ami){
 					proj.renvoyer();
@@ -283,20 +278,18 @@ public class PrincesseArme : MonoBehaviour {
 
 		// timerAttaque = Time.time + 0.1f;
 		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)) {
-			attaqueCorpsACorpsEnCours = false;
+			// attaqueCorpsACorpsEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
 			attaqueDistanceEnCours = true;
 			timerApparitionProjectile = Time.time + this.delaisAvantApparitionProjetile;
 			projectileDejaCree = false;
 		} else {
-			attaqueCorpsACorpsEnCours = true;
+			// attaqueCorpsACorpsEnCours = true;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
         }
-
-		listeMobsTouches.Clear ();
 	}
 
 	public void lancerAttaqueCharge(){

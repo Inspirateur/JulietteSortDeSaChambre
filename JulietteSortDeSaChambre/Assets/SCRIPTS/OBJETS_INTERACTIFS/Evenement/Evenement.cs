@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Evenement : MonoBehaviour{
 
+
+
 	public virtual void activation(){
 
 	}
@@ -11,5 +13,9 @@ public abstract class Evenement : MonoBehaviour{
 
 	public virtual void desactivation(){
 
+	}
+
+	public virtual bool evenementIsEnCours(){
+		return false;
 	}
 }
