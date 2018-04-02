@@ -51,6 +51,13 @@ public class camera : MonoBehaviour {
 		// this.cinematiqueEnCours = false;
 
 		cinematiqueManager = GetComponent<CinematiqueManager> ();
+
+		//playerPref
+		sensibiliteManetteX=PlayerPrefs.GetFloat("sensibiliteManetteX",sensibiliteManetteX);
+		sensibiliteManetteY=PlayerPrefs.GetFloat("sensibiliteManetteY",sensibiliteManetteY);
+
+		sensibiliteSourisX=PlayerPrefs.GetFloat("sensibiliteSourisX",sensibiliteSourisX);
+		sensibiliteSourisY=PlayerPrefs.GetFloat("sensibiliteSourisY",sensibiliteSourisY);
 	}
 
 	/* On utilise LateUpdate afin que tout les autres éléments de la scène

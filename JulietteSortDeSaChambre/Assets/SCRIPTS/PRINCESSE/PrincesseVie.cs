@@ -29,9 +29,6 @@ public class PrincesseVie : MonoBehaviour {
 
     private PrincesseDeplacement deplacement;
 
-	public delegate void MyDelegate();
-	public event MyDelegate onDeath;	// event quand la princesse meurt
-
     /*void Awake(){
 		vie_courante = vie_max;
 		Debug.Log (vie_courante);
@@ -72,9 +69,8 @@ public class PrincesseVie : MonoBehaviour {
 			// vie_courante = vie_max;
 			// GameControl.control.vie = vie_courante;
 			// GameControl.control.Save ();
-			if(onDeath != null){
-				onDeath();	// on notifit de la mort de la princesse
-			}
+
+			// CheckPointManager.getInstance().restartCheckPoint();
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {
