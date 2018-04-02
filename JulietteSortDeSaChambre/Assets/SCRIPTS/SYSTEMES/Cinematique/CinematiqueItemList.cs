@@ -14,8 +14,28 @@ public class CinematiqueItemList : ScriptableObject {
 
 	public void lancer(){
 //		Debug.Log("LANCER : "+(item));
-		itemList[item].start ();
-		actualCinematique = GameControl.control.StartCoroutine (timer ());
+		if (itemList [item].isShaking) {
+			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<camera> ().activeShaking ();
+			GameControl.control.StartCoroutine (timerShaking ());
+		} else {
+			itemList[item].start ();
+			actualCinematique = GameControl.control.StartCoroutine (timer ());
+		}
+
+	}
+
+	IEnumerator timerShaking(){
+
+		//	Debug.Log ("test");
+		for(var i=0;i<1;i++){
+			//	Debug.Log("DUREE ACCES : "+itemList [item].dureeAcces);
+
+			yield return new WaitWhile (() => GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<camera> ().shakingIsActive);
+			cinematiqueSuivant ();
+
+		}
+		//	Debug.Log ("test2");
+	
 	}
 
 	IEnumerator timer(){
@@ -33,18 +53,24 @@ public class CinematiqueItemList : ScriptableObject {
 		//		Debug.Log ("CinemtiqueDebutTImerArret");
 			}
 
-			if (item < itemList.Count - 1) {
-				item++;
-				lancer ();
-			} else {
-				GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CinematiqueManager> ().ActiveCinematique (false);
-			}
+			cinematiqueSuivant ();
+
+
 
 		}
 	//	Debug.Log ("test2");
 
 
 
+	}
+
+	private void cinematiqueSuivant(){
+		if (item < itemList.Count - 1) {
+			item++;
+			lancer ();
+		} else {
+			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CinematiqueManager> ().ActiveCinematique (false);
+		}
 	}
 
 	public void stopCinematique(){

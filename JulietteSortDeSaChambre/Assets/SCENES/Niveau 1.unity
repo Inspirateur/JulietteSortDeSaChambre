@@ -6870,7 +6870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 2039211817}
+  - go: {fileID: 1951404484}
     name:
     - CinematiqueManager
     indice: 00000000
@@ -15665,6 +15665,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
+  - go: {fileID: 1951404484}
+    name:
+    - CinematiqueManager
+    indice: 00000000
+    nameM:
+    - ActiveCinematique
+    - "lanceCin\xE9matique"
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 09000000
+    paramInt: 3
+    paramBool: 0
   - go: {fileID: 1118147890}
     name:
     - VisibleObjetEvenement
@@ -15699,7 +15717,7 @@ MonoBehaviour:
     enumParam: 03000000
     paramInt: 1
     paramBool: 0
-  - go: {fileID: 0}
+  - go: {fileID: 1951404484}
     name:
     - CinematiqueManager
     indice: 00000000
@@ -42473,8 +42491,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: [{fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76,
-        type: 2}]
+    m_RemovedComponents:
+    - {fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &950086498 stripped
@@ -44172,7 +44190,7 @@ MonoBehaviour:
     type: 3}
   BarreNumberToOpen: 2
   SocleEvenement: {fileID: 1439121964}
-  utilise: 1
+  utilise: 0
   obj: 4
 --- !u!114 &976809171
 MonoBehaviour:
@@ -45075,7 +45093,7 @@ MonoBehaviour:
     type: 3}
   BarreNumberToOpen: 0
   SocleEvenement: {fileID: 1439121964}
-  utilise: 1
+  utilise: 0
   obj: 3
 --- !u!114 &994913363
 MonoBehaviour:
@@ -53808,7 +53826,7 @@ Prefab:
     - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
         type: 2}
       propertyPath: cinematique.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -53845,6 +53863,261 @@ Prefab:
     - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
         type: 2}
       propertyPath: cinematique.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114695333482917994, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: shakeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114695333482917994, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: shakeAmount
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114695333482917994, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: decreaseFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cdcaf2c48d29a846a2424104f8577d9,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[22]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[23]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[24]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[25]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[26]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[27]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[28]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[29]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[30]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[31]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[32]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[33]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[34]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[35]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[36]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[37]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[38]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[39]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[40]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[41]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
+        type: 2}
+    - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: cinematique.Array.data[42]
       value: 
       objectReference: {fileID: 11400000, guid: 988c94e7a0756dc478f7095e9ed6dda2,
         type: 2}
@@ -61586,7 +61859,7 @@ MonoBehaviour:
     type: 3}
   BarreNumberToOpen: 1
   SocleEvenement: {fileID: 1439121964}
-  utilise: 1
+  utilise: 0
   obj: 2
 --- !u!114 &1390590434
 MonoBehaviour:
@@ -70008,24 +70281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 2039211817}
-    name:
-    - CinematiqueManager
-    indice: 00000000
-    nameM:
-    - ActiveCinematique
-    - "lanceCin\xE9matique"
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 01000000
-    enumParam: 09000000
-    paramInt: 0
-    paramBool: 0
   - go: {fileID: 1951404484}
     name:
     - CinematiqueManager
