@@ -11,6 +11,10 @@ public class IA_Perception : MonoBehaviour {
 	public bool estSourd;
 
 	public bool aRepere(GameObject cible, float niveauAttention) {
+		PrincesseVie princesseVie = cible.GetComponent<PrincesseVie>();
+		if(princesseVie != null && !princesseVie.enVie()){
+			return false;
+		}
 		Vector3 vecDistancePrincesse = cible.transform.position - this.transform.position;
 
 		float distancePrincesse = vecDistancePrincesse.magnitude;
