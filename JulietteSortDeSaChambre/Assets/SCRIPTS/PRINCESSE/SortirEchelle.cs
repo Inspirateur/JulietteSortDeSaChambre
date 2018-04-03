@@ -29,20 +29,23 @@ public class SortirEchelle : MonoBehaviour {
 	void Update () {
 		if(activate){
 			if(time > Time.time){
-			//	Debug.Log("je passe ici");
 				princesse.transform.position = new Vector3(princesse.transform.position.x + x * Time.deltaTime, princesse.transform.position.y + y * Time.deltaTime, princesse.transform.position.z + z * Time.deltaTime );
 			}
 
-			if(princesseAnimator.GetBool("EndClimbing") && princesse.transform.position == positionjuliette){
+			if(time < Time.time){
 				Debug.Log("je passe ici");
 				princesse.GetComponent<Rigidbody>().useGravity = true;
+				rb.canMove = true;
+				rb.gererAnim("IsIdle");
+				activate = false;
 			}
 		}
 		
 	}
 
 	void OnTriggerEnter(){
-		
+		if(!activate){
+		Debug.Log("je passe dqns le trigger");
 		princesseAnimator.SetBool("EndClimbing", true);
 		princesseAnimator.SetBool("IsClimbing", false);
 		time = Time.time + 2;
@@ -54,5 +57,7 @@ public class SortirEchelle : MonoBehaviour {
 		//Debug.Log(x);
 		activate=true;
 		rb.canMove = false;
+		}
+		
 	}
 }

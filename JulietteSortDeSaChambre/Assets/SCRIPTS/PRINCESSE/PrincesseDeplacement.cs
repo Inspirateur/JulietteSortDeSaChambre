@@ -119,13 +119,13 @@ public class PrincesseDeplacement : MonoBehaviour
                     }
                   
                 }
-                else if (isGrounded)
+                else if (isGrounded )
                 {       
                     attackjump = false;
                     anim.SetBool("IsJumping", false);
                 }
 
-                else if(!anim.GetBool("IsClimbing"))
+                else if(!anim.GetBool("IsClimbing") && !anim.GetBool("EndClimbing"))
                 {
                     
                     gererAnim("IsJumping");
@@ -142,7 +142,7 @@ public class PrincesseDeplacement : MonoBehaviour
                    
 		            gererAnim("IsIdle");
                 
-	        }else if(isGrounded && !anim.GetBool("IsIdle")){
+	        }else if(isGrounded && !anim.GetBool("IsIdle") && !anim.GetBool("EndClimbing")){
                   
 		        gererAnim ("IsIdle");
 	        }
@@ -260,6 +260,7 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("IsJumping", false);
         anim.SetBool("isPushing", false);
         anim.SetBool("IsClimbing", false);
+        anim.SetBool("EndClimbing", false);
     }
 
     IEnumerator WaitForVelocityZero()
