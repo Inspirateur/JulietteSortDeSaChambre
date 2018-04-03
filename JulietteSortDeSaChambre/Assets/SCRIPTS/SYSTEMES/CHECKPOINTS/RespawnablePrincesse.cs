@@ -6,14 +6,19 @@ public class RespawnablePrincesse : RespawnableEntity {
 
 	private PrincesseVie princesseVie;
     private PrincesseArme princesseArme;
+    private PrincesseDeplacement princesseDeplacement;
+    private PrincessePouvoirGlace princessePouvoirGlace;
     private PrincesseObjetProgression princesseObjetProgression;
     private EnumArmes armeActive;
     private camera cam;
     private Dictionary<EnumObjetProgression,int> listObjet;
+    private bool unlockPouvoirGlace;
 
 	void Awake() {
         princesseVie = GetComponent<PrincesseVie>();
         princesseArme = GetComponent<PrincesseArme>();
+        princesseDeplacement = GetComponent<PrincesseDeplacement>();
+        princessePouvoirGlace = GetComponentInChildren<PrincessePouvoirGlace> (true);
         princesseObjetProgression = GetComponent<PrincesseObjetProgression>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<camera>();
     }
@@ -23,6 +28,7 @@ public class RespawnablePrincesse : RespawnableEntity {
         Debug.Log(gameObject.ToString() + " : setInitialState");
         this.armeActive = this.princesseArme.armeActive;
         this.listObjet = new Dictionary<EnumObjetProgression, int>(this.princesseObjetProgression.listObjet);
+        this.unlockPouvoirGlace = princessePouvoirGlace.isUnlocked;
     }
 
     public override void onRespawn()
@@ -33,5 +39,12 @@ public class RespawnablePrincesse : RespawnableEntity {
         this.princesseObjetProgression.listObjet = new Dictionary<EnumObjetProgression, int>(this.listObjet);
         AffichageInventaire.getInstance().recreateDicoInventaireFromPrincesse();
         cam.centrerCamera();
+        princesseDeplacement.canMove = true;
+        princesseDeplacement.gererAnim("IsIdle");
+
+        if(!this.unlockPouvoirGlace){
+            princessePouvoirGlace.isUnlocked = this.unlockPouvoirGlace;
+            GameObject.FindGameObjectWithTag ("AffichagePouvoir").GetComponentInChildren<AffichagePouvoir> (true).setHidden(EnumPouvoir.pouvoirGlace);
+        }
     }
 }

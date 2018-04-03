@@ -69,7 +69,7 @@ public class PrincesseVie : MonoBehaviour {
 			// vie_courante = vie_max;
 			// GameControl.control.vie = vie_courante;
 			// GameControl.control.Save ();
-
+			deplacement.canMove = false;
 			// CheckPointManager.getInstance().restartCheckPoint();
 		}
 

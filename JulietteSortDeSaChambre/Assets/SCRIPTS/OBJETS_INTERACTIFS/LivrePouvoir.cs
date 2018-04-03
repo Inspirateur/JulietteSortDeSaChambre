@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class LivrePouvoir : ObjetEnvironnemental {
 
-	private bool active;
+	// private bool active;
 	public EnumPouvoir pouvoir;
 
 	// Use this for initialization
 	void Start () {
-		active = true;
+		// active = true;
 	}
 
 	// Update is called once per frame
@@ -18,20 +18,20 @@ public class LivrePouvoir : ObjetEnvironnemental {
 	}
 
 	public override void Activation(){
-		if (active) {
+		// if (active) {
 			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<PrincessePouvoirGlace> (true).isUnlocked=true;
 			GameObject.FindGameObjectWithTag ("AffichagePouvoir").GetComponentInChildren<AffichagePouvoir> (true).setVisible(pouvoir);
 			gameObject.SetActive (false);
-			active = false;
-		}
+			// active = false;
+		// }
 	}
 
 	public override EnumIconeInterraction getIconeInteraction(){
-		if (active) {
+		// if (active) {
 			return EnumIconeInterraction.icone_default;
-		} else {
-			return EnumIconeInterraction.icone_null;
-		}
+		// } else {
+		// 	return EnumIconeInterraction.icone_null;
+		// }
 	}
 
 
