@@ -129,7 +129,7 @@ public class SoundManager : MonoBehaviour {
 		musicQueue.Enqueue (music);
 	}
 
-	public void playOneShot(AudioClip music) {
+	public void playOneShot(AudioClip music) {;
 		playOneShot (music, 1.0f);
 	}
 
@@ -163,6 +163,7 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public void stopSon(){
+		Debug.Log ("STOP");
 		levelAudioSingle.Stop ();
 	}
 }
