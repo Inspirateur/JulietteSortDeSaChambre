@@ -58,6 +58,11 @@ public class AffichagePouvoir : MonoBehaviour {
 		dicoPouvoirGo [pouvoir].gameObject.SetActive (true);
 	}
 
+	public void setHidden(EnumPouvoir pouvoir){
+		fondPouvoir.gameObject.SetActive (false);
+		dicoPouvoirGo [pouvoir].gameObject.SetActive (false);
+	}
+
 
 }
 

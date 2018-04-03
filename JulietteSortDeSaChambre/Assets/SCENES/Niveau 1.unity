@@ -4235,45 +4235,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdaefcaff3bbdf4489d008f4cb104a4d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &86562145 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1740703420504754, guid: a3161ff880a6fc4409cb9a3b56ff3708,
-    type: 2}
-  m_PrefabInternal: {fileID: 142362835}
---- !u!114 &86562147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 86562145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objet: {fileID: 86562148}
-  distanceActivation: 1.7
-  demiAngleActivationFrontal: 90
-  minDistanceSurbrillance: 0
-  EnableSurbrillance: 0
---- !u!114 &86562148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 86562145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4e26ad38411c54aaece4eb09cbf437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  declencheEvenement: 0
-  nomObjet: 
-  descriptionObjet: 
-  soundGenerator: {fileID: 0}
-  sm: {fileID: 0}
-  BesoinItemPourActivation: {fileID: 0}
-  pouvoir: 0
 --- !u!1001 &88001564
 Prefab:
   m_ObjectHideFlags: 0
@@ -5802,10 +5763,6 @@ Prefab:
     - target: {fileID: 4761767303161018, guid: a3161ff880a6fc4409cb9a3b56ff3708, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4761767303161018, guid: a3161ff880a6fc4409cb9a3b56ff3708, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3161ff880a6fc4409cb9a3b56ff3708, type: 2}
