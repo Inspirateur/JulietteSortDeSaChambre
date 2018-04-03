@@ -35,6 +35,14 @@ public class camera : MonoBehaviour {
 	private Animator anim;
 
 	private CinematiqueManager cinematiqueManager;
+	public float shakeDuration ;
+	public float shakeAmount ;
+	public float decreaseFactor;
+	private float shakeDurationTemp ;
+	private float shakeAmountTemp ;
+	private float decreaseFactorTemp;
+	public bool shakingIsActive;
+	private Vector3 originalPos;
 
 	void Awake() {
 		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
@@ -51,7 +59,10 @@ public class camera : MonoBehaviour {
 		// this.cinematiqueEnCours = false;
 
 		cinematiqueManager = GetComponent<CinematiqueManager> ();
-
+		shakeDurationTemp = shakeDuration;
+		shakeAmountTemp = shakeAmount;
+		decreaseFactorTemp = decreaseFactor;
+		
 		//playerPref
 		sensibiliteManetteX=PlayerPrefs.GetFloat("sensibiliteManetteX",sensibiliteManetteX);
 		sensibiliteManetteY=PlayerPrefs.GetFloat("sensibiliteManetteY",sensibiliteManetteY);
@@ -64,13 +75,47 @@ public class camera : MonoBehaviour {
 	 * est été mis à jour avant de positionner la caméra car sa position 
 	 * dépend de celle de la princesse.
 	 */
+
+
+
 	void LateUpdate() {
 
 		if(this.cinematiqueManager.isInCinematique){
-
+			if (shakingIsActive) {
+				shaking ();
+			}
 		}
 		else{
 			this.gererCameraClassique();
+		}
+
+
+	}
+
+	public void activeShaking(){
+		originalPos = GetComponent<Transform> ().localPosition;
+		shakeDuration = shakeDurationTemp;
+		shakeAmount = shakeAmountTemp;
+		decreaseFactor = decreaseFactorTemp;
+		shakingIsActive = true;
+	}
+
+	private void shaking(){
+		if (shakeDuration > 0f) {
+
+			GetComponent<Transform> ().localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+
+			shakeDuration -= Time.deltaTime;
+		} else if (decreaseFactor > 0f) {
+			decreaseFactor -= Time.deltaTime;
+
+			GetComponent<Transform> ().localPosition = originalPos + Random.insideUnitSphere * shakeAmount * decreaseFactor;
+
+
+		} else {
+			GetComponent<Transform> ().localPosition = originalPos;
+			shakingIsActive = false;
+
 		}
 	}
 

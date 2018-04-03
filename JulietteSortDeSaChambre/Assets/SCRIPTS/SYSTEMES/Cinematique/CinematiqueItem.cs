@@ -22,6 +22,8 @@ public class CinematiqueItem {
 
 	private Coroutine actualDeplacement;
 
+	public bool isShaking;
+
 
 	public bool isInDeplacement;
 

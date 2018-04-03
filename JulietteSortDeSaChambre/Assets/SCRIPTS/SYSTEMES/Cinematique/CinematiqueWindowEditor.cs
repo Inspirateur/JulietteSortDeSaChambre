@@ -100,7 +100,7 @@ public class CinematiqueWindowEditor : EditorWindow {
 
 			if (cinematiqueItemList.itemList.Count > 0) 
 			{
-
+				cinematiqueItemList.itemList [viewIndex - 1].isShaking = EditorGUILayout.Toggle ("Tremblement", cinematiqueItemList.itemList [viewIndex - 1].isShaking);
 				cinematiqueItemList.itemList [viewIndex - 1].pos = EditorGUILayout.Vector3Field ("Position", cinematiqueItemList.itemList [viewIndex - 1].pos);
 				cinematiqueItemList.itemList [viewIndex - 1].rot = EditorGUILayout.Vector3Field ("Rotation", cinematiqueItemList.itemList [viewIndex - 1].rot);
 				cinematiqueItemList.itemList [viewIndex - 1].dureeArret = EditorGUILayout.IntField ("Duree arret", cinematiqueItemList.itemList [viewIndex - 1].dureeArret);
