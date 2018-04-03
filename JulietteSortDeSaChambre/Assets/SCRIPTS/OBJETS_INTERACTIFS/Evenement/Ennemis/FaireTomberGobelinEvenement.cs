@@ -6,7 +6,7 @@ public class FaireTomberGobelinEvenement : Evenement {
 
 	private List<IA_Agent> listeGobelins;
 
-	void Start () {
+	void Awake () {
 		this.listeGobelins = new List<IA_Agent> ();
 	}
 	

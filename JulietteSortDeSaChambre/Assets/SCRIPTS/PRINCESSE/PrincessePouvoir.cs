@@ -9,6 +9,8 @@ public class PrincessePouvoir : MonoBehaviour {
     public float duration;
     public float cooldown;
 
+	public bool isUnlocked;
+
 	// Use this for initialization
 	void Start () {
 	}

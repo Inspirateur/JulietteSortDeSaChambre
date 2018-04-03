@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 114708050653962688}
   - component: {fileID: 114130132098004180}
   - component: {fileID: 114258428702989616}
+  - component: {fileID: 114321347468227758}
   - component: {fileID: 114691372669306674}
   - component: {fileID: 114817043940736248}
   - component: {fileID: 114004325537859082}
@@ -558,6 +559,8 @@ GameObject:
   - component: {fileID: 114927939600647634}
   - component: {fileID: 114655147056605218}
   - component: {fileID: 114072515646087178}
+  - component: {fileID: 114137151876046506}
+  - component: {fileID: 114245648767570888}
   m_Layer: 0
   m_Name: Trollnew
   m_TagString: Mob
@@ -787,7 +790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986958385299472}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 8.569685, y: -0.008839205, z: 6.9545546}
+  m_LocalPosition: {x: 49.147133, y: 32.709064, z: -35.01979}
   m_LocalScale: {x: 0.53, y: 0.53, z: 0.53}
   m_Children:
   - {fileID: 4989829339340154}
@@ -1284,7 +1287,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1387,6 +1390,18 @@ MonoBehaviour:
   rayonAudition: 4
   estAveugle: 0
   estSourd: 0
+--- !u!114 &114137151876046506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986958385299472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86142e27c77b7f5488c3908928f921b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  troll: {fileID: 114230659502969786}
 --- !u!114 &114167331230578318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1412,7 +1427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  etatInitial: {fileID: 114002012053945052}
+  etatInitial: {fileID: 114691372669306674}
   vitesseAngulaire: 8
   etatMort: {fileID: 114787592065180430}
   etatTomber: {fileID: 0}
@@ -1423,6 +1438,18 @@ MonoBehaviour:
   etatGlacer: {fileID: 0}
   immuniteEtourdir: 1
   etatEtourdir: {fileID: 0}
+--- !u!114 &114245648767570888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986958385299472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6535914e217e3d24f8a8974c157aa56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectSpawn: {fileID: 0}
 --- !u!114 &114258428702989616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1458,6 +1485,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e1590821f2e05e14b918f017156f95db, type: 3}
   - {fileID: 8300000, guid: fee8c66f5eb7910459b4b44435b82749, type: 3}
   - {fileID: 8300000, guid: 1b2ea417f325a514594c8eeecc2e467c, type: 3}
+  volumeGeneral: 0
+--- !u!114 &114321347468227758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986958385299472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b323417f6ea45774490490bdf9ee1019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114559172688366580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1470,6 +1509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listeClips: []
+  volumeGeneral: 10
 --- !u!114 &114655147056605218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1496,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c1bc16272536b498854a7d2a26c69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enAttente: 0
+  enAttente: 1
   apparition: {fileID: 0}
   ev: {fileID: 0}
 --- !u!114 &114708050653962688

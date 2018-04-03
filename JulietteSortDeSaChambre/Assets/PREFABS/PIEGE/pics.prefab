@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 95086587644595054}
   - component: {fileID: 114657328044391816}
   - component: {fileID: 82684085692459810}
+  - component: {fileID: 114533540133226972}
   m_Layer: 0
   m_Name: pics
   m_TagString: Untagged
@@ -74,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416651392505052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.087734, y: 33.218914, z: -31.56601}
+  m_LocalPosition: {x: 29.46291, y: 0.6203983, z: -20.78181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4605038895351150}
@@ -246,14 +247,14 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0.20601463
-      value: 0.29545975
+      time: 0.11996269
+      value: 0.07719803
       inSlope: 0.026879787
       outSlope: 0.026879787
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.3427288
-      value: 0.07911682
+      time: 0.4228527
+      value: 0.031082153
       inSlope: -0.12449438
       outSlope: -0.12449438
       tangentMode: 0
@@ -345,6 +346,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93c3a713863c8ee4aa29a0450124413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114533540133226972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416651392505052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57118066cda13fa488113ab2e4c8bb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114657328044391816

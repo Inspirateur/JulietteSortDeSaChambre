@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114537044205634534}
   - component: {fileID: 65580003014781224}
   - component: {fileID: 65854686913199742}
+  - component: {fileID: 114616286726995662}
   m_Layer: 0
   m_Name: coeur-4
   m_TagString: Untagged
@@ -144,6 +145,17 @@ MonoBehaviour:
   demiAngleActivationFrontal: 0
   minDistanceSurbrillance: 0
   EnableSurbrillance: 0
+--- !u!114 &114616286726995662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1226122811010212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aca3446ac9eff499ec645041aa95b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114957909680796840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbddd943d8e055d4ebe9e1121923e396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: 
   descriptionObjet: 
   soundGenerator: {fileID: 0}

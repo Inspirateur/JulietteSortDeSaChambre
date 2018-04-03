@@ -4,119 +4,82 @@ using UnityEngine;
 
 public class pendule : MonoBehaviour {
 
-	[Header("Direction de l'oscillation :")]
-	[Range(0,359)]
-	public int angleY;
-
 	[Header("Amplitude de l'oscillation :")]
 	[Range(0,90)]
-	public int angleZ;
-	private float angleZInitial;
-	private float angleZInitialInvert;
+	public int amplitude = 80;
 
 	[Header("Temps de demarage :")]
-	public float TimeBegin = 0;
-
-	private float ActivationTime;
-
-	[Header("Reset Position Gauche ? (default = Droite) :")]
-	public bool PositionResetGauche;
+    [Range(0, (2*Mathf.PI))]
+    public float TimeBegin = 0;
 
 	[Header("Vitesse :")]
-	public float speed = 1.5f;
-	private bool stop;
-	private bool canStart;
+    [Range(0, 5)]
+    public float speed = 2f;
+
+    [Header("Vitesse remonté mécanique :")]
+    [Range(1, 10)]
+    public float speedMecanique = 5f;
+
+    [Header("La lame peut s'arreter :")]
+    public bool canStop = true;
+
+    [Header("Est-il arrété ? :")]
+    public bool stop = false;
+
+    [Header("Sparkle de la lame :")]
+    public GameObject sparkle;
+
+    [Header("Remonté sciptée ? :")]
+    public bool ArretScripte = false;
+
+    private float time;
 
     private AudioSource audioSource;
 
-	void Start () {
+    void Awake () {
         audioSource = GetComponentInChildren<AudioSource> ();
-        angleZInitial = this.transform.rotation.eulerAngles.z;
-		angleZInitialInvert = 360 - angleZInitial;
-		ActivationTime = Time.time + TimeBegin;
-		// StartCoroutine(tranquille());
-	}
+        time = TimeBegin;
+    }
 
 	void Update (){
-		if (!stop && Time.time > ActivationTime) 
-		{
-			if (PositionResetGauche)
-			{
-				rotationDroite ();
-			} else
-			{
-				rotationGauche ();
-			}
-		} else {
-			if (PositionResetGauche)
-			{
-				setPenduleInitialPositionGauche ();
-			} else
-			{
-				setPenduleInitialPositionDroite ();
-			}
-		}
+        if (!stop) {
+            time += Time.deltaTime;
+            transform.Rotate(new Vector3(0, 0, 1), amplitude * Mathf.Cos(speed * time) - transform.rotation.eulerAngles.z);
+        } else {
+            if (ArretScripte) {
+                if (transform.rotation.eulerAngles.z < amplitude || transform.rotation.eulerAngles.z > (amplitude+speedMecanique)) {
+                    transform.Rotate(new Vector3(0, 0, 1), (speedMecanique * Time.deltaTime)%360);
+                }
+            } else {
+                if (transform.rotation.eulerAngles.z < amplitude) {
+                    transform.Rotate(new Vector3(0, 0, 1), speedMecanique * Time.deltaTime);
+                } else if (transform.rotation.eulerAngles.z > (360 - amplitude)) {
+                    transform.Rotate(new Vector3(0, 0, 1), -speedMecanique * Time.deltaTime);
+                }
+            }
+        }
 	}
 
-	void rotationGauche() {
-		transform.rotation = Quaternion.Lerp (
-			Quaternion.Euler(this.transform.rotation.x,angleY,-angleZ), 
-			Quaternion.Euler(this.transform.rotation.x,angleY,angleZ),
-			(Mathf.Sin(Time.time * speed + Mathf.PI/2) + 1.0f)/ 2.0f
-		);
-	}
-
-	void rotationDroite() {
-		transform.rotation = Quaternion.Lerp (
-			Quaternion.Euler(this.transform.rotation.x,angleY,angleZ), 
-			Quaternion.Euler(this.transform.rotation.x,angleY,-angleZ),
-			(Mathf.Sin(Time.time * speed + Mathf.PI/2) + 1.0f)/ 2.0f
-		);
-	}
-
-	public void setVitesse(float vitesse) {
-		speed = vitesse;
-	}
-
-	public void stopPendule() {
+    public void StopPendule() {
         audioSource.Stop();
-        canStart = false;
-		stop = true;
+		stop = canStop;
 	}
 
-	void setPenduleInitialPositionGauche() {
-		if (this.transform.rotation.eulerAngles.z < angleZInitial || this.transform.rotation.eulerAngles.z > angleZInitialInvert) {
-			this.transform.Rotate (Vector3.forward * speed * Time.deltaTime);
-			Invoke ("setPenduleInitialPositionGauche",0f);
-		} else {
-			transform.rotation = Quaternion.Euler(this.transform.rotation.x,angleY,angleZInitial);
-			canStart = true;
-		}
+	public void StartPendule() {
+        audioSource.Play();
+        time = TimeBegin;
+        stop = false;
 	}
 
-	void setPenduleInitialPositionDroite() {
-		if (this.transform.rotation.eulerAngles.z < angleZInitialInvert || this.transform.rotation.eulerAngles.z > angleZInitial) {
-			this.transform.Rotate (Vector3.back * speed * Time.deltaTime);
-			Invoke ("setPenduleInitialPositionDroite",0f);
-		} else {
-			transform.rotation = Quaternion.Euler(this.transform.rotation.x,angleY,angleZInitial);
-			canStart = true;
-		}
-	}
+    public void setTime(float time){
+        this.time = time;
+    }
 
-	public void startPendule() {
-		if (canStart) {
-            audioSource.Play();
-            stop = false;
-		} else {
-			Invoke ("startPendule",0f);
-		}
-	}
+    public float getTime(){
+        return this.time;
+    }
 
-	IEnumerator tranquille() {
-		yield return new WaitForSeconds(10f);
-		stopPendule();
-		yield return new WaitForSeconds(4f);
-		startPendule();
-	}
+    public void StartSpikle() {
+        sparkle.SetActive(true);
+    }
 }
