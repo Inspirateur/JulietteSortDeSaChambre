@@ -24,6 +24,10 @@ public class SoundManager : MonoBehaviour {
 
 	public int volumeGeneral;
 
+	public event MyDelegateVolume onVolumeChange;
+
+	public delegate void MyDelegateVolume();
+
 	// Use this for initialization
 	void Awake() {
 		levelAudioLoop1.clip = defaultLevelMusic;
@@ -165,5 +169,9 @@ public class SoundManager : MonoBehaviour {
 	public void stopSon(){
 		Debug.Log ("STOP");
 		levelAudioSingle.Stop ();
+	}
+
+	public void notifVolumeChange(){
+		onVolumeChange();
 	}
 }
