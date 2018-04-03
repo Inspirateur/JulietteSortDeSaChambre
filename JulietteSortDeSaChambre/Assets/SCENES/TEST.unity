@@ -960,8 +960,8 @@ Prefab:
       value: echellefin (1)
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114715291777661362, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2, type: 2}
-    - {fileID: 114104619414998790, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &351595338
@@ -3028,49 +3028,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 65484650222514014, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1972622466784676, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114715291777661362, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2, type: 2}
-    - {fileID: 114104619414998790, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1015418949 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1972622466784676, guid: 106cdf124f3d2dd4d8b8928df5d2bcd2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1015418948}
---- !u!114 &1015418950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1015418949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c46f467847996c4e83d698458dbb0c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionjuliette: {x: 0.93, y: 7.476, z: 15.72}
---- !u!65 &1015418951
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1015418949}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.025693968, y: 0.028417515, z: 0.073412426}
-  m_Center: {x: 0.04, y: 0.005791234, z: -0.005}
 --- !u!1001 &1018476208
 Prefab:
   m_ObjectHideFlags: 0

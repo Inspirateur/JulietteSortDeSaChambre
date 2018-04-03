@@ -242,6 +242,8 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("isPushing", false);
         anim.SetBool("IsClimbing", false);
         anim.SetBool("EndClimbing", false);
+        anim.SetBool("IdlePushing", false);
+        
     }
 
     IEnumerator WaitForVelocityZero()
