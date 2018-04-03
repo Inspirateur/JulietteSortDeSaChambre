@@ -27,16 +27,19 @@ public class PrincesseVie : MonoBehaviour {
 	private AffichageVie hudVie;
 	private AffichageMort hudMort;
 
-	/*void Awake(){
+    private PrincesseDeplacement deplacement;
+
+    /*void Awake(){
 		vie_courante = vie_max;
 		Debug.Log (vie_courante);
 
 	}*/
 
 
-	// Use this for initialization
-	void Start () {
-		scene = SceneManager.GetActiveScene ();
+    // Use this for initialization
+    void Start () {
+        deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
+        scene = SceneManager.GetActiveScene ();
 		if (scene.name == "Niveau 1") {
 			GameControl.control.Save ();
 			vie_courante = vie_max;
@@ -60,12 +63,14 @@ public class PrincesseVie : MonoBehaviour {
 			Debug.Log ("GAME OVER");
 			gameover = true;
 			hudMort.afficheMort ();
-			SceneManager.LoadScene (scene.name);
-			GameControl.control.Load ();
-			Debug.Log(GameControl.control.listArmeTenu);
-			vie_courante = vie_max;
-			GameControl.control.vie = vie_courante;
-			GameControl.control.Save ();
+			// SceneManager.LoadScene (scene.name);
+			// GameControl.control.Load ();
+			// Debug.Log(GameControl.control.listArmeTenu);
+			// vie_courante = vie_max;
+			// GameControl.control.vie = vie_courante;
+			// GameControl.control.Save ();
+
+			// CheckPointManager.getInstance().restartCheckPoint();
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {
@@ -98,11 +103,13 @@ public class PrincesseVie : MonoBehaviour {
 		GameControl.control.vie = vie_courante;
 		Debug.Log("vie courante : " + vie_courante);
 		setHudVie ();
+		gameover = false;
 	}
 
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)
 	{
-		anim.Play ("hurt");
+        deplacement.AttaqueInteromput();
+        anim.Play ("hurt");
 
 		if (CanPlaySonHurt)
 		{

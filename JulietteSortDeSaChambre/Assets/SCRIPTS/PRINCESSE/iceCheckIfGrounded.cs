@@ -20,7 +20,7 @@ public class iceCheckIfGrounded : MonoBehaviour {
 		if(other.tag=="sol"){
 			mesh.enabled=true;
 		}
-		Debug.Log(other.tag);
+		// Debug.Log(other.tag);
     }
 	
 }

@@ -15,14 +15,20 @@ public class AffichageMort : MonoBehaviour {
 	}
 
 	public void afficheMort(){
-		/*Time.timeScale = 0;
+        /*Time.timeScale = 0;
 		foreach(Transform t in listTransform){
 			t.gameObject.SetActive (true);
 		}*/
-	}
+        for (int i = 1; i < listTransform.Length; i++) {
+            listTransform[i].gameObject.SetActive(true);
+        }
+    }
 
-	private void resetScene(){
-
-	}
+	public void resetScene(){
+        for (int i = 1; i < listTransform.Length; i++) {
+            listTransform[i].gameObject.SetActive(false);
+        }
+        CheckPointManager.getInstance().restartCheckPoint();
+    }
 
 }

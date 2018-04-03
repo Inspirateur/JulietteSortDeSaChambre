@@ -28,6 +28,8 @@ public class PrincessePouvoirGlace : PrincessePouvoir
 
     private Animator animator;
 
+    private PrincesseDeplacement deplacement;
+
 
     //ex script glace sol
     private bool running;
@@ -48,6 +50,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         isUnlocked=false;
         listeAgentGlaces = new List<IA_Agent>();
         Debug.Log(duration);
+        deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
     }
 
     // Update is called once per frame
@@ -55,6 +58,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     {
         if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower && isUnlocked)
         {
+            deplacement.AttaqueInteromput();
             animator.Play("IcePower");
             canPower=false;
             StartCoroutine(WaitForIceAnim());

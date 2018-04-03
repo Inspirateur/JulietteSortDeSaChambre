@@ -32,8 +32,6 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool attackjump;
     private bool isCharging;
 
-    [Header("Gestion Combo :")]
-    public AudioClip[] ComboSound;
     [HideInInspector]
     public bool attaqueBegin;
 
@@ -59,8 +57,6 @@ public class PrincesseDeplacement : MonoBehaviour
 
     void Update()
     {
-        
-
         bool toucheTriche = Input.GetKeyDown(KeyCode.K);
         if(toucheTriche){
             this.transform.position = new Vector3(-27.0f + 64.01028f + -32.14713f, 14.0f + 18.92948f + -28.89907f, -34.0f + 6.844484f + -30.98021f);
@@ -80,6 +76,7 @@ public class PrincesseDeplacement : MonoBehaviour
             {
                 if (CanDash == true && isGrounded == true)
                 {
+                    AttaqueInteromput();
                     anim.Play("leftdash");
                     rb.AddForce(transform.rotation * new Vector3(moveHorizontal, 0f, 0f).normalized * forceDash, ForceMode.Impulse);
                     StartCoroutine(WaitForVelocityZero());
@@ -90,7 +87,7 @@ public class PrincesseDeplacement : MonoBehaviour
             else
             {
                 GererDeplacement(moveHorizontal, moveVertical);
-                if (!anim.GetBool("IsJumping") && isGrounded )
+                if (!anim.GetBool("IsJumping") && isGrounded && !attaqueBegin)
                 {
                     attackjump = false;
                     if ((moveHorizontal != 0.0f && moveVertical == 0.0f))
@@ -115,27 +112,21 @@ public class PrincesseDeplacement : MonoBehaviour
                     attackjump = false;
                     anim.SetBool("IsJumping", false);
                 }
-
                 else
                 {
                     gererAnim("IsJumping");
-
                 }
             }
-
-         
         }
         else
         {
 	        if (isGrounded && anim.GetBool("IsJumping"))
 	        {
-                   
-		            gererAnim("IsIdle");
+		        gererAnim("IsIdle");
                 
-	        }else if(isGrounded && !anim.GetBool("IsIdle")){
+	        } else if(isGrounded && !anim.GetBool("IsIdle")){
 		        gererAnim ("IsIdle");
 	        }
-
         }
 
         Vector3 velocity = rb.velocity;  
@@ -143,21 +134,20 @@ public class PrincesseDeplacement : MonoBehaviour
         if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing"))
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
-	        gererAnim("IsJumping");
+            AttaqueInteromput();
+            gererAnim("IsJumping");
 	        isGrounded = false;
         }
   
-
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
         if (toucheAttack1 && !anim.GetBool("isPushing"))
         {
-	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
+	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping") || anim.GetBool("IsRunning") || anim.GetBool("IsSidewalk") || anim.GetBool("IsBackwalk"))
 	        {
                 if (!attaqueBegin)
                 {
                     playAttaque("combo1");
-                    attaqueBegin = true;
                 }
             }
 	        else if (anim.GetBool("IsJumping") && attackjump == false)
@@ -167,18 +157,6 @@ public class PrincesseDeplacement : MonoBehaviour
 		        rb.AddForce(transform.forward * 500f);
 		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
 	        }
-	        else if (anim.GetBool("IsRunning") == true)
-	        {
-                playAttaque("attack_run");
-	        }
-	        else if (anim.GetBool("IsSidewalk") == true)
-	        {
-                playAttaque("attack_run");
-            }
-            else if (anim.GetBool("IsBackwalk"))
-            {
-                playAttaque("attack_backwalk");
-            }
         }
 
 
@@ -252,8 +230,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
     private void GererDeplacement(float moveHorizontal, float moveVertical)
     {
-
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && !attaqueBegin)
         {
             float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
 
@@ -290,8 +267,6 @@ public class PrincesseDeplacement : MonoBehaviour
                 timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
             }
         }
-
-
     }
 
     IEnumerator WaitBeforDash()
@@ -308,6 +283,10 @@ public class PrincesseDeplacement : MonoBehaviour
         }
     }
 
+    public void AttaqueInteromput() {
+        attaqueBegin = false;
+    }
+
     private void OnCollisionExit(Collision collision){
         if(collision.collider.tag == "sol" || collision.collider.tag == "Decor"){
             isGrounded=false;
@@ -316,6 +295,3 @@ public class PrincesseDeplacement : MonoBehaviour
 
     }
 }
-
-
-

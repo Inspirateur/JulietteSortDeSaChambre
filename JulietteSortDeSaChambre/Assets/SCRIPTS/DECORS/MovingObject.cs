@@ -15,7 +15,8 @@ public class MovingObject : MonoBehaviour {
 
 	[Header("Temps avant de check la position avant déplacement :")]
 	public float TimeWaitForCheck;
-	private float OriginalResetTime;
+	[HideInInspector]
+	public float OriginalResetTime;
 
 	[Header("Déplacement cyclique :")]
 	public bool Cycle;
@@ -23,13 +24,21 @@ public class MovingObject : MonoBehaviour {
 	[Header("Arreté au depart")]
 	public bool isStop;
 
-	private Vector3 NouvellePosition;
-	private bool DeplacementRetour;
-	private int PostionToCheck;
+	[HideInInspector]
+	public Vector3 NouvellePosition;
+
+	[HideInInspector]
+	public bool DeplacementRetour;
+
+	[HideInInspector]
+	public int PostionToCheck;
+
+	void Awake() {
+		this.transform.position = Position[Etat].position;
+	}
 
 	// Use this for initialization
 	void Start () {
-		this.transform.position = Position[Etat].position;
 		if (!isStop) {
 			StartPlateformeBeggening ();
 		}
