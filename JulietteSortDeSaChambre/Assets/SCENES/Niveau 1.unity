@@ -7208,6 +7208,56 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 377b1030bf105dd4197c5c592910cb5f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &178425164 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1510914045824466, guid: 8d957c7614cfc6d469d900932a481495,
+    type: 2}
+  m_PrefabInternal: {fileID: 343917672}
+--- !u!114 &178425170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178425164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd91b786714a384796685954b902bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &178425171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178425164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5e2b90d84abc43bb84ab3d612067e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objet: {fileID: 178425172}
+  distanceActivation: 1.7
+  demiAngleActivationFrontal: 90
+  minDistanceSurbrillance: 0
+  EnableSurbrillance: 0
+--- !u!114 &178425172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178425164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d529f69e83a18204592fd523835af2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  declencheEvenement: 0
+  nomObjet: 
+  descriptionObjet: 
+  soundGenerator: {fileID: 0}
+  sm: {fileID: 0}
+  BesoinItemPourActivation: {fileID: 0}
+  book: {fileID: 270549564}
 --- !u!1001 &178594996
 Prefab:
   m_ObjectHideFlags: 0
@@ -11176,6 +11226,11 @@ Prefab:
     - {fileID: 54950176865755854, guid: 0e3a9a4b1955f5646bef9b17ba7eafdc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0e3a9a4b1955f5646bef9b17ba7eafdc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &270549564 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1635949319698036, guid: 8d957c7614cfc6d469d900932a481495,
+    type: 2}
+  m_PrefabInternal: {fileID: 343917672}
 --- !u!1 &270810688
 GameObject:
   m_ObjectHideFlags: 0
@@ -76479,6 +76534,10 @@ Prefab:
     - target: {fileID: 1824990331826950, guid: ee16cc500de7c4b4f833761d7c77046a, type: 2}
       propertyPath: m_Name
       value: CheckPoint_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824990331826950, guid: ee16cc500de7c4b4f833761d7c77046a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee16cc500de7c4b4f833761d7c77046a, type: 2}
