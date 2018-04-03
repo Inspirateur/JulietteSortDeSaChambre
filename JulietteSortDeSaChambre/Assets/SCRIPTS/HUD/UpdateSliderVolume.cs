@@ -11,7 +11,7 @@ public class UpdateSliderVolume : MonoBehaviour {
 
 	public SoundManager soundManager;
 
-	public SoundEntity[] soundEntitys;
+	//public SoundEntity[] soundEntitys;
 
 	
 	void Start () {
@@ -19,7 +19,7 @@ public class UpdateSliderVolume : MonoBehaviour {
 		slider.value=soundManager.volumeGeneral;
 		text.text=slider.value.ToString("0");
 		slider.onValueChanged.AddListener(delegate {UpdateText(); });
-		soundEntitys=FindObjectsOfType<SoundEntity>();
+		//soundEntitys=FindObjectsOfType<SoundEntity>();
 		//selectThis();
 	}
 	
@@ -30,10 +30,11 @@ public class UpdateSliderVolume : MonoBehaviour {
 
 	void UpdateText(){
 		soundManager.volumeGeneral=(int)slider.value;
-		for (int i = 0; i < soundEntitys.Length; i++)
-		{
-			soundEntitys[i].volumeGeneral=(int)slider.value;
-		}
+		soundManager.notifVolumeChange();
+		// for (int i = 0; i < soundEntitys.Length; i++)
+		// {
+		// 	soundEntitys[i].volumeGeneral=(int)slider.value;
+		// }
 		PlayerPrefs.SetInt("volumeGeneral",soundManager.volumeGeneral);
 		text.text=slider.value.ToString("0");
 	}
