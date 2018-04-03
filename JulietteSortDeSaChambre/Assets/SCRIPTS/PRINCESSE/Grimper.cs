@@ -53,7 +53,7 @@ public class Grimper : ObjetEnvironnemental {
 	// Update is called once per frame
 	void Update () {
 
-		if(activate && rb.isGrounded && time < Time.time){
+		if(activate && rb.isGrounded && time < Time.time && !princesseAnimator.GetBool("EndClimbing")){
 			activate = false;
 			princesse.GetComponent<Rigidbody>().useGravity = true;
 			princesseAnimator.Play("idle1");

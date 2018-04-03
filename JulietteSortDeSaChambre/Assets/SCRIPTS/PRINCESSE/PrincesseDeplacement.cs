@@ -148,7 +148,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        }
               else if(moveVertical == 0.0f && anim.GetBool("IsClimbing")){
                     if (anim.GetCurrentAnimatorStateInfo(0).IsName("grimper")){
-                        Debug.Log("STOP");
+                      //  Debug.Log("STOP");
                         anim.speed = 0;
                     }
                 }
@@ -308,7 +308,7 @@ public class PrincesseDeplacement : MonoBehaviour
         }
         else if(!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && anim.GetBool("IsClimbing"))
         {
-            Debug.Log("je passe ici dans le truc pour grimper");
+            //Debug.Log("je passe ici dans le truc pour grimper");
 
             Vector3 mouvement = this.transform.up * Mathf.Max(moveVertical, -0.5f);
             float norme = Mathf.Max(mouvement.magnitude, 0.5f);
