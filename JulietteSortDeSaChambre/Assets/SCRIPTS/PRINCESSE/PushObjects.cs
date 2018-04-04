@@ -30,10 +30,12 @@ public class PushObjects : ObjetEnvironnemental {
     private Vector3 princessepostemp;
     private Vector3 temppos;
     private float distance;
+    private PrincesseDeplacement deplacement;
     void Start()
     {
         princesseAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         princesse = GameObject.FindGameObjectWithTag("Player");
+        deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>(); 
         activate=false;
         CollisionCount = 0;
 
@@ -57,7 +59,10 @@ public class PushObjects : ObjetEnvironnemental {
                     princesse.transform.forward = princessetemp;
                     Debug.Log(this.transform.forward);
                     this.transform.parent = princesse.transform;
-                    princesseAnimator.SetBool("isPushing", true);
+                    deplacement.canMove = false;
+                    princesseAnimator.Play("idle1");
+                    deplacement.gererAnim("PushIdle");
+                    deplacement.canMove = true;
             
                 }
 
@@ -68,7 +73,10 @@ public class PushObjects : ObjetEnvironnemental {
                     princessetemp.y = 0;
                     princesse.transform.forward = princessetemp;
                     this.transform.parent = princesse.transform;
-                    princesseAnimator.SetBool("isPushing", true);
+                    deplacement.canMove = false;
+                    princesseAnimator.Play("idle1");
+                    deplacement.gererAnim("PushIdle");
+                    deplacement.canMove = true;
                     
                 }
 
@@ -79,7 +87,10 @@ public class PushObjects : ObjetEnvironnemental {
                     princessetemp.y = 0;
                     princesse.transform.forward = princessetemp;
                     this.transform.parent = princesse.transform;
-                    princesseAnimator.SetBool("isPushing", true);
+                    deplacement.canMove = false;
+                    princesseAnimator.Play("idle1");
+                    deplacement.gererAnim("PushIdle");
+                    deplacement.canMove = true;
                 
                 }
 
@@ -90,7 +101,10 @@ public class PushObjects : ObjetEnvironnemental {
                     princessetemp.y = 0;
                     princesse.transform.forward = princessetemp;
                     this.transform.parent = princesse.transform;
-                    princesseAnimator.SetBool("isPushing", true);
+                    deplacement.canMove = false;
+                    princesseAnimator.Play("idle1");
+                    deplacement.gererAnim("PushIdle");
+                    deplacement.canMove = true;
                     
                 }
                 distance = Vector3.Distance(princesse.transform.position,this.transform.position);
@@ -100,7 +114,7 @@ public class PushObjects : ObjetEnvironnemental {
             else if(activate)
             {
                 this.transform.parent = null;
-                princesseAnimator.SetBool("isPushing", false);
+                deplacement.gererAnim("IsIdle");
                 activate=false;
             }
 
