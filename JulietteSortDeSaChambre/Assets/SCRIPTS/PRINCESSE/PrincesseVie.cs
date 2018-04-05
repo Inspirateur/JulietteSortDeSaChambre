@@ -16,6 +16,7 @@ public class PrincesseVie : MonoBehaviour {
 	public float HauteurParticule;
 	[Tooltip("Son quand la princesse prend des dégâts")]	
 	public AudioClip[] PrincesseHurt;
+	public AudioClip PrincesseInpact;
 	private bool CanPlaySonHurt;
 
 	private int vie_courante;
@@ -110,12 +111,13 @@ public class PrincesseVie : MonoBehaviour {
 	{
         deplacement.AttaqueInteromput();
         anim.Play ("hurt");
+		sm.playOneShot(PrincesseInpact, Random.Range(0.1f, 0.3f), Random.Range(0.9f, 1.0f));
 
 		if (CanPlaySonHurt)
 		{
 			CanPlaySonHurt = false;
 			//sm.playOneShot(PrincesseHurt,Random.Range(0.5f,0.7f),Random.Range(0.85f,1.0f));
-			sm.playOneShot(PrincesseHurt[Random.Range(0, 2)], Random.Range(0.5f, 0.7f), Random.Range(0.9f, 1.0f));
+			sm.playOneShot(PrincesseHurt[Random.Range(0, 2)], 1, Random.Range(0.9f, 1.0f));
 			StartCoroutine(WaitForSonHurtToPlay());
 		}
 		
