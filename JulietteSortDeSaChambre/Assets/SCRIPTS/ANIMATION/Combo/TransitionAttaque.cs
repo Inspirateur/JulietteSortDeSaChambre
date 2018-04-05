@@ -19,6 +19,7 @@ public class TransitionAttaque : StateMachineBehaviour {
 		anim = princesse.GetComponent<Animator>();
 
 		deplacement.attaqueBegin = true;
+		deplacement.canMove = false;
 
 		anim.SetBool("AttaqueContinu", false);
 
