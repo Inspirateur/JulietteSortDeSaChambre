@@ -95,10 +95,13 @@ public class PrincesseArme : MonoBehaviour {
 	private SoundManager sm;
 	public AudioClip[] comboSound;
 
+	private GameObject princesse;
+
 
 	// Use this for initialization
 	void Awake () {
 		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+		princesse = GameObject.FindGameObjectWithTag("Player");
 
 		attaqueCorpsACorpsEnCours = false;
 		attaqueDistanceEnCours = false;
@@ -307,6 +310,11 @@ public class PrincesseArme : MonoBehaviour {
 
 	public void PlaySoundCombo(int tabNunber) {
 		sm.playOneShot(comboSound[tabNunber], 0.2f);
+	}
+
+	public void DashInCombo () {
+		princesse.transform.localEulerAngles = new Vector3(0, cam.transform.localEulerAngles.y, 0);
+		princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * Vector3.forward * 20, ForceMode.Impulse);
 	}
 
 	public void lancerAttaqueCharge(){
