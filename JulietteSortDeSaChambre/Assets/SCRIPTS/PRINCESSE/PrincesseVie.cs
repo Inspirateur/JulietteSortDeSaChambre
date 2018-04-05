@@ -15,7 +15,7 @@ public class PrincesseVie : MonoBehaviour {
 	[Tooltip("Hauteur min : 0.5, max : 1.5")]
 	public float HauteurParticule;
 	[Tooltip("Son quand la princesse prend des dégâts")]	
-	public AudioClip PrincesseHurt;
+	public AudioClip[] PrincesseHurt;
 	private bool CanPlaySonHurt;
 
 	private int vie_courante;
@@ -114,7 +114,8 @@ public class PrincesseVie : MonoBehaviour {
 		if (CanPlaySonHurt)
 		{
 			CanPlaySonHurt = false;
-			sm.playOneShot(PrincesseHurt,Random.Range(0.5f,0.7f),Random.Range(0.85f,1.0f));
+			//sm.playOneShot(PrincesseHurt,Random.Range(0.5f,0.7f),Random.Range(0.85f,1.0f));
+			sm.playOneShot(PrincesseHurt[Random.Range(0, 2)], Random.Range(0.5f, 0.7f), Random.Range(0.9f, 1.0f));
 			StartCoroutine(WaitForSonHurtToPlay());
 		}
 		
