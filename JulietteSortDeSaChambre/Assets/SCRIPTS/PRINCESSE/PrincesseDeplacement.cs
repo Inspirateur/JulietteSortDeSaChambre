@@ -22,7 +22,6 @@ public class PrincesseDeplacement : MonoBehaviour
     private GameObject cam;
     private bool CanDash;
     private Rigidbody rb;
-    private bool isPushing;
     private PrincesseArme princesseArme;
     private GameObject pushableCube;
     private float timerStep;
@@ -41,7 +40,6 @@ public class PrincesseDeplacement : MonoBehaviour
     void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
-        isPushing = false;
         CanDash = true;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -111,6 +109,7 @@ public class PrincesseDeplacement : MonoBehaviour
                     }
                     else if(moveVertical > 0.0f && anim.GetBool("PushIdle"))
                     {
+                        Debug.Log("je passe ici");
                         gererAnim("isPushing");
                     }
                     else if(moveVertical > 0.0f && anim.GetBool("IsClimbing")){
@@ -134,10 +133,11 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (isGrounded && anim.GetBool("IsJumping"))
 	        {
+                Debug.Log("je passe ici");  
 		        gererAnim("IsIdle");
                 
 	        }else if(isGrounded && !anim.GetBool("IsIdle") && !anim.GetBool("EndClimbing") && !anim.GetBool("PushIdle") && !anim.GetBool("isPushing")){
-                Debug.Log("je passe ici");  
+                
 		        gererAnim ("IsIdle");
 	        }
             else if(moveVertical == 0.0f && anim.GetBool("IsClimbing")){
