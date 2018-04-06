@@ -133,11 +133,11 @@ public class PrincesseDeplacement : MonoBehaviour
         {
 	        if (isGrounded && anim.GetBool("IsJumping"))
 	        {
-                Debug.Log("je passe ici");  
 		        gererAnim("IsIdle");
                 
-	        }else if(isGrounded && !anim.GetBool("IsIdle") && !anim.GetBool("EndClimbing") && !anim.GetBool("PushIdle") && !anim.GetBool("isPushing")){
-                
+	        }else if(isGrounded && !anim.GetBool("IsIdle") && !anim.GetBool("EndClimbing") && !anim.GetBool("PushIdle") && !anim.GetBool("isPushing") && canMove){
+                     
+
 		        gererAnim ("IsIdle");
 	        }
             else if(moveVertical == 0.0f && anim.GetBool("IsClimbing")){
