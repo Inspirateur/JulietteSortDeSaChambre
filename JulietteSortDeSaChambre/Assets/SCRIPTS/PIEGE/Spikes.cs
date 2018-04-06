@@ -10,7 +10,7 @@ public class Spikes : MonoBehaviour {
     [Tooltip("multiplication de la vitesse de l'animation, pour une vitesse normale : 1")]
     public float SpeedMultiplier = 1f;
 
-    private AudioSource audioSource;
+    private SoundEntity se;
 
     [Header("Temps de demarage :")]
     public float TimeBegin = 0;
@@ -46,8 +46,8 @@ public class Spikes : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        SonPicPrepareReplay = SonPicPrepare;
+		se = GetComponent<SoundEntity>();
+		SonPicPrepareReplay = SonPicPrepare;
         SonPicSortieReplay = SonPicSortie;
         SonPicRangeReplay = SonPicRange;
 
@@ -81,17 +81,17 @@ public class Spikes : MonoBehaviour {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("SpikesUp1") && SonPicPrepare && SonPicPrepareReplay)
         {
             SonPicPrepareReplay = false;
-            audioSource.PlayOneShot(Preparation);
+			se.playOneShot(Preparation);
         }
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("SpikesUp2") && SonPicSortie && SonPicSortieReplay)
         {
             SonPicSortieReplay = false;
-            audioSource.PlayOneShot(Sortie);
+			se.playOneShot(Sortie);
         }
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("SpikesDown") && SonPicRange && SonPicRangeReplay)
         {
             SonPicRangeReplay = false;
-            audioSource.PlayOneShot(Ranger);
+			se.playOneShot(Ranger);
         }
     }
 

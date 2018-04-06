@@ -5,8 +5,9 @@ using UnityEngine;
 public class TrigerEvent : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
-
-		GetComponent<EventManager> ().activation ();
-		this.gameObject.SetActive(false);
+		if (other.tag == "Player") {
+			GetComponent<EventManager>().activation();
+			this.gameObject.SetActive(false);
+		}
 	}
 }

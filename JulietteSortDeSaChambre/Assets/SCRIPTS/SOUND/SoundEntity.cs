@@ -13,9 +13,9 @@ public class SoundEntity : MonoBehaviour {
 
 	void Awake() {
 		sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
-		audio = GetComponent<AudioSource> ();
+		audio = GetComponent<AudioSource>();
 		//volumeGeneral=PlayerPrefs.GetInt("volumeGeneral",volumeGeneral);
-		volumeGeneral= sm.volumeGeneral;
+		volumeGeneral = sm.volumeGeneral;
 	}
 
 	// Use this for initialization

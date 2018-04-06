@@ -33,12 +33,21 @@ public class PrincesseDeplacement : MonoBehaviour
 
     [HideInInspector]
     public bool attaqueBegin;
-    public bool canMove;
+	[HideInInspector]
+	public bool canMove;
+	[HideInInspector]
+	public bool canJump;
+	[HideInInspector]
+	public bool canAttack;
+	[HideInInspector]
+	public bool canUsePower;
+	[HideInInspector]
+	public bool canOpenInventory;
 
 
-   
 
-    void Start()
+
+	void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         isPushing = false;
@@ -51,8 +60,12 @@ public class PrincesseDeplacement : MonoBehaviour
         attackjump = false;
         isCharging = false;
         canMove = true;
-        // Gestion Combos
-        attaqueBegin = false;
+		canJump = true;
+		canAttack = true;
+		canUsePower = true;
+		canOpenInventory = true;
+		// Gestion Combos
+		attaqueBegin = false;
         anim.speed = 1;
     }
 
@@ -118,14 +131,13 @@ public class PrincesseDeplacement : MonoBehaviour
                     }
                   
                 }
-                else if (isGrounded )
+                else if (isGrounded)
                 {       
                     attackjump = false;
                     anim.SetBool("IsJumping", false);
                 }
                 else if(!anim.GetBool("IsClimbing") && !anim.GetBool("EndClimbing"))
-                {
-                    
+                {     
                     gererAnim("IsJumping");
                 }
             }
@@ -151,7 +163,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
         Vector3 velocity = rb.velocity;  
         bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing"))
+        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing") && canJump)
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
             AttaqueInteromput();
@@ -161,13 +173,14 @@ public class PrincesseDeplacement : MonoBehaviour
   
         //Gestion de l attaque standard
         bool toucheAttack1 = InputManager.GetButtonDown("AttaqueSimple");
-        if (toucheAttack1 && !anim.GetBool("isPushing"))
+        if (toucheAttack1 && !anim.GetBool("isPushing") && canAttack)
         {
 	        if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping") || anim.GetBool("IsRunning") || anim.GetBool("IsSidewalk") || anim.GetBool("IsBackwalk"))
 	        {
                 if (!attaqueBegin)
                 {
-                    playAttaque("combo1");
+					transform.parent = null;
+					playAttaque("combo1");
                 }
             }
 	        else if (anim.GetBool("IsJumping") && attackjump == false)
@@ -181,7 +194,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
 
         bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
-        if(toucheAttackCharge && !anim.GetBool("isPushing"))
+        if(toucheAttackCharge && !anim.GetBool("isPushing") && canAttack)
         {
             
             if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
@@ -203,7 +216,23 @@ public class PrincesseDeplacement : MonoBehaviour
         }
     }
 
-    private void playAttaque(string attaqueName){
+	public void LockPrincesse() {
+		canMove = false;
+		canJump = false;
+		canAttack = false;
+		canUsePower = false;
+		canOpenInventory = false;
+	}
+
+	public void UnlockPrincesse() {
+		canMove = true;
+		canJump = true;
+		canAttack = true;
+		canUsePower = true;
+		canOpenInventory = true;
+	}
+
+	private void playAttaque(string attaqueName){
         if(princesseArme.armeActive == EnumArmes.BAGUETTE_MAGIQUE && !anim.GetBool("isPushing")){
             anim.Play("attaqueBaguetteMagique");
         }else {

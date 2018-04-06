@@ -21,7 +21,9 @@ public class PiegeMort : MonoBehaviour
 		if (col.gameObject.tag == "Player")
 		{
 			Debug.Log ("Test");
-			juliette.mourir ();
+			if (juliette.enVie()) {
+				juliette.mourir();
+			}
 		}
 		if (col.gameObject.tag == "Mob")
 		{

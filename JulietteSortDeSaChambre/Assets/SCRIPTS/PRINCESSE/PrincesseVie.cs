@@ -27,20 +27,26 @@ public class PrincesseVie : MonoBehaviour {
 
 	private AffichageVie hudVie;
 	private AffichageMort hudMort;
+	[Tooltip("Son quand la princesse meurt")]
+	public AudioClip PrincesseMort;
 
-    private PrincesseDeplacement deplacement;
+	private GameObject princesse;
+	private PrincesseDeplacement deplacement;
+	
 
-    /*void Awake(){
+	/*void Awake(){
 		vie_courante = vie_max;
 		Debug.Log (vie_courante);
 
 	}*/
 
 
-    // Use this for initialization
-    void Start () {
-        deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
-        scene = SceneManager.GetActiveScene ();
+	// Use this for initialization
+	void Start () {
+		princesse = GameObject.FindGameObjectWithTag("Player");
+		deplacement = princesse.GetComponent<PrincesseDeplacement>();
+		
+		scene = SceneManager.GetActiveScene ();
 		if (scene.name == "Niveau 1") {
 			GameControl.control.Save ();
 			vie_courante = vie_max;
@@ -63,14 +69,13 @@ public class PrincesseVie : MonoBehaviour {
 		if (!enVie() && !gameover) {
 			Debug.Log ("GAME OVER");
 			gameover = true;
-			hudMort.afficheMort ();
+			
 			// SceneManager.LoadScene (scene.name);
 			// GameControl.control.Load ();
 			// Debug.Log(GameControl.control.listArmeTenu);
 			// vie_courante = vie_max;
 			// GameControl.control.vie = vie_courante;
 			// GameControl.control.Save ();
-			deplacement.canMove = false;
 			// CheckPointManager.getInstance().restartCheckPoint();
 		}
 
@@ -83,9 +88,15 @@ public class PrincesseVie : MonoBehaviour {
 
 	}
 
-	public void mourir()
-	{
+	public void AfficheHudMort() {
+		hudMort.afficheMort();
+	}
+
+	public void mourir() {
 		vie_courante = 0;
+		anim.Play("die");
+		sm.playOneShot(PrincesseMort);
+		deplacement.LockPrincesse();
 		GameControl.control.vie = vie_courante;
 		Debug.Log("vie courante : " + vie_courante);
 	}
