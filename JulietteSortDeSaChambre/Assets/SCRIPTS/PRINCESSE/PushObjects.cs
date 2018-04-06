@@ -32,6 +32,7 @@ public class PushObjects : ObjetEnvironnemental {
     private float y;
     private float z;
     private bool atposition;
+    private Vector3 poscaisse;
 
     void Start()
     {
@@ -48,7 +49,7 @@ public class PushObjects : ObjetEnvironnemental {
 
             if(!princesseAnimator.GetBool("PushIdle") && !princesseAnimator.GetBool("isPushing") && !princesseAnimator.GetBool("IsJumping") && !activate )
             {
-                
+                poscaisse = this.transform.localPosition;
                 float angleright = Vector3.Angle(this.transform.right, new Vector3(princesse.transform.position.x - this.transform.position.x, princesse.transform.position.y,princesse.transform.position.z - this.transform.position.z ));
                 float anglemoinsright = Vector3.Angle(-this.transform.right, new Vector3(princesse.transform.position.x - this.transform.position.x, princesse.transform.position.y,princesse.transform.position.z - this.transform.position.z ));
                 float angleforward = Vector3.Angle(this.transform.forward, new Vector3(princesse.transform.position.x - this.transform.position.x, princesse.transform.position.y,princesse.transform.position.z - this.transform.position.z ));
@@ -88,7 +89,7 @@ public class PushObjects : ObjetEnvironnemental {
                 if(angleforward < 45){
                     deplacement.canMove = false;
                     pointplacement  = new Vector3(this.transform.position.x, princesse.transform.position.y, this.transform.position.z + GetComponent<Renderer>().bounds.size.z/2 +1);
-                   princesse.transform.LookAt(pointplacement);
+                    princesse.transform.LookAt(pointplacement);
                     princessetemp = princesse.transform.forward;
                     princessetemp.y = 0;
                     princesse.transform.forward = princessetemp;
@@ -116,6 +117,7 @@ public class PushObjects : ObjetEnvironnemental {
             }
 
                 activate=true;
+
                 princesseAnimator.Play("run");
                 deplacement.gererAnim("IsRunning");
 
@@ -131,7 +133,8 @@ public class PushObjects : ObjetEnvironnemental {
         void Update()
         {
 
-            this.transform.rotation = new Quaternion(0,0,0,0);
+                this.transform.rotation = new Quaternion(0,0,0,0);
+
             if(time > Time.time && !princesseAnimator.GetBool("PushIdle") && !princesseAnimator.GetBool("isPushing") && activate){
                 temppos = new Vector3(rb.position.x + x * Time.deltaTime, rb.position.y + y * Time.deltaTime, rb.position.z + z * Time.deltaTime);
                 rb.MovePosition(temppos);
@@ -142,15 +145,19 @@ public class PushObjects : ObjetEnvironnemental {
   
 
             if(time < Time.time && !princesseAnimator.GetBool("PushIdle") && !princesseAnimator.GetBool("isPushing") && activate){
-                princesse.transform.LookAt(this.transform);
+                    princesse.transform.LookAt(this.transform);
                     princessetemp = princesse.transform.forward;
                     princessetemp.y = 0;
                     princesse.transform.forward = princessetemp;
+                     this.transform.localPosition = poscaisse;
                     this.transform.parent = princesse.transform;
                     princesseAnimator.Play("idle1");
                     deplacement.gererAnim("PushIdle");
                     deplacement.canMove = true;
                     activate = true;
+                   
+                    
+
             
             }
 
