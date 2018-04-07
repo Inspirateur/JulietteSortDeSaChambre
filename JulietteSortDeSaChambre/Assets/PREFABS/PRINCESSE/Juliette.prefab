@@ -1973,7 +1973,7 @@ MonoBehaviour:
   PrincesseHurt:
   - {fileID: 8300000, guid: d8b081561b1b01c478b9a559ab8d39e6, type: 3}
   - {fileID: 8300000, guid: 83bdad504cdb7c949bdfe7964883699b, type: 3}
-  PrincesseInpact: {fileID: 8300000, guid: 4bcc156f3de4acc488e98e89d472349b, type: 3}
+  PrincesseInpact: {fileID: 8300000, guid: da99f8cdb62bc1a49a60aa9cb2d691e3, type: 3}
   PrincesseMort: {fileID: 8300000, guid: df607567062830443ac7035485fc457c, type: 3}
 --- !u!114 &114573517906380194
 MonoBehaviour:
@@ -2169,6 +2169,8 @@ MonoBehaviour:
   canMove: 0
   canJump: 0
   canAttack: 0
+  canUsePower: 0
+  canOpenInventory: 0
 --- !u!135 &135007083210717436
 SphereCollider:
   m_ObjectHideFlags: 1

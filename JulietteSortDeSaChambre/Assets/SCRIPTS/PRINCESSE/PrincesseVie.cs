@@ -32,6 +32,9 @@ public class PrincesseVie : MonoBehaviour {
 
 	private GameObject princesse;
 	private PrincesseDeplacement deplacement;
+
+	[HideInInspector]
+	public bool PlayOneTimeDie;
 	
 
 	/*void Awake(){
@@ -62,6 +65,7 @@ public class PrincesseVie : MonoBehaviour {
 		hudVie = GameObject.FindGameObjectWithTag ("HUDAffichageVie").GetComponent<AffichageVie> ();
 		hudMort = GameObject.FindGameObjectWithTag ("HUDAffichageMort").GetComponent<AffichageMort> ();
 		setHudVie ();
+		PlayOneTimeDie = false;
 	}
 
 	// Update is called once per frame
@@ -69,7 +73,10 @@ public class PrincesseVie : MonoBehaviour {
 		if (!enVie() && !gameover) {
 			Debug.Log ("GAME OVER");
 			gameover = true;
-			
+			if (!PlayOneTimeDie) {
+				mourir();
+			}
+
 			// SceneManager.LoadScene (scene.name);
 			// GameControl.control.Load ();
 			// Debug.Log(GameControl.control.listArmeTenu);
@@ -79,10 +86,10 @@ public class PrincesseVie : MonoBehaviour {
 			// CheckPointManager.getInstance().restartCheckPoint();
 		}
 
-		if (Input.GetKeyDown (KeyCode.X)) {
+		if (Input.GetKeyDown (KeyCode.X) && enVie()) {
 			soigner(10);
 
-		} else if (Input.GetKeyDown (KeyCode.W)) {
+		} else if (Input.GetKeyDown (KeyCode.W) && enVie()) {
 			blesser(1, this.gameObject, 0.0f);
 		}
 
@@ -94,6 +101,7 @@ public class PrincesseVie : MonoBehaviour {
 
 	public void mourir() {
 		vie_courante = 0;
+		PlayOneTimeDie = true;
 		anim.Play("die");
 		anim.SetBool("IsDead", true);
 		sm.playOneShot(PrincesseMort);

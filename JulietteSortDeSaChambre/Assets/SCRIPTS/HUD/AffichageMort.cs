@@ -30,6 +30,7 @@ public class AffichageMort : MonoBehaviour {
 	public void resetScene(){
 		princesse.GetComponent<Animator>().SetBool("IsDead", false);
 		princesse.GetComponent<PrincesseDeplacement>().UnlockPrincesse();
+		princesse.GetComponent<PrincesseVie>().PlayOneTimeDie = false;
 		for (int i = 1; i < listTransform.Length; i++) {
             listTransform[i].gameObject.SetActive(false);
         }
