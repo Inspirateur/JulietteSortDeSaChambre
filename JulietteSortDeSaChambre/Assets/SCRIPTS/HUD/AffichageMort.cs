@@ -6,7 +6,10 @@ public class AffichageMort : MonoBehaviour {
 
 	private Transform[] listTransform;
 
+	private GameObject princesse;
+
 	public void Start(){
+		princesse = GameObject.FindGameObjectWithTag("Player");
 		listTransform = gameObject.GetComponentsInChildren<Transform>(true);
 	}
 
@@ -25,7 +28,9 @@ public class AffichageMort : MonoBehaviour {
     }
 
 	public void resetScene(){
-        for (int i = 1; i < listTransform.Length; i++) {
+		princesse.GetComponent<Animator>().SetBool("IsDead", false);
+		princesse.GetComponent<PrincesseDeplacement>().UnlockPrincesse();
+		for (int i = 1; i < listTransform.Length; i++) {
             listTransform[i].gameObject.SetActive(false);
         }
         CheckPointManager.getInstance().restartCheckPoint();

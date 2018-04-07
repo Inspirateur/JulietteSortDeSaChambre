@@ -95,6 +95,7 @@ public class PrincesseVie : MonoBehaviour {
 	public void mourir() {
 		vie_courante = 0;
 		anim.Play("die");
+		anim.SetBool("IsDead", true);
 		sm.playOneShot(PrincesseMort);
 		deplacement.LockPrincesse();
 		GameControl.control.vie = vie_courante;
