@@ -9,14 +9,19 @@ public class SoundEntity : MonoBehaviour {
 	private new AudioSource audio;
 	private SoundManager sm;
 
+	public int volumeGeneral;
+
 	void Awake() {
 		sm = GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager>();
 		audio = GetComponent<AudioSource> ();
+		//volumeGeneral=PlayerPrefs.GetInt("volumeGeneral",volumeGeneral);
+		volumeGeneral= sm.volumeGeneral;
 	}
 
 	// Use this for initialization
 	void Start () {
 		sm.addAudioSource (this.audio);
+		sm.onVolumeChange+=onVolumeChange;
 	}
 
 	// Update is called once per frame
@@ -50,7 +55,7 @@ public class SoundEntity : MonoBehaviour {
 
 	public void playOneShot(AudioClip music, float volume, float pitch) {
 		audio.pitch = pitch;
-		audio.PlayOneShot (music, volume);
+		audio.PlayOneShot (music, volume*(volumeGeneral/10));//tweak
 	}
 
 	public void playOneShot(int indice) {
@@ -67,5 +72,11 @@ public class SoundEntity : MonoBehaviour {
 
 	public int nbClips() {
 		return listeClips.Length;
+	}
+
+	public void onVolumeChange(){
+		Debug.Log("Sound entity volume updated");
+		volumeGeneral= sm.volumeGeneral;
+		audio.volume=volumeGeneral;
 	}
 }

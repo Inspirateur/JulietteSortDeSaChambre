@@ -5,8 +5,10 @@ using UnityEngine;
 public class GOB_E_EtreEtourdie : IA_Etat {
 
 	public float dureeEtourdissement;
+	public Transform stundEffect;
 
 	private float timer;
+	private Transform actualEffect;
 
 	// Use this for initialization
 	void Start()
@@ -19,6 +21,7 @@ public class GOB_E_EtreEtourdie : IA_Etat {
 	public override void entrerEtat()
 	{
 		this.timer = Time.time + this.dureeEtourdissement;
+		actualEffect = Instantiate (stundEffect, this.transform.position + new Vector3(0.0f, 1.3f, 0.0f), stundEffect.transform.rotation);
 	}
 
 	public override void faireEtat()
@@ -30,6 +33,6 @@ public class GOB_E_EtreEtourdie : IA_Etat {
 
 	public override void sortirEtat()
 	{
-		
+		Destroy(actualEffect.gameObject);
 	}
 }

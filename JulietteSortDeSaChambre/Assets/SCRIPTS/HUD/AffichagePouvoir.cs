@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class AffichagePouvoir : MonoBehaviour {
 
-
+	public UnityEngine.UI.Image fondPouvoir;
 	private Dictionary<EnumPouvoir,GameObject> dicoPouvoirGo;
 	private Dictionary<EnumPouvoir,PrincessePouvoir> dicoPouvoir;
 
 	public float divideAngle;
+	private bool activePouvoir;
 
+	private float debut;
 
 
 	// Use this for initialization
 	void Start () {
+		activePouvoir = false;
 		dicoPouvoirGo = new Dictionary<EnumPouvoir, GameObject> ();
 		dicoPouvoir =new Dictionary<EnumPouvoir, PrincessePouvoir> ();
 
@@ -21,28 +24,44 @@ public class AffichagePouvoir : MonoBehaviour {
 			dicoPouvoirGo.Add (enu.pouvoir, enu.gameObject);
 		}
 		dicoPouvoir.Add(EnumPouvoir.pouvoirGlace,GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<PrincessePouvoirGlace> (true));
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (InputManager.GetButtonDown ("pouvoirGlace") && !(dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.active)) {
+		if (dicoPouvoir[EnumPouvoir.pouvoirGlace].isUnlocked &&
+			InputManager.GetButtonDown ("pouvoirGlace") && 
+			!(dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.active)) 
+		{
 			dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.SetActive(true);
-			StartCoroutine (pouvoirTimer (dicoPouvoir [EnumPouvoir.pouvoirGlace],dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject));
+			debut = Time.time;
+			activePouvoir = true;
+			//StartCoroutine (pouvoirTimer (dicoPouvoir [EnumPouvoir.pouvoirGlace],dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject));
 		}
 
-
+		if (activePouvoir) {
+			if ((debut + dicoPouvoir [EnumPouvoir.pouvoirGlace].cooldown)+0.01f > Time.time) {
+//				Debug.Log (1 - ((Time.time - debut) / (dicoPouvoir [EnumPouvoir.pouvoirGlace].cooldown)));
+				dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.GetComponent<UnityEngine.UI.Image> ().fillAmount = (
+					1 - ((Time.time - debut) / (dicoPouvoir [EnumPouvoir.pouvoirGlace].cooldown))
+				);
+			} else {
+				activePouvoir = false;
+				dicoPouvoirGo [EnumPouvoir.pouvoirGlace].transform.GetChild (0).gameObject.SetActive (false);
+			}
+		}
 	}
 
 
-	IEnumerator pouvoirTimer(PrincessePouvoir pouvoir,GameObject go){
-
-		for(var i=1.0f;i<divideAngle+1;i++){
-			go.GetComponent<UnityEngine.UI.Image> ().fillAmount = (1-(i/divideAngle));
-			yield return new WaitForSeconds(pouvoir.cooldown/divideAngle);
-		}
-		go.SetActive (false);
+	public void setVisible(EnumPouvoir pouvoir){
+		fondPouvoir.gameObject.SetActive (true);
+		dicoPouvoirGo [pouvoir].gameObject.SetActive (true);
 	}
 
+	public void setHidden(EnumPouvoir pouvoir){
+		fondPouvoir.gameObject.SetActive (false);
+		dicoPouvoirGo [pouvoir].gameObject.SetActive (false);
+	}
 
 
 }

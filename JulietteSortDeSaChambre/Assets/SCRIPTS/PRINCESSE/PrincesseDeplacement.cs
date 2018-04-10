@@ -19,7 +19,6 @@ public class PrincesseDeplacement : MonoBehaviour
     public BruiteurPas bruiteurPas;
     public float forceDash;
 
-
     private GameObject cam;
     private bool CanDash;
     private Rigidbody rb;
@@ -34,6 +33,8 @@ public class PrincesseDeplacement : MonoBehaviour
 
     [HideInInspector]
     public bool attaqueBegin;
+    public bool canMove;
+
 
    
 
@@ -49,14 +50,17 @@ public class PrincesseDeplacement : MonoBehaviour
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         attackjump = false;
         isCharging = false;
-       
+        canMove = true;
         // Gestion Combos
         attaqueBegin = false;
-
+        anim.speed = 1;
     }
 
     void Update()
     {
+
+        //Debug.Log(anim.speed);   
+        
         bool toucheTriche = Input.GetKeyDown(KeyCode.K);
         if(toucheTriche){
             this.transform.position = new Vector3(-27.0f + 64.01028f + -32.14713f, 14.0f + 18.92948f + -28.89907f, -34.0f + 6.844484f + -30.98021f);
@@ -69,9 +73,11 @@ public class PrincesseDeplacement : MonoBehaviour
         if(anim.GetBool("isPushing")){
             moveHorizontal = 0;
         }
-
-        if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower"))
+        
+        if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower") && canMove)
         {
+             //anim.enabled = true;
+             anim.speed = 1;
             if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
             {
                 if (CanDash == true && isGrounded == true)
@@ -94,11 +100,11 @@ public class PrincesseDeplacement : MonoBehaviour
                     {
                         gererAnim("IsSidewalk");
                     }
-                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f && !anim.GetBool("isPushing"))
+                    else if ((moveVertical < 0.0f && moveHorizontal != 0.0f) || moveVertical < 0.0f && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing"))
                     {
                         gererAnim("IsBackwalk");
                     }
-                    else if (moveVertical > 0.0f && !anim.GetBool("isPushing"))
+                    else if (moveVertical > 0.0f && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing"))
                     {
                         gererAnim("IsRunning");
                     }
@@ -106,14 +112,20 @@ public class PrincesseDeplacement : MonoBehaviour
                     {
                         anim.Play("push");
                     }
+                    else if(moveVertical > 0.0f && anim.GetBool("IsClimbing")){
+                       
+                        gererAnim("IsClimbing");
+                    }
+                  
                 }
-                else if (isGrounded)
+                else if (isGrounded )
                 {       
                     attackjump = false;
                     anim.SetBool("IsJumping", false);
                 }
-                else
+                else if(!anim.GetBool("IsClimbing") && !anim.GetBool("EndClimbing"))
                 {
+                    
                     gererAnim("IsJumping");
                 }
             }
@@ -124,14 +136,22 @@ public class PrincesseDeplacement : MonoBehaviour
 	        {
 		        gererAnim("IsIdle");
                 
-	        } else if(isGrounded && !anim.GetBool("IsIdle")){
+	        }else if(isGrounded && !anim.GetBool("IsIdle") && !anim.GetBool("EndClimbing")){
+                  
 		        gererAnim ("IsIdle");
 	        }
+              else if(moveVertical == 0.0f && anim.GetBool("IsClimbing")){
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("grimper")){
+                      //  Debug.Log("STOP");
+                        anim.speed = 0;
+                    }
+                }
+
         }
 
         Vector3 velocity = rb.velocity;  
         bool saut = InputManager.GetButtonDown("Jump");
-        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing"))
+        if (saut && isGrounded && CanDash && velocity.y < 0.8 && velocity.y > -0.8 && !anim.GetBool("isPushing") && !anim.GetBool("IsClimbing"))
         {
 	        rb.AddForce(new Vector3(0.0f, forceSaut, 0.0f));
             AttaqueInteromput();
@@ -148,7 +168,6 @@ public class PrincesseDeplacement : MonoBehaviour
                 if (!attaqueBegin)
                 {
                     playAttaque("combo1");
-                    attaqueBegin = true;
                 }
             }
 	        else if (anim.GetBool("IsJumping") && attackjump == false)
@@ -202,7 +221,7 @@ public class PrincesseDeplacement : MonoBehaviour
         princesseArme.lancerAttaqueCharge();
     }
 
-    private void gererAnim(string stringToTrue)
+    public void gererAnim(string stringToTrue)
     {
         //Met tous les anim.setBool a false sauf celui du stringToTrue
         gererAnim();
@@ -211,7 +230,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
     }
 
-    private void gererAnim()
+    public void gererAnim()
     {
         //Met tous les anim.setBool a false sauf celui du stringToTrue
         anim.SetBool("IsRunning", false);
@@ -221,6 +240,8 @@ public class PrincesseDeplacement : MonoBehaviour
         anim.SetBool("IsIdle", false);
         anim.SetBool("IsJumping", false);
         anim.SetBool("isPushing", false);
+        anim.SetBool("IsClimbing", false);
+        anim.SetBool("EndClimbing", false);
     }
 
     IEnumerator WaitForVelocityZero()
@@ -231,7 +252,8 @@ public class PrincesseDeplacement : MonoBehaviour
 
     private void GererDeplacement(float moveHorizontal, float moveVertical)
     {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && !attaqueBegin)
+
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && !anim.GetBool("IsClimbing"))
         {
             float difRotation = cam.transform.rotation.eulerAngles.y - this.transform.rotation.eulerAngles.y;
 
@@ -257,17 +279,30 @@ public class PrincesseDeplacement : MonoBehaviour
             mouvement += this.transform.right * moveHorizontal * 0.5f;
 
             mouvement = (mouvement / mouvement.magnitude) * norme;
-
           
-                this.transform.position += mouvement * vitesse * Time.deltaTime;
-            
-            
-            if (timerStep <= Time.time && isGrounded && CanDash)
+            this.transform.position += mouvement * vitesse * Time.deltaTime;
+                        
+            if (timerStep <= Time.time && isGrounded && CanDash && !anim.GetBool("isPushing"))
             {
                 bruiteurPas.pas();
                 timerStep = Time.time + (Random.Range(0.9f, 1.0f) * (1.0f / mouvement.magnitude) * 0.3f);
             }
         }
+        else if(!anim.GetCurrentAnimatorStateInfo(0).IsName(anim.GetLayerName(0) + ".hurt") && anim.GetBool("IsClimbing"))
+        {
+            //Debug.Log("je passe ici dans le truc pour grimper");
+
+            Vector3 mouvement = this.transform.up * Mathf.Max(moveVertical, -0.5f);
+            float norme = Mathf.Max(mouvement.magnitude, 0.5f);
+
+          //  mouvement += this.transform.right * moveHorizontal * 0.5f;
+
+            mouvement = (mouvement / mouvement.magnitude) * norme;
+          
+            this.transform.position += mouvement * Time.deltaTime;
+        }
+
+
     }
 
     IEnumerator WaitBeforDash()
@@ -280,6 +315,7 @@ public class PrincesseDeplacement : MonoBehaviour
     {
         if (collision.collider.tag == "sol" || collision.collider.tag == "Decor")
         {
+           
             isGrounded = true;
         }
     }
@@ -289,9 +325,15 @@ public class PrincesseDeplacement : MonoBehaviour
     }
 
     private void OnCollisionExit(Collision collision){
-        if(collision.collider.tag == "sol" || collision.collider.tag == "Decor"){
+        if((collision.collider.tag == "sol" || collision.collider.tag == "Decor") && !anim.GetBool("IsClimbing")){
+            
             isGrounded=false;
             gererAnim("IsJumping");
+        }
+
+        if((collision.collider.tag == "sol" || collision.collider.tag == "Decor") && anim.GetBool("IsClimbing")){
+            
+            isGrounded=false;
         }
 
     }

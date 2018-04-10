@@ -22,6 +22,12 @@ public class SoundManager : MonoBehaviour {
 	private int i;
 	private bool paused;
 
+	public int volumeGeneral;
+
+	public event MyDelegateVolume onVolumeChange;
+
+	public delegate void MyDelegateVolume();
+
 	// Use this for initialization
 	void Awake() {
 		levelAudioLoop1.clip = defaultLevelMusic;
@@ -36,6 +42,7 @@ public class SoundManager : MonoBehaviour {
 
 		i = 0;
 		paused = false;
+		volumeGeneral=PlayerPrefs.GetInt("volumeGeneral",volumeGeneral);//sur 10
 	}
 	
 	// Update is called once per frame
@@ -60,7 +67,7 @@ public class SoundManager : MonoBehaviour {
 
 			timer = Time.time;
 
-			if (levelAudioLoop1.volume == 1.0f) {
+			if (levelAudioLoop1.volume == 1.0f*(volumeGeneral/10)) {//tweak le 1f
 				changeMusicTo2 = true;
 				levelAudioLoop2.clip = musicQueue.Dequeue ();
 				levelAudioLoop2.Play ();
@@ -126,7 +133,7 @@ public class SoundManager : MonoBehaviour {
 		musicQueue.Enqueue (music);
 	}
 
-	public void playOneShot(AudioClip music) {
+	public void playOneShot(AudioClip music) {;
 		playOneShot (music, 1.0f);
 	}
 
@@ -136,7 +143,7 @@ public class SoundManager : MonoBehaviour {
 
 	public void playOneShot(AudioClip music, float volume, float pitch) {
 		levelAudioSingle.pitch = pitch;
-		levelAudioSingle.PlayOneShot (music, volume);
+		levelAudioSingle.PlayOneShot (music, volume*(volumeGeneral/10));//tweak
 	}
 
 	public void playOneShot(int indice) {
@@ -152,14 +159,19 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	private bool switchMusicFromTo(AudioSource from, AudioSource to) {
-		float volume = Mathf.Min (1.0f, (Time.time - timer) / dureeTransition);
-		from.volume = 1.0f - volume;
+		float volume = Mathf.Min (1.0f, (Time.time - timer) / dureeTransition)*(volumeGeneral/10);//tweak
+		from.volume = 1.0f*(volumeGeneral/10) - volume;//tweak le 1f
 		to.volume = volume;
 
-		return volume == 1.0f;
+		return volume == 1.0f*(volumeGeneral/10);//tweak le nax
 	}
 
 	public void stopSon(){
+		Debug.Log ("STOP");
 		levelAudioSingle.Stop ();
+	}
+
+	public void notifVolumeChange(){
+		onVolumeChange();
 	}
 }

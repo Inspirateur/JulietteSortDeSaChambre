@@ -7,8 +7,6 @@ public class TROGAL_E_Phase1_Marcher : IA_Etat {
 	public float vitesse;
 	public float distanceEntreeCombat;
 
-	private bool enRotation;
-
 	// Use this for initialization
 	void Start(){
 		base.init(); // permet d'initialiser l'état, ne pas l'oublier !
@@ -25,11 +23,8 @@ public class TROGAL_E_Phase1_Marcher : IA_Etat {
 		
 		agent.definirDestination (princesse.transform.position);
 		nav.speed = vitesse;
-		enRotation = true;
 
-		if (enRotation) {
-			enRotation = agent.seTournerVersPosition (princesse.transform.position);
-		}
+		agent.seTournerVersPosition (princesse.transform.position);
 
 		if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
 

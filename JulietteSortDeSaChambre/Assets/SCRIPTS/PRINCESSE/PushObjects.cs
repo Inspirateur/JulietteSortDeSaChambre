@@ -30,10 +30,6 @@ public class PushObjects : ObjetEnvironnemental {
     private Vector3 princessepostemp;
     private Vector3 temppos;
     private float distance;
-
-
-    //For setup thing please watch the Demo 
-    //https://www.youtube.com/watch?v=VB9rb5fN97I
     void Start()
     {
         princesseAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();

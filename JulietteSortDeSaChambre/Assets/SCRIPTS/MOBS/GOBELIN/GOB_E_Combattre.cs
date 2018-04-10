@@ -33,7 +33,11 @@ public class GOB_E_Combattre : IA_Etat {
 	{
 		agent.seTournerVersPosition (princesse.transform.position);
 
-		if (agent.distanceToPrincesse() >= distanceSortieCombat) {
+		if(!princesseVie.enVie()){
+			changerEtat(agent.etatInitial);
+		}
+
+		else if (agent.distanceToPrincesse() >= distanceSortieCombat) {
 			changerEtat (GetComponent<GOB_E_Poursuivre> ());
 		}
 
