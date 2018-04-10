@@ -30,8 +30,9 @@ public class MenuPrincipal : MonoBehaviour {
     public GameObject Princesse;
 
     public GameObject[] Soulignage;
+	public AudioClip PageSound;
 
-    void Awake() {
+	void Awake() {
         se = GetComponent<SoundEntity>();
         BoutonSelectionner = 0;
         AfficheControleEnCour = false;
@@ -144,7 +145,8 @@ public class MenuPrincipal : MonoBehaviour {
         Princesse.GetComponent<Animator>().SetBool("Controle", true);
         Princesse.GetComponent<Animator>().SetTrigger("IsBook");
         AfficheControleEnCour = true;
-        AffichePanelMenuPrincipal.SetActive(false);
+		se.playOneShot(PageSound);
+		AffichePanelMenuPrincipal.SetActive(false);
         AffichePanelControle.SetActive(true);
     }
 
