@@ -22,7 +22,6 @@ public class ChangeScene : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(){
-		Debug.Log("je passe ici");
 		PlayerPrefs.SetString("SceneToLoad", NomDeLaScene);
         SceneManager.LoadScene(NomDeLaSceneChargement);	
 	}
