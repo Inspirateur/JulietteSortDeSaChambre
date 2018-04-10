@@ -7,6 +7,8 @@ public class CinematiqueItem {
 
 	public AudioClip son;
 
+	public string texte;
+
 	public int dureeArret = 0;
 	public int dureeAcces = 0;
 
@@ -42,6 +44,9 @@ public class CinematiqueItem {
 			if(son!=null){
 				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().playOneShot (son);
 			}
+			if(texte!=""){
+				GameObject.FindGameObjectWithTag ("HUDAffichageCinematique").GetComponent<AffichageCinematique> ().activeText (texte);
+			}
 			actualDeplacement = GameControl.control.StartCoroutine (deplacement());
 		}
 //		Debug.Log ("FinCinosh");
@@ -52,7 +57,7 @@ public class CinematiqueItem {
 
 
 	//	Debug.Log ("Debut corotine");
-		while(((pos - Camera.main.transform.position).magnitude)>=0.5f){
+		while((((pos - Camera.main.transform.position).magnitude)>=0.5f) || (rot - Camera.main.transform.forward).magnitude>=0.01f){
 	//		Debug.Log ("deplacement");
 			Camera.main.transform.position = Vector3.SmoothDamp (Camera.main.transform.position, pos, ref velocity, 0.01f,dureeAcces);
 			float ratio = (pos - Camera.main.transform.position).magnitude / this.distanceInitiale;
