@@ -10,6 +10,7 @@ public class SQL_Cadavre : MonoBehaviour {
     public List<Rigidbody> listeParties;
     public float forceExplosionLaterale;
     public float forceExplosionVerticale;
+	public Transform poofEffect;
 
 	private float actualDelai;
 
@@ -31,6 +32,9 @@ public class SQL_Cadavre : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Time.time >= actualDelai){
+			foreach(Rigidbody r in listeParties){
+				Instantiate (poofEffect, r.transform.position, poofEffect.transform.rotation);
+			}
 			Destroy(this.gameObject);
 		}
 	}
