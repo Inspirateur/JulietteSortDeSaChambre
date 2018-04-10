@@ -23,7 +23,6 @@ public class AffichagePause : MonoBehaviour {
 		activeSlider=gameObject.GetComponentInChildren<Slider>(true);
 		//activeSlider.GetComponent<UpdateSliderVolume>().selectThis();
 		etat = true;
-		Cursor.visible=true;
 	}
 
 	// Update is called once per frame

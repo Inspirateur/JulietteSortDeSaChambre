@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;// Required when using Event data.
 
-public class UpdateSliderVolume : MonoBehaviour {
+public class UpdateSliderVolume : MonoBehaviour, ISelectHandler, IDeselectHandler {
 
 	// Use this for initialization
-	public UnityEngine.UI.Text text;
+	public UnityEngine.UI.Text textVolume;
+	public UnityEngine.UI.Text textGeneral;
+
+	public UnityEngine.UI.Image fillArea;
 	private UnityEngine.UI.Slider slider;
 
 	public SoundManager soundManager;
@@ -17,7 +21,7 @@ public class UpdateSliderVolume : MonoBehaviour {
 	void Start () {
 		slider=GetComponents<UnityEngine.UI.Slider>()[0];
 		slider.value=soundManager.volumeGeneral;
-		text.text=slider.value.ToString("0");
+		textVolume.text=slider.value.ToString("0");
 		slider.onValueChanged.AddListener(delegate {UpdateText(); });
 		//soundEntitys=FindObjectsOfType<SoundEntity>();
 		//selectThis();
@@ -36,10 +40,24 @@ public class UpdateSliderVolume : MonoBehaviour {
 		// 	soundEntitys[i].volumeGeneral=(int)slider.value;
 		// }
 		PlayerPrefs.SetInt("volumeGeneral",soundManager.volumeGeneral);
-		text.text=slider.value.ToString("0");
+		textVolume.text=slider.value.ToString("0");
 	}
 
-	public void selectThis(){
-		slider.Select();
+	public void OnSelect(BaseEventData eventData){
+		Debug.Log("OnSe;ect");
+		var color=textGeneral.color;
+		color.a=0.8f;
+		textGeneral.color=color;
+		textVolume.color=color;
+		fillArea.color=new Color32(96,96,96,1);
+	}
+
+	public void OnDeselect(BaseEventData eventData){
+		Debug.Log("OnDese;ect");
+		var color=textGeneral.color;
+		color.a=1f;
+		textGeneral.color=color;
+		textVolume.color=color;
+		fillArea.color=color;
 	}
 }
