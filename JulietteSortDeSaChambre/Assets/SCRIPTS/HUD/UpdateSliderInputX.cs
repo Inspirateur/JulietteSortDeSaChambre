@@ -35,7 +35,7 @@ public class UpdateSliderInputX : MonoBehaviour, ISelectHandler, IDeselectHandle
 		Debug.Log("OnSe;ect");
 		var color=new Color32(180,180,180,255);
 		textGeneral.color=color;
-		textVolume.color=color;
+		//textVolume.color=color;
 		fillArea.color=new Color32(180,180,180,255);
 	}
 
