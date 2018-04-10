@@ -69,6 +69,8 @@ public class camera : MonoBehaviour {
 
 		sensibiliteSourisX=PlayerPrefs.GetFloat("sensibiliteSourisX",sensibiliteSourisX);
 		sensibiliteSourisY=PlayerPrefs.GetFloat("sensibiliteSourisY",sensibiliteSourisY);
+
+		Cursor.visible=false;
 	}
 
 	/* On utilise LateUpdate afin que tout les autres éléments de la scène
@@ -138,7 +140,7 @@ public class camera : MonoBehaviour {
 
 		// on cache le curseur
 
-		Cursor.visible = false;
+		//Cursor.visible = false;
 	}
 
 	private void miseAJourInput(){

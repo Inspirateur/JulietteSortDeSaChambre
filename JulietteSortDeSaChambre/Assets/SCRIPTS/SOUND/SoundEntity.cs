@@ -6,7 +6,7 @@ public class SoundEntity : MonoBehaviour {
 
 	public AudioClip[] listeClips;
 
-	private new AudioSource audio;
+	private AudioSource audio;
 	private SoundManager sm;
 
 	public int volumeGeneral;
@@ -20,6 +20,8 @@ public class SoundEntity : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
+		Debug.Log(audio);
 		sm.addAudioSource (this.audio);
 		sm.onVolumeChange+=onVolumeChange;
 	}
@@ -54,6 +56,7 @@ public class SoundEntity : MonoBehaviour {
 	}
 
 	public void playOneShot(AudioClip music, float volume, float pitch) {
+		Debug.Log(audio);
 		audio.pitch = pitch;
 		audio.PlayOneShot (music, volume*(volumeGeneral/10));//tweak
 	}
@@ -75,8 +78,9 @@ public class SoundEntity : MonoBehaviour {
 	}
 
 	public void onVolumeChange(){
-		Debug.Log("Sound entity volume updated");
 		volumeGeneral= sm.volumeGeneral;
-		audio.volume=volumeGeneral;
+		if(audio!=null){
+			audio.volume=volumeGeneral;
+		}
 	}
 }
