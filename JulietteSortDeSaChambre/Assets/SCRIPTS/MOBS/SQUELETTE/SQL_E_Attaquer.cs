@@ -41,7 +41,7 @@ public class SQL_E_Attaquer : IA_Etat {
 			modelCoteMain.SetActive(false);
 		}
 		else if (Time.time >= this.timerFinAttaque){
-			changerEtat(GetComponent<SQL_E_Garder>());
+			changerEtat(GetComponent<SQL_E_Combattre>());
 		}
 	}
 

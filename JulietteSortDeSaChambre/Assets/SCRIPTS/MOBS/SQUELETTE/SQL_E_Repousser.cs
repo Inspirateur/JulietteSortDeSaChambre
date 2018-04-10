@@ -21,7 +21,7 @@ public class SQL_E_Repousser : IA_Etat {
 	public override void entrerEtat() {
 		degatsAttaqueEffectues = false;
 		setAnimation (SQL_Animations.REPOUSSER);
-		timerChargement = Time.time + 0.6f;
+		timerChargement = Time.time + 1.5f;
 		timerFinAttaque = timerChargement + 1f;
 	}
 
@@ -37,7 +37,7 @@ public class SQL_E_Repousser : IA_Etat {
 				}
 			}
 		} else {
-			changerEtat(this.GetComponent<SQL_E_Garder>());
+			changerEtat(this.GetComponent<SQL_E_Combattre>());
 		}
 	}
 

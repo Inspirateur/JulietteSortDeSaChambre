@@ -22,9 +22,8 @@ public class SQL_E_Garder : IA_Etat {
 		// ne pas initialiser vos autres variables ici, utiliser plutôt la méthode entrerEtat()
 	}
 
-	public override void entrerEtat()
-	{
-		if(emplacementAGarder == null && positionGarde.Equals(Vector3.zero)){
+	public override void entrerEtat() {
+		if (emplacementAGarder == null && positionGarde.Equals (Vector3.zero)) {
 			
 			this.positionGarde = this.transform.position;
 			this.forwardPositionGarde = this.transform.forward;
@@ -32,19 +31,17 @@ public class SQL_E_Garder : IA_Etat {
 			enRotation = false;
 			enGarde = false;
 			nav.enabled = false;
-		}
-		else {
-
-			if(positionGarde.Equals(Vector3.zero)) {
+		} else {
+			if (positionGarde.Equals (Vector3.zero)) {
 
 				this.positionGarde = this.emplacementAGarder.transform.position;
 				this.forwardPositionGarde = this.emplacementAGarder.transform.forward;
 			}
 		
-			setAnimation(SQL_Animations.COURIR);
+			setAnimation (SQL_Animations.COURIR);
 			nav.speed = vitesse;
 			nav.enabled = true;
-			agent.definirDestination(this.positionGarde);
+			agent.definirDestination (this.positionGarde);
 			enDeplacement = true;
 			enRotation = false;
 			enGarde = false;
@@ -53,12 +50,7 @@ public class SQL_E_Garder : IA_Etat {
 
 	public override void faireEtat() {
 		if (perception.aRepere(princesse, 1.0f) || !enDeplacement && perception.aRepere(princesse, 1.5f)) {
-			Debug.Log ("squel to princesse: "+agent.distanceToPrincesse ());
-			if (agent.distanceToPrincesse () <= 2) {
-				changerEtat (this.GetComponent<SQL_E_Repousser> ());
-			} else {
-				changerEtat (this.GetComponent<SQL_E_Attaquer> ());
-			}
+			changerEtat (this.GetComponent<SQL_E_Combattre> ());
 		} else if (enDeplacement) {
 			if (agent.destinationCouranteAtteinte ()) {
 				nav.enabled = false;
