@@ -1057,7 +1057,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162136597146252}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000016391276}
-  m_LocalPosition: {x: 17.935713, y: -0.00883919, z: -8.8574295}
+  m_LocalPosition: {x: 10.88, y: 1.468855, z: -19.63}
   m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
   m_Children:
   - {fileID: 4375023518448284}
@@ -1488,8 +1488,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 5
+  MinDistance: 5
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1686,6 +1686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listeClips: []
+  volumeGeneral: 0
 --- !u!114 &114095426618728970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1726,7 +1727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emplacementAGarder: {fileID: 0}
   vitesse: 2.5
-  sonPoursuite: {fileID: 0}
+  sonPrincesseRepere: {fileID: 8300000, guid: 9d4be20e82d97ee4a9491ed01d52de03, type: 3}
 --- !u!114 &114226241540365698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1738,9 +1739,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fe575f5d0308a4c8ee1bfc9d562890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceReculeVertical: 0
-  forceReculeHorizontal: 0
-  sonDegat: {fileID: 0}
+  forceReculeVertical: 150
+  forceReculeHorizontal: 150
+  sonsDegat:
+  - {fileID: 8300000, guid: c54e3e48fac1e5d4db8cdfd1f9157294, type: 3}
+  - {fileID: 8300000, guid: 557de851885cefb469ff2a0d373ec381, type: 3}
+  - {fileID: 8300000, guid: 44326cc6c4cce7b41ad548091d29c4c8, type: 3}
+  - {fileID: 8300000, guid: 545022cac1fc01944bdb47d92b8ae64d, type: 3}
   etatApresBlessure: {fileID: 114793867034360464}
 --- !u!114 &114289544253720670
 MonoBehaviour:
@@ -1767,7 +1772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   etatInitial: {fileID: 114173290880092310}
-  vitesseAngulaire: 4
+  vitesseAngulaire: 2
   etatMort: {fileID: 114065053375791460}
   etatTomber: {fileID: 0}
   bruiteurPas: {fileID: 114068541386476290}
@@ -1788,9 +1793,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e25e63a1a4152409784838d66ca919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degats: 1
-  forceRecul: 15
-  sonAttaque: {fileID: 0}
+  degats: 2
+  forceRecul: 10
+  sonAttaque: {fileID: 8300000, guid: 5c2bf6c40731c514096e10a70368bed8, type: 3}
 --- !u!114 &114574318637950034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1802,9 +1807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdb49bf1dcf96c42814625201698278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceSortieCombat: 0
-  delaisMaxAvantAttaque: 0
-  delaisMinAvantAttaque: 0
+  distanceRepousse: 2.5
+  delaisMaxAvantAttaque: 0.6
+  delaisMinAvantAttaque: 0.1
 --- !u!114 &114793867034360464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1816,9 +1821,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f5cd783cf8a9641b3653d469f9a327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degats: 2
-  forceRecule: 18
-  sonAttaque: {fileID: 0}
+  degats: 3
+  forceRecule: 10
+  sonCoteArrachee: {fileID: 8300000, guid: 7e449f13cc9d64d4092d72585726395f, type: 3}
+  sonCoteLancee: {fileID: 8300000, guid: cd156be8a430baa42ba7cf7cd86280f6, type: 3}
   projectile: {fileID: 1735570878611524, guid: 98e8e2d3e7384a84f8997301db2c63b9, type: 2}
   positionDepartProjectile: {fileID: 1294978474241846}
   modelCoteMain: {fileID: 1361177846716778}
@@ -1844,6 +1850,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e1590821f2e05e14b918f017156f95db, type: 3}
   - {fileID: 8300000, guid: fee8c66f5eb7910459b4b44435b82749, type: 3}
   - {fileID: 8300000, guid: 1b2ea417f325a514594c8eeecc2e467c, type: 3}
+  volumeGeneral: 0
 --- !u!122 &122258431210573824
 Halo:
   m_ObjectHideFlags: 1

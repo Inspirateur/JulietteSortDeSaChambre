@@ -6,7 +6,7 @@ public class SQL_E_Garder : IA_Etat {
 
 	public IA_PointInteret emplacementAGarder;
 	public float vitesse;
-	public AudioClip sonPoursuite;
+	public AudioClip sonPrincesseRepere;
 
 	private bool enDeplacement;
 	private bool enRotation;
@@ -50,6 +50,7 @@ public class SQL_E_Garder : IA_Etat {
 
 	public override void faireEtat() {
 		if (perception.aRepere(princesse, 1.0f) || !enDeplacement && perception.aRepere(princesse, 1.5f)) {
+			agent.getSoundEntity ().playOneShot (sonPrincesseRepere);
 			changerEtat (this.GetComponent<SQL_E_Combattre> ());
 		} else if (enDeplacement) {
 			if (agent.destinationCouranteAtteinte ()) {
@@ -66,6 +67,6 @@ public class SQL_E_Garder : IA_Etat {
 	}
 
 	public override void sortirEtat() {
-		agent.getSoundEntity ().playOneShot (sonPoursuite);
+		
 	}
 }
