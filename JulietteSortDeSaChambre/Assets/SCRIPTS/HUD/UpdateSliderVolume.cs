@@ -45,17 +45,15 @@ public class UpdateSliderVolume : MonoBehaviour, ISelectHandler, IDeselectHandle
 
 	public void OnSelect(BaseEventData eventData){
 		Debug.Log("OnSe;ect");
-		var color=textGeneral.color;
-		color.a=0.8f;
+		var color=new Color32(180,180,180,255);
 		textGeneral.color=color;
 		textVolume.color=color;
-		fillArea.color=new Color32(96,96,96,1);
+		fillArea.color=new Color32(180,180,180,255);
 	}
 
 	public void OnDeselect(BaseEventData eventData){
 		Debug.Log("OnDese;ect");
-		var color=textGeneral.color;
-		color.a=1f;
+		var color=new Color32(255,255,255,255);
 		textGeneral.color=color;
 		textVolume.color=color;
 		fillArea.color=color;

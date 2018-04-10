@@ -43,7 +43,7 @@ public class AffichagePause : MonoBehaviour {
 		}
 		activeSlider.Select();
 		etat = false;
-		Cursor.visible=true;
+		//Cursor.visible=true;
 	}
 
 	public void finPause(){
@@ -53,6 +53,6 @@ public class AffichagePause : MonoBehaviour {
 			affiche_Pause[i].gameObject.SetActive (false);
 		}
 		etat = true;
-		Cursor.visible=false;
+		//Cursor.visible=false;
 	}
 }
