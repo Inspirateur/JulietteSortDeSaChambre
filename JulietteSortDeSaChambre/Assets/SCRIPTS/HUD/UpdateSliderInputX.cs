@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;// Required when using Event data.
 
-public class UpdateSliderInputX : MonoBehaviour {
+public class UpdateSliderInputX : MonoBehaviour, ISelectHandler, IDeselectHandler {
 
 	// Use this for initialization
-	public UnityEngine.UI.Text text;
+	public UnityEngine.UI.Text textVolume;
+	public UnityEngine.UI.Text textGeneral;
+	public UnityEngine.UI.Image fillArea;
 	private UnityEngine.UI.Slider slider;
 	public Camera cam;
 	private camera camScript;
@@ -13,7 +16,7 @@ public class UpdateSliderInputX : MonoBehaviour {
 		slider=GetComponents<UnityEngine.UI.Slider>()[0];
 		camScript=cam.GetComponent<camera>();
 		slider.value=camScript.sensibiliteManetteX;
-		text.text=camScript.sensibiliteManetteX.ToString("0.0");
+		textVolume.text=camScript.sensibiliteManetteX.ToString("0.0");
 		slider.onValueChanged.AddListener(delegate {UpdateInputX(); });
 	}
 	
@@ -25,6 +28,22 @@ public class UpdateSliderInputX : MonoBehaviour {
 	void UpdateInputX(){
 		camScript.sensibiliteManetteX=slider.value;
 		PlayerPrefs.SetFloat("sensibiliteManetteX",camScript.sensibiliteManetteX);
-		text.text=cam.GetComponent<camera>().sensibiliteManetteX.ToString("0.0");
+		textVolume.text=cam.GetComponent<camera>().sensibiliteManetteX.ToString("0.0");
+	}
+
+	public void OnSelect(BaseEventData eventData){
+		Debug.Log("OnSe;ect");
+		var color=new Color32(180,180,180,255);
+		textGeneral.color=color;
+		//textVolume.color=color;
+		fillArea.color=new Color32(180,180,180,255);
+	}
+
+	public void OnDeselect(BaseEventData eventData){
+		Debug.Log("OnDese;ect");
+		var color=new Color32(255,255,255,255);
+		textGeneral.color=color;
+		textVolume.color=color;
+		fillArea.color=color;
 	}
 }

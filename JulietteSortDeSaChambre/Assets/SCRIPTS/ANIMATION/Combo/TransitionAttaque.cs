@@ -19,6 +19,7 @@ public class TransitionAttaque : StateMachineBehaviour {
 		anim = princesse.GetComponent<Animator>();
 
 		deplacement.attaqueBegin = true;
+		deplacement.canMove = false;
 
 		anim.SetBool("AttaqueContinu", false);
 
@@ -27,8 +28,8 @@ public class TransitionAttaque : StateMachineBehaviour {
 		//float moveHorizontal = InputManager.GetKeyAxis("Horizontal");
 		//float moveVertical = InputManager.GetKeyAxis("Vertical");
 		//princesse.transform.localEulerAngles = new Vector3(0, Mathf.Atan2(moveVertical, -moveHorizontal) * Mathf.Rad2Deg, 0);
-		princesse.transform.localEulerAngles = new Vector3(0, cam.transform.localEulerAngles.y, 0);
-		princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * Vector3.forward * 20, ForceMode.Impulse);
+		//princesse.transform.localEulerAngles = new Vector3(0, cam.transform.localEulerAngles.y, 0);
+		//princesse.GetComponent<Rigidbody>().AddForce(princesse.transform.rotation * Vector3.forward * 20, ForceMode.Impulse);
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

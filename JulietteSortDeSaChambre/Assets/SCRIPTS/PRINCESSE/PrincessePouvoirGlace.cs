@@ -56,7 +56,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     // Update is called once per frame
     void Update()
     {
-        if ((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower && isUnlocked)
+        if (((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower && isUnlocked) && deplacement.canUsePower)
         {
             deplacement.AttaqueInteromput();
             animator.Play("IcePower");
@@ -108,7 +108,8 @@ public class PrincessePouvoirGlace : PrincessePouvoir
         clone = Instantiate<GameObject>(prefab,visuPos.transform.position+visuPos.forward*2,visuPos.transform.rotation);
         glaceSol=clone.GetComponentInChildren<GlaceSol>();
         Destroy(clone,duration);
-        clone.GetComponent<AudioSource>().Play();
+        //clone.GetComponent<AudioSource>().Play();
+        clone.GetComponent<SoundEntity>().playOneShot(0);
         clone.GetComponent<ParticleSystem>().Play();
         //visuel.Play();
         //audioSource.Play();

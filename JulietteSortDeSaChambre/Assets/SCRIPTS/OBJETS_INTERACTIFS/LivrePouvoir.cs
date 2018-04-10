@@ -7,8 +7,11 @@ public class LivrePouvoir : ObjetEnvironnemental {
 	// private bool active;
 	public EnumPouvoir pouvoir;
 
+	private SoundManager sm;
+
 	// Use this for initialization
 	void Start () {
+		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		// active = true;
 	}
 
@@ -22,6 +25,7 @@ public class LivrePouvoir : ObjetEnvironnemental {
 			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<PrincessePouvoirGlace> (true).isUnlocked=true;
 			GameObject.FindGameObjectWithTag ("AffichagePouvoir").GetComponentInChildren<AffichagePouvoir> (true).setVisible(pouvoir);
 			gameObject.SetActive (false);
+			sm.playOneShot(BesoinItemPourActivation);
 			// active = false;
 		// }
 	}
