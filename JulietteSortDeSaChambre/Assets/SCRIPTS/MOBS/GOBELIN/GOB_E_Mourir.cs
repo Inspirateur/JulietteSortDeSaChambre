@@ -6,9 +6,11 @@ public class GOB_E_Mourir : IA_Etat {
 
 	public float delaiAvantDisparition;
 	public AudioClip sonMort;
+	public Transform poofEffect;
 
 	private float actualDelai;
 	private bool sonJoue;
+
 
 	// Use this for initialization
 	void Start()
@@ -32,6 +34,7 @@ public class GOB_E_Mourir : IA_Etat {
 			sonJoue = true;
 		}
 		if(Time.time >= actualDelai){
+			Instantiate (poofEffect, this.transform.position, poofEffect.transform.rotation);
 			this.gameObject.SetActive (false);
 		}
 	}
