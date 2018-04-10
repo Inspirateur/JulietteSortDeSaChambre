@@ -6,7 +6,7 @@ public class SQL_E_Attaquer : IA_Etat {
 
 	public int degats;
 	public float forceRecule;
-	public AudioClip sonAttaque;
+	public AudioClip sonCoteArrachee;
 	public GameObject projectile;
 	public GameObject positionDepartProjectile;
 	public GameObject modelCoteMain;
@@ -27,12 +27,18 @@ public class SQL_E_Attaquer : IA_Etat {
 	}
 
 	public override void entrerEtat() {
-		this.restartAttaque();
+		setAnimation (SQL_Animations.ATTAQUER);
+		projectileDejaCree = false;
+		timerChargement = Time.time + 2.0f;
+		timerFinAttaque = timerChargement + 1.0f;
+		timerApparitionCote = Time.time + 0.8f;
+		modelCoteActif = false;
 	}
 
 	public override void faireEtat() {
 		agent.seTournerVersPosition(cible.position);
 		if(Time.time >= this.timerApparitionCote && !modelCoteActif){
+			agent.getSoundEntity().playOneShot(sonCoteArrachee, 0.3f);
 			modelCoteMain.SetActive(true);
 			modelCoteActif = true;
 		} else if(Time.time >= this.timerChargement && !projectileDejaCree){
@@ -50,18 +56,7 @@ public class SQL_E_Attaquer : IA_Etat {
 		modelCoteMain.SetActive(false);
 	}
 
-	private void restartAttaque(){
-		setAnimation (SQL_Animations.ATTAQUER);
-		projectileDejaCree = false;
-		timerChargement = Time.time + 2.0f;
-		timerFinAttaque = timerChargement + 1.0f;
-		timerApparitionCote = Time.time + 1.0f;
-		modelCoteActif = false;
-	}
-
 	private void lancerProjectile(){
-
-		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 
 		projectileDejaCree = true;
 
