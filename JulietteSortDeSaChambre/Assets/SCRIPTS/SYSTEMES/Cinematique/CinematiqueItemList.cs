@@ -53,7 +53,7 @@ public class CinematiqueItemList : ScriptableObject {
 				yield return new WaitForSeconds(itemList[item].dureeArret);
 		//		Debug.Log ("CinemtiqueDebutTImerArret");
 			}
-				
+
 			cinematiqueSuivant ();
 
 
@@ -76,6 +76,7 @@ public class CinematiqueItemList : ScriptableObject {
 	}
 
 	public void stopCinematique(){
+		GameObject.FindGameObjectWithTag ("HUDAffichageCinematique").GetComponent<AffichageCinematique> ().desactiveText ();
 		GameControl.control.StopCoroutine (actualCinematique);
 		itemList [item].stop ();
 	}
