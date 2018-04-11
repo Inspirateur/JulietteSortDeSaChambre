@@ -17,7 +17,7 @@ public class LockOn : MonoBehaviour {
     public string nomAnimLockerUnlock;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         objectLockAnim = objectLock.GetComponent<Animator>();
         lockerAnim = locker.GetComponent<Animator>();
         objectLockAnim.SetBool(boolToUnlock, false);
@@ -29,7 +29,7 @@ public class LockOn : MonoBehaviour {
             lockerAnim.SetBool(lokerUnlock, true);
         }
 
-        if (lockerAnim.GetBool(lokerUnlock) && lockerAnim.GetCurrentAnimatorStateInfo(0).IsName(nomAnimLockerUnlock)) {
+        if (objectLockAnim.GetBool(boolOpen) && lockerAnim.GetBool(lokerUnlock) && lockerAnim.GetCurrentAnimatorStateInfo(0).IsName(nomAnimLockerUnlock)) {
             objectLockAnim.SetBool(boolToUnlock, true);
         }
     }

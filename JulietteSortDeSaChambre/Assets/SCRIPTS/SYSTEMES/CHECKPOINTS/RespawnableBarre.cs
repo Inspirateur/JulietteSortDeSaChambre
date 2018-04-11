@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RespawnableTrape : RespawnableEntity {
+public class RespawnableBarre : RespawnableEntity {
 
-    private Trape trape;
-    private bool etatOuvert;
+    private barresMetalDoor barre;
 
 	public override void onAwake() {
-        trape = GetComponent<Trape>();
+        barre = GetComponent<barresMetalDoor>();
     }
 
     public override void setInitialState()
     {
         // Debug.Log(gameObject.ToString() + " : setInitialState");
-        etatOuvert = trape.etatOuvert;
     }
 
     public override void onRespawn()
     {
         // Debug.Log(gameObject.ToString() + " : OnRespawn");
-        trape.etatOuvert = etatOuvert;
-        trape.updateEtat();
+        // barre.isMoving = false;
+        // barre.canMove = false;
     }
 }

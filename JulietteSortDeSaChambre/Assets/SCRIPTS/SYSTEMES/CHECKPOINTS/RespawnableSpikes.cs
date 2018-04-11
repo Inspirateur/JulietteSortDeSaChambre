@@ -7,7 +7,7 @@ public class RespawnableSpikes : RespawnableEntity {
     private Spikes spikes;
     private bool active;
 
-	void Awake() {
+	public override void onAwake() {
         spikes = GetComponent<Spikes>();
     }
 
