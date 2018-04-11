@@ -35038,6 +35038,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c478518a59800ba47bc08db01f6840c1, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!1 &1158139713 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1650679063387766, guid: c478518a59800ba47bc08db01f6840c1,
@@ -35057,6 +35058,7 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: be65a8b630aa63b40bbdd123d49514c4, type: 3}
+=======
 --- !u!1 &1159606005 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 614041eda8f32104d952be4022305759, type: 3}
@@ -35094,7 +35096,6 @@ MonoBehaviour:
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
   BesoinItemPourActivation: {fileID: 0}
-  active: 0
 --- !u!114 &1159606011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35188,36 +35189,9 @@ MonoBehaviour:
     enumParam: 09000000
     paramInt: 0
     paramBool: 0
-  - go: {fileID: 1159606013}
-    name:
-    - ResetTuto
-    indice: 00000000
-    nameM:
-    - resetBanniere
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 00000000
-    enumParam: 02000000
-    paramInt: 0
-    paramBool: 0
   index: 0
   nomEvent: 
---- !u!114 &1159606013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1159606005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 017b003838840134981840733f2ab53f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+>>>>>>> fcc6d5fd420eba2acb4fe7b3cb6b7fa31fa39224
 --- !u!1001 &1165259600
 Prefab:
   m_ObjectHideFlags: 0
@@ -55383,8 +55357,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1935886220}
-  - {fileID: 822656116}
   - {fileID: 1152834772}
+  - {fileID: 822656116}
   - {fileID: 565915926}
   m_Father: {fileID: 0}
   m_RootOrder: 3
