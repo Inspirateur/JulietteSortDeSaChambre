@@ -16,6 +16,10 @@ public class SQL_E_Mourir : IA_Etat {
 
 	public override void entrerEtat() {
 		Instantiate(prefabCadavre, this.transform.position, this.transform.rotation);
+		EventManager em = GetComponent<EventManager>();
+		if(em != null){
+			em.activation();
+		}
 		this.gameObject.SetActive (false);
 	}
 
