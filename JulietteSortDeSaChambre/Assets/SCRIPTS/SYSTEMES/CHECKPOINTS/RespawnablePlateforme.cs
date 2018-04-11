@@ -14,7 +14,7 @@ public class RespawnablePlateforme : RespawnableEntity {
     private bool DeplacementRetour;
     private int PostionToCheck;
 
-	void Awake() {
+	public override void onAwake() {
         plateforme = GetComponent<MovingObject>();
     }
 
