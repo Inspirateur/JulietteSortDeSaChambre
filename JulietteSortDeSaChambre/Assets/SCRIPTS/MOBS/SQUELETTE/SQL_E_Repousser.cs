@@ -21,7 +21,7 @@ public class SQL_E_Repousser : IA_Etat {
 	public override void entrerEtat() {
 		degatsAttaqueEffectues = false;
 		setAnimation (SQL_Animations.REPOUSSER);
-		timerChargement = Time.time + 1.5f;
+		timerChargement = Time.time + 1.3f;
 		timerFinAttaque = timerChargement + 1f;
 	}
 
@@ -32,6 +32,7 @@ public class SQL_E_Repousser : IA_Etat {
 			if(Time.time >= timerChargement){
 				Debug.Log("fini chargement");
 				if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
+					agent.getSoundEntity().playOneShot(sonAttaque, 0.4f);
 					princesseVie.blesser (degats, this.gameObject, forceRecul);
 					degatsAttaqueEffectues = true;
 				}

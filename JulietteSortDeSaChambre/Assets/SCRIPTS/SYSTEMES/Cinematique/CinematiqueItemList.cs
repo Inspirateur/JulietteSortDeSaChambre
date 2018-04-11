@@ -7,6 +7,7 @@ public class CinematiqueItemList : ScriptableObject {
 	public List<CinematiqueItem> itemList;
 	public int item;
 	public bool isPassable;
+	public bool desactiveBandeNoir;
 
 
 	private Coroutine actualCinematique;
@@ -65,6 +66,7 @@ public class CinematiqueItemList : ScriptableObject {
 	}
 
 	private void cinematiqueSuivant(){
+		GameObject.FindGameObjectWithTag ("HUDAffichageCinematique").GetComponent<AffichageCinematique> ().desactiveText ();
 		if (item < itemList.Count - 1) {
 			item++;
 			lancer ();
@@ -74,6 +76,7 @@ public class CinematiqueItemList : ScriptableObject {
 	}
 
 	public void stopCinematique(){
+		GameObject.FindGameObjectWithTag ("HUDAffichageCinematique").GetComponent<AffichageCinematique> ().desactiveText ();
 		GameControl.control.StopCoroutine (actualCinematique);
 		itemList [item].stop ();
 	}

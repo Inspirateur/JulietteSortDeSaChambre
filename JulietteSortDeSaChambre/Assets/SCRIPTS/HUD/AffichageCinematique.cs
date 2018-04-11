@@ -11,11 +11,13 @@ public class AffichageCinematique : MonoBehaviour {
 	public UnityEngine.UI.Text passable;
 
 
-	public Vector3 BandeNoirHautFinal;
+	/*public Vector3 BandeNoirHautFinal;
 	public Vector3 BandeNoirBasFInal;
 
 	public Vector3 velocity;
-	public bool etatBandeNoir;
+	public bool etatBandeNoir;*/
+
+	public  UnityEngine.UI.Text textAffiche;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +45,16 @@ public class AffichageCinematique : MonoBehaviour {
 
 	public void setActivePassable (bool active){
 		passable.gameObject.SetActive (active);
+	}
+
+
+	public void activeText (string text){
+		textAffiche.gameObject.SetActive (true);
+		textAffiche.text = text;
+	}
+
+	public void desactiveText (){
+		textAffiche.gameObject.SetActive (false);
 	}
 }
 
