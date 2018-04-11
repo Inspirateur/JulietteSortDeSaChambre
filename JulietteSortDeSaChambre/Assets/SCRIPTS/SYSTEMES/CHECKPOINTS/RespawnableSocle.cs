@@ -7,7 +7,7 @@ public class RespawnableSocle : RespawnableEntity {
     private Socle socle;
     private bool utilise;
 
-	void Awake() {
+	public override void onAwake() {
         socle = GetComponent<Socle>();
     }
 

@@ -7,7 +7,7 @@ public class RespawnableLevier : RespawnableEntity {
     private Levier levier;
     private bool active;
 
-	void Awake() {
+	public override void onAwake() {
         levier = GetComponent<Levier>();
     }
 

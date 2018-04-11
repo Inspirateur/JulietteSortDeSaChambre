@@ -122,7 +122,7 @@ public class PrincesseArme : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (attaqueCorpsACorpsEnCours || attaqueDistanceEnCours || attaqueChargeEnCours || attaqueReversEnCours)
+		if (attaqueCorpsACorpsEnCours)
 		/*&& anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1")
            && Time.time >= timerAttaque)*/ {	
 			// attaqueCorpsACorpsEnCours = false;

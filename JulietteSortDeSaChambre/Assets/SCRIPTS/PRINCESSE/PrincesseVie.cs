@@ -130,6 +130,7 @@ public class PrincesseVie : MonoBehaviour {
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)
 	{
         deplacement.AttaqueInteromput();
+		deplacement.UnlockPrincesse();
         anim.Play ("hurt");
 		sm.playOneShot(PrincesseInpact, Random.Range(0.1f, 0.3f), Random.Range(0.9f, 1.0f));
 

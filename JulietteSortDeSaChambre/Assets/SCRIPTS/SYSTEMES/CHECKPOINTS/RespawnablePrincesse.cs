@@ -14,7 +14,7 @@ public class RespawnablePrincesse : RespawnableEntity {
     private Dictionary<EnumObjetProgression,int> listObjet;
     private bool unlockPouvoirGlace;
 
-	void Awake() {
+	public override void onAwake() {
         princesseVie = GetComponent<PrincesseVie>();
         princesseArme = GetComponent<PrincesseArme>();
         princesseDeplacement = GetComponent<PrincesseDeplacement>();
@@ -25,7 +25,7 @@ public class RespawnablePrincesse : RespawnableEntity {
 
     public override void setInitialState()
     {
-        Debug.Log(gameObject.ToString() + " : setInitialState");
+        // Debug.Log(gameObject.ToString() + " : setInitialState");
         this.armeActive = this.princesseArme.armeActive;
         this.listObjet = new Dictionary<EnumObjetProgression, int>(this.princesseObjetProgression.listObjet);
         this.unlockPouvoirGlace = princessePouvoirGlace.isUnlocked;
@@ -33,7 +33,7 @@ public class RespawnablePrincesse : RespawnableEntity {
 
     public override void onRespawn()
     {
-        Debug.Log(gameObject.ToString() + " : OnRespawn");
+        // Debug.Log(gameObject.ToString() + " : OnRespawn");
 		princesseVie.fullSoigner();
         this.princesseArme.SetArmeActive(this.armeActive);
         this.princesseObjetProgression.listObjet = new Dictionary<EnumObjetProgression, int>(this.listObjet);

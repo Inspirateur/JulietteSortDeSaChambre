@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RespawnableTrape : RespawnableEntity {
+public class RespawnableEndDoor : RespawnableEntity {
 
-    private Trape trape;
-    private bool etatOuvert;
+    public Animator cadena;
+    private Porte porte;
+    private bool open;
 
 	public override void onAwake() {
-        trape = GetComponent<Trape>();
+        porte = GetComponent<Porte>();
     }
 
     public override void setInitialState()
     {
         // Debug.Log(gameObject.ToString() + " : setInitialState");
-        etatOuvert = trape.etatOuvert;
+        open = porte.isDecorative;
     }
 
     public override void onRespawn()
     {
         // Debug.Log(gameObject.ToString() + " : OnRespawn");
-        trape.etatOuvert = etatOuvert;
-        trape.updateEtat();
+        if(porte.isDecorative != open){
+            porte.setOpen(open);
+            cadena.SetBool("CanOpen", open);
+        }
     }
 }

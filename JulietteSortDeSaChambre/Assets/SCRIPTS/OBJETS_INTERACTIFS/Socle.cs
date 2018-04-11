@@ -10,7 +10,7 @@ public class Socle : ObjetEnvironnemental {
 	private PrincesseObjetProgression juliette;
 	public EnumObjetProgression obj;
 
-	void Start () {
+	void Awake () {
 		juliette= GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseObjetProgression>();
 		utilise = false;
 	}
@@ -28,7 +28,7 @@ public class Socle : ObjetEnvironnemental {
 	public void Desactivation(){
 		this.gameObject.transform.GetChild (0).gameObject.SetActive (false);
 		utilise = false;
-		SocleEvenement.GetComponent<barreMetalManager> ().StartCloseBarre(BarreNumberToOpen);
+		// SocleEvenement.GetComponent<barreMetalManager> ().StartCloseBarre(BarreNumberToOpen);
 	}
 
 	public bool isActivable(){
