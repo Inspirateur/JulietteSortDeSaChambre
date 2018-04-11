@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;// Required when using Event data.
+using UnityEngine.SceneManagement;
 
 public class BoutonReprendre : MonoBehaviour, ISelectHandler, IDeselectHandler {
 
@@ -28,6 +29,8 @@ public class BoutonReprendre : MonoBehaviour, ISelectHandler, IDeselectHandler {
 	public void onClickQuitter(){
 		//Application.Quit();
 		//LoadAsync de la scene
+		PlayerPrefs.SetString("SceneToLoad", "SCENES/MenuPrincipal");
+        SceneManager.LoadScene("SCENES/LoadingScene");
 		Debug.Log("quitter");
 	}
 
