@@ -21,7 +21,7 @@ public class SoundEntity : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		Debug.Log(audio);
+		// Debug.Log(audio);
 		sm.addAudioSource (this.audio);
 		sm.onVolumeChange+=onVolumeChange;
 	}
@@ -56,7 +56,7 @@ public class SoundEntity : MonoBehaviour {
 	}
 
 	public void playOneShot(AudioClip music, float volume, float pitch) {
-		Debug.Log(audio);
+		// Debug.Log(audio);
 		audio.pitch = pitch;
 		audio.PlayOneShot (music, volume*(volumeGeneral/10));//tweak
 	}

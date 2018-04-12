@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Name: Troll
   m_EditorClassIdentifier: 
   itemList:
-  - dureeArret: 4
+  - son: {fileID: 0}
+    texte: 
+    dureeArret: 4
     dureeAcces: 0
     pos: {x: 17.1, y: 5.96, z: -76.1}
     rot: {x: 0, y: 0, z: 1}
+    isShaking: 0
     isInDeplacement: 0
   item: 0
+  isPassable: 0
+  desactiveBandeNoir: 0

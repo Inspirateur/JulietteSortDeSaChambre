@@ -18,6 +18,9 @@ public class CinematiqueItemList : ScriptableObject {
 		if (itemList [item].isShaking) {
 			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<camera> ().activeShaking ();
 			GameControl.control.StartCoroutine (timerShaking ());
+			if(itemList [item].son!=null){
+				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().playOneShot (itemList [item].son);
+			}
 		} else {
 			itemList[item].start ();
 			actualCinematique = GameControl.control.StartCoroutine (timer ());

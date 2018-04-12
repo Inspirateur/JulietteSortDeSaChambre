@@ -36,6 +36,9 @@ public class CinematiqueItem {
 	//		Debug.Log ("instant");
 			Camera.main.transform.position = pos;
 			Camera.main.transform.LookAt (pos + rot);
+			if(son!=null){
+				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().playOneShot (son);
+			}
 		} else {
 	//		Debug.Log ("traveling");
 			isInDeplacement = true;
