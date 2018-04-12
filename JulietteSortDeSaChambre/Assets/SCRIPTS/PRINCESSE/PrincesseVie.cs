@@ -50,13 +50,13 @@ public class PrincesseVie : MonoBehaviour {
 		deplacement = princesse.GetComponent<PrincesseDeplacement>();
 		
 		scene = SceneManager.GetActiveScene ();
-		if (scene.name == "Niveau 1") {
-			GameControl.control.Save ();
-			vie_courante = vie_max;
-			GameControl.control.vie = vie_courante;
-		} else {
+		// if (scene.name == "Niveau 1") {
+		// 	GameControl.control.Save ();
+		// 	vie_courante = vie_max;
+		// 	GameControl.control.vie = vie_courante;
+		// } else {
 			vie_courante = GameControl.control.vie;
-		}
+		// }
 		gameover = false;
 		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody>();
@@ -127,9 +127,15 @@ public class PrincesseVie : MonoBehaviour {
 		gameover = false;
 	}
 
+	public void startEffectVieUp(){
+		Debug.Log("greg");
+		GetComponentInChildren<EffetVieUp>(true).startEffect();
+	}
+
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)
 	{
         deplacement.AttaqueInteromput();
+		deplacement.UnlockPrincesse();
         anim.Play ("hurt");
 		sm.playOneShot(PrincesseInpact, Random.Range(0.1f, 0.3f), Random.Range(0.9f, 1.0f));
 

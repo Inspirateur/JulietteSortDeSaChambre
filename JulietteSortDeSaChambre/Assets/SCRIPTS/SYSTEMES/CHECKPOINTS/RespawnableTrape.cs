@@ -7,7 +7,7 @@ public class RespawnableTrape : RespawnableEntity {
     private Trape trape;
     private bool etatOuvert;
 
-	void Awake() {
+	public override void onAwake() {
         trape = GetComponent<Trape>();
     }
 

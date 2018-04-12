@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65666747001024600}
   - component: {fileID: 114941477968832350}
   - component: {fileID: 82185264968255618}
+  - component: {fileID: 114844511616656332}
   m_Layer: 0
   m_Name: BareMetal
   m_TagString: Decor
@@ -195,6 +196,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114844511616656332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182042262320734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6416417244c7c546bf0ee935b24cd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114941477968832350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,6 +223,7 @@ MonoBehaviour:
   MoveOnX: 0
   MoveOnY: 1
   MoveOnZ: 0
+  isMoving: 0
   speed: 1
   canMove: 0
   BarreMecanisme: {fileID: 8300000, guid: 0a30b5e476b81a34698ecddc8a306d83, type: 3}

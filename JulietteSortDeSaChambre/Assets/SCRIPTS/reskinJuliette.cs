@@ -8,7 +8,7 @@ public class reskinJuliette : MonoBehaviour {
 	public Material[] epaules;
 	public Material[] robe;
 	public Material[] buste;
-	public int skinIndex;
+	// public int skinIndex;
 
 	AudioSource audiosource;
 	public AudioClip clothSound;
@@ -18,11 +18,11 @@ public class reskinJuliette : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		skinIndex = 1;
+		// skinIndex = 1;
 
 		audiosource = GetComponent<AudioSource> ();
 
-
+		setSkin();
 	}
 	
 	// Update is called once per frame
@@ -36,17 +36,20 @@ public class reskinJuliette : MonoBehaviour {
 	}
 	public void Reskin(){
 		
-			if (skinIndex >= bras.Length) {
-				skinIndex = 0;
-			}
-			Material[] mats =GetComponent<Renderer>().materials;	
-			mats[3] = buste[skinIndex];
-			mats[4] = robe[skinIndex];		
-			mats[5] = epaules[skinIndex];
-			mats[7] = bras[skinIndex];
-			gameObject.GetComponent<Renderer>().materials =  mats;
-		audiosource.PlayOneShot (clothSound, 0.5f);
-			skinIndex++;
+		GameControl.control.skinIndex++;
+		if (GameControl.control.skinIndex >= bras.Length) {
+			GameControl.control.skinIndex = 0;
 		}
+		setSkin();
+		audiosource.PlayOneShot (clothSound, 0.5f);
+	}
 
+	private void setSkin(){
+		Material[] mats =GetComponent<Renderer>().materials;	
+		mats[3] = buste[GameControl.control.skinIndex];
+		mats[4] = robe[GameControl.control.skinIndex];		
+		mats[5] = epaules[GameControl.control.skinIndex];
+		mats[7] = bras[GameControl.control.skinIndex];
+		gameObject.GetComponent<Renderer>().materials =  mats;
+	}
 }

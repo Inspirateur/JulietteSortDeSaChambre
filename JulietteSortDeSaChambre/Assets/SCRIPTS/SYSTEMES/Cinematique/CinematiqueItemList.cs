@@ -18,6 +18,9 @@ public class CinematiqueItemList : ScriptableObject {
 		if (itemList [item].isShaking) {
 			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<camera> ().activeShaking ();
 			GameControl.control.StartCoroutine (timerShaking ());
+			if(itemList [item].son!=null){
+				GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().playOneShot (itemList [item].son);
+			}
 		} else {
 			itemList[item].start ();
 			actualCinematique = GameControl.control.StartCoroutine (timer ());
@@ -53,7 +56,7 @@ public class CinematiqueItemList : ScriptableObject {
 				yield return new WaitForSeconds(itemList[item].dureeArret);
 		//		Debug.Log ("CinemtiqueDebutTImerArret");
 			}
-				
+
 			cinematiqueSuivant ();
 
 
@@ -76,6 +79,7 @@ public class CinematiqueItemList : ScriptableObject {
 	}
 
 	public void stopCinematique(){
+		GameObject.FindGameObjectWithTag ("HUDAffichageCinematique").GetComponent<AffichageCinematique> ().desactiveText ();
 		GameControl.control.StopCoroutine (actualCinematique);
 		itemList [item].stop ();
 	}

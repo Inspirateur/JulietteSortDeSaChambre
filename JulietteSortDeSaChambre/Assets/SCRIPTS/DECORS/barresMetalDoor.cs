@@ -14,7 +14,8 @@ public class barresMetalDoor : MonoBehaviour {
 
     private float positionToGo;
 
-    private bool isMoving = false;
+    [HideInInspector]
+    public bool isMoving = false;
 
     public float speed = 1;
 

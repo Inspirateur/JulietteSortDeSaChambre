@@ -20,7 +20,7 @@ public class AttaqueCharge : StateMachineBehaviour {
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 			deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
-			deplacement.vitesse = 5.5f;
+			deplacement.UnlockPrincesse();
 
 	}
 

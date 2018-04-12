@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Tuto : ObjetEnvironnemental {
 
+
+
+	public bool active;
+
 	// Use this for initialization
 	void Start () {
-		
+		active = true;
 	}
 	
 	// Update is called once per frame
@@ -16,6 +20,20 @@ public class Tuto : ObjetEnvironnemental {
 
 	public override void Activation ()
 	{
-		GetComponent<EventManager> ().activation ();
+		if(active){
+			active = false;
+			GetComponent<EventManager> ().activation ();
+		}
+
 	}
+
+	public override EnumIconeInterraction getIconeInteraction ()
+	{
+		if(active){
+			return EnumIconeInterraction.icone_default;
+		}
+		return EnumIconeInterraction.icone_null;
+	}
+
+
 }

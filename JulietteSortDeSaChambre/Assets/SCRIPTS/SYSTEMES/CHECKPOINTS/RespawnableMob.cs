@@ -7,7 +7,7 @@ public class RespawnableMob : RespawnableEntity {
     private IA_Agent agent;
     private int vie;
 
-    void Awake() {
+    public override void onAwake() {
         agent = GetComponent<IA_Agent>();
     }
 
