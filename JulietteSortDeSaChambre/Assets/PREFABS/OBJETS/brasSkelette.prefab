@@ -21,8 +21,7 @@ GameObject:
   - component: {fileID: 4969611249451656}
   - component: {fileID: 33081107992829032}
   - component: {fileID: 23814595378299558}
-  - component: {fileID: 54471543777588518}
-  - component: {fileID: 64822126009682452}
+  - component: {fileID: 205654916889573976}
   m_Layer: 0
   m_Name: brasSkelette
   m_TagString: Untagged
@@ -36,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052444652195388}
-  m_LocalRotation: {x: -0.14274204, y: -0.6928628, z: -0.14237882, w: -0.69231075}
-  m_LocalPosition: {x: 16.373, y: 1.5603001, z: -12.983}
-  m_LocalScale: {x: 2.5154953, y: 1.9345325, z: 10.55724}
+  m_LocalRotation: {x: 0.19777386, y: 0.011621511, z: -0.9800234, w: -0.017455861}
+  m_LocalPosition: {x: 12.420998, y: 37.133, z: -66.52}
+  m_LocalScale: {x: -2.5155017, y: 1.9345311, z: 10.55724}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.020000001, y: -269.95, z: 23.262001}
+  m_LocalEulerAnglesHint: {x: 0.91, y: -22.836, z: -182.22499}
 --- !u!23 &23814595378299558
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -85,32 +84,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052444652195388}
   m_Mesh: {fileID: 4300010, guid: 3cf2ba5f48d9b4f4588ee098a4276919, type: 3}
---- !u!54 &54471543777588518
-Rigidbody:
+--- !u!205 &205654916889573976
+LODGroup:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052444652195388}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &64822126009682452
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1052444652195388}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_LocalReferencePoint: {x: 0.0012201434, y: -0.000061836094, z: 0.00934118}
+  m_Size: 0.07313498
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05293806
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23814595378299558}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300010, guid: 3cf2ba5f48d9b4f4588ee098a4276919, type: 3}
