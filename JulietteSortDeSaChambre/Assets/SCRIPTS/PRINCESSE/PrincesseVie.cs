@@ -50,13 +50,13 @@ public class PrincesseVie : MonoBehaviour {
 		deplacement = princesse.GetComponent<PrincesseDeplacement>();
 		
 		scene = SceneManager.GetActiveScene ();
-		if (scene.name == "Niveau 1") {
-			GameControl.control.Save ();
-			vie_courante = vie_max;
-			GameControl.control.vie = vie_courante;
-		} else {
+		// if (scene.name == "Niveau 1") {
+		// 	GameControl.control.Save ();
+		// 	vie_courante = vie_max;
+		// 	GameControl.control.vie = vie_courante;
+		// } else {
 			vie_courante = GameControl.control.vie;
-		}
+		// }
 		gameover = false;
 		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody>();

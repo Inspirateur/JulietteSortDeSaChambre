@@ -849,6 +849,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4063036175818956}
   - component: {fileID: 137627827697876724}
+  - component: {fileID: 82001164764128120}
+  - component: {fileID: 114727016859347288}
   m_Layer: 8
   m_Name: body
   m_TagString: PrincesseBody
@@ -1193,8 +1195,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
-  m_LocalRotation: {x: -0, y: -0.70711, z: -0, w: -0.70710367}
-  m_LocalPosition: {x: 20.284096, y: 0.5, z: -10.143459}
+  m_LocalRotation: {x: -0, y: -0.000005409121, z: -0, w: -1}
+  m_LocalPosition: {x: 19.522, y: 4.283001, z: -1.4630013}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4792320266888180}
@@ -1205,7 +1207,7 @@ Transform:
   - {fileID: 4366950304223242}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.001, z: 0}
 --- !u!4 &4260419602612328
 Transform:
   m_ObjectHideFlags: 1
@@ -1928,6 +1930,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3992017, y: 0.1838203, z: 0.384087}
   m_Center: {x: -0.009446794, y: 0.01889337, z: 0.0132246}
+--- !u!82 &82001164764128120
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905541780224094}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82397291617667024
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2390,6 +2472,38 @@ MonoBehaviour:
   increment: 0.003
   deplacementGlacon: {x: 0, y: 1, z: -1}
   degats: 4
+--- !u!114 &114727016859347288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905541780224094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1462025825074544a4f1c37ee7db395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bras:
+  - {fileID: 2100000, guid: e9deab823868c2d4b8606ad373007fbd, type: 2}
+  - {fileID: 2100000, guid: 5b2037b924494c349a50e5ba5fa67e9c, type: 2}
+  - {fileID: 2100000, guid: 6d090ec2ca5917b4c8ce8331736aec4a, type: 2}
+  - {fileID: 2100000, guid: 973f3c093e3a13742a772f9140d9fdea, type: 2}
+  epaules:
+  - {fileID: 2100000, guid: 8cbc9dc4a6fb1a74b9fe22b738b5d19c, type: 2}
+  - {fileID: 2100000, guid: abe046f5fa96f5b4890e886262a632c8, type: 2}
+  - {fileID: 2100000, guid: 0798a0261fe905242b2cdea8bcd7c007, type: 2}
+  - {fileID: 2100000, guid: e133251a81564e4478b0812179c376c3, type: 2}
+  robe:
+  - {fileID: 2100000, guid: 2685115a9f181744a93aa37e0df2551f, type: 2}
+  - {fileID: 2100000, guid: 19f90fb5461e829429aa8be5e19c0d01, type: 2}
+  - {fileID: 2100000, guid: fda91b3abd5d77941a85cee39c3683bf, type: 2}
+  - {fileID: 2100000, guid: fca555b89943ff040ad5448a7ffbe432, type: 2}
+  buste:
+  - {fileID: 2100000, guid: 19884ab2671335c4f8e71ad9897ed339, type: 2}
+  - {fileID: 2100000, guid: 890543ac4c0c0d247abd899e536796e5, type: 2}
+  - {fileID: 2100000, guid: aae3ca1de14ed6a45b710174451538a0, type: 2}
+  - {fileID: 2100000, guid: 9238b055578d5c6459e5e671ddfd6980, type: 2}
+  clothSound: {fileID: 8300000, guid: 8d5543aa923aa76469a8885c4a734f22, type: 3}
 --- !u!114 &114732273091885378
 MonoBehaviour:
   m_ObjectHideFlags: 1
