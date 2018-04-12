@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;// Required when using Event data.
 
-public class MenuPrincipal : MonoBehaviour {
-    [Header("Bouton du menu principal :")]
+public class MenuPrincipal : MonoBehaviour, ISelectHandler, IDeselectHandler {
+
+	[Header("Bouton du menu principal :")]
     public Button[] BoutonMenuPrincipal;
 
     [Header("Nom de la fonction qu'activera chaque bouton :")]
@@ -41,10 +43,12 @@ public class MenuPrincipal : MonoBehaviour {
         for(int i=0; i<Soulignage.Length; i++)
             Soulignage[i].SetActive(false);
 
-        PlayerPrefs.SetString("SceneToLoad", null);
+		BoutonMenuPrincipal[0].Select();
+		PlayerPrefs.SetString("SceneToLoad", null);
     }
 
     void Update() {
+		/*
         if (!AfficheControleEnCour) {
             DeplacementBouton();
             if (Input.GetButtonDown("Interagir") || Input.GetButtonDown("Submit"))
@@ -58,10 +62,19 @@ public class MenuPrincipal : MonoBehaviour {
                 Princesse.GetComponent<Animator>().SetTrigger("RangeBook");
                 RetourMenuPrincipal();
             }
-        }
+        }*/
     }
 
-    private void DeplacementBouton() {
+	public void OnSelect(BaseEventData eventData) {
+		se.playOneShot(TicSound);
+		GetComponentInChildren<Image>().enabled = true;
+	}
+
+	public void OnDeselect(BaseEventData eventData) {
+		GetComponentInChildren<Image>().enabled = false;
+	}
+
+	private void DeplacementBouton() {
         if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0 || Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0) {
             BoutonSelectionner++;
             BoutonSelectionner = CheckConteur(BoutonSelectionner);
