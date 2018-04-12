@@ -6,7 +6,7 @@ public class SQL_E_EtreBlesse : IA_Etat {
 
 	public float forceReculeVertical;
 	public float forceReculeHorizontal;
-	public AudioClip sonDegat;
+	public AudioClip[] sonsDegat;
 	public IA_Etat etatApresBlessure;
 
 	private float facteurRecule;
@@ -27,7 +27,7 @@ public class SQL_E_EtreBlesse : IA_Etat {
 		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
 		anim.Play(SQL_Animations.ETRE_BLESSE);
 		agent.getSoundEntity().stop();
-		agent.getSoundEntity().playOneShot(sonDegat,1.0f);
+		agent.getSoundEntity().playOneShot(sonsDegat[Random.Range(0, sonsDegat.Length)],1.0f);
 
 		Vector3 directionRecule = (this.transform.position - princesse.transform.position).normalized;
 
@@ -46,9 +46,5 @@ public class SQL_E_EtreBlesse : IA_Etat {
 	public override void sortirEtat()
 	{
 
-	}
-
-	public void setFacteurRecule(float facteurRecule){
-		this.facteurRecule = facteurRecule;
 	}
 }

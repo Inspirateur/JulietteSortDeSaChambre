@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RespawnableObjetImmuable : RespawnableEntity {
 
-	void Awake() {
+	public override void onAwake() {
         
     }
 

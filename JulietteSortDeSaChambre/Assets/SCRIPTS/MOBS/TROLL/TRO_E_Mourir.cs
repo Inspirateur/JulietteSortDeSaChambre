@@ -33,6 +33,10 @@ public class TRO_E_Mourir : IA_Etat {
 			sonJoue = true;
 		}
 		if(Time.time >= actualDelai){
+			EventManager em = GetComponent<EventManager>();
+			if(em != null){
+				em.activation();
+			}
 			this.gameObject.SetActive (false);
 		}
 	}

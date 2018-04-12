@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 33511733451827480}
   - component: {fileID: 23069258618584748}
   - component: {fileID: 82123543977764966}
+  - component: {fileID: 114039729723457522}
+  - component: {fileID: 114549057004194604}
   - component: {fileID: 205300549444897856}
   m_Layer: 2
   m_Name: torch
@@ -97,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498083811245112}
   m_LocalRotation: {x: 0.000000029802322, y: 0.000000059604645, z: 0.70710677, w: 0.7071069}
-  m_LocalPosition: {x: -0.0035, y: -0.096, z: 0.01294}
+  m_LocalPosition: {x: -0.00192, y: -0.096, z: 0.01294}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4329155737423178}
@@ -154,8 +156,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1e42d7e87fe5a84ea5b6b6df247d6b2, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
@@ -261,6 +263,31 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114039729723457522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437976793626936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad06e4db7c77b5c48a03a689088a90c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeClips:
+  - {fileID: 8300000, guid: b1e42d7e87fe5a84ea5b6b6df247d6b2, type: 3}
+  volumeGeneral: 0
+--- !u!114 &114549057004194604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437976793626936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de5d1370eee3b34584f655e42e73486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198483245362913150
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ public class AffichageInventaire : MonoBehaviour {
 	public GameObject sac;
 	public int tempsAffichage;
 	private PrincesseObjetProgression juliette;
+	private PrincesseDeplacement deplacement;
 
 	private bool affiche;
 	private float temps;
@@ -19,6 +20,7 @@ public class AffichageInventaire : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
 		juliette = GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseObjetProgression> ();
 		dicoInventaire = new Dictionary<EnumObjetProgression, GameObject> ();
 		// dicoNbObjet = new Dictionary<EnumObjetProgression, int> ();
@@ -28,7 +30,7 @@ public class AffichageInventaire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (InputManager.GetButtonDown ("Select")) {
+		if (InputManager.GetButtonDown ("Select") && deplacement.canOpenInventory) {
 			if (!affiche) {
 				afficherToutObjet ();
 				temps = Time.time;

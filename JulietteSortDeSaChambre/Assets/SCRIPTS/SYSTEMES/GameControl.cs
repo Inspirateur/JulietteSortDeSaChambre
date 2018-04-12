@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour {
 
@@ -12,7 +13,7 @@ public class GameControl : MonoBehaviour {
 	public int vie;
     public EnumArmes ArmeCourante;
 	public List<EnumArmes> listArmeTenu;
-
+	public int skinIndex;
 
 	void Awake(){
 		if (control == null) {
@@ -20,6 +21,10 @@ public class GameControl : MonoBehaviour {
 			control = this;
 		} else if (control != this) {
 			Destroy (gameObject);
+		}
+		if(!SceneManager.GetActiveScene().name.Equals("Chambre")){
+			Load();
+			Debug.Log("gfhbreg ureh gyue trhv rbtvjh brjhvbr esjvrsv jrsbeuvser ");
 		}
 	}
 
@@ -32,6 +37,7 @@ public class GameControl : MonoBehaviour {
 		data.vie = vie;
 	    data.ArmeCourante = ArmeCourante;
 	    data.listArmeTenu = listArmeTenu;
+		data.skinIndex = skinIndex;
 
 		bf.Serialize(file, data);
 		file.Close();
@@ -48,6 +54,7 @@ public class GameControl : MonoBehaviour {
 			vie = data.vie;
 		    ArmeCourante = data.ArmeCourante;
 		    listArmeTenu = data.listArmeTenu;
+			skinIndex = data.skinIndex;
 		}
 	}
 
@@ -59,5 +66,5 @@ class PlayerData
 	public int vie;
 	public EnumArmes ArmeCourante;
 	public List<EnumArmes> listArmeTenu;
-
+	public int skinIndex;
 }

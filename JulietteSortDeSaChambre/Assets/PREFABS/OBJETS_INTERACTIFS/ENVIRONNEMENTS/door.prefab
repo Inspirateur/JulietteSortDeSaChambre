@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 114270276004042782}
   - component: {fileID: 114867074706317452}
   - component: {fileID: 65106726296513080}
+  - component: {fileID: 114679234234297716}
   m_Layer: 2
   m_Name: door
   m_TagString: Untagged
@@ -218,6 +219,17 @@ MonoBehaviour:
   demiAngleActivationFrontal: 77
   minDistanceSurbrillance: 1.7
   EnableSurbrillance: 0
+--- !u!114 &114679234234297716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919128798290538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77eda7a848b651d4eb04b8d5e8e69004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114867074706317452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,15 +241,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415af9533031e594fbf9cb9cd3481081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  declencheEvenement: 0
   nomObjet: 
   descriptionObjet: 
   soundGenerator: {fileID: 0}
   sm: {fileID: 0}
-  RamasseObjet: {fileID: 0}
-  OuvrePorte: {fileID: 8300000, guid: eb00dc2958742ac409982e781b5cff47, type: 3}
   BesoinItemPourActivation: {fileID: 8300000, guid: 73768d9f40cae254fbb5aa66833e54f3,
     type: 3}
-  LevierActivation: {fileID: 0}
   isDecorative: 0
   objN: []
 --- !u!137 &137656651613343924

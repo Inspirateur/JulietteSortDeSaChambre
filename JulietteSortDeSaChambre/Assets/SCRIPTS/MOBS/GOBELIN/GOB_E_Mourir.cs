@@ -35,6 +35,10 @@ public class GOB_E_Mourir : IA_Etat {
 		}
 		if(Time.time >= actualDelai){
 			Instantiate (poofEffect, this.transform.position, poofEffect.transform.rotation);
+			EventManager em = GetComponent<EventManager>();
+			if(em != null){
+				em.activation();
+			}
 			this.gameObject.SetActive (false);
 		}
 	}
