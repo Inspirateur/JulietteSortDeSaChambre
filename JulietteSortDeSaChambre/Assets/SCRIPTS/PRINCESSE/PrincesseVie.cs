@@ -127,6 +127,11 @@ public class PrincesseVie : MonoBehaviour {
 		gameover = false;
 	}
 
+	public void startEffectVieUp(){
+		Debug.Log("greg");
+		GetComponentInChildren<EffetVieUp>(true).startEffect();
+	}
+
 	public void blesser(int valeurDegats, GameObject sourceDegats, float facteurRecule)
 	{
         deplacement.AttaqueInteromput();
