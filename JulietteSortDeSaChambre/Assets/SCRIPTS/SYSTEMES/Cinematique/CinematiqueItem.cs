@@ -74,7 +74,10 @@ public class CinematiqueItem {
 	}
 
 	public void stop(){
-		GameControl.control.StopCoroutine (actualDeplacement);
+		if(actualDeplacement!=null){
+			GameControl.control.StopCoroutine (actualDeplacement);
+		}
+
 	}
 		
 
