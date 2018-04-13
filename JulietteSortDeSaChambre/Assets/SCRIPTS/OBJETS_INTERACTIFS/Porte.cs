@@ -37,6 +37,7 @@ public class Porte : ObjetEnvironnemental
             if (isActivable())
             {
 				if (declencheEvenement) {
+					Debug.Log ("TEST");
 					evenementStart ();
 				} else {
 					OuverturePorte();

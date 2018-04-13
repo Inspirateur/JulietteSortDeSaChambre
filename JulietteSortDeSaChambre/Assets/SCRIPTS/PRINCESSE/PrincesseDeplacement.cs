@@ -216,7 +216,6 @@ public class PrincesseDeplacement : MonoBehaviour
     }
 
 	public void LockPrincesse() {
-		Debug.Log ("LOCK");
 		canMove = false;
 		canJump = false;
 		canAttack = false;
@@ -225,7 +224,6 @@ public class PrincesseDeplacement : MonoBehaviour
 	}
 
 	public void UnlockPrincesse() {
-		Debug.Log ("UNLOCK");
 		canMove = true;
 		canJump = true;
 		canAttack = true;
