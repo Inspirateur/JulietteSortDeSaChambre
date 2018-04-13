@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Selectable))]
-public class HighlightFix : MonoBehaviour, IPointerEnterHandler, IDeselectHandler
-{
+public class HighlightFix : MonoBehaviour, IPointerEnterHandler, IDeselectHandler {
+
 	public GameObject Soulignage;
 
 	public void OnPointerEnter(PointerEventData eventData) {
