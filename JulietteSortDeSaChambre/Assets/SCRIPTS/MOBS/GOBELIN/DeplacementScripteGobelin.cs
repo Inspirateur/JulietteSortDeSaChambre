@@ -21,4 +21,5 @@ public class DeplacementScripteGobelin : Evenement {
 		etatGarder.entrerEtat();
 		etatGarder.emplacementAGarder = ancien;
 	}
+		
 }

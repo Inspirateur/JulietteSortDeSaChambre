@@ -16,6 +16,8 @@ public class CinematiqueManager : Evenement {
 	private bool isPassable;
 	private int indice;
 
+	public bool pause;
+
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +25,7 @@ public class CinematiqueManager : Evenement {
 		isInCinematique = false;
 		hudCinematique = GameObject.FindGameObjectWithTag ("HUDAffichageCinematique").GetComponent<AffichageCinematique>();
 		hud = GameObject.FindGameObjectWithTag ("HUD");
-
+		pause = false;
 	}
 	
 	// Update is called once per frame
@@ -50,6 +52,7 @@ public class CinematiqueManager : Evenement {
 			posInit = Camera.main.transform.position;
 			forwardInit = Camera.main.transform.forward;
 			isInCinematique = true;
+			pause = false;
 		}else{
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().UnlockPrincesse ();
 			if (!cinematique [indice].desactiveBandeNoir) {
@@ -60,7 +63,7 @@ public class CinematiqueManager : Evenement {
 			Camera.main.transform.position = posInit;
 			Camera.main.transform.forward = forwardInit;
 			isInCinematique = false;
-
+			pause = false;
 
 		}
 
@@ -83,6 +86,9 @@ public class CinematiqueManager : Evenement {
 
 	override
 	public bool evenementIsEnCours(){
+		if (pause) {
+			return false;
+		}
 		return isInCinematique;
 	}
 

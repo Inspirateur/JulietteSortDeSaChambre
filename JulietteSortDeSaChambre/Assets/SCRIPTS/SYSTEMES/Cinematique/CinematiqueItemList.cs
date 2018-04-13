@@ -8,6 +8,7 @@ public class CinematiqueItemList : ScriptableObject {
 	public int item;
 	public bool isPassable;
 	public bool desactiveBandeNoir;
+	public bool desactiveRetourCamera;
 
 
 	private Coroutine actualCinematique;
@@ -74,7 +75,12 @@ public class CinematiqueItemList : ScriptableObject {
 			item++;
 			lancer ();
 		} else {
-			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CinematiqueManager> ().ActiveCinematique (false);
+			if (!desactiveRetourCamera) {
+				GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CinematiqueManager> ().ActiveCinematique (false);
+			} else {
+				GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CinematiqueManager> ().pause=true;
+			}
+
 		}
 	}
 
