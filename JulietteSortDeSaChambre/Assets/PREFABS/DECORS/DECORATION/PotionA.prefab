@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4632426511126270}
   - component: {fileID: 33712173078041274}
   - component: {fileID: 23604115403376060}
+  - component: {fileID: 205211109895516392}
   m_Layer: 0
   m_Name: PotionA
   m_TagString: Untagged
@@ -34,9 +35,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061421283984300}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 38.460526, y: 1.2022, z: 20.456}
-  m_LocalScale: {x: 110, y: 110, z: 110}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 48.395134, y: 35.322067, z: 12.27721}
+  m_LocalScale: {x: 110, y: 109.99994, z: 109.99994}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,3 +84,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061421283984300}
   m_Mesh: {fileID: 4300000, guid: 4a64d22cabcd9d94390da2bd7a7eea0a, type: 3}
+--- !u!205 &205211109895516392
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061421283984300}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0.0016230899}
+  m_Size: 0.003231132
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.023771498
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23604115403376060}
+  m_Enabled: 1

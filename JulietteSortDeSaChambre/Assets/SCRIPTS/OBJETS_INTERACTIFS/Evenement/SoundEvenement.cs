@@ -10,4 +10,8 @@ public class SoundEvenement : Evenement {
 	public void lancerSon(int i){
 		GetComponent<SoundManager> ().playOneShot (sound [i]);
 	}
+
+	public void stopSon(){
+		GetComponent<SoundManager> ().stopSon ();
+	}
 }

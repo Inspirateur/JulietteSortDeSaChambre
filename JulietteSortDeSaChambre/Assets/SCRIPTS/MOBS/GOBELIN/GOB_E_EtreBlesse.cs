@@ -38,7 +38,9 @@ public class GOB_E_EtreBlesse : IA_Etat {
 	public override void faireEtat()
 	{
 		if (Time.time > timer && agent.estAuSol()) {
-			changerEtat (GetComponent<GOB_E_Combattre>());
+			if(princesseVie.enVie()){
+				changerEtat (GetComponent<GOB_E_Combattre>());
+			}
 		}
 	}
 

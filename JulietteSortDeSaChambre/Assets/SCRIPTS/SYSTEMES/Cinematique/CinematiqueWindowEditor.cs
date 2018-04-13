@@ -68,6 +68,7 @@ public class CinematiqueWindowEditor : EditorWindow {
 
 			cinematiqueItemList.isPassable = EditorGUILayout.Toggle ("Est passable : ", cinematiqueItemList.isPassable);
 			cinematiqueItemList.desactiveBandeNoir = EditorGUILayout.Toggle ("Desactiver bande noire : ", cinematiqueItemList.desactiveBandeNoir);
+			cinematiqueItemList.desactiveRetourCamera = EditorGUILayout.Toggle ("Desactiver Retour : ", cinematiqueItemList.desactiveRetourCamera);
 			GUILayout.EndHorizontal ();
 			GUILayout.BeginHorizontal ();
 

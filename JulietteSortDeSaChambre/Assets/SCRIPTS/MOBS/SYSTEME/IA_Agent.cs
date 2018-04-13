@@ -51,13 +51,13 @@ public class IA_Agent : MonoBehaviour {
 		se = GetComponent<SoundEntity> ();
 		me = GameObject.FindGameObjectWithTag("MobManager").GetComponent<MobManager> ();
 		perception = GetComponent<IA_Perception> ();
+		etatCourant = etatInitial;
     }
 
     // Use this for initialization
     void Start () {
 		mort = false;
 		me.AjouterAgent (this);
-		etatCourant = etatInitial;
 		etatCourant.entrerEtat();
     }
 	
@@ -305,7 +305,9 @@ public class IA_Agent : MonoBehaviour {
 
 	public void respawn() {
 		mort = false;
-		changerEtat (etatInitial);
+		etatCourant = etatInitial;
+		Debug.Log (this.gameObject.name + " respawn dans l'état " + etatCourant.ToString());
+		etatCourant.entrerEtat();
 	}
 
 	public bool estAuSol(){
