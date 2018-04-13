@@ -131,6 +131,11 @@ public class PrincesseArme : MonoBehaviour {
 			attaqueReversEnCours = false;
 		}
 
+		if(anim.GetCurrentAnimatorStateInfo (0).IsName (anim.GetLayerName (0) + ".idle1") && attaqueChargeEnCours == true)
+		{
+			attaqueChargeEnCours = false;
+		}
+
 		if(attaqueDistanceEnCours && Time.time >= timerApparitionProjectile && !projectileDejaCree){
 			this.lancerProjectile();
 		}

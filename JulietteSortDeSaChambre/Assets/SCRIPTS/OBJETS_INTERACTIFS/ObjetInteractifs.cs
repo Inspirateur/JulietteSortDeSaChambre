@@ -31,7 +31,9 @@ public abstract class ObjetInteractifs : MonoBehaviour {
 	}
 
 	public virtual void evenementStart(){
-
+		if(GetComponent<EventManager>()!=null){
+			GetComponent<EventManager> ().activation ();
+		}
 	}
 
 	public abstract void Activation();

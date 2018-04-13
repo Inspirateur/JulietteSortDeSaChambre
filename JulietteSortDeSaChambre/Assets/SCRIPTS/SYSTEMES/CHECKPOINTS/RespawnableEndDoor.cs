@@ -23,7 +23,9 @@ public class RespawnableEndDoor : RespawnableEntity {
         // Debug.Log(gameObject.ToString() + " : OnRespawn");
         if(porte.isDecorative != open){
             porte.setOpen(open);
-            cadena.SetBool("CanOpen", open);
+            if(cadena != null){
+                cadena.SetBool("CanOpen", open);
+            }
         }
     }
 }
