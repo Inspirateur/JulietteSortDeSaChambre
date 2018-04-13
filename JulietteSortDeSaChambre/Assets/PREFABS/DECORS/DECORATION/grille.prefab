@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33463375902401216}
   - component: {fileID: 23816496046630496}
   - component: {fileID: 65070576026507962}
+  - component: {fileID: 205906683442651712}
   m_Layer: 0
   m_Name: grille
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1442120501564790}
   m_LocalRotation: {x: 0.5, y: -0.49999848, z: 0.49999994, w: 0.50000155}
   m_LocalPosition: {x: 71.26013, y: 34.519066, z: -9.98579}
-  m_LocalScale: {x: 0.2653578, y: 0.36855274, z: 0.36855274}
+  m_LocalScale: {x: 0.26535767, y: 0.36855274, z: 0.36855274}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,3 +96,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15, y: 0.52, z: 12}
   m_Center: {x: 1.9481758e-19, y: -0.000003427267, z: 9.1247586e-21}
+--- !u!205 &205906683442651712
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442120501564790}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.000015258789, z: 0.0000019073486}
+  m_Size: 10
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.10297839
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23816496046630496}
+  m_Enabled: 1
