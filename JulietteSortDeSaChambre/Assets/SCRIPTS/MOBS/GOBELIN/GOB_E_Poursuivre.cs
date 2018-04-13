@@ -42,7 +42,11 @@ public class GOB_E_Poursuivre : IA_Etat {
 
 	public override void faireEtat(){
 
-		if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
+		if(!princesseVie.enVie()){
+
+			// changerEtat(agent.etatInitial);
+
+		} else if (agent.distanceToPrincesse() <= distanceEntreeCombat) {
 
 			changerEtat (this.GetComponent<GOB_E_Combattre> ());
 

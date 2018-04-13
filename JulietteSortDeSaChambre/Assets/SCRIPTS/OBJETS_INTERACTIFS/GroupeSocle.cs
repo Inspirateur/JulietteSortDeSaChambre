@@ -5,10 +5,10 @@ using UnityEngine;
 public class GroupeSocle : MonoBehaviour {
 
 	public List<Socle> listSocle;
-	private bool active;
+	public bool active;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		active = true;
 	}
 	

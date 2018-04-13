@@ -1488,8 +1488,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 500
+  MinDistance: 1
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bb76b38c8c416448e44b60a85e72a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demiAngleVision: 80
+  demiAngleVision: 120
   distanceVision: 30
   rayonAudition: 0
   estAveugle: 0
@@ -1824,7 +1824,6 @@ MonoBehaviour:
   degats: 3
   forceRecule: 10
   sonCoteArrachee: {fileID: 8300000, guid: 7e449f13cc9d64d4092d72585726395f, type: 3}
-  sonCoteLancee: {fileID: 8300000, guid: cd156be8a430baa42ba7cf7cd86280f6, type: 3}
   projectile: {fileID: 1735570878611524, guid: 98e8e2d3e7384a84f8997301db2c63b9, type: 2}
   positionDepartProjectile: {fileID: 1294978474241846}
   modelCoteMain: {fileID: 1361177846716778}

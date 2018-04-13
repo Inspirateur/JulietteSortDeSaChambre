@@ -10,11 +10,13 @@ public class CheckPointManager : MonoBehaviour {
 	
     public delegate void MyDelegate();
 	private bool sceneStart;
+	public int nbRestart;
 
     void Awake() {
 
         CheckPointManager.instance = this;
 		sceneStart = true;
+		nbRestart = 0;
     }
 
 	void Update() {
@@ -40,7 +42,7 @@ public class CheckPointManager : MonoBehaviour {
 	// Retour au checkPoint
 	public void restartCheckPoint(){
 		Debug.Log("restartCheckPoint");
-
+		nbRestart ++;
 		if(onRestart != null){
 			Debug.Log("onRestart");
 			onRestart();	// on notifit du retour au checkPoint

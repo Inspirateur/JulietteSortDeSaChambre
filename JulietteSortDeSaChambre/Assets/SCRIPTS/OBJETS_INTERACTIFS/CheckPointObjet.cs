@@ -6,6 +6,8 @@ public class CheckPointObjet : ObjetEnvironnemental {
 
 	private bool active;
 	public GameObject book;
+	public AudioClip son;
+	public Transform saveEffect;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,8 @@ public class CheckPointObjet : ObjetEnvironnemental {
 		if(!active){
 			GetComponent<CheckPoint> ().trigger ();
 			book.SetActive (false);
+			GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().playOneShot(son);
+			Instantiate (saveEffect, this.transform.position, saveEffect.transform.rotation);
 			active = true;
 		}
 

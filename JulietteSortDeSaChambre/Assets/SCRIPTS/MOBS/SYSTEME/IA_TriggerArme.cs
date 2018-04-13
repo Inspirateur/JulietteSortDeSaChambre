@@ -7,10 +7,12 @@ public class IA_TriggerArme : MonoBehaviour {
 	private bool princesseTouchee;
 
 	private GameObject princesse;
+	private PrincesseVie princesseVie;
 
 	// Use this for initialization
 	void Start () {
 		princesse = GameObject.FindGameObjectWithTag("Player");
+		princesseVie = princesse.GetComponent<PrincesseVie>();
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -28,6 +30,6 @@ public class IA_TriggerArme : MonoBehaviour {
 	}
 
 	public bool IsPrincesseTouchee(){
-		return princesseTouchee;
+		return princesseTouchee && princesseVie.enVie();
 	}
 }
