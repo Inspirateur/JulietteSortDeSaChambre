@@ -11,7 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20abb1a46f3624d439786922f0866687, type: 3}
   m_Name: gobelin
   m_EditorClassIdentifier: 
-  itemList: []
-  item: 0
+  itemList:
+  - son: {fileID: 8300000, guid: 6053b2b31fe41d245b0b5fd57a2bc908, type: 3}
+    texte: 
+    dureeArret: 3
+    dureeAcces: 0
+    pos: {x: 19.5, y: 6.011162, z: -27.7}
+    rot: {x: -0.008717512, y: -0.043846145, z: 0.99900025}
+    isShaking: 0
+    isInDeplacement: 0
+  - son: {fileID: 0}
+    texte: 
+    dureeArret: 4
+    dureeAcces: 0
+    pos: {x: 23.300613, y: 5.420657, z: -34.965405}
+    rot: {x: -0.9881648, y: -0.15128186, z: 0.025378378}
+    isShaking: 0
+    isInDeplacement: 0
+  item: 1
   isPassable: 0
   desactiveBandeNoir: 0
