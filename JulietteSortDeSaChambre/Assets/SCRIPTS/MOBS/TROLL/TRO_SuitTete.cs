@@ -5,11 +5,9 @@ using UnityEngine;
 public class TRO_SuitTete : MonoBehaviour {
 	public IA_Agent cerveau;
 	private float taillePrincesse = 2.0f;
-	private Quaternion initial;
 
 	// Use this for initialization
-	void Awake () {
-		initial = transform.rotation;
+	void Start () {
 	}
 	
 	// Update is called once per frame
@@ -18,8 +16,6 @@ public class TRO_SuitTete : MonoBehaviour {
 			transform.LookAt (cerveau.getPrincesse ().transform.position + cerveau.getPrincesse ().transform.up * taillePrincesse);
 			transform.rotation = Quaternion.FromToRotation (transform.up, transform.forward) * transform.rotation;
 			transform.RotateAround (transform.up, 135);
-		} else {
-			transform.rotation = initial;
 		}
 	}
 }
