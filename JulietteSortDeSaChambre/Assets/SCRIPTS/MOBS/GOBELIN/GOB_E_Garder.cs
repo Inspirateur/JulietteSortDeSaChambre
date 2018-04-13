@@ -35,7 +35,7 @@ public class GOB_E_Garder : IA_Etat {
 		}
 		else {
 
-			if(positionGarde.Equals(Vector3.zero)) {
+			if(emplacementAGarder != null) {
 
 				this.positionGarde = this.emplacementAGarder.transform.position;
 				this.forwardPositionGarde = this.emplacementAGarder.transform.forward;

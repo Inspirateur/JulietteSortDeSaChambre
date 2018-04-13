@@ -33,7 +33,7 @@ public class RespawnablePrincesse : RespawnableEntity {
 
     public override void onRespawn()
     {
-        // Debug.Log(gameObject.ToString() + " : OnRespawn");
+        Debug.Log(gameObject.ToString() + " : OnRespawn");
 		princesseVie.fullSoigner();
         this.princesseArme.SetArmeActive(this.armeActive);
         this.princesseObjetProgression.listObjet = new Dictionary<EnumObjetProgression, int>(this.listObjet);
