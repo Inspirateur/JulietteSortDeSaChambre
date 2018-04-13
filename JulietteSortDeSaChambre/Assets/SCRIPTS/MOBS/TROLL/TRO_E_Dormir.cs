@@ -7,6 +7,8 @@ public class TRO_E_Dormir : IA_Etat {
 	public float attentionSommeil;
 	public float reveilMin;
 	public float reveilMax;
+	public AudioClip sonDormir;
+	public AudioClip sonBaillement;
 	private float reveil;
 	private float tpsAnim;
 
@@ -20,12 +22,14 @@ public class TRO_E_Dormir : IA_Etat {
 		setAnimation(TRO_Animations.ENDORMIR);
 		tpsAnim = Time.time + 7.3f;
 		reveil = tpsAnim + reveilMin + (reveilMax - reveilMin) * Random.value;
+		agent.getSoundEntity().playOneShot(sonBaillement, 1.0f);
 	}
 
 	// Update is called once per frame
 	public override void faireEtat () {
 		if (Time.time >= tpsAnim) {
 			perception.estAveugle = true;
+			agent.getSoundEntity().playOneShot(sonDormir, 1.0f);
 		}
 		if (Time.time < tpsAnim && perception.aRepere (princesse, attentionSommeil)) {
 			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
@@ -37,5 +41,4 @@ public class TRO_E_Dormir : IA_Etat {
 	public override void sortirEtat() {
 		perception.estAveugle = false;
 	}
-
 }

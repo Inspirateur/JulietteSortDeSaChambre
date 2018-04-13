@@ -790,7 +790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986958385299472}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 49.147133, y: 32.709064, z: -35.01979}
+  m_LocalPosition: {x: -38.448154, y: 2.0052803, z: 33.87182}
   m_LocalScale: {x: 0.53, y: 0.53, z: 0.53}
   m_Children:
   - {fileID: 4989829339340154}
@@ -1126,8 +1126,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.010151987, y: 0.034366224, z: 0.011369783}
-  m_Center: {x: -0.00007022615, y: 0.003068313, z: 0.0016282167}
+  m_Size: {x: 0.010151987, y: 0.04545452, z: 0.011369783}
+  m_Center: {x: -0.00007022531, y: 0.008612477, z: 0.0016282152}
 --- !u!65 &65689619927619322
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emplacementAGarder: {fileID: 0}
   vitesse: 2
-  sonPoursuite: {fileID: 0}
+  sonPoursuite: {fileID: 8300000, guid: b109094d7e99cd445ae8698a1b9351e7, type: 3}
   endormissementMin: 20
   endormissementMax: 22
 --- !u!114 &114004325537859082
@@ -1347,7 +1347,7 @@ MonoBehaviour:
   degats: 3
   forceRecule: 10
   distanceParcourue: 0
-  sonAttaque: {fileID: 0}
+  sonAttaque: {fileID: 8300000, guid: d7a5bd46aa120954ba5ab25781b943e6, type: 3}
   vitesse: 0
 --- !u!114 &114072515646087178
 MonoBehaviour:
@@ -1374,6 +1374,8 @@ MonoBehaviour:
   attentionSommeil: 0.6
   reveilMin: 10
   reveilMax: 12
+  sonDormir: {fileID: 8300000, guid: ec9b0c52463ccaa40a91843c2bad794d, type: 3}
+  sonBaillement: {fileID: 0}
 --- !u!114 &114130132098004180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1415,7 +1417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceReculeVertical: 0
   forceReculeHorizontal: 0
-  sonDegat: {fileID: 8300000, guid: f190569b85e8f5a418f4831754a6b828, type: 3}
+  sonBlesse: {fileID: 8300000, guid: f3510be97187591489ec00ee766a48b3, type: 3}
 --- !u!114 &114230659502969786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1427,7 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  etatInitial: {fileID: 114691372669306674}
+  etatInitial: {fileID: 114002012053945052}
   vitesseAngulaire: 8
   etatMort: {fileID: 114787592065180430}
   etatTomber: {fileID: 0}
@@ -1450,6 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectSpawn: {fileID: 0}
+  spawn: 0
 --- !u!114 &114258428702989616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1524,7 +1527,7 @@ MonoBehaviour:
   vitesse: 2.5
   dureeRecherchePrincesse: 4
   distanceEntreeCombat: 2
-  sonPrincessePerdu: {fileID: 0}
+  sonPrincessePerdu: {fileID: 8300000, guid: 37a0076975a7e664e8b363f9c87105e9, type: 3}
 --- !u!114 &114691372669306674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1575,7 +1578,7 @@ MonoBehaviour:
   degats: 5
   forceRecule: 15
   distanceParcourue: 0
-  sonAttaque: {fileID: 0}
+  sonAttaque: {fileID: 8300000, guid: d7a5bd46aa120954ba5ab25781b943e6, type: 3}
   vitesse: 0
 --- !u!114 &114787592065180430
 MonoBehaviour:
@@ -1589,7 +1592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delaiAvantDisparition: 4
-  sonMort: {fileID: 0}
+  sonMort: {fileID: 8300000, guid: c3f01c3b80aed004b91d4669c12c87ae, type: 3}
+  poofEffect: {fileID: 4478054715601644, guid: 2e5e3111cc1b9ae458fba14d32b7f0c8, type: 2}
 --- !u!114 &114817043940736248
 MonoBehaviour:
   m_ObjectHideFlags: 1

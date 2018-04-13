@@ -6,7 +6,7 @@ public class TRO_E_EtreBlesse : IA_Etat {
 
 	public float forceReculeVertical;
 	public float forceReculeHorizontal;
-	public AudioClip sonDegat;
+	public AudioClip sonBlesse;
 
 	private float facteurRecule;
 
@@ -26,7 +26,7 @@ public class TRO_E_EtreBlesse : IA_Etat {
 //		facteurRecule = princesseArme.getFacteurReculeArmeActuelle();
 		anim.Play(TRO_Animations.ETRE_BLESSE);
 		agent.getSoundEntity().stop();
-		agent.getSoundEntity().playOneShot(sonDegat,1.0f);
+		agent.getSoundEntity().playOneShot(sonBlesse, 1.0f);
 
 		Vector3 directionRecule = (this.transform.position - princesse.transform.position).normalized;
 
