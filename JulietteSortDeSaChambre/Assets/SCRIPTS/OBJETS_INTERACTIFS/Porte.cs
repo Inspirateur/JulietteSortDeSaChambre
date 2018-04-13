@@ -36,7 +36,12 @@ public class Porte : ObjetEnvironnemental
         {
             if (isActivable())
             {
-                OuverturePorte();
+				if (declencheEvenement) {
+					evenementStart ();
+				} else {
+					OuverturePorte();
+				}
+                
             }
             else
             {

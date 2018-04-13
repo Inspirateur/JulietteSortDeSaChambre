@@ -40,12 +40,6 @@ public class Arme : ObjetInteractifs {
 		return iconeInterraction;
 	}
 
-	override
-	public void evenementStart(){
-		if(GetComponent<EventManager>()!=null){
-			GetComponent<EventManager> ().activation ();
-		}
 
-	}
 		
 }
