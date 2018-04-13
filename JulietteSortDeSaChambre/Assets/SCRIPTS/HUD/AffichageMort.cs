@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AffichageMort : MonoBehaviour, ISelectHandler, IDeselectHandler {
+public class AffichageMort : MonoBehaviour {
 
 	private Transform[] listTransform;
 
 	private GameObject princesse;
-	public UnityEngine.UI.Button button;
+	// public UnityEngine.UI.Button button;
+
+	public GameObject boutonFocus;
 
 	public void Start(){
 		princesse = GameObject.FindGameObjectWithTag("Player");
@@ -32,8 +34,9 @@ public class AffichageMort : MonoBehaviour, ISelectHandler, IDeselectHandler {
 		// var truc = gameObject.GetComponentsInChildren<UnityEngine.UI.Button>()[0];
 		// //Debug.Log(truc.name);
 		// truc.Select();
-		button.Select();
-		Cursor.visible=true;
+		// button.Select();
+		EventSystem.current.SetSelectedGameObject(boutonFocus);
+		Cursor.visible = true;
     }
 
 	public void resetScene(){
@@ -44,23 +47,23 @@ public class AffichageMort : MonoBehaviour, ISelectHandler, IDeselectHandler {
             listTransform[i].gameObject.SetActive(false);
         }
         CheckPointManager.getInstance().restartCheckPoint();
-		Cursor.visible=false;
+		Cursor.visible = false;
     }
 
 	public void retourMenuPrincipal(){
-		Cursor.visible=false;
+		Cursor.visible = false;
 		PlayerPrefs.SetString("SceneToLoad", "SCENES/MenuPrincipal");
         SceneManager.LoadScene("SCENES/LoadingScene");
-		Debug.Log("quitter");
 	}
 
-	public void OnSelect(BaseEventData eventData){
-		Debug.Log(eventData);
-		button.GetComponent<Text>().text="truc";
+	public void ChangeColorOnSelect(){
+		var color = new Color32(180, 180, 180, 255);
+		GetComponentInChildren<Text>().color = color;
 	}
 
-	public void OnDeselect(BaseEventData eventData){
-
+	public void ChangeColoOnDeselect(){
+		var color = new Color32(255, 255, 255, 255);
+		GetComponentInChildren<Text>().color = color;
 	}
-
+	
 }

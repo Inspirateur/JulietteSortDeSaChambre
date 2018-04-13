@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class IntroScene : MonoBehaviour {
- public string SceneName;
- public float timer;
- public Text textPasserCinematique;
- private UnityEngine.Video.VideoPlayer cam;
+
+	 public string SceneName;
+	 public string SceneLoadingName;
+	 public float timer;
+	 public Text textPasserCinematique;
+	 private UnityEngine.Video.VideoPlayer cam;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +24,9 @@ public class IntroScene : MonoBehaviour {
 	void Update () {
 		if(Time.time > timer){
 			textPasserCinematique.enabled = true;
-			if(Input.GetButtonDown("Interagir")|| !cam.isPlaying){
-		  	SceneManager.LoadScene(SceneName);
+			if(Input.GetButtonDown("Interagir") || !cam.isPlaying){
+				PlayerPrefs.SetString("SceneToLoad", SceneName);
+				SceneManager.LoadScene(SceneLoadingName);
 			}
 		}
 	}
