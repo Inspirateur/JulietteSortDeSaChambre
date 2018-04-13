@@ -7834,6 +7834,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18598d9862aa2754b9a81313eddd5319, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &231278525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 231278527}
+  - component: {fileID: 231278526}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &231278526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 231278525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774a9bdd602fc6248a75ac9072c301d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &231278527
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 231278525}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &234512072
 Prefab:
   m_ObjectHideFlags: 0
@@ -10733,6 +10773,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nouvellePosition: {fileID: 617712941}
+--- !u!114 &336965808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336965781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd73194a8ed6d048ac6abb2465216ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  es:
+  - go: {fileID: 942448642}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - stopSon
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 1
+    paramBool: 0
+  index: 0
+  nomEvent: 
 --- !u!1001 &341535463
 Prefab:
   m_ObjectHideFlags: 0
@@ -30664,6 +30736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - {fileID: 8300000, guid: 4ab3d3c03c4e1b3428b2bfe814f422d2, type: 3}
+  - {fileID: 8300000, guid: c2036d5295ab95f4e81a91818bfcb0a6, type: 3}
 --- !u!1001 &944633292
 Prefab:
   m_ObjectHideFlags: 0
@@ -31519,7 +31592,7 @@ Prefab:
     - target: {fileID: 224544654178934522, guid: 8529d13b78ced7c4a81aed44f619438e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 1.800003
+      value: 1.7999878
       objectReference: {fileID: 0}
     - target: {fileID: 224544654178934522, guid: 8529d13b78ced7c4a81aed44f619438e,
         type: 2}
@@ -33558,19 +33631,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.09301585
+      value: 0.18097807
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.1280162
+      value: 0.12642059
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.012059764
+      value: -0.0234649
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.9873269
+      value: 0.9750458
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_RootOrder
@@ -33590,11 +33663,11 @@ Prefab:
         type: 2}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 32.7
+      value: 21.03
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -645.6
+      value: -705.225
       objectReference: {fileID: 0}
     - target: {fileID: 20795931091379210, guid: e7e3603a99a6c134788c69004ce1c1e3,
         type: 2}
@@ -36558,6 +36631,11 @@ Prefab:
       propertyPath: arme
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114270276004042782, guid: 35a77f534fc9e614080e730be103bff0,
+        type: 2}
+      propertyPath: distanceActivation
+      value: 1.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
   m_IsPrefabParent: 0
@@ -37899,6 +37977,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
+  - go: {fileID: 942448642}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - stopSon
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 02000000
+    paramInt: 3
+    paramBool: 0
   - go: {fileID: 1337666506}
     name:
     - CinematiqueManager
@@ -37952,8 +38048,70 @@ MonoBehaviour:
     enumParam: 09000000
     paramInt: 3
     paramBool: 0
+  - go: {fileID: 1171039573}
+    name:
+    - OuverturePorte
+    indice: 00000000
+    nameM:
+    - activation
+    - desactivatePorte
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 02000000
+    paramInt: 3
+    paramBool: 0
+  - go: {fileID: 231278526}
+    name:
+    - TimerEvenement
+    indice: 00000000
+    nameM:
+    - launchTimer
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 1
+    paramBool: 0
+  - go: {fileID: 1171039573}
+    name:
+    - OuverturePorte
+    indice: 00000000
+    nameM:
+    - activation
+    - desactivatePorte
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 02000000
+    paramInt: 3
+    paramBool: 0
   index: 0
   nomEvent: 
+--- !u!114 &1171039573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1171039565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae50b091cc7f0b4387759a211847bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1173210091
 Prefab:
   m_ObjectHideFlags: 0
@@ -38805,15 +38963,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4347361624186870, guid: bd7a4dc0f8b432c4eb5f79e970016e7d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.72
+      value: -16.6
       objectReference: {fileID: 0}
     - target: {fileID: 4347361624186870, guid: bd7a4dc0f8b432c4eb5f79e970016e7d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4347361624186870, guid: bd7a4dc0f8b432c4eb5f79e970016e7d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.36
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 4347361624186870, guid: bd7a4dc0f8b432c4eb5f79e970016e7d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -40428,7 +40586,7 @@ Prefab:
     - target: {fileID: 114554954713644384, guid: c9a54d39a8e01f242a40b3c7ee2ba70c,
         type: 2}
       propertyPath: distanceVision
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114554954713644384, guid: c9a54d39a8e01f242a40b3c7ee2ba70c,
         type: 2}

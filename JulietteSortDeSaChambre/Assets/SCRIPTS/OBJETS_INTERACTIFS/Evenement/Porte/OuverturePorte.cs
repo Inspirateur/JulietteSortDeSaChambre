@@ -20,4 +20,9 @@ public class OuverturePorte : Evenement {
 		p.OuverturePorte ();
 	}
 
+	public void desactivatePorte(){
+		Porte p = this.GetComponent<Porte> ();
+		p.isDecorative = true;
+	}
+
 }
