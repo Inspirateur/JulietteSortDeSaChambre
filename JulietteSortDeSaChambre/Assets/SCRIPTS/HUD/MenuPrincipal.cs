@@ -30,8 +30,9 @@ public class MenuPrincipal : MonoBehaviour {
     public GameObject Princesse;
 
     public GameObject[] Soulignage;
+	public AudioClip PageSound;
 
-    void Awake() {
+	void Awake() {
         se = GetComponent<SoundEntity>();
         BoutonSelectionner = 0;
         AfficheControleEnCour = false;
@@ -46,12 +47,12 @@ public class MenuPrincipal : MonoBehaviour {
     void Update() {
         if (!AfficheControleEnCour) {
             DeplacementBouton();
-            if (Input.GetButtonDown("Interagir") || Input.GetButtonDown("Submit"))
+            if (Input.GetButtonDown("Interagir") || Input.GetButtonDown("Submit") || Input.GetKeyDown(KeyCode.Return))
             {
                 ActiveBouton(BoutonSelectionner);
             }
         } else {
-            if (Input.GetButtonDown("Interagir") || Input.GetButtonDown("Submit"))
+            if (Input.GetButtonDown("Interagir") || Input.GetButtonDown("Submit") || Input.GetKeyDown(KeyCode.Return))
             {
                 Princesse.GetComponent<Animator>().SetBool("Controle", false);
                 Princesse.GetComponent<Animator>().SetTrigger("RangeBook");
@@ -144,7 +145,8 @@ public class MenuPrincipal : MonoBehaviour {
         Princesse.GetComponent<Animator>().SetBool("Controle", true);
         Princesse.GetComponent<Animator>().SetTrigger("IsBook");
         AfficheControleEnCour = true;
-        AffichePanelMenuPrincipal.SetActive(false);
+		se.playOneShot(PageSound);
+		AffichePanelMenuPrincipal.SetActive(false);
         AffichePanelControle.SetActive(true);
     }
 

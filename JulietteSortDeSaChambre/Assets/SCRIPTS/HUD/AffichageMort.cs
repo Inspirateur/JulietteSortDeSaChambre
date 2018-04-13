@@ -9,9 +9,11 @@ public class AffichageMort : MonoBehaviour, ISelectHandler, IDeselectHandler {
 
 	private Transform[] listTransform;
 
+	private GameObject princesse;
 	public UnityEngine.UI.Button button;
 
 	public void Start(){
+		princesse = GameObject.FindGameObjectWithTag("Player");
 		listTransform = gameObject.GetComponentsInChildren<Transform>(true);
 	}
 
@@ -35,7 +37,10 @@ public class AffichageMort : MonoBehaviour, ISelectHandler, IDeselectHandler {
     }
 
 	public void resetScene(){
-        for (int i = 1; i < listTransform.Length; i++) {
+		princesse.GetComponent<Animator>().SetBool("IsDead", false);
+		princesse.GetComponent<PrincesseDeplacement>().UnlockPrincesse();
+		princesse.GetComponent<PrincesseVie>().PlayOneTimeDie = false;
+		for (int i = 1; i < listTransform.Length; i++) {
             listTransform[i].gameObject.SetActive(false);
         }
         CheckPointManager.getInstance().restartCheckPoint();

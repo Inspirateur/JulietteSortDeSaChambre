@@ -8,7 +8,7 @@ public class RespawnablePendule : RespawnableEntity {
     private bool stop;
     private float time;
 
-	void Awake() {
+	public override void onAwake() {
         pend = GetComponent<pendule>();
     }
 

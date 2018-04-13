@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockSound : StateMachineBehaviour {
+public class SoundPlayOnEnter : StateMachineBehaviour {
 
     private SoundManager sm;
 

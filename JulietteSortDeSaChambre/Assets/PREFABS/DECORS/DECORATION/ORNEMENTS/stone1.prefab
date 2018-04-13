@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4922515178578894}
   - component: {fileID: 33686172554477372}
   - component: {fileID: 23031686659453470}
+  - component: {fileID: 205514686568434130}
   m_Layer: 0
   m_Name: stone1
   m_TagString: Untagged
@@ -35,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592014458458110}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 28.504648, y: 4.1431265, z: -78.3303}
-  m_LocalScale: {x: 48.610275, y: 48.610252, z: 48.610252}
+  m_LocalPosition: {x: 56.660133, y: 32.647675, z: -60.47979}
+  m_LocalScale: {x: 48.610275, y: 48.610237, z: 48.610237}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,3 +83,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592014458458110}
   m_Mesh: {fileID: 4300004, guid: f5339a5f1b4d73149afbd4d0ff60bd93, type: 3}
+--- !u!205 &205514686568434130
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592014458458110}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00000011920929, y: 0, z: 0.000000044703484}
+  m_Size: 0.02
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.053833283
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23031686659453470}
+  m_Enabled: 1

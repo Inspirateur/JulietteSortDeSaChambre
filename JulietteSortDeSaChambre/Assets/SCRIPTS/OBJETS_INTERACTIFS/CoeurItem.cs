@@ -23,6 +23,7 @@ public class CoeurItem : Item {
 	public void Activation()
 	{
 		if (juliette.getVieCourante()!=juliette.vie_max) {
+			juliette.startEffectVieUp();
 			if (soinFull) {
 				juliette.fullSoigner ();
 			} else {

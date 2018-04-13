@@ -17,7 +17,7 @@ public class Porte : ObjetEnvironnemental
 
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
         juliette = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseObjetProgression>();
@@ -93,5 +93,16 @@ public class Porte : ObjetEnvironnemental
         {
             juliette.removeItem(obj.objet, obj.nombre);
         }
+    }
+
+    public void setOpen(bool open){
+        anim.SetBool("isOpen", open);
+        isDecorative = open;
+    }
+
+    public void setOpenEndDoor(bool open){
+        anim.SetBool("isOpen", open);
+        anim.SetBool("lockUnlock", open);
+        isDecorative = open;
     }
 }

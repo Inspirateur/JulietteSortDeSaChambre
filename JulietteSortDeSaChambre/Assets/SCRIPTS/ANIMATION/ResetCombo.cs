@@ -12,6 +12,7 @@ public class ResetCombo : StateMachineBehaviour {
         princesse = GameObject.FindGameObjectWithTag("Player");
         deplacement = princesse.GetComponent<PrincesseDeplacement>();
 
+		deplacement.canMove = true;
         deplacement.attaqueBegin = false;
     }
 

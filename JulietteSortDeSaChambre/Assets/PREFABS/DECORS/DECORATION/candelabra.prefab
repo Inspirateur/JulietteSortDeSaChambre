@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 23207692466455502}
   - component: {fileID: 95926916588822062}
   - component: {fileID: 65784385578179944}
+  - component: {fileID: 205551331031700380}
   m_Layer: 0
   m_Name: candelabra
   m_TagString: Untagged
@@ -175,8 +176,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142583813061902}
-  m_LocalRotation: {x: -0, y: -0.2588181, z: -0, w: 0.9659261}
-  m_LocalPosition: {x: 7, y: -7.0194, z: -47.98}
+  m_LocalRotation: {x: 0.0000005128195, y: 0.9659261, z: -0.00000019495785, w: 0.25881812}
+  m_LocalPosition: {x: -21.044033, y: 24.2, z: -88.09048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4015908193070442}
@@ -184,7 +185,7 @@ Transform:
   - {fileID: 4698468944355338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -30.000002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
 --- !u!4 &4632290298301308
 Transform:
   m_ObjectHideFlags: 1
@@ -10649,3 +10650,23 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!205 &205551331031700380
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1142583813061902}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.50689775, z: 0}
+  m_Size: 1.0137955
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.04857247
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23207692466455502}
+    - renderer: {fileID: 199169984330097342}
+    - renderer: {fileID: 199941179537107032}
+    - renderer: {fileID: 199602090766798490}
+  m_Enabled: 1

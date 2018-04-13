@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33751661415648918}
   - component: {fileID: 23013406990119820}
   - component: {fileID: 95182524089313926}
+  - component: {fileID: 205413071138384964}
   m_Layer: 2
   m_Name: skull
   m_TagString: Untagged
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1921180201136824}
-  m_LocalRotation: {x: -0.49999917, y: -0, z: -0, w: 0.8660259}
-  m_LocalPosition: {x: 41.143, y: 2.087, z: 20.451}
-  m_LocalScale: {x: 0.19200002, y: 0.19200002, z: 0.19200002}
+  m_LocalRotation: {x: -0.0000014305115, y: -0.8660259, z: -0.49999914, w: 0.0000024214387}
+  m_LocalPosition: {x: 46.58301, y: 34.856064, z: -38.73179}
+  m_LocalScale: {x: 0.19200002, y: 0.19200006, z: 0.19200008}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -60.000004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -60.000004, y: -180.00002, z: 0}
 --- !u!23 &23013406990119820
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -100,3 +101,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!205 &205413071138384964
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921180201136824}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.000015258789, y: -0.000061035156, z: -0.000030517578}
+  m_Size: 2
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.021992104
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23013406990119820}
+  m_Enabled: 1

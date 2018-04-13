@@ -67,6 +67,7 @@ public class CinematiqueWindowEditor : EditorWindow {
 			GUILayout.BeginHorizontal ();
 
 			cinematiqueItemList.isPassable = EditorGUILayout.Toggle ("Est passable : ", cinematiqueItemList.isPassable);
+			cinematiqueItemList.desactiveBandeNoir = EditorGUILayout.Toggle ("Desactiver bande noire : ", cinematiqueItemList.desactiveBandeNoir);
 			GUILayout.EndHorizontal ();
 			GUILayout.BeginHorizontal ();
 
@@ -107,6 +108,7 @@ public class CinematiqueWindowEditor : EditorWindow {
 				cinematiqueItemList.itemList [viewIndex - 1].dureeAcces = EditorGUILayout.IntField ("Temps pour accéder au point", cinematiqueItemList.itemList [viewIndex - 1].dureeAcces);
 				// inventoryItemList.itemList[viewIndex-1].itemObject = EditorGUILayout.ObjectField ("Item Object", inventoryItemList.itemList[viewIndex-1].itemObject, typeof (Rigidbody), false) as Rigidbody;
 				cinematiqueItemList.itemList [viewIndex - 1].son = EditorGUILayout.ObjectField("Son",cinematiqueItemList.itemList [viewIndex - 1].son,typeof(AudioClip),false) as AudioClip;
+				cinematiqueItemList.itemList [viewIndex - 1].texte = EditorGUILayout.TextArea (cinematiqueItemList.itemList [viewIndex - 1].texte);
 
 				if(GUILayout.Button("Simulation", GUILayout.ExpandWidth(false))){
 					Selection.activeObject = GameObject.FindGameObjectWithTag ("MainCamera");

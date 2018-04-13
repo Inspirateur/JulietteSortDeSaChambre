@@ -9,6 +9,12 @@ public abstract class RespawnableEntity : MonoBehaviour {
     private Quaternion rotation;
     private bool actif;
 
+    void Awake() {
+        onAwake();
+    }
+
+    public abstract void onAwake();
+
     void Start()
     {
         CheckPointManager.getInstance().onRestart += OnRestart;
@@ -27,7 +33,7 @@ public abstract class RespawnableEntity : MonoBehaviour {
         this.position = this.transform.position;
         this.rotation = this.transform.rotation;
         this.actif = this.gameObject.activeSelf;
-        Debug.Log(gameObject.name + " : " + this.actif);
+        // Debug.Log(gameObject.name + " : " + this.actif);
     }
 
     public abstract void setInitialState();
@@ -40,7 +46,7 @@ public abstract class RespawnableEntity : MonoBehaviour {
             onRespawn();
         }
         else {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 

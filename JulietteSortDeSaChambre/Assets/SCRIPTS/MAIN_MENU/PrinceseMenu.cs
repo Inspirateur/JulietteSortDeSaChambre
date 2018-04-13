@@ -12,7 +12,7 @@ public class PrinceseMenu : MonoBehaviour {
 	public AudioClip[] Coups;
 	public GameObject startPrince;
 	public GameObject[] prince;
-	public AudioClip PageSound;
+
 	void Awake() {
 		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 	}
@@ -32,10 +32,6 @@ public class PrinceseMenu : MonoBehaviour {
 
 	private void ResetTimer() {
 		timer = Time.time + Random.Range(minTimer,maxTimer);
-	}
-
-	public void bookOpen(){
-		sm.playOneShot(PageSound);
 	}
 
 	public void PlayCoups() {

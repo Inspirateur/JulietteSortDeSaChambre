@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33405143568107510}
   - component: {fileID: 23779122336047176}
   - component: {fileID: 65325232776833146}
+  - component: {fileID: 205772045860163982}
   m_Layer: 2
   m_Name: etagere
   m_TagString: Decor
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1156159717099702}
-  m_LocalRotation: {x: -0.0000020787118, y: 0.7071067, z: 0.7071069, w: 0.0000020712612}
-  m_LocalPosition: {x: 38.97, y: 1.6911602, z: 20.48778}
-  m_LocalScale: {x: 100, y: 24.999992, z: 149.99994}
+  m_LocalRotation: {x: 0.43045688, y: 0.56098753, z: 0.5609876, w: -0.43045667}
+  m_LocalPosition: {x: 65.47214, y: 34.299065, z: -61.915794}
+  m_LocalScale: {x: 100.00006, y: 45.00001, z: 150}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 180.00002}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 254.999}
 --- !u!23 &23779122336047176
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -95,3 +96,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.019999996, z: 0.021333328}
   m_Center: {x: 0, y: -3.789562e-17, z: -0.0006666666}
+--- !u!205 &205772045860163982
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1156159717099702}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00000011920929, y: 0, z: -0.0006666593}
+  m_Size: 0.021333348
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.09688131
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23779122336047176}
+  m_Enabled: 1

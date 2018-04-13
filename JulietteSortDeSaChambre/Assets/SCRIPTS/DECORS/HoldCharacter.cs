@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HoldCharacter : MonoBehaviour {
-	void OnTriggerEnter (Collider col) 
+
+	private PrincesseDeplacement deplacement;
+
+	void Start() {
+		deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
+	}
+
+	void OnTriggerStay (Collider col) 
 	{
-		col.transform.parent = gameObject.transform;
+		if (col.tag == ("Player") && !deplacement.attaqueBegin) {
+			col.transform.parent = gameObject.transform;
+		}
 	}
 
 	void OnTriggerExit (Collider col) 

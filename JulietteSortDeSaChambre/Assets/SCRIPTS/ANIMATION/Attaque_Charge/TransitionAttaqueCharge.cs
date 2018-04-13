@@ -12,9 +12,7 @@ public class TransitionAttaqueCharge : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		princesseArme = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseArme>();
 		deplacement = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseDeplacement>();
-		//Debug.Log(princesseArme.armeActive);
-		Debug.Log("Je passe ici");
-		deplacement.vitesse = 0f;
+		deplacement.LockPrincesse();
 		princesseArme.getHandArme().GetComponent<BoxCollider>().enabled = false;
 		
 	}
