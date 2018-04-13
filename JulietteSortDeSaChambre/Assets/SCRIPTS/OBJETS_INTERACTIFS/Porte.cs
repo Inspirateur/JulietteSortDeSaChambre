@@ -68,9 +68,12 @@ public class Porte : ObjetEnvironnemental
                 return false;
             }
         }
-		if(!GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseArme>().armeActive.Equals(arme)){
-			return false;
+		if(!arme.Equals(EnumArmes.VIDE)){
+			if(!GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseArme>().armeActive.Equals(arme)){
+				return false;
+			}
 		}
+
 
         return true;
     }
