@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389803863512328}
   - component: {fileID: 95824405992402190}
+  - component: {fileID: 205130425099266502}
   m_Layer: 0
   m_Name: pendu
   m_TagString: Untagged
@@ -280,8 +281,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032259255030904}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.532, y: 7.858, z: -13.442}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 81.09514, y: 40.249065, z: -13.021793}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4951828055310550}
@@ -732,7 +733,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54686881665826872}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000025083362, y: 0.016999984, z: -0.000000009218855}
+  m_ConnectedAnchor: {x: -0.0000000025083278, y: 0.017000014, z: -0.000000039021185}
   serializedVersion: 2
   m_Spring: 50
   m_Damper: 0.2
@@ -754,7 +755,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54197135415240658}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000002547061, y: 0.015999988, z: -0.000000012715679}
+  m_ConnectedAnchor: {x: -0.0000000025470566, y: 0.015999988, z: -0.000000042518}
   serializedVersion: 2
   m_Spring: 50
   m_Damper: 0.2
@@ -776,7 +777,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54379619094802276}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000022494797, y: 0.015999973, z: -0.00000002306702}
+  m_ConnectedAnchor: {x: -0.0000000022494744, y: 0.015999973, z: -0.000000052869343}
   serializedVersion: 2
   m_Spring: 50
   m_Damper: 2
@@ -798,7 +799,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54525026035108076}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000002249144, y: 0.014999995, z: -0.000000004656613}
+  m_ConnectedAnchor: {x: -0.0000000022491429, y: 0.01499998, z: -0.000000037252903}
   serializedVersion: 2
   m_Spring: 50
   m_Damper: 0.2
@@ -820,7 +821,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54227046157035988}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000002285164, y: 0.015999991, z: -0.0000000066260446}
+  m_ConnectedAnchor: {x: -0.000000002285164, y: 0.015999965, z: -0.000000034565716}
   serializedVersion: 2
   m_Spring: 50
   m_Damper: 0.2
@@ -842,7 +843,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54765589159208914}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000023094389, y: 0.015999971, z: -0.0000000138481475}
+  m_ConnectedAnchor: {x: -0.0000000023094389, y: 0.015999941, z: -0.000000043650463}
   serializedVersion: 2
   m_Spring: 50
   m_Damper: 0.2
@@ -855,3 +856,20 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!205 &205130425099266502
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032259255030904}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.030970097, y: -6.972949, z: 0.5180492}
+  m_Size: 14.399195
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.19616249
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 137877183271302810}
+  m_Enabled: 1

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4146726833452990}
   - component: {fileID: 33079739604721762}
   - component: {fileID: 23396181279808240}
-  - component: {fileID: 64828005404074432}
   - component: {fileID: 54863141008878160}
+  - component: {fileID: 205254182480982054}
   m_Layer: 0
   m_Name: bones
   m_TagString: Untagged
@@ -36,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1471542000683178}
-  m_LocalRotation: {x: -0.14274204, y: -0.6928628, z: -0.14237882, w: -0.69231075}
-  m_LocalPosition: {x: 15.757999, y: 1.559, z: -12.875}
+  m_LocalRotation: {x: -0.17044754, y: -0.82760924, z: -0.107678376, w: -0.5238473}
+  m_LocalPosition: {x: -21.726904, y: 8.228778, z: -96.63232}
   m_LocalScale: {x: 2.5154953, y: 1.9345325, z: 10.55724}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.020000001, y: -269.95, z: 23.262001}
+  m_LocalEulerAnglesHint: {x: 0.020000001, y: -244.661, z: 23.262001}
 --- !u!23 &23396181279808240
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -99,17 +99,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64828005404074432
-MeshCollider:
+--- !u!205 &205254182480982054
+LODGroup:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1471542000683178}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0000015199184, y: -0.00026191585, z: 0.0014376976}
+  m_Size: 0.031101227
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.04687781
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23396181279808240}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300008, guid: 3cf2ba5f48d9b4f4588ee098a4276919, type: 3}

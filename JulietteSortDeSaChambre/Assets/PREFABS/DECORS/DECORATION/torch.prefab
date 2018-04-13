@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 82123543977764966}
   - component: {fileID: 114039729723457522}
   - component: {fileID: 114549057004194604}
+  - component: {fileID: 205300549444897856}
   m_Layer: 2
   m_Name: torch
   m_TagString: Untagged
@@ -70,14 +71,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437976793626936}
-  m_LocalRotation: {x: -0.49999994, y: -0.5000001, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: 56.961132, y: 35.050064, z: 30.51121}
-  m_LocalScale: {x: 19.199999, y: 3.1999998, z: 48}
+  m_LocalRotation: {x: -0.3535545, y: 0.612372, z: 0.61237174, w: 0.35355434}
+  m_LocalPosition: {x: 6.234, y: 51.742, z: -64.31028}
+  m_LocalScale: {x: 19.199999, y: 3.200011, z: 48.00023}
   m_Children:
   - {fileID: 4362897609480576}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -600}
 --- !u!4 &4329155737423178
 Transform:
   m_ObjectHideFlags: 1
@@ -3702,3 +3703,21 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!205 &205300549444897856
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437976793626936}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0000000027939677, y: -0.05577632, z: 0.0017791782}
+  m_Size: 0.13155462
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.25188738
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23069258618584748}
+    - renderer: {fileID: 199329710684741008}
+  m_Enabled: 1
