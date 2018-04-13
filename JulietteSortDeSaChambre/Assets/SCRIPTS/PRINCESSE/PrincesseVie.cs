@@ -155,7 +155,6 @@ public class PrincesseVie : MonoBehaviour {
 		rb.AddForce ((directionRecule * (reculeHorizontal * facteurRecule)) + (this.transform.up * (reculeVertical * facteurRecule)));
 
 		vie_courante = Mathf.Max(vie_courante - valeurDegats, 0);
-		Debug.Log("vie courante : " + vie_courante);
 		GameControl.control.vie = vie_courante;
 		setHudVie ();
 	}

@@ -13,6 +13,7 @@ public class TRO_E_AttaquerHorizontalement : IA_Etat{
 	private IA_TriggerArme colliderArme;
 	private float timerFinAttaque;
 	private float timerChargement;
+	private bool sonJoue;
 
 	// Use this for initialization
 	void Start() {
@@ -23,18 +24,21 @@ public class TRO_E_AttaquerHorizontalement : IA_Etat{
 	}
 
 	public override void entrerEtat() {
+		sonJoue = false;
 		agent.getSoundEntity().playOneShot(sonAttaque, 1.0f);
 		degatsAttaqueEffectues = false;
 		setAnimation (TRO_Animations.ATTAQUER_HORIZONTALEMENT);
-		timerChargement = Time.time + 1.1f;
+		timerChargement = Time.time + 1.2f;
 		timerFinAttaque = timerChargement + 0.8f;
 	}
 
 	public override void faireEtat() {
 		if (Time.time < timerFinAttaque) { // l'attaque est toujours en cours
-			Debug.Log("en attaque");
 			if(Time.time >= timerChargement){
-				Debug.Log("fini chargement");
+				if (!sonJoue) {
+					agent.getSoundEntity ().playOneShot (sonAttaque, 1.0f);
+					sonJoue = true;
+				}
 				if (!degatsAttaqueEffectues && colliderArme.IsPrincesseTouchee ()) {
 					princesseVie.blesser (degats, this.gameObject, forceRecule);
 					degatsAttaqueEffectues = true;
