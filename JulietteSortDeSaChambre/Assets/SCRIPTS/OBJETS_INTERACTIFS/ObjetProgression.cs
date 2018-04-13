@@ -33,13 +33,7 @@ public class ObjetProgression : ObjetInteractifs {
 	}
 
 
-	override
-	public void evenementStart(){
-		if(GetComponent<EventManager>()!=null){
-			GetComponent<EventManager> ().activation ();
-		}
 
-	}
 }
 public enum EnumObjetProgression 
 {

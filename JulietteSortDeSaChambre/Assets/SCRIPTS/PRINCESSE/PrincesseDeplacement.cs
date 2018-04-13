@@ -33,7 +33,7 @@ public class PrincesseDeplacement : MonoBehaviour
 
     [HideInInspector]
     public bool attaqueBegin;
-	[HideInInspector]
+
 	public bool canMove;
 	[HideInInspector]
 	public bool canJump;
@@ -71,7 +71,6 @@ public class PrincesseDeplacement : MonoBehaviour
 
     void Update()
     {
-
         //Debug.Log(anim.speed);   
         
         bool toucheTriche = Input.GetKeyDown(KeyCode.K);
@@ -90,7 +89,7 @@ public class PrincesseDeplacement : MonoBehaviour
         if ((moveHorizontal != 0.0f || moveVertical != 0.0f) && !anim.GetCurrentAnimatorStateInfo(0).IsName("IcePower") && canMove)
         {
              //anim.enabled = true;
-             anim.speed = 1;
+            
             if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
             {
                 if (CanDash == true && isGrounded == true)
@@ -217,6 +216,7 @@ public class PrincesseDeplacement : MonoBehaviour
     }
 
 	public void LockPrincesse() {
+		Debug.Log ("LOCK");
 		canMove = false;
 		canJump = false;
 		canAttack = false;
@@ -225,6 +225,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	}
 
 	public void UnlockPrincesse() {
+		Debug.Log ("UNLOCK");
 		canMove = true;
 		canJump = true;
 		canAttack = true;

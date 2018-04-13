@@ -2,6 +2,7 @@
 using UnityEngine;
 
 public class TRO_MobVie : IA_MobVie {
+
 	void Awake () {
 		base.init ();
 	}
@@ -9,7 +10,6 @@ public class TRO_MobVie : IA_MobVie {
 	protected override void apresPriseDegat(int degatSubit){
 		agent.immuniteDouleur = vieCourante >= vieMax / 2 || vieCourante + degatSubit < vieMax / 2;
 	}
-
 }
 
 

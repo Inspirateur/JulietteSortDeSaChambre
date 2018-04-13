@@ -642,6 +642,7 @@ GameObject:
   - component: {fileID: 114760527571844068}
   - component: {fileID: 114934009322539504}
   - component: {fileID: 114446770905925538}
+  - component: {fileID: 114408284670702156}
   - component: {fileID: 114729696479614234}
   - component: {fileID: 114017050675665280}
   - component: {fileID: 114961675448789684}
@@ -931,7 +932,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958744413631244}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 4.1, y: 0, z: -0.29}
+  m_LocalPosition: {x: 3.13, y: 0.076, z: 2.7}
   m_LocalScale: {x: 0.5324, y: 0.5324, z: 0.5324}
   m_Children:
   - {fileID: 4636113928238182}
@@ -1039,7 +1040,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097639305062850}
-  m_LocalRotation: {x: 0.6834157, y: 0.29148585, z: 0.664287, w: 0.081864394}
+  m_LocalRotation: {x: 0.6834158, y: 0.29148588, z: 0.66428703, w: 0.0818644}
   m_LocalPosition: {x: 0.003982941, y: -0.005827032, z: 0.0019042797}
   m_LocalScale: {x: 0.9999996, y: 0.9999997, z: 0.999999}
   m_Children:
@@ -1556,7 +1557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceReculeVertical: 150
   forceReculeHorizontal: 150
-  sonDegat: {fileID: 0}
+  sonBlesse: {fileID: 0}
 --- !u!114 &114105531599743624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1600,6 +1601,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e1590821f2e05e14b918f017156f95db, type: 3}
   - {fileID: 8300000, guid: fee8c66f5eb7910459b4b44435b82749, type: 3}
   - {fileID: 8300000, guid: 1b2ea417f325a514594c8eeecc2e467c, type: 3}
+  volumeGeneral: 0
 --- !u!114 &114216217087097332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1612,6 +1614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listeClips: []
+  volumeGeneral: 0
 --- !u!114 &114238002297263660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1663,8 +1666,8 @@ MonoBehaviour:
   emplacementAGarder: {fileID: 0}
   vitesse: 2
   sonPoursuite: {fileID: 0}
-  endormissementMin: 7
-  endormissementMax: 9
+  endormissementMin: 120
+  endormissementMax: 121
 --- !u!114 &114377628235678994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1676,7 +1679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be48bc5ddfbb4946a351607c6707b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vieMax: 30
+  vieMax: 50
   hitEffect: {fileID: 4355772534825084, guid: 90df33f6044effb4ca85698878036c5a, type: 2}
 --- !u!114 &114397151903470382
 MonoBehaviour:
@@ -1694,6 +1697,22 @@ MonoBehaviour:
   rayonAudition: 3
   estAveugle: 0
   estSourd: 0
+--- !u!114 &114408284670702156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958744413631244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33ad04195e7eeb4b8886d53cadea7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degats: 3
+  forceRecule: 4
+  distanceParcourue: 0
+  sonAttaque: {fileID: 0}
+  vitesse: 0
 --- !u!114 &114446770905925538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1720,8 +1739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attentionSommeil: 0.8
-  reveilMin: 10
-  reveilMax: 15
+  reveilMin: 3600
+  reveilMax: 3601
+  sonDormir: {fileID: 0}
+  sonBaillement: {fileID: 0}
 --- !u!114 &114612153777771394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1744,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb584caf456284b9423dc54dc346a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degats: 3
+  degats: 5
   forceRecule: 8
   distanceParcourue: 0
   sonAttaque: {fileID: 0}
