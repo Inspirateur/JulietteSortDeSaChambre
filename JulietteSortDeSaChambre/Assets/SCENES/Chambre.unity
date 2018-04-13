@@ -14410,6 +14410,42 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f30d7196fa0b4dd4180bcf59279ac7e2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &469206527 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1860789200596926, guid: e5456cf484a0c304f91ac280f33f2828,
+    type: 2}
+  m_PrefabInternal: {fileID: 1832720343}
+--- !u!114 &469206538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 469206527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd73194a8ed6d048ac6abb2465216ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  es:
+  - go: {fileID: 942448642}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 0
+    paramBool: 0
+  index: 0
+  nomEvent: 
 --- !u!1001 &469858216
 Prefab:
   m_ObjectHideFlags: 0
@@ -17399,7 +17435,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 943d222c01c27a74aa90a23626e33a0b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.196
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -28406,6 +28442,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec9868dd379c8db42bcd20237b411d7d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &942448637 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631921908216136, guid: 818a4322a2970dc4393e250308387a67,
+    type: 2}
+  m_PrefabInternal: {fileID: 1929980906}
+--- !u!114 &942448642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 942448637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70adb38a7b66ac449b3b55616338cb03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+  - {fileID: 8300000, guid: 4ab3d3c03c4e1b3428b2bfe814f422d2, type: 3}
 --- !u!1001 &944633292
 Prefab:
   m_ObjectHideFlags: 0
@@ -34272,6 +34326,16 @@ Prefab:
     - target: {fileID: 4382865471383688, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
       propertyPath: m_LocalScale.x
       value: 0.7743048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
+        type: 2}
+      propertyPath: declencheEvenement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867074706317452, guid: 35a77f534fc9e614080e730be103bff0,
+        type: 2}
+      propertyPath: arme
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a77f534fc9e614080e730be103bff0, type: 2}
@@ -55524,6 +55588,11 @@ Prefab:
     - target: {fileID: 4391119912623614, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
       propertyPath: m_LocalScale.z
       value: 24.191986
+      objectReference: {fileID: 0}
+    - target: {fileID: 114298421733415412, guid: e5456cf484a0c304f91ac280f33f2828,
+        type: 2}
+      propertyPath: declencheEvenement
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5456cf484a0c304f91ac280f33f2828, type: 2}
