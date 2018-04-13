@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33179144715392772}
   - component: {fileID: 23461336946764738}
   - component: {fileID: 114569628625749866}
+  - component: {fileID: 205485232180827114}
   m_Layer: 0
   m_Name: lavaFall
   m_TagString: Untagged
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174018288001752}
-  m_LocalRotation: {x: -0.3027955, y: 0.6389953, z: 0.6389952, w: 0.3027954}
-  m_LocalPosition: {x: 6.68, y: -0.04, z: -17.07}
-  m_LocalScale: {x: 39.81856, y: 39.818565, z: 39.818565}
+  m_LocalRotation: {x: -0.35467863, y: 0.6117215, z: 0.6117214, w: 0.35467848}
+  m_LocalPosition: {x: 38.037132, y: 28.949064, z: 14.480209}
+  m_LocalScale: {x: 27.873016, y: 39.81858, z: 39.818565}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 129.291}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 119.78901}
 --- !u!23 &23461336946764738
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -96,3 +97,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uvAnimationRate: {x: -0.2, y: 0}
   textureName: _LavaTex
+--- !u!205 &205485232180827114
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174018288001752}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.03243985, z: 0.07305873}
+  m_Size: 0.16611777
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.15382187
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23461336946764738}
+  m_Enabled: 1

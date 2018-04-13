@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4651813177403312}
   - component: {fileID: 33853840242061470}
   - component: {fileID: 23215869961636836}
+  - component: {fileID: 205444558209909392}
   m_Layer: 0
   m_Name: GRAPIN
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961058385875528}
   m_LocalRotation: {x: 0.4055772, y: -0.57922876, z: -0.5792279, w: 0.40558133}
-  m_LocalPosition: {x: 8.097, y: 12.229, z: -96.1}
+  m_LocalPosition: {x: 40.244133, y: 41.128067, z: -65.11979}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961058385875528}
   m_Mesh: {fileID: 4300002, guid: 474d1a34b5dd6424086722bdf4f1065a, type: 3}
+--- !u!205 &205444558209909392
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961058385875528}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.000078737736, y: -0.0000032894313, z: 0.06326069}
+  m_Size: 0.1567226
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05473587
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23215869961636836}
+  m_Enabled: 1

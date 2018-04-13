@@ -9,6 +9,7 @@ public class TRO_E_Combattre : IA_Etat {
 	public float delaisMinAvantAttaque;
 
 	private float timerAttaque;
+	private bool alterneAtk = false;
 
 	// Use this for initialization
 	void Start() {
@@ -25,13 +26,15 @@ public class TRO_E_Combattre : IA_Etat {
 		if (agent.distanceToPrincesse () >= distanceSortieCombat) {
 			changerEtat (GetComponent<TRO_E_Poursuivre> ());
 		} else if (gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("combattre") && Time.time >= timerAttaque) {
-			if (agent.distanceToPrincesse () < 1.6f) {
+			if (!alterneAtk && agent.distanceToPrincesse () < 1.6f) {
+				alterneAtk = true;
+				Debug.Log (">>> Troll lance atk VERTICALE <<<");
 				changerEtat (GetComponent<TRO_E_AttaquerVerticalement> ());
 			} else {
+				alterneAtk = false;
+				Debug.Log (">>> Troll lance atk HORIZONTALE <<<");
 				changerEtat (GetComponent<TRO_E_AttaquerHorizontalement> ());
 			}
-		} else {
-			Debug.Log ("Anim combat: " + gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).ToString ());
 		}
 	}
 

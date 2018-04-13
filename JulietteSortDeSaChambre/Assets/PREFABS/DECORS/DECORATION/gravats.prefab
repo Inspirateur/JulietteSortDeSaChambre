@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4878990539665512}
+  - component: {fileID: 205742912576897208}
   m_Layer: 0
   m_Name: gravats
   m_TagString: Untagged
@@ -62,14 +63,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096854583658576}
-  m_LocalRotation: {x: -0, y: 0.9039288, z: -0, w: 0.4276831}
-  m_LocalPosition: {x: 16.76, y: 3.876, z: -71.633}
-  m_LocalScale: {x: 1.792426, y: 1.7924252, z: 1.7924252}
+  m_LocalRotation: {x: -0, y: 0.6914453, z: -0, w: 0.72242886}
+  m_LocalPosition: {x: 43.447132, y: 22.173979, z: -5.662697}
+  m_LocalScale: {x: 1.7924262, y: 1.7924252, z: 1.7924254}
   m_Children:
   - {fileID: 4612775240377008}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 129.35901, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 87.489006, z: 0}
 --- !u!23 &23033875519931286
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -112,3 +113,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1550783991070524}
   m_Mesh: {fileID: 4300000, guid: 003347b7d540fcf4e82053c86974b5d0, type: 3}
+--- !u!205 &205742912576897208
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096854583658576}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.11733079, y: 0.08231917, z: -0.20539069}
+  m_Size: 1.465312
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.10078003
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23033875519931286}
+  m_Enabled: 1

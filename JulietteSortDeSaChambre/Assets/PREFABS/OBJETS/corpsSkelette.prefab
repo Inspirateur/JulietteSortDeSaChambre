@@ -21,8 +21,7 @@ GameObject:
   - component: {fileID: 4392172194464026}
   - component: {fileID: 33733236592343014}
   - component: {fileID: 23396736597318326}
-  - component: {fileID: 64390919475926516}
-  - component: {fileID: 54950176865755854}
+  - component: {fileID: 205488058135230688}
   m_Layer: 0
   m_Name: corpsSkelette
   m_TagString: Untagged
@@ -36,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809638720236558}
-  m_LocalRotation: {x: -0.14274204, y: -0.6928628, z: -0.14237882, w: -0.69231075}
-  m_LocalPosition: {x: 15.197, y: 1.6356001, z: -12.666}
-  m_LocalScale: {x: 2.5154953, y: 1.9345325, z: 10.55724}
+  m_LocalRotation: {x: -0.8103868, y: -0.52560216, z: 0.2559683, w: 0.038678214}
+  m_LocalPosition: {x: 41.120132, y: 32.736065, z: -65.03379}
+  m_LocalScale: {x: 2.515502, y: 1.9345325, z: 10.55725}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.020000001, y: -269.95, z: 23.262001}
+  m_LocalEulerAnglesHint: {x: -191.911, y: 27.745987, z: -62.981995}
 --- !u!23 &23396736597318326
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -84,32 +83,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809638720236558}
   m_Mesh: {fileID: 4300004, guid: 3cf2ba5f48d9b4f4588ee098a4276919, type: 3}
---- !u!54 &54950176865755854
-Rigidbody:
+--- !u!205 &205488058135230688
+LODGroup:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809638720236558}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &64390919475926516
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809638720236558}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_LocalReferencePoint: {x: -0.00021885335, y: 0.012349248, z: 0.000004010275}
+  m_Size: 0.4017457
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.20245121
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23396736597318326}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300004, guid: 3cf2ba5f48d9b4f4588ee098a4276919, type: 3}

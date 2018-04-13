@@ -17,7 +17,6 @@ public class IA_TriggerArme : MonoBehaviour {
 
 		if (other.gameObject.Equals (princesse)) {
 			princesseTouchee = true;
-			Debug.Log ("LE SQUELETTE A TOUCHAOW");
 		}
 	}
 

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4986620480938892}
   - component: {fileID: 33363439588336958}
   - component: {fileID: 23170502429693768}
+  - component: {fileID: 205032684670491510}
   m_Layer: 0
   m_Name: barreSupport
   m_TagString: Untagged
@@ -34,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1149423023945228}
-  m_LocalRotation: {x: -0.5, y: -0.49999997, z: 0.5, w: 0.50000006}
-  m_LocalPosition: {x: 38.964, y: 11.239, z: -43.741}
+  m_LocalRotation: {x: -0.68301296, y: -0.68301284, z: 0.18301217, w: 0.1830121}
+  m_LocalPosition: {x: -15.726, y: 30.114, z: -92.545}
   m_LocalScale: {x: 23.999998, y: 23.999998, z: 28.662466}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -150, z: 90.00001}
 --- !u!23 &23170502429693768
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,3 +84,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1149423023945228}
   m_Mesh: {fileID: 4300000, guid: 332b2ebd02e624d40b4cfb65a90b33b7, type: 3}
+--- !u!205 &205032684670491510
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149423023945228}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0.00054826215}
+  m_Size: 0.020000026
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.023771498
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23170502429693768}
+  m_Enabled: 1
