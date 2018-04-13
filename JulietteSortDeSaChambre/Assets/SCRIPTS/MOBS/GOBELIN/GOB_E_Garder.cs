@@ -35,11 +35,11 @@ public class GOB_E_Garder : IA_Etat {
 		}
 		else {
 
-			if(positionGarde.Equals(Vector3.zero)) {
+			// if(positionGarde.Equals(Vector3.zero)) {
 
 				this.positionGarde = this.emplacementAGarder.transform.position;
 				this.forwardPositionGarde = this.emplacementAGarder.transform.forward;
-			}
+			// }
 		
 			setAnimation(GOB_Animations.COURIR);
 			nav.speed = vitesse;
