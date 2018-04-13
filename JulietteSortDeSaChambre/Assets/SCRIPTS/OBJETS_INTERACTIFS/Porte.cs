@@ -118,4 +118,9 @@ public class Porte : ObjetEnvironnemental
         anim.SetBool("lockUnlock", open);
         isDecorative = open;
     }
+
+	public void setOpenEndDoorCinematique(bool open) {
+		anim.SetTrigger("Open");
+		isDecorative = open;
+	}
 }

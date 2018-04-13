@@ -15649,12 +15649,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 0}
+  - go: {fileID: 328354204}
     name:
     - SoundEvenement
     indice: 00000000
     nameM:
     - lancerSon
+    - stopSon
     - activation
     - desactivation
     - CancelInvoke
@@ -18042,6 +18043,21 @@ Prefab:
     - target: {fileID: 1798190829057412, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
       propertyPath: m_Name
       value: EndDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 95949983807560642, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9ad6a63af8516764694708b7e00c4271, type: 2}
+    - target: {fileID: 114355599995083388, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}
+      propertyPath: declencheEvenement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}
+      propertyPath: distanceActivation
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
@@ -38093,6 +38109,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec9868dd379c8db42bcd20237b411d7d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1143580748 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1798190829057412, guid: bd87f07d0883aff4eb35746947990f76,
+    type: 2}
+  m_PrefabInternal: {fileID: 539507494}
+--- !u!114 &1143580756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143580748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae50b091cc7f0b4387759a211847bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1144569680
 Prefab:
   m_ObjectHideFlags: 0
@@ -38922,7 +38954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 0}
+  - go: {fileID: 328354204}
     name:
     - SoundEvenement
     indice: 00000000
@@ -46741,7 +46773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
@@ -61571,7 +61603,7 @@ Transform:
   - {fileID: 1152834772}
   - {fileID: 565915926}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1846799066
 Prefab:
