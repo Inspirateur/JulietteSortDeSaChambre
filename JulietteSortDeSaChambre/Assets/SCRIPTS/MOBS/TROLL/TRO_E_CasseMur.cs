@@ -26,5 +26,7 @@ public class TRO_E_CasseMur : IA_Etat {
 		}
 	}
 
-	public override void sortirEtat() {}
+	public override void sortirEtat() {
+		enAttente = true;
+	}
 }

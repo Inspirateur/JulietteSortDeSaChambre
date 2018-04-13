@@ -23,7 +23,10 @@ public class TRO_E_Combattre : IA_Etat {
 
 	public override void faireEtat() {
 		agent.seTournerVersPosition (princesse.transform.position);
-		if (agent.distanceToPrincesse () >= distanceSortieCombat) {
+		if(!princesseVie.enVie()){
+			
+		}
+		else if (agent.distanceToPrincesse () >= distanceSortieCombat) {
 			changerEtat (GetComponent<TRO_E_Poursuivre> ());
 		} else if (gameObject.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("combattre") && Time.time >= timerAttaque) {
 			if (!alterneAtk && agent.distanceToPrincesse () < 1.6f) {

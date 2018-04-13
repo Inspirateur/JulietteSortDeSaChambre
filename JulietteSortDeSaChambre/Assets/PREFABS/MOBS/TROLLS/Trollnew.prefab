@@ -791,7 +791,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986958385299472}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -38.448154, y: 2.0052803, z: 36.09}
+  m_LocalPosition: {x: 49.147133, y: 32.73, z: -35.01979}
   m_LocalScale: {x: 0.53, y: 0.53, z: 0.53}
   m_Children:
   - {fileID: 4989829339340154}
@@ -1332,8 +1332,8 @@ MonoBehaviour:
   emplacementAGarder: {fileID: 0}
   vitesse: 2
   sonPoursuite: {fileID: 8300000, guid: b109094d7e99cd445ae8698a1b9351e7, type: 3}
-  endormissementMin: 20
-  endormissementMax: 22
+  endormissementMin: 300
+  endormissementMax: 301
 --- !u!114 &114004325537859082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1373,8 +1373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attentionSommeil: 0.6
-  reveilMin: 10
-  reveilMax: 12
+  reveilMin: 300
+  reveilMax: 301
   sonDormir: {fileID: 8300000, guid: ec9b0c52463ccaa40a91843c2bad794d, type: 3}
   sonBaillement: {fileID: 0}
 --- !u!114 &114130132098004180
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077cae29648eac42bfb67a1e8f98763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  etatInitial: {fileID: 114002012053945052}
+  etatInitial: {fileID: 114691372669306674}
   vitesseAngulaire: 8
   etatMort: {fileID: 114787592065180430}
   etatTomber: {fileID: 0}
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectSpawn: {fileID: 0}
-  spawn: 0
+  spawn: 1
 --- !u!114 &114258428702989616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be48bc5ddfbb4946a351607c6707b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vieMax: 20
+  vieMax: 30
   hitEffect: {fileID: 4355772534825084, guid: 90df33f6044effb4ca85698878036c5a, type: 2}
 --- !u!114 &114261197521982376
 MonoBehaviour:

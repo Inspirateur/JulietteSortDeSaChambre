@@ -48,9 +48,11 @@ public class TRO_E_Garder : IA_Etat {
 
 	public override void faireEtat(){
 		if (perception.aRepere (princesse, 1.0f)) {
+			agent.getSoundEntity ().playOneShot (sonPoursuite);
 			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
 
 		} else if (!enDeplacement && perception.aRepere (princesse, 1.5f)) {
+			agent.getSoundEntity ().playOneShot (sonPoursuite);
 			changerEtat (this.GetComponent<TRO_E_Poursuivre> ());
 
 		} else if (enDeplacement) {
@@ -73,6 +75,6 @@ public class TRO_E_Garder : IA_Etat {
 
 	public override void sortirEtat()
 	{
-		agent.getSoundEntity ().playOneShot (sonPoursuite);
+		
 	}
 }
