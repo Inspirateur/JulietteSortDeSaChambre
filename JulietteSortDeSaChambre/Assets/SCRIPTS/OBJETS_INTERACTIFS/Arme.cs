@@ -39,4 +39,7 @@ public class Arme : ObjetInteractifs {
 	public override EnumIconeInterraction getIconeInteraction(){
 		return iconeInterraction;
 	}
+
+
+		
 }

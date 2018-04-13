@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114355599995083388}
   - component: {fileID: 95949983807560642}
   - component: {fileID: 65814373744655574}
-  - component: {fileID: 114493979127165436}
+  - component: {fileID: 114925182680009642}
   m_Layer: 0
   m_Name: EndDoor
   m_TagString: Untagged
@@ -267,17 +267,6 @@ MonoBehaviour:
     type: 3}
   isDecorative: 0
   objN: []
---- !u!114 &114493979127165436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1798190829057412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77eda7a848b651d4eb04b8d5e8e69004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114615704215308338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,3 +299,15 @@ MonoBehaviour:
   demiAngleActivationFrontal: 77
   minDistanceSurbrillance: 1.7
   EnableSurbrillance: 0
+--- !u!114 &114925182680009642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798190829057412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df7f66fa288bf2468a05b7a0d15569f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cadena: {fileID: 0}
