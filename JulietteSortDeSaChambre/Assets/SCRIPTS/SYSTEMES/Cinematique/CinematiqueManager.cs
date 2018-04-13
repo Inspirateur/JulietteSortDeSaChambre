@@ -32,7 +32,7 @@ public class CinematiqueManager : Evenement {
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().LockPrincesse ();
             if (isPassable) {
                 if (InputManager.GetButtonDown("Pause")) {
-                    GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().stopSon();
+                  
 					cinematique [indice].stopCinematique ();
                     ActiveCinematique(false);
                 }
@@ -60,7 +60,7 @@ public class CinematiqueManager : Evenement {
 			Camera.main.transform.position = posInit;
 			Camera.main.transform.forward = forwardInit;
 			isInCinematique = false;
-			GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().stopSon();
+
 
 		}
 
