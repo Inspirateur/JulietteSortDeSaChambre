@@ -42,6 +42,8 @@ public class MenuPrincipal : MonoBehaviour {
         AffichePanelMenuPrincipal.SetActive(true);
 		InControlePanel = false;
 
+		Cursor.visible = true;
+
 		PlayerPrefs.SetString("SceneToLoad", null);
     }
 
@@ -57,6 +59,7 @@ public class MenuPrincipal : MonoBehaviour {
 
 	public void RetourMenuPrincipal() {
 		InControlePanel = false;
+		Princesse.GetComponent<Animator>().SetBool("Controle", false);
 		Princesse.GetComponent<Animator>().SetTrigger("RangeBook");
 		se.playOneShot(TicSound);
         AffichePanelMenuPrincipal.SetActive(true);
