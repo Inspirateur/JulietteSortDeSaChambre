@@ -22,12 +22,20 @@ MonoBehaviour:
     isInDeplacement: 0
   - son: {fileID: 0}
     texte: 
-    dureeArret: 10
+    dureeArret: 3
     dureeAcces: 10
     pos: {x: 19.59, y: 5.91, z: -20.25}
     rot: {x: -0.009440598, y: -0.046811935, z: -0.9988593}
     isShaking: 0
     isInDeplacement: 0
-  item: 1
+  - son: {fileID: 0}
+    texte: 
+    dureeArret: 10
+    dureeAcces: 10
+    pos: {x: 21.4, y: 6.3, z: -13.94}
+    rot: {x: 0.8105121, y: -0.5402404, z: 0.22629766}
+    isShaking: 0
+    isInDeplacement: 0
+  item: 2
   isPassable: 0
   desactiveBandeNoir: 0
