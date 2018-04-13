@@ -31,10 +31,9 @@ public class GOB_E_Combattre : IA_Etat {
 
 	public override void faireEtat()
 	{
-		agent.seTournerVersPosition (princesse.transform.position);
 
 		if(!princesseVie.enVie()){
-			changerEtat(agent.etatInitial);
+			// changerEtat(agent.etatInitial);
 		}
 
 		else if (agent.distanceToPrincesse() >= distanceSortieCombat) {
@@ -56,6 +55,8 @@ public class GOB_E_Combattre : IA_Etat {
 			if(Random.value <= pourcentageEsquive){
 				changerEtat(GetComponent<GOB_E_Esquiver>());
 			}
+		} else {
+			agent.seTournerVersPosition (princesse.transform.position);
 		}
 	}
 

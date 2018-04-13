@@ -5,6 +5,8 @@ using UnityEngine;
 public class FaireAttaquerGobelinEvenement : Evenement {
 
 	public IA_Agent[] listeGobelins;
+	public GameObject[] listeStatues;
+	public Transform effetBreak;
 
 	void Start () {
 		
@@ -12,11 +14,13 @@ public class FaireAttaquerGobelinEvenement : Evenement {
 	
 	public override void activation(){
 
+		foreach( GameObject s in listeStatues){
+			s.SetActive(false);
+			Instantiate (effetBreak, s.transform.position + s.transform.up * 1.5f, effetBreak.transform.rotation);
+		}
+
 		foreach( IA_Agent gob in listeGobelins){
-			gob.changerEtat(gob.GetComponent<GOB_E_Charger>());
-			IA_Perception p = gob.GetComponent<IA_Perception>();
-			p.estAveugle = false;
-			p.estSourd = false;
+			gob.gameObject.SetActive(true);
 		}
 	}
 	
