@@ -12,6 +12,7 @@ public class Porte : ObjetEnvironnemental
 
     [HideInInspector]
     public List<ObjetNecessaire> objN = new List<ObjetNecessaire>();
+	public EnumArmes arme;
     private PrincesseObjetProgression juliette;
 
 
@@ -62,6 +63,9 @@ public class Porte : ObjetEnvironnemental
                 return false;
             }
         }
+		if(!GameObject.FindGameObjectWithTag("Player").GetComponent<PrincesseArme>().armeActive.Equals(arme)){
+			return false;
+		}
 
         return true;
     }

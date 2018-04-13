@@ -39,4 +39,13 @@ public class Arme : ObjetInteractifs {
 	public override EnumIconeInterraction getIconeInteraction(){
 		return iconeInterraction;
 	}
+
+	override
+	public void evenementStart(){
+		if(GetComponent<EventManager>()!=null){
+			GetComponent<EventManager> ().activation ();
+		}
+
+	}
+		
 }
