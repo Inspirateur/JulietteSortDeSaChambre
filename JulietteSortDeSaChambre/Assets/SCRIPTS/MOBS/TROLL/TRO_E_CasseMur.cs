@@ -22,9 +22,11 @@ public class TRO_E_CasseMur : IA_Etat {
 		//Déclencheur de l'évènement (dans le script qui déclenche l'event, pas celui là normalement)
 		if (!enAttente) {
 			transform.position = new Vector3 (apparition.transform.position.x, transform.position.y, apparition.transform.position.z);
-			changerEtat (GetComponent<TRO_E_Combattre> ());
+			changerEtat (GetComponent<TRO_E_Garder> ());
 		}
 	}
 
-	public override void sortirEtat() {}
+	public override void sortirEtat() {
+		enAttente = true;
+	}
 }

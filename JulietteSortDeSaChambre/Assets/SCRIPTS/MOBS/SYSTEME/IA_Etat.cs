@@ -28,7 +28,7 @@ public abstract class IA_Etat : MonoBehaviour
 		agent = this.GetComponent<IA_Agent>();
         nav = agent.getNav();
 		anim = agent.getAnimator ();
-		rb = agent.getRigidbody ();
+		rb = GetComponent<Rigidbody> ();
         princesse = agent.getPrincesse();
 		princesseVie = agent.getPrincesseVie();
 		princesseArme = agent.getPrincesseArme ();

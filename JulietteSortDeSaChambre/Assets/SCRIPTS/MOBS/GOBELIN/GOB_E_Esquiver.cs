@@ -30,7 +30,11 @@ public class GOB_E_Esquiver : IA_Etat {
 	public override void faireEtat()
 	{
 		if (Time.time >= timer) {
-			changerEtat (GetComponent<GOB_E_Combattre> ());
+			if(!princesseVie.enVie()){
+				// changerEtat(agent.etatInitial);
+			} else {
+				changerEtat (GetComponent<GOB_E_Combattre> ());
+			}
 		}
 	}
 

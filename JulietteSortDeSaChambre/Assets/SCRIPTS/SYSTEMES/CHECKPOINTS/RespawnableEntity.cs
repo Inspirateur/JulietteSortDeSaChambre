@@ -47,6 +47,9 @@ public abstract class RespawnableEntity : MonoBehaviour {
         }
         else {
             this.gameObject.SetActive(false);
+            this.transform.position = this.position;
+            this.transform.rotation = this.rotation;
+            onRespawn();
         }
     }
 

@@ -14,6 +14,11 @@ public class OuverturePorte : Evenement {
 		
 	}
 
+	public void ouvertureGrossePorte() {
+		Porte p = this.GetComponent<Porte>();
+		p.setOpenEndDoorCinematique(true);
+	}
+
 	override
 	public void activation(){
 		Porte p = this.GetComponent<Porte> ();

@@ -23,7 +23,9 @@ public class MenuPrincipal : MonoBehaviour {
 
 	[Header("Bouton Controle Retour :")]
 	public GameObject BouttonControleRetour;
-	private bool InControlePanel;
+
+	[HideInInspector]
+	public bool InControlePanel;
 
 	[HideInInspector]
     public SoundEntity se;
@@ -38,7 +40,7 @@ public class MenuPrincipal : MonoBehaviour {
 	void Awake() {
         se = GetComponent<SoundEntity>();
 
-        AffichePanelControle.SetActive(false);
+		AffichePanelControle.SetActive(false);
         AffichePanelMenuPrincipal.SetActive(true);
 		InControlePanel = false;
 

@@ -29,6 +29,7 @@ public class GOB_E_Charger : IA_Etat {
 		degatsAttaqueEffectues = false;
 		this.direction = this.transform.forward;
 		rb.AddForce (this.transform.up * impulsionVerticale + this.direction * impulsionHorizontale);
+		Debug.Log(this.gameObject.name + " charge !");
 		setAnimation (GOB_Animations.CHARGER);
 	}
 

@@ -25,7 +25,9 @@ public class EventManager : MonoBehaviour {
 			yield return new WaitWhile (()=> e.go.evenementIsEnCours());
 		}
 		index++;
-		lancerEvenement (es[index]);
+		if(index < es.Count){
+			lancerEvenement (es[index]);
+		}
 	}
 
 
