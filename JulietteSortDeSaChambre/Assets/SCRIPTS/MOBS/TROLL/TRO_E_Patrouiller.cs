@@ -50,6 +50,7 @@ public class TRO_E_Patrouiller : IA_Etat {
 		if (enChemin) {
 
 			if(perception.aRepere(princesse, niveauAttentionEnMarche)) {
+				agent.getSoundEntity ().playOneShot (sonPoursuite);
 				changerEtat(this.GetComponent<TRO_E_Poursuivre>());
 			}
 			else if (agent.destinationCouranteAtteinte ()) {
@@ -67,13 +68,14 @@ public class TRO_E_Patrouiller : IA_Etat {
 			enChemin = true;
 
 		} else if(perception.aRepere(princesse, niveauAttentionArret)) {
+			agent.getSoundEntity ().playOneShot (sonPoursuite);
 			changerEtat(this.GetComponent<TRO_E_Poursuivre>());
 		}
     }
 
     public override void sortirEtat()
     {
-		agent.getSoundEntity ().playOneShot (sonPoursuite);
+		
     }
 
     private void suivreChemin()
