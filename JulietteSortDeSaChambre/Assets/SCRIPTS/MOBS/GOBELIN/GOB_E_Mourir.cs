@@ -37,11 +37,11 @@ public class GOB_E_Mourir : IA_Etat {
 			sonJoue = true;
 		}
 		if(Time.time >= actualDelaiEvent){
+			actualDelaiEvent += delaiAvantDisparition;
 			EventManager em = GetComponent<EventManager>();
 			if(em != null){
 				em.activation();
 			}
-			actualDelaiEvent += delaiAvantDisparition;
 		}
 		if(Time.time >= actualDelai){
 			Instantiate (poofEffect, this.transform.position, poofEffect.transform.rotation);
