@@ -5,10 +5,12 @@ using UnityEngine;
 public class GOB_E_Mourir : IA_Etat {
 
 	public float delaiAvantDisparition;
+	public float delaiAvantEvent;
 	public AudioClip sonMort;
 	public Transform poofEffect;
 
 	private float actualDelai;
+	private float actualDelaiEvent;
 	private bool sonJoue;
 
 
@@ -24,6 +26,7 @@ public class GOB_E_Mourir : IA_Etat {
 		anim.Play(GOB_Animations.MOURIR);
 		rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 		actualDelai = Time.time + delaiAvantDisparition;
+		actualDelaiEvent = Time.time + delaiAvantEvent;
 		sonJoue = false;
 	}
 
@@ -33,12 +36,15 @@ public class GOB_E_Mourir : IA_Etat {
 			agent.getSoundEntity().playOneShot(sonMort,1.0f);
 			sonJoue = true;
 		}
-		if(Time.time >= actualDelai){
-			Instantiate (poofEffect, this.transform.position, poofEffect.transform.rotation);
+		if(Time.time >= actualDelaiEvent){
 			EventManager em = GetComponent<EventManager>();
 			if(em != null){
 				em.activation();
 			}
+			actualDelaiEvent += delaiAvantDisparition;
+		}
+		if(Time.time >= actualDelai){
+			Instantiate (poofEffect, this.transform.position, poofEffect.transform.rotation);
 			this.gameObject.SetActive (false);
 		}
 	}
