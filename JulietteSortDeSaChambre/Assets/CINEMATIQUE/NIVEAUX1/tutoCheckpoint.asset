@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20abb1a46f3624d439786922f0866687, type: 3}
+  m_Name: tutoCheckpoint
+  m_EditorClassIdentifier: 
+  itemList:
+  - son: {fileID: 0}
+    texte: 'TUTO CHECKPOINT '
+    dureeArret: 2
+    dureeAcces: 5
+    pos: {x: 1.19, y: 6.15, z: -53.06}
+    rot: {x: -0.99999994, y: 0, z: -0.00000011920929}
+    isShaking: 0
+    isInDeplacement: 0
+  - son: {fileID: 0}
+    texte: 'TUTO CHECKPOINT '
+    dureeArret: 90
+    dureeAcces: 5
+    pos: {x: 0.39, y: 5.04, z: -55.13}
+    rot: {x: -0.93891424, y: -0.34415135, z: -0.000000055879354}
+    isShaking: 0
+    isInDeplacement: 0
+  item: 1
+  isPassable: 1
+  desactiveBandeNoir: 1
+  desactiveRetourCamera: 0
