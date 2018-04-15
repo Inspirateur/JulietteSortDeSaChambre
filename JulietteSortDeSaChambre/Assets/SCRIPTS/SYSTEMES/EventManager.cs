@@ -36,7 +36,7 @@ public class EventManager : MonoBehaviour {
 
 
 	public void lancerEvenement(Eve e){
-	//	Debug.Log("EVENEMENT :"+e.name[0]);
+		// Debug.Log("EVENEMENT :"+e.name[0]);
 		MethodInfo m = e.go.GetType ().GetMethod (e.nameM [e.indiceM [0]]);
 		if (e.enumParam[0] != System.TypeCode.DBNull) {
 			object[] objectTemp = new object[1];
