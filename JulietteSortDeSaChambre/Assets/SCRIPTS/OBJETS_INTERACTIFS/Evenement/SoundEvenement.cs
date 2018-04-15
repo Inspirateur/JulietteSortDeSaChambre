@@ -14,4 +14,8 @@ public class SoundEvenement : Evenement {
 	public void stopSon(){
 		GetComponent<SoundManager> ().stopSon ();
 	}
+
+	public void StopMusic() {
+		GetComponent<SoundManager>().pauseAllMusic();
+	}
 }

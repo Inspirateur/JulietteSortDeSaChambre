@@ -18347,6 +18347,22 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1516794899581208, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470912755166390, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020714699106106, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798190829057412, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_IsPrefabParent: 0
@@ -33681,6 +33697,7 @@ MonoBehaviour:
     nameM:
     - lancerSon
     - stopSon
+    - StopMusic
     - activation
     - desactivation
     - CancelInvoke
@@ -38580,25 +38597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 1143580756}
-    name:
-    - OuverturePorte
-    indice: 00000000
-    nameM:
-    - StopMusic
-    - ouvertureGrossePorte
-    - activation
-    - desactivatePorte
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 00000000
-    enumParam: 02000000
-    paramInt: 4
-    paramBool: 0
   - go: {fileID: 1337666506}
     name:
     - CinematiqueManager
@@ -38617,30 +38615,11 @@ MonoBehaviour:
     enumParam: 09000000
     paramInt: 4
     paramBool: 0
-  - go: {fileID: 328354204}
-    name:
-    - SoundEvenement
-    indice: 00000000
-    nameM:
-    - lancerSon
-    - stopSon
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 00000000
-    enumParam: 09000000
-    paramInt: 3
-    paramBool: 0
   - go: {fileID: 1143580756}
     name:
     - OuverturePorte
     indice: 00000000
     nameM:
-    - StopMusic
     - ouvertureGrossePorte
     - activation
     - desactivatePorte
@@ -38653,6 +38632,25 @@ MonoBehaviour:
     indiceM: 01000000
     enumParam: 02000000
     paramInt: 5
+    paramBool: 0
+  - go: {fileID: 328354204}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - stopSon
+    - StopMusic
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 3
     paramBool: 0
   - go: {fileID: 1987128069}
     name:
@@ -38695,6 +38693,7 @@ MonoBehaviour:
     indice: 00000000
     nameM:
     - setvisibleObjet
+    - setvisibleObjetChild
     - activation
     - desactivation
     - CancelInvoke
@@ -38706,6 +38705,25 @@ MonoBehaviour:
     enumParam: 03000000
     paramInt: 5
     paramBool: 1
+  - go: {fileID: 328354204}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - stopSon
+    - StopMusic
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 4
+    paramBool: 0
   - go: {fileID: 1337666506}
     name:
     - CinematiqueManager
@@ -38723,24 +38741,6 @@ MonoBehaviour:
     indiceM: 01000000
     enumParam: 09000000
     paramInt: 5
-    paramBool: 0
-  - go: {fileID: 328354204}
-    name:
-    - SoundEvenement
-    indice: 00000000
-    nameM:
-    - lancerSon
-    - stopSon
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 00000000
-    enumParam: 09000000
-    paramInt: 4
     paramBool: 0
   index: 0
   nomEvent: 
