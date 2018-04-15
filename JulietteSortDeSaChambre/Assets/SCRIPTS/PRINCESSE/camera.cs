@@ -44,7 +44,10 @@ public class camera : MonoBehaviour {
 	public bool shakingIsActive;
 	private Vector3 originalPos;
 
+	public bool active;
+
 	void Awake() {
+		active = true;
 		cible = GameObject.FindGameObjectWithTag ("FocusCamera");
 		princesse = GameObject.FindGameObjectWithTag("Player");
 		anim = princesse.GetComponent<Animator>();
@@ -81,15 +84,18 @@ public class camera : MonoBehaviour {
 
 
 	void LateUpdate() {
-
-		if(this.cinematiqueManager.isInCinematique){
-			if (shakingIsActive) {
-				shaking ();
+		if(active){
+			if(this.cinematiqueManager.isInCinematique){
+				if (shakingIsActive) {
+					shaking ();
+				}
 			}
+			else{
+				this.gererCameraClassique();
+			}
+
 		}
-		else{
-			this.gererCameraClassique();
-		}
+
 
 
 	}
