@@ -6602,7 +6602,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1640110239}
-  m_RootOrder: 47
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &184823181
 Prefab:
@@ -8221,7 +8221,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &234512072
 Prefab:
@@ -9537,7 +9537,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4178147264593806, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_RootOrder
-      value: 33
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1025855003588316, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_Name
@@ -10232,7 +10232,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4178147264593806, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_RootOrder
-      value: 29
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1025855003588316, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_Name
@@ -11061,6 +11061,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - {fileID: 8300000, guid: 54087b0a614695c4daea1869710e6f72, type: 3}
+  - {fileID: 8300000, guid: c2036d5295ab95f4e81a91818bfcb0a6, type: 3}
+  - {fileID: 8300000, guid: af2b285bd22ade144897c587a215eb0d, type: 3}
+  - {fileID: 8300000, guid: d8c4f81692a1e8940bfc18aa04823361, type: 3}
+  - {fileID: 8300000, guid: 8d6e0b6f6a8daa7408d653c225f8d472, type: 3}
 --- !u!1001 &330946082
 Prefab:
   m_ObjectHideFlags: 0
@@ -11244,7 +11248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 0}
+  - go: {fileID: 328354204}
     name:
     - SoundEvenement
     indice: 00000000
@@ -13193,7 +13197,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4178147264593806, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_RootOrder
-      value: 30
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1025855003588316, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_Name
@@ -16280,6 +16284,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -180.00002
       objectReference: {fileID: 0}
+    - target: {fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}
+      propertyPath: distanceActivation
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_IsPrefabParent: 0
@@ -18146,6 +18155,11 @@ Prefab:
         type: 2}
       propertyPath: distanceActivation
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65814373744655574, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
@@ -22871,7 +22885,7 @@ Transform:
   m_Children:
   - {fileID: 1872245765}
   m_Father: {fileID: 293571668}
-  m_RootOrder: 35
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &673063061
 Prefab:
@@ -32384,7 +32398,7 @@ Prefab:
     - target: {fileID: 224544654178934522, guid: 8529d13b78ced7c4a81aed44f619438e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -4.399994
+      value: -4.4000244
       objectReference: {fileID: 0}
     - target: {fileID: 224686328925157078, guid: 8529d13b78ced7c4a81aed44f619438e,
         type: 2}
@@ -33443,7 +33457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   es:
-  - go: {fileID: 0}
+  - go: {fileID: 328354204}
     name:
     - SoundEvenement
     indice: 00000000
@@ -33527,7 +33541,7 @@ Transform:
   m_LocalScale: {x: 9.850714, y: 3.488773, z: 1}
   m_Children: []
   m_Father: {fileID: 405353764}
-  m_RootOrder: 58
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1021332144
 Prefab:
@@ -34098,7 +34112,7 @@ Transform:
   m_LocalScale: {x: 3.7645392, y: 4.1861663, z: 2.0042622}
   m_Children: []
   m_Father: {fileID: 1289273952}
-  m_RootOrder: 43
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1037572029
 Prefab:
@@ -34547,23 +34561,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.12196256
+      value: 0.12196251
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.55990905
+      value: 0.5599091
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.08376448
+      value: -0.08376455
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.8152365
+      value: 0.81523645
       objectReference: {fileID: 0}
     - target: {fileID: 4952510912953956, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
       propertyPath: m_RootOrder
-      value: 26
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114679007824914042, guid: e7e3603a99a6c134788c69004ce1c1e3,
         type: 2}
@@ -34639,6 +34653,21 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 6cdcaf2c48d29a846a2424104f8577d9,
         type: 2}
+    - target: {fileID: 114695333482917994, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: shakeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114695333482917994, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: shakeAmount
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114695333482917994, guid: e7e3603a99a6c134788c69004ce1c1e3,
+        type: 2}
+      propertyPath: decreaseFactor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7e3603a99a6c134788c69004ce1c1e3, type: 2}
   m_IsPrefabParent: 0
@@ -38224,6 +38253,162 @@ GameObject:
   m_PrefabParentObject: {fileID: 1798190829057412, guid: bd87f07d0883aff4eb35746947990f76,
     type: 2}
   m_PrefabInternal: {fileID: 539507494}
+--- !u!114 &1143580751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143580748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd73194a8ed6d048ac6abb2465216ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  es:
+  - go: {fileID: 1337666506}
+    name:
+    - CinematiqueManager
+    indice: 00000000
+    nameM:
+    - ActiveCinematique
+    - "lanceCin\xE9matique"
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 09000000
+    paramInt: 4
+    paramBool: 0
+  - go: {fileID: 328354204}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - stopSon
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 3
+    paramBool: 0
+  - go: {fileID: 1143580756}
+    name:
+    - OuverturePorte
+    indice: 00000000
+    nameM:
+    - ouvertureGrossePorte
+    - activation
+    - desactivatePorte
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 02000000
+    paramInt: 5
+    paramBool: 0
+  - go: {fileID: 1987128069}
+    name:
+    - TrogalEvenement
+    indice: 00000000
+    nameM:
+    - pousserBoss
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 02000000
+    paramInt: 5
+    paramBool: 0
+  - go: {fileID: 1337666506}
+    name:
+    - CinematiqueManager
+    indice: 00000000
+    nameM:
+    - ActiveCinematique
+    - "lanceCin\xE9matique"
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 09000000
+    paramInt: 6
+    paramBool: 0
+  - go: {fileID: 1922465568}
+    name:
+    - VisibleObjetEvenement
+    indice: 00000000
+    nameM:
+    - setvisibleObjet
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 03000000
+    paramInt: 5
+    paramBool: 1
+  - go: {fileID: 1337666506}
+    name:
+    - CinematiqueManager
+    indice: 00000000
+    nameM:
+    - ActiveCinematique
+    - "lanceCin\xE9matique"
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 01000000
+    enumParam: 09000000
+    paramInt: 5
+    paramBool: 0
+  - go: {fileID: 328354204}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - stopSon
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 4
+    paramBool: 0
+  index: 0
+  nomEvent: 
 --- !u!114 &1143580756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41376,7 +41561,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4178147264593806, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_RootOrder
-      value: 27
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1025855003588316, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_Name
@@ -46883,7 +47068,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4259609440931172, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ed3ad8071f47242a535eef3d0d3539, type: 2}
@@ -59227,7 +59412,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4178147264593806, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_RootOrder
-      value: 31
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1025855003588316, guid: c03d50ae3fef86848900d66df1126258, type: 2}
       propertyPath: m_Name
@@ -61713,7 +61898,7 @@ Transform:
   - {fileID: 1152834772}
   - {fileID: 565915926}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1846799066
 Prefab:
@@ -65964,7 +66149,7 @@ Transform:
   - {fileID: 1815112013}
   - {fileID: 1090516815}
   m_Father: {fileID: 1731022884}
-  m_RootOrder: 28
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 6.9230003, y: 90.00001, z: 0}
 --- !u!114 &1987128069
 MonoBehaviour:
@@ -65977,6 +66162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a4f9d02a6c7da4dad8347e5f7f874f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sonBoss: {fileID: 0}
 --- !u!1001 &1987247167
 Prefab:
   m_ObjectHideFlags: 0
@@ -66621,7 +66807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 57
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2005196805
 Prefab:
@@ -66959,130 +67145,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dc3e8ae9cffc774ca15bebb6b5af449, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2018852601 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1798190829057412, guid: bd87f07d0883aff4eb35746947990f76,
-    type: 2}
-  m_PrefabInternal: {fileID: 539507494}
---- !u!114 &2018852604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018852601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd73194a8ed6d048ac6abb2465216ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  es:
-  - go: {fileID: 1337666506}
-    name:
-    - CinematiqueManager
-    indice: 00000000
-    nameM:
-    - ActiveCinematique
-    - "lanceCin\xE9matique"
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 01000000
-    enumParam: 09000000
-    paramInt: 4
-    paramBool: 0
-  - go: {fileID: 1987128069}
-    name:
-    - TrogalEvenement
-    indice: 00000000
-    nameM:
-    - pousserBoss
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 00000000
-    enumParam: 02000000
-    paramInt: 4
-    paramBool: 0
-  - go: {fileID: 231278526}
-    name:
-    - TimerEvenement
-    indice: 00000000
-    nameM:
-    - launchTimer
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 00000000
-    enumParam: 09000000
-    paramInt: 1
-    paramBool: 0
-  - go: {fileID: 1337666506}
-    name:
-    - CinematiqueManager
-    indice: 00000000
-    nameM:
-    - ActiveCinematique
-    - "lanceCin\xE9matique"
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 01000000
-    enumParam: 09000000
-    paramInt: 6
-    paramBool: 0
-  - go: {fileID: 1922465568}
-    name:
-    - VisibleObjetEvenement
-    indice: 00000000
-    nameM:
-    - setvisibleObjet
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 00000000
-    enumParam: 03000000
-    paramInt: 4
-    paramBool: 1
-  - go: {fileID: 1337666506}
-    name:
-    - CinematiqueManager
-    indice: 00000000
-    nameM:
-    - ActiveCinematique
-    - "lanceCin\xE9matique"
-    - activation
-    - desactivation
-    - CancelInvoke
-    - StopAllCoroutines
-    - set_useGUILayout
-    - set_runInEditMode
-    - set_enabled
-    indiceM: 01000000
-    enumParam: 09000000
-    paramInt: 5
-    paramBool: 0
-  index: 0
-  nomEvent: 
 --- !u!1001 &2019004246
 Prefab:
   m_ObjectHideFlags: 0

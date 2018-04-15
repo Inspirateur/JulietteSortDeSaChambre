@@ -9,6 +9,7 @@ public class TrogalEvenement : Evenement {
 	private Vector3 posFinal;
 	private Vector3 velocity;
 	private bool encours;
+	public AudioClip sonBoss;
 
 
 
@@ -20,13 +21,13 @@ public class TrogalEvenement : Evenement {
 
 	void Update(){
 		if(deplacement){
-			if(GetComponent<Transform> ().position.x>22.0f){
+			if(GetComponent<Transform> ().localPosition.x>70.0f){
 				deplacement = false;
 				encours = false;
 				gameObject.SetActive (false);
 			}
 			Vector3 x = GetComponent<Transform> ().position;
-			x.x += 0.3f;
+			x.x += 0.31f;
 			GetComponent<Transform> ().position = x;
 		}
 
@@ -34,6 +35,7 @@ public class TrogalEvenement : Evenement {
 
 	public void pousserBoss(){
 		GetComponent<Animator>().SetTrigger("envoieboss");
+		//GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().playOneShot (sonBoss);
 		deplacement = true;
 	}
 

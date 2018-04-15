@@ -16,13 +16,15 @@ public class EventManager : MonoBehaviour {
 
 	public void activation(){
 		index = 0;
-		Debug.Log ("ActivationEvenement");
+//		Debug.Log ("ActivationEvenement");
 		lancerEvenement (es[index]);
 	}
 
 	IEnumerator timer(Eve e){
 		for(var i=0;i<1;i++){
+			Debug.Log ("WAIT FIN "+e.name[0]);
 			yield return new WaitWhile (()=> e.go.evenementIsEnCours());
+			Debug.Log ("UNWAIT"+e.name[0]);
 		}
 		index++;
 		if(index < es.Count){
@@ -32,6 +34,7 @@ public class EventManager : MonoBehaviour {
 
 
 	public void lancerEvenement(Eve e){
+	//	Debug.Log("EVENEMENT :"+e.name[0]);
 		MethodInfo m = e.go.GetType ().GetMethod (e.nameM [e.indiceM [0]]);
 		if (e.enumParam[0] != System.TypeCode.DBNull) {
 			object[] objectTemp = new object[1];
