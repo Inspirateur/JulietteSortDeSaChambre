@@ -12,5 +12,10 @@ public class PlaySongLoop : MonoBehaviour {
 	void Start () {
 		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		sm.setBackgroundMusic(sm.listeClips[NumberMusicSM]);
+		CheckPointManager.getInstance().onRestart += OnRestart;
+	}
+
+	public void OnRestart(){
+		sm.setBackgroundMusic(sm.listeClips[NumberMusicSM]);
 	}
 }
