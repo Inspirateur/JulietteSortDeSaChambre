@@ -11177,6 +11177,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0e1b21f431600944bb762c8006383177, type: 3}
   - {fileID: 8300000, guid: d8c4f81692a1e8940bfc18aa04823361, type: 3}
   - {fileID: 8300000, guid: 3194af0ceb63f6642a671284ef299bae, type: 3}
+  - {fileID: 8300000, guid: dbd70f1afa4643f4f80d38f6c86241c8, type: 3}
 --- !u!1001 &330946082
 Prefab:
   m_ObjectHideFlags: 0
@@ -38614,6 +38615,25 @@ MonoBehaviour:
     indiceM: 01000000
     enumParam: 09000000
     paramInt: 4
+    paramBool: 0
+  - go: {fileID: 328354204}
+    name:
+    - SoundEvenement
+    indice: 00000000
+    nameM:
+    - lancerSon
+    - stopSon
+    - StopMusic
+    - activation
+    - desactivation
+    - CancelInvoke
+    - StopAllCoroutines
+    - set_useGUILayout
+    - set_runInEditMode
+    - set_enabled
+    indiceM: 00000000
+    enumParam: 09000000
+    paramInt: 5
     paramBool: 0
   - go: {fileID: 1143580756}
     name:
