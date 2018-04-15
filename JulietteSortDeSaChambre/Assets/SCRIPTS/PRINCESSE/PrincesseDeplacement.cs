@@ -31,6 +31,8 @@ public class PrincesseDeplacement : MonoBehaviour
     private bool attackjump;
     private bool isCharging;
 
+    private PrincessePouvoirGlace ppg;
+
     [HideInInspector]
     public bool attaqueBegin;
 
@@ -59,6 +61,7 @@ public class PrincesseDeplacement : MonoBehaviour
         princesseArme = GetComponent<PrincesseArme>();
         timerStep = 0.0f;
         sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        ppg = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessePouvoirGlace>();
         attackjump = false;
         isCharging = false;
         canMove = true;
@@ -189,18 +192,11 @@ public class PrincesseDeplacement : MonoBehaviour
 					playAttaque("combo1");
                 }
             }
-	        else if (anim.GetBool("IsJumping") && attackjump == false)
-	        {
-                attackjump = true;
-                playAttaque("attack_jump");
-		        rb.AddForce(transform.forward * 500f);
-		        rb.AddForce(new Vector3(0.0f, -1000f, 0.0f));
-	        }
         }
 
 
         bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
-        if(toucheAttackCharge && !anim.GetBool("isPushing") && canAttack)
+        if(toucheAttackCharge && !anim.GetBool("isPushing") && canAttack && !attaqueBegin)
         {
             
             if (anim.GetBool("IsIdle") && !anim.GetBool("IsJumping"))
