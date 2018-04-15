@@ -14,10 +14,10 @@ public class OuverturePorte : Evenement {
 		
 	}
 
-	public void StopMusic() {
+/*	public void StopMusic() {
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().pauseAllMusic();
 	}
-
+*/
 	public void ouvertureGrossePorte() {
 		Porte p = this.GetComponent<Porte>();
 		p.setOpenEndDoorCinematique(true);
