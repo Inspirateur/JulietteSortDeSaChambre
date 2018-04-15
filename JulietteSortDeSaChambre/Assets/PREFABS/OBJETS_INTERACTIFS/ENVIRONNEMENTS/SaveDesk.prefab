@@ -91,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510914045824466}
   m_LocalRotation: {x: 0.50000006, y: 0.50000006, z: 0.50000006, w: -0.49999997}
-  m_LocalPosition: {x: 30.707132, y: 33.443764, z: -23.059792}
+  m_LocalPosition: {x: 30.707132, y: 33.443764, z: -24.19}
   m_LocalScale: {x: -54.912037, y: -42.240017, z: -4.2240033}
   m_Children:
   - {fileID: 4307813280538066}
@@ -322,6 +322,7 @@ MonoBehaviour:
   book: {fileID: 1635949319698036}
   son: {fileID: 8300000, guid: e1bca8e31bd1a2047a2281168402dec3, type: 3}
   saveEffect: {fileID: 4831471386781902, guid: 243f5b8f531622446b3a8cebd417a11c, type: 2}
+  shineEffectToStop: {fileID: 1629101262440478}
 --- !u!114 &114869786400330048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,7 +410,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1243595320
+  randomSeed: -1517418890
   InitialModule:
     serializedVersion: 3
     enabled: 1
