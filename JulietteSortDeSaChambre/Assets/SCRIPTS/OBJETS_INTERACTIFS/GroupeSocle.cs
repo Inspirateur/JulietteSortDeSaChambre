@@ -6,10 +6,12 @@ public class GroupeSocle : MonoBehaviour {
 
 	public List<Socle> listSocle;
 	public bool active;
+	private SoundManager sm;
 
 	// Use this for initialization
 	void Awake () {
 		active = true;
+		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -18,6 +20,7 @@ public class GroupeSocle : MonoBehaviour {
 			if (activeEvent()) {
 				GetComponent<EventManager> ().activation ();
 				active = false;
+				sm.setBackgroundMusic(sm.listeClips[1]);
 			}
 		}
 

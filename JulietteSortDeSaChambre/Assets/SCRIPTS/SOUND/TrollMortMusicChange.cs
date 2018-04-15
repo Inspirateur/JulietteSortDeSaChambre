@@ -8,9 +8,12 @@ public class TrollMortMusicChange : MonoBehaviour {
 	private IA_MobVie vie;
 
 	private bool uneFois;
+	private SoundManager sm;
 
 	// Use this for initialization
 	void Start () {
+		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+		musicChange = GetComponent<ChangeMusicBackground>();
 		vie = GetComponent<IA_MobVie>();
 		uneFois = false;
 	}
@@ -18,7 +21,8 @@ public class TrollMortMusicChange : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!vie.estEnVie() && !uneFois) {
-			musicChange.ChangeSong(0);
+			sm.setBackgroundMusic(sm.listeClips[0]);
+			uneFois = true;
 		}
 	}
 }

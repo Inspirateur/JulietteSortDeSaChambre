@@ -102,6 +102,7 @@ public class PrincesseVie : MonoBehaviour {
 	public void mourir() {
 		vie_courante = 0;
 		PlayOneTimeDie = true;
+		sm.pauseAllSound();
 		anim.Play("die");
 		anim.SetBool("IsDead", true);
 		sm.playOneShot(PrincesseMort);

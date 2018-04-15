@@ -25092,8 +25092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82420444c197544a98b1bd9a65fa767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play:
-  - {fileID: 8300000, guid: d46597649eaccbd428f20453b857e6b1, type: 3}
+  NumberMusicSM: 0
 --- !u!4 &766081793
 Transform:
   m_ObjectHideFlags: 0
@@ -31918,22 +31917,16 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0.17898637
-      value: 0.62911224
-      inSlope: -0.122336864
-      outSlope: -0.122336864
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.517082
-      value: 0.6192746
-      inSlope: -0.13116576
-      outSlope: -0.13116576
+      time: 0.014212646
+      value: 0.3636093
+      inSlope: -0.09378595
+      outSlope: -0.09378595
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0.008422852
-      inSlope: -2.0591717
-      outSlope: -2.0591717
+      value: 0
+      inSlope: -1.0640416
+      outSlope: -1.0640416
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -31967,7 +31960,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1.0000038
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -64116,6 +64109,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1958222270}
     m_Modifications:
+    - target: {fileID: 114588610321996252, guid: 818a4322a2970dc4393e250308387a67,
+        type: 2}
+      propertyPath: listeClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4188963791770114, guid: 818a4322a2970dc4393e250308387a67, type: 2}
       propertyPath: m_LocalPosition.x
       value: -36.237747
@@ -64153,6 +64151,11 @@ Prefab:
       propertyPath: sound.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 54087b0a614695c4daea1869710e6f72, type: 3}
+    - target: {fileID: 114588610321996252, guid: 818a4322a2970dc4393e250308387a67,
+        type: 2}
+      propertyPath: listeClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d46597649eaccbd428f20453b857e6b1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 818a4322a2970dc4393e250308387a67, type: 2}
   m_IsPrefabParent: 0
