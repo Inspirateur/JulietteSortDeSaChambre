@@ -100,5 +100,10 @@ public class AffichageInventaire : MonoBehaviour {
 		dicoInventaire = new Dictionary<EnumObjetProgression, GameObject> ();
 		sac.SetActive (false);
 
+		foreach (var pair in juliette.listObjet){
+			objetRamasse(pair.Key);
+		}
+
+
 	}
 }
