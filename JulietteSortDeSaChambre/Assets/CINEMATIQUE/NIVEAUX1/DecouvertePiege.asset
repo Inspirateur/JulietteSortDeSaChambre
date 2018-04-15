@@ -19,7 +19,7 @@ MonoBehaviour:
     pos: {x: 23.1, y: 5.7, z: -18}
     rot: {x: -0.17879759, y: 0.0069811274, z: -0.98386115}
     isShaking: 0
-    isInDeplacement: 0
+    isInDeplacement: 1
   - son: {fileID: 0}
     texte: 
     dureeArret: 0
@@ -84,7 +84,8 @@ MonoBehaviour:
     rot: {x: -0.01733971, y: -0.11320323, z: 0.99342054}
     isShaking: 0
     isInDeplacement: 0
-  item: 1
+  item: 0
   isPassable: 1
   desactiveBandeNoir: 0
   desactiveRetourCamera: 0
+  desactiveCoupureSon: 0
