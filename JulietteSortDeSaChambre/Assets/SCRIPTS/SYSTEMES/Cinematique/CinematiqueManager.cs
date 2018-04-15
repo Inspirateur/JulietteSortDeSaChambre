@@ -52,7 +52,7 @@ public class CinematiqueManager : Evenement {
 			posInit = Camera.main.transform.position;
 			forwardInit = Camera.main.transform.forward;
 			isInCinematique = true;
-			pause = false;
+
 		}else{
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().UnlockPrincesse ();
 			if (!cinematique [indice].desactiveBandeNoir) {
@@ -63,8 +63,6 @@ public class CinematiqueManager : Evenement {
 			Camera.main.transform.position = posInit;
 			Camera.main.transform.forward = forwardInit;
 			isInCinematique = false;
-			pause = false;
-
 		}
 
 	}
@@ -87,6 +85,7 @@ public class CinematiqueManager : Evenement {
 	override
 	public bool evenementIsEnCours(){
 		if (pause) {
+			pause = false;
 			return false;
 		}
 		return isInCinematique;
