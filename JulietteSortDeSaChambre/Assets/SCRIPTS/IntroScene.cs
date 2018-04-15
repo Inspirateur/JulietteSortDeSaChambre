@@ -14,6 +14,7 @@ public class IntroScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Cursor.visible = false;
 		textPasserCinematique.enabled = false;
 		timer = Time.time + timer;
 		cam = GameObject.Find("Main Camera").GetComponent<UnityEngine.Video.VideoPlayer>();

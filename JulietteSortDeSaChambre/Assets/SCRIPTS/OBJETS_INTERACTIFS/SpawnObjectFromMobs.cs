@@ -9,6 +9,7 @@ public class SpawnObjectFromMobs : MonoBehaviour {
 	private bool PremiereFois;
 	private float theta;
 	private IA_MobVie vie;
+
 	// Use this for initialization
 	void Start () {
 		vie = GetComponent<IA_MobVie>() ;

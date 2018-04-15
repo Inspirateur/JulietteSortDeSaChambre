@@ -272,8 +272,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -89, y: 25.7}
-  m_SizeDelta: {x: 242.9, y: 51.3}
+  m_AnchoredPosition: {x: -193, y: 33.3}
+  m_SizeDelta: {x: 363.9, y: 36.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024139052
 MonoBehaviour:
@@ -296,10 +296,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Passer (E)
+  m_Text: Passer (B manette) ou (Echap)
 --- !u!222 &1024139053
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553085863}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b29fab29232a5be40903e032c1b6e7ca, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 9ee8d77d949109c43a8ce53c748f0c65, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1553085866}

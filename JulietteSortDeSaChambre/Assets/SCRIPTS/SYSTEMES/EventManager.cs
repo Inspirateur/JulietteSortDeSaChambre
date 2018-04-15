@@ -17,7 +17,9 @@ public class EventManager : MonoBehaviour {
 	public void activation(){
 		index = 0;
 //		Debug.Log ("ActivationEvenement");
-		lancerEvenement (es[index]);
+		if(index < es.Count){
+			lancerEvenement (es[index]);
+		}
 	}
 
 	IEnumerator timer(Eve e){
