@@ -13,7 +13,7 @@ public class PlateformeMouvante : Evenement {
 	override
 	public void activation(){
 		GetComponent<MovingObject> ().StartPlateformeBeggening ();
-		audioSource.Play();
+		// audioSource.Play();
 	}
 
 	public void test(){
