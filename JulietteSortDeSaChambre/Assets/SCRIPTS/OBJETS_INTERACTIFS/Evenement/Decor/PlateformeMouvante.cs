@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlateformeMouvante : Evenement {
 
+	private AudioSource audioSource;
+
+	void Start() {
+		audioSource = GetComponent<AudioSource>();
+	}
+
 	override
 	public void activation(){
 		GetComponent<MovingObject> ().StartPlateformeBeggening ();
+		audioSource.Play();
 	}
 
 	public void test(){
