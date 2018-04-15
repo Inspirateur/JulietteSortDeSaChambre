@@ -5,6 +5,9 @@ using UnityEngine;
 public class ShakeEvenement : Evenement {
 
 	public void shake(bool actif){
-		GetComponent<shakeObject> ().canShake = actif;
+		foreach(shakeObject s in GetComponentsInChildren<shakeObject>()){
+			s.canShake = actif;
+		}
+		// GetComponent<shakeObject> ().canShake = actif;
 	}
 }
