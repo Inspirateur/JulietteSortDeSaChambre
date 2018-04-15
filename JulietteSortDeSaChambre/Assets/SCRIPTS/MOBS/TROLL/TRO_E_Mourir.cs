@@ -33,13 +33,13 @@ public class TRO_E_Mourir : IA_Etat {
 			agent.getSoundEntity().playOneShot(sonMort,1.0f);
 			sonJoue = true;
 		}
-		if(Time.time >= actualDelaiEvent){
+		/*if(Time.time >= actualDelaiEvent){
 			actualDelaiEvent += delaiAvantDisparition;
 			EventManager em = GetComponent<EventManager>();
 			if(em != null){
 				em.activation();
 			}
-		}
+		}*/
 		if (Time.time >= actualDelai){
 			Instantiate (poofEffect, this.transform.position, poofEffect.transform.rotation);
 			EventManager em = GetComponent<EventManager>();

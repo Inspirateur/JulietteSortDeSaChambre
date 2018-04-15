@@ -9,6 +9,7 @@ public class CinematiqueItemList : ScriptableObject {
 	public bool isPassable;
 	public bool desactiveBandeNoir;
 	public bool desactiveRetourCamera;
+	public bool desactiveCoupureSon;
 
 
 	private Coroutine actualCinematique;
