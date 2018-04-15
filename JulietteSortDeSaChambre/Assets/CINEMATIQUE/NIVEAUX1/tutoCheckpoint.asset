@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - son: {fileID: 0}
-    texte: 'TUTO CHECKPOINT '
+    texte: Sauvegardez votre progression en vous approchant de ce bureau. Vous ne
+      pourrez l'utiliser qu'une seule fois.
     dureeArret: 2
     dureeAcces: 5
     pos: {x: 1.19, y: 6.15, z: -53.06}
@@ -21,7 +22,8 @@ MonoBehaviour:
     isShaking: 0
     isInDeplacement: 0
   - son: {fileID: 0}
-    texte: 'TUTO CHECKPOINT '
+    texte: Sauvegardez votre progression en vous approchant de ce bureau. Vous ne
+      pourrez l'utiliser qu'une seule fois.
     dureeArret: 90
     dureeAcces: 5
     pos: {x: 0.39, y: 5.04, z: -55.13}
@@ -32,3 +34,4 @@ MonoBehaviour:
   isPassable: 1
   desactiveBandeNoir: 1
   desactiveRetourCamera: 0
+  desactiveCoupureSon: 0
