@@ -11,14 +11,15 @@ public class ChangeScene : Evenement {
 
 
 	public void changeScene(){
-		/*GameControl.control.Save ();
-		PlayerPrefs.SetString("SceneToLoad", NomDeLaScene);
-		SceneManager.LoadScene(NomDeLaSceneChargement);	*/
-	}
-	/*
-	void OnTriggerEnter(Collider other){
 		GameControl.control.Save ();
 		PlayerPrefs.SetString("SceneToLoad", NomDeLaScene);
-        SceneManager.LoadScene(NomDeLaSceneChargement);	
-	}*/
+		SceneManager.LoadScene(NomDeLaSceneChargement);	
+	}
+
+	void OnTriggerEnter(Collider other){
+	//	Debug.Log (gameObject.name);
+	/*	GameControl.control.Save ();
+		PlayerPrefs.SetString("SceneToLoad", NomDeLaScene);
+        SceneManager.LoadScene(NomDeLaSceneChargement);	*/
+	}
 }
