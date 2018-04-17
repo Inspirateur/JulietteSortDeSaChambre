@@ -18410,7 +18410,13 @@ Prefab:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114754400742067464, guid: bd87f07d0883aff4eb35746947990f76,
+        type: 2}
+      propertyPath: demiAngleActivationFrontal
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114925182680009642, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bd87f07d0883aff4eb35746947990f76, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &539625484
@@ -38959,6 +38965,7 @@ MonoBehaviour:
     indice: 00000000
     nameM:
     - pousserBoss
+    - OnRestart
     - activation
     - desactivation
     - CancelInvoke
@@ -39045,6 +39052,17 @@ MonoBehaviour:
     paramBool: 0
   index: 0
   nomEvent: 
+--- !u!114 &1143580752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143580748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8240f2191212841a3b707433c83a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1143580756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64585,6 +64603,17 @@ Transform:
   m_PrefabParentObject: {fileID: 4478054715601644, guid: 5b59354c9c571774983d79eda7318670,
     type: 2}
   m_PrefabInternal: {fileID: 65869462}
+--- !u!114 &1922465572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922465567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aca3446ac9eff499ec645041aa95b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1923414942
 Prefab:
   m_ObjectHideFlags: 0
