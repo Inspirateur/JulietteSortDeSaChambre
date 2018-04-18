@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 114522956569687618}
   - component: {fileID: 114226241540365698}
   - component: {fileID: 114065053375791460}
+  - component: {fileID: 114113738213462828}
   m_Layer: 2
   m_Name: squeletteGarde
   m_TagString: Mob
@@ -1703,6 +1704,17 @@ MonoBehaviour:
   rayonAudition: 0
   estAveugle: 0
   estSourd: 1
+--- !u!114 &114113738213462828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162136597146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b323417f6ea45774490490bdf9ee1019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114119530249492908
 MonoBehaviour:
   m_ObjectHideFlags: 1
