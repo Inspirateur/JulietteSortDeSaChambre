@@ -56,7 +56,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     // Update is called once per frame
     void Update()
     {
-        if (((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower && isUnlocked) && deplacement.canUsePower)
+        if (((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower && isUnlocked) && deplacement.canUsePower && GetComponentInParent<PrincesseDeplacement>().isGrounded)
         {
             deplacement.AttaqueInteromput();
             animator.Play("IcePower");
