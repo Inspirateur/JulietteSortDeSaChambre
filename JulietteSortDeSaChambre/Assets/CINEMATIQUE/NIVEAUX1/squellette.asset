@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20abb1a46f3624d439786922f0866687, type: 3}
+  m_Name: squellette
+  m_EditorClassIdentifier: 
+  itemList:
+  - son: {fileID: 8300000, guid: 57f1b25e15371214dbeae6af35aacd02, type: 3}
+    texte: 
+    dureeArret: 0
+    dureeAcces: 6
+    pos: {x: -16.9, y: 16.72, z: -99.5975}
+    rot: {x: -0.42078105, y: 0.8924676, z: -0.16261883}
+    isShaking: 0
+    isInDeplacement: 0
+  - son: {fileID: 0}
+    texte: 
+    dureeArret: 2
+    dureeAcces: 5
+    pos: {x: -19.461637, y: 21.336605, z: -104.45317}
+    rot: {x: 0.0093662, y: 0.09763244, z: -0.9951786}
+    isShaking: 0
+    isInDeplacement: 0
+  item: 1
+  isPassable: 0
+  desactiveBandeNoir: 0
+  desactiveRetourCamera: 0

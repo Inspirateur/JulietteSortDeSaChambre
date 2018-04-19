@@ -7,7 +7,6 @@ public class AffichageInventaire : MonoBehaviour {
 	[HideInInspector]
 	public List<ObjetInventaire> listObjet;
 	private Dictionary<EnumObjetProgression,GameObject> dicoInventaire;
-	// private Dictionary<EnumObjetProgression,int> dicoNbObjet;
 	public GameObject objetInventaire;
 	public GameObject sac;
 	public int tempsAffichage;
@@ -30,13 +29,10 @@ public class AffichageInventaire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (InputManager.GetButtonDown ("Select") && deplacement.canOpenInventory) {
-			if (!affiche) {
+		if (!affiche && InputManager.GetButtonDown ("Select") && deplacement.canOpenInventory) {
 				afficherToutObjet ();
 				temps = Time.time;
 				affiche = true;
-			}
-
 		}
 
 		if (affiche && temps+tempsAffichage<=Time.time) {
@@ -68,16 +64,13 @@ public class AffichageInventaire : MonoBehaviour {
 		sac.SetActive (true);
 		foreach(ObjetInventaire objet in listObjet){
 			if(objet.objet.Equals(enu)){
-				if (dicoInventaire.ContainsKey (enu)) {
-					addObjet (enu);
-				} else {
-					createObjet (objet, enu);
-				}
+				createObjet (objet, enu);
 			}
 		}
 	}
 
 	public void objetPerdu(EnumObjetProgression enu){
+		desafficherToutObjet ();
 		if(!juliette.hasItem()){
 			sac.SetActive (false);
 		}
@@ -94,29 +87,13 @@ public class AffichageInventaire : MonoBehaviour {
 		temp.GetComponent<UnityEngine.UI.Image> ().sprite = objet.image;
 		temp.SetActive (false);
 		dicoInventaire.Add (enu, temp);
-		// dicoNbObjet.Add(enu, 1);
-
 
 	}
 
-	private void addObjet(EnumObjetProgression enu){
-		// dicoNbObjet [enu]++;
-		// dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
-		dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + juliette.listObjet [enu];
-	}
 
 	private void deleteObjet(EnumObjetProgression enu){
-		// dicoNbObjet [enu]--;
-		// if (dicoNbObjet [enu] == 0) {
-		if (juliette.listObjet [enu] == 0) {
-			Destroy( dicoInventaire [enu]);
-			dicoInventaire.Remove (enu);
-			// dicoNbObjet.Remove (enu);
-		} else {
-			
-			// dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + dicoNbObjet [enu];
-			dicoInventaire [enu].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + juliette.listObjet [enu];
-		}
+		dicoInventaire.Remove (enu);
+		Destroy( dicoInventaire [enu]);
 	}
 
 	public void recreateDicoInventaireFromPrincesse(){
@@ -125,7 +102,8 @@ public class AffichageInventaire : MonoBehaviour {
 
 		foreach (var pair in juliette.listObjet){
 			objetRamasse(pair.Key);
-			dicoInventaire [pair.Key].GetComponentInChildren<UnityEngine.UI.Text> (true).text = "X" + juliette.listObjet [pair.Key];
 		}
+
+
 	}
 }

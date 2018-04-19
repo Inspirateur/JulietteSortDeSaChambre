@@ -29,6 +29,7 @@ public class BoutonReprendre : MonoBehaviour, ISelectHandler, IDeselectHandler {
 	public void onClickQuitter(){
 		//Application.Quit();
 		//LoadAsync de la scene
+		Time.timeScale = 1;
 		PlayerPrefs.SetString("SceneToLoad", "SCENES/MenuPrincipal");
         SceneManager.LoadScene("SCENES/LoadingScene");
 		Debug.Log("quitter");

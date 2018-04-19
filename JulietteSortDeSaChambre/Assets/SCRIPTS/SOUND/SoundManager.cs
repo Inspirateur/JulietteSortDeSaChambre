@@ -114,6 +114,11 @@ public class SoundManager : MonoBehaviour {
 		}
 	}
 
+	public void pauseAllMusic() {
+		levelAudioLoop1.Pause();
+		levelAudioLoop2.Pause();
+	}
+
 	public void resumeAllSound() {
 		foreach(AudioSource a in listAudioSource) {
 			if(a!=null){

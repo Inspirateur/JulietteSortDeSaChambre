@@ -6,16 +6,16 @@ public class PlaySongLoop : MonoBehaviour {
 
 	private SoundManager sm;
 
-	public AudioClip[] Play;
+	public int NumberMusicSM;
 
 	// Use this for initialization
 	void Start () {
 		sm = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
-		sm.setBackgroundMusic(Play[0]);
+		sm.setBackgroundMusic(sm.listeClips[NumberMusicSM]);
+		CheckPointManager.getInstance().onRestart += OnRestart;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void OnRestart(){
+		sm.setBackgroundMusic(sm.listeClips[NumberMusicSM]);
 	}
 }

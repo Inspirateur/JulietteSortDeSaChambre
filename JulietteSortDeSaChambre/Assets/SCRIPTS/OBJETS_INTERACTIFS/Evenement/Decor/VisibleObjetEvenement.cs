@@ -8,4 +8,12 @@ public class VisibleObjetEvenement : Evenement {
 		gameObject.SetActive (visible);
 	}
 
+	public void setvisibleObjetChild(bool visible){
+		foreach(Transform t in gameObject.GetComponentsInChildren<Transform>()){
+			t.gameObject.SetActive (visible);
+		}
+
+
+	}
+
 }

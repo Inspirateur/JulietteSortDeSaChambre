@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: DecouvertePiege
   m_EditorClassIdentifier: 
   itemList:
-  - son: {fileID: 8300000, guid: fdb665229a18c0747a924c200cdf5b89, type: 3}
+  - son: {fileID: 8300000, guid: 2bbd462fef09c744784e59e51a62910d, type: 3}
+    texte: 
     dureeArret: 0
     dureeAcces: 11
     pos: {x: 23.1, y: 5.7, z: -18}
@@ -20,27 +21,31 @@ MonoBehaviour:
     isShaking: 0
     isInDeplacement: 1
   - son: {fileID: 0}
+    texte: 
     dureeArret: 0
     dureeAcces: 11
     pos: {x: 21.75, y: 5.69, z: -26.17}
     rot: {x: -0.77382153, y: 0.0069811284, z: -0.63336545}
     isShaking: 0
-    isInDeplacement: 0
+    isInDeplacement: 1
   - son: {fileID: 0}
+    texte: 
     dureeArret: 0
     dureeAcces: 10
     pos: {x: 9.39, y: 8, z: -30.98}
     rot: {x: -0.6747281, y: -0.4907516, z: -0.5512756}
     isShaking: 0
-    isInDeplacement: 0
+    isInDeplacement: 1
   - son: {fileID: 0}
+    texte: 
     dureeArret: 0
     dureeAcces: 10
     pos: {x: 4.83, y: 6.8, z: -42.58}
     rot: {x: 0.83102846, y: -0.23683806, z: -0.5032889}
     isShaking: 0
-    isInDeplacement: 0
+    isInDeplacement: 1
   - son: {fileID: 0}
+    texte: 
     dureeArret: 0
     dureeAcces: 10
     pos: {x: 8.61, y: 6.8, z: -48.28}
@@ -48,6 +53,7 @@ MonoBehaviour:
     isShaking: 0
     isInDeplacement: 0
   - son: {fileID: 0}
+    texte: 
     dureeArret: 0
     dureeAcces: 15
     pos: {x: 30.74, y: 6.8, z: -47}
@@ -55,6 +61,7 @@ MonoBehaviour:
     isShaking: 0
     isInDeplacement: 0
   - son: {fileID: 0}
+    texte: 
     dureeArret: 0
     dureeAcces: 7
     pos: {x: 36.71, y: 6.8, z: -45.93}
@@ -62,6 +69,7 @@ MonoBehaviour:
     isShaking: 0
     isInDeplacement: 0
   - son: {fileID: 0}
+    texte: 
     dureeArret: 0
     dureeAcces: 16
     pos: {x: 22.88, y: 5.5, z: -11.08}
@@ -69,6 +77,7 @@ MonoBehaviour:
     isShaking: 0
     isInDeplacement: 0
   - son: {fileID: 0}
+    texte: 
     dureeArret: 1
     dureeAcces: 15
     pos: {x: 22.88, y: 5.5, z: -7.8}
@@ -77,3 +86,6 @@ MonoBehaviour:
     isInDeplacement: 0
   item: 0
   isPassable: 1
+  desactiveBandeNoir: 0
+  desactiveRetourCamera: 0
+  desactiveCoupureSon: 0

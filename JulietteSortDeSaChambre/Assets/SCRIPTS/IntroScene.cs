@@ -14,6 +14,7 @@ public class IntroScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Cursor.visible = false;
 		textPasserCinematique.enabled = false;
 		timer = Time.time + timer;
 		cam = GameObject.Find("Main Camera").GetComponent<UnityEngine.Video.VideoPlayer>();
@@ -24,7 +25,7 @@ public class IntroScene : MonoBehaviour {
 	void Update () {
 		if(Time.time > timer){
 			textPasserCinematique.enabled = true;
-			if(Input.GetButtonDown("Interagir") || !cam.isPlaying){
+			if(Input.GetButtonDown("Interagir") || Input.GetButtonDown("Pause") || !cam.isPlaying){
 				PlayerPrefs.SetString("SceneToLoad", SceneName);
 				SceneManager.LoadScene(SceneLoadingName);
 			}

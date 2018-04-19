@@ -58,6 +58,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
     {
         if (((InputManager.GetButtonDown("pouvoirGlace") || Input.GetAxisRaw("pouvoirGlace")<-0.75f)&& canPower && isUnlocked) && deplacement.canUsePower && GetComponentInParent<PrincesseDeplacement>().isGrounded)
         {
+            deplacement.canAttack = false;
             deplacement.AttaqueInteromput();
             animator.Play("IcePower");
             canPower=false;
@@ -146,6 +147,7 @@ public class PrincessePouvoirGlace : PrincessePouvoir
 
     IEnumerator WaitForIceAnim(){
         yield return new WaitForSeconds(delay);
+        deplacement.canAttack = true;
         usePower();
     }
 

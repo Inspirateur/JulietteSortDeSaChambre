@@ -13,16 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - son: {fileID: 0}
-    texte: 'Utilisez votre environnement pour trouver une arme, Appuyez sur (Echap)
-      ou (B manette) pour interagir.
+    texte: 'Utilisez votre environnement pour trouver une arme, Appuyez sur (E) ou
+      (B manette) pour interagir.
 
 '
     dureeArret: 90
-    dureeAcces: 4
+    dureeAcces: 7
     pos: {x: 16, y: 6.2, z: -12.310941}
     rot: {x: -0.99754924, y: 0.06993075, z: 0.0022810968}
     isShaking: 0
-    isInDeplacement: 0
+    isInDeplacement: 1
   item: 0
   isPassable: 1
   desactiveBandeNoir: 1
+  desactiveRetourCamera: 0

@@ -37,7 +37,6 @@ public class Porte : ObjetEnvironnemental
             if (isActivable())
             {
 				if (declencheEvenement) {
-					Debug.Log ("TEST");
 					evenementStart ();
 				} else {
 					OuverturePorte();
@@ -120,7 +119,11 @@ public class Porte : ObjetEnvironnemental
     }
 
 	public void setOpenEndDoorCinematique(bool open) {
-		anim.SetTrigger("Open");
+        if(open){
+            anim.SetTrigger("Open");
+        } else {
+            anim.SetTrigger("Close");
+        }
 		isDecorative = open;
 	}
 }

@@ -15,6 +15,8 @@ public class Levier : ObjetEnvironnemental {
 
 	private EventManager eventManager;
 
+	private bool bloque;
+
 
 
 	// Use this for initialization
@@ -74,6 +76,10 @@ public class Levier : ObjetEnvironnemental {
 	}
 
 	public bool isActivable(){
+		if(bloque){
+			return false;
+		}
+
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("levierMonte")) {
 			return false;
 		}
@@ -106,5 +112,9 @@ public class Levier : ObjetEnvironnemental {
 		active = b;
 		anim.SetBool("isDown", !b);
 		anim.SetBool("isUp", b);
+	}
+
+	public void setBloque(bool active){
+		bloque = active;
 	}
 }
