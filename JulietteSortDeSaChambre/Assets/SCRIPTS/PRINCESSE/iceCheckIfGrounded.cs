@@ -22,5 +22,12 @@ public class iceCheckIfGrounded : MonoBehaviour {
 		}
 		// Debug.Log(other.tag);
     }
+
+	void OnTriggerExit(Collider other){
+		if(other.tag=="sol"){
+			mesh.enabled=false;
+			Destroy(this);
+		}
+	}
 	
 }
