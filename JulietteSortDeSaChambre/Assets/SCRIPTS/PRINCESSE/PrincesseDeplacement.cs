@@ -46,6 +46,8 @@ public class PrincesseDeplacement : MonoBehaviour
 	[HideInInspector]
 	public bool canOpenInventory;
 
+	public bool isFin;
+
 
 
 
@@ -70,6 +72,7 @@ public class PrincesseDeplacement : MonoBehaviour
 		// Gestion Combos
 		attaqueBegin = false;
         anim.speed = 1;
+		isFin = false;
     }
 
     void Update()
@@ -150,7 +153,7 @@ public class PrincesseDeplacement : MonoBehaviour
 	        {
 		        gererAnim("IsIdle");
                 
-	        }else if(isGrounded && !anim.GetBool("IsIdle") && !anim.GetBool("EndClimbing")){
+			}else if(isGrounded && !anim.GetBool("IsIdle") && !anim.GetBool("EndClimbing") && !isFin){
                   
 		        gererAnim ("IsIdle");
 	        }
@@ -160,6 +163,10 @@ public class PrincesseDeplacement : MonoBehaviour
                         anim.speed = 0;
                     }
                 }
+			else if(isFin){
+				gererAnim ("IsRunning");
+			}
+
 
         }
 

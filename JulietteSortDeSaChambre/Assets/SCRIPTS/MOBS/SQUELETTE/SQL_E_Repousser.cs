@@ -21,8 +21,8 @@ public class SQL_E_Repousser : IA_Etat {
 	public override void entrerEtat() {
 		degatsAttaqueEffectues = false;
 		setAnimation (SQL_Animations.REPOUSSER);
-		timerChargement = Time.time + 1.3f;
-		timerFinAttaque = timerChargement + 1f;
+		timerChargement = Time.time + 0.3f;
+		timerFinAttaque = timerChargement + 2f;
 	}
 
 	public override void faireEtat() {

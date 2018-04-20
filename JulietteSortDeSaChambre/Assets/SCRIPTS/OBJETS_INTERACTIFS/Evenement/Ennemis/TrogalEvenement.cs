@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class TrogalEvenement : Evenement {
 
-	private bool deplacement=false;
+	private bool deplacement;
 	private Vector3 posInit;
 	private Vector3 posFinal;
 	private Vector3 velocity;
 	private bool encours;
 	public AudioClip sonBoss;
 
-
-
-	void Start(){
+	void Awake(){
 		encours = true;
 		velocity = Vector3.zero;
+		deplacement = false;
 		posInit = GetComponent<Transform> ().position;
+	}
+
+	void Start(){
+		CheckPointManager.getInstance().onRestart += OnRestart;
 	}
 
 	void Update(){
@@ -37,6 +40,14 @@ public class TrogalEvenement : Evenement {
 		GetComponent<Animator>().SetTrigger("envoieboss");
 		//GameObject.FindGameObjectWithTag ("SoundManager").GetComponent<SoundManager> ().playOneShot (sonBoss);
 		deplacement = true;
+	}
+
+	public void OnRestart(){
+		GetComponent<Transform> ().position = posInit;
+		// encours = true;
+		// velocity = Vector3.zero;
+		// deplacement = false;
+		gameObject.SetActive (true);
 	}
 
 	public override bool evenementIsEnCours ()

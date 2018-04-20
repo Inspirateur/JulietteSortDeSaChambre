@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 114573517906380194}
   - component: {fileID: 114882417127062912}
   - component: {fileID: 114936326576863198}
+  - component: {fileID: 114620152241640380}
   m_Layer: 8
   m_Name: Juliette
   m_TagString: Player
@@ -1195,8 +1196,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501621892178278}
-  m_LocalRotation: {x: -0, y: -0.000005409121, z: -0, w: -1}
-  m_LocalPosition: {x: 19.522, y: 4.283001, z: -1.4630013}
+  m_LocalRotation: {x: 0, y: 0.64505106, z: 0, w: 0.76413953}
+  m_LocalPosition: {x: 19.91, y: 3.717, z: 1.058}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4792320266888180}
@@ -1207,7 +1208,7 @@ Transform:
   - {fileID: 4366950304223242}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0.001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 80.339005, z: 0}
 --- !u!4 &4260419602612328
 Transform:
   m_ObjectHideFlags: 1
@@ -2414,7 +2415,7 @@ MonoBehaviour:
   PrincesseHurt:
   - {fileID: 8300000, guid: d8b081561b1b01c478b9a559ab8d39e6, type: 3}
   - {fileID: 8300000, guid: 83bdad504cdb7c949bdfe7964883699b, type: 3}
-  PrincesseInpact: {fileID: 8300000, guid: da99f8cdb62bc1a49a60aa9cb2d691e3, type: 3}
+  PrincesseInpact: {fileID: 8300000, guid: f190569b85e8f5a418f4831754a6b828, type: 3}
   PrincesseMort: {fileID: 8300000, guid: df607567062830443ac7035485fc457c, type: 3}
   PlayOneTimeDie: 0
 --- !u!114 &114407699655203640
@@ -2449,6 +2450,20 @@ MonoBehaviour:
   - {fileID: 1952027472288316, guid: 605269e3410fdaa4695bb16e2970425c, type: 2}
   SoundParticuleWall:
   - {fileID: 8300000, guid: 95b89dd51ec5b70428367ee6a2c95629, type: 3}
+--- !u!114 &114620152241640380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501621892178278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f1bac5b33157a42b0db766f2ed0659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  encours: 0
+  activeDeux: 0
 --- !u!114 &114718835825931724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2580,6 +2595,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a00ee3ffef486a64a96f1c931876902b, type: 3}
   - {fileID: 8300000, guid: a5f10dcf21ae67d4f9ff4d880d504ce1, type: 3}
   - {fileID: 8300000, guid: ac51ba2b484025e42bfa655ca8673af2, type: 3}
+  viseurUI: {fileID: 0}
 --- !u!114 &114849292428765358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2658,6 +2674,7 @@ MonoBehaviour:
   canAttack: 0
   canUsePower: 0
   canOpenInventory: 0
+  isFin: 0
 --- !u!135 &135007083210717436
 SphereCollider:
   m_ObjectHideFlags: 1

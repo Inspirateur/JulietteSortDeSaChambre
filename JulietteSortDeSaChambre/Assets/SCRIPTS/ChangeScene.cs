@@ -4,14 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class ChangeScene : MonoBehaviour {
+public class ChangeScene : Evenement {
 
 	    public string NomDeLaScene;
 		public string NomDeLaSceneChargement;
 
-	void OnTriggerEnter(Collider other){
+
+	public void changeScene(){
 		GameControl.control.Save ();
 		PlayerPrefs.SetString("SceneToLoad", NomDeLaScene);
-        SceneManager.LoadScene(NomDeLaSceneChargement);	
+		SceneManager.LoadScene(NomDeLaSceneChargement);	
+	}
+
+	void OnTriggerEnter(Collider other){
+	//	Debug.Log (gameObject.name);
+	/*	GameControl.control.Save ();
+		PlayerPrefs.SetString("SceneToLoad", NomDeLaScene);
+        SceneManager.LoadScene(NomDeLaSceneChargement);	*/
 	}
 }

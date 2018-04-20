@@ -94,6 +94,7 @@ public class PrincesseArme : MonoBehaviour {
 
 	private SoundManager sm;
 	public AudioClip[] comboSound;
+	public GameObject viseurUI;
 
 
 	// Use this for initialization
@@ -147,10 +148,12 @@ public class PrincesseArme : MonoBehaviour {
 				if(this.zoom){
 					this.zoom = false;
 					this.cam.dezoomer();
+					viseurUI.SetActive(false);
 				}
 				else{
 					this.zoom = true;
 					this.cam.zoomer();
+					viseurUI.SetActive(true);
 				}
 			}
 
