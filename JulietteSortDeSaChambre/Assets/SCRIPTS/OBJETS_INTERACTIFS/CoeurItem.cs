@@ -23,6 +23,9 @@ public class CoeurItem : Item {
 	public void Activation()
 	{
 		if (juliette.getVieCourante()!=juliette.vie_max) {
+			foreach(BoxCollider b in GetComponents<BoxCollider> ()){
+				b.enabled = false;
+			}
 			juliette.startEffectVieUp();
 			if (soinFull) {
 				juliette.fullSoigner ();

@@ -116,6 +116,8 @@ GameObject:
   - component: {fileID: 114522956569687618}
   - component: {fileID: 114226241540365698}
   - component: {fileID: 114065053375791460}
+  - component: {fileID: 114113738213462828}
+  - component: {fileID: 114382259841826304}
   m_Layer: 11
   m_Name: squeletteGarde
   m_TagString: Mob
@@ -1705,7 +1707,7 @@ MonoBehaviour:
   estSourd: 1
 --- !u!114 &114113738213462828
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162136597146252}
@@ -1771,6 +1773,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vieMax: 10
   hitEffect: {fileID: 4355772534825084, guid: 90df33f6044effb4ca85698878036c5a, type: 2}
+--- !u!114 &114382259841826304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162136597146252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6535914e217e3d24f8a8974c157aa56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectSpawn: {fileID: 1265039928603942, guid: faa14469dc877d044bc804c062554d05,
+    type: 2}
+  chanceLoot: 0.2
+  createNewObject: 1
+  spawn: 1
 --- !u!114 &114475444580178190
 MonoBehaviour:
   m_ObjectHideFlags: 1

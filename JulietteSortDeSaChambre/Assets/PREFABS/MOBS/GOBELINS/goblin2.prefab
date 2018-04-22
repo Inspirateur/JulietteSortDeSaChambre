@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 114828674695703810}
   - component: {fileID: 114814946445686440}
   - component: {fileID: 114813304333222896}
+  - component: {fileID: 114565235602872214}
   m_Layer: 11
   m_Name: goblin2
   m_TagString: Mob
@@ -1807,6 +1808,22 @@ MonoBehaviour:
   vitesse: 1.5
   sonAttaque: {fileID: 8300000, guid: 4ac56d29b6e0c254096ff017c5481ec4, type: 3}
   dureeChargement: 0.75
+--- !u!114 &114565235602872214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921552545835090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6535914e217e3d24f8a8974c157aa56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectSpawn: {fileID: 1265039928603942, guid: faa14469dc877d044bc804c062554d05,
+    type: 2}
+  chanceLoot: 0.2
+  createNewObject: 1
+  spawn: 1
 --- !u!114 &114585374364475448
 MonoBehaviour:
   m_ObjectHideFlags: 1
