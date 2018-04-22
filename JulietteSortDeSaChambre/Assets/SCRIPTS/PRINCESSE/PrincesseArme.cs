@@ -141,6 +141,10 @@ public class PrincesseArme : MonoBehaviour {
 			this.lancerProjectile();
 		}
 
+		if(attaqueDistanceEnCours && Time.time >= timerApparitionProjectile + 0.75f){
+			attaqueDistanceEnCours = false;
+		}
+
 		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)){
 
 			if(InputManager.GetButtonDown("Zoom")){
@@ -299,14 +303,14 @@ public class PrincesseArme : MonoBehaviour {
 
 		// timerAttaque = Time.time + 0.1f;
 		if(this.armeActive.Equals(EnumArmes.BAGUETTE_MAGIQUE)) {
-			// attaqueCorpsACorpsEnCours = false;
-			attaqueChargeEnCours = false;
-			attaqueReversEnCours = false;
-			attaqueDistanceEnCours = true;
-			timerApparitionProjectile = Time.time + this.delaisAvantApparitionProjetile;
-			projectileDejaCree = false;
+			if(!attaqueDistanceEnCours){
+				attaqueChargeEnCours = false;
+				attaqueReversEnCours = false;
+				attaqueDistanceEnCours = true;
+				timerApparitionProjectile = Time.time + this.delaisAvantApparitionProjetile;
+				projectileDejaCree = false;
+			}
 		} else {
-			// attaqueCorpsACorpsEnCours = true;
 			attaqueDistanceEnCours = false;
 			attaqueChargeEnCours = false;
 			attaqueReversEnCours = false;
