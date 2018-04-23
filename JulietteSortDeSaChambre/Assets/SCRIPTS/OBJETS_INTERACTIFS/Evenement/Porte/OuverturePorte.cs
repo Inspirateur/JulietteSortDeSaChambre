@@ -34,4 +34,9 @@ public class OuverturePorte : Evenement {
 		p.isDecorative = true;
 	}
 
+	public void fermePorte(){
+		Porte p = this.GetComponent<Porte> ();
+		p.fermePorte ();
+	}
+
 }

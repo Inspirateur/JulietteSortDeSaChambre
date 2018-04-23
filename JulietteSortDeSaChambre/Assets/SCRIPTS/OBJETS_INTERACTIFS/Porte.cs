@@ -126,4 +126,8 @@ public class Porte : ObjetEnvironnemental
         }
 		isDecorative = open;
 	}
+
+	public void fermePorte(){
+		anim.SetBool("isOpen", false);
+	}
 }
