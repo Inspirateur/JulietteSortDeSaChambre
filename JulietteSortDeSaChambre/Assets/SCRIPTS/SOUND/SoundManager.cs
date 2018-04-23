@@ -48,20 +48,20 @@ public class SoundManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.O)) {
-			i = (i + 1) % listeClips.Length;
-			setBackgroundMusic (i);
-		}
+		// if (Input.GetKeyDown (KeyCode.O)) {
+		// 	i = (i + 1) % listeClips.Length;
+		// 	setBackgroundMusic (i);
+		// }
 
-		if (Input.GetKeyDown (KeyCode.P)) {
-			if (paused) {
-				paused = false;
-				resumeAllSound ();
-			} else {
-				paused = true;
-				pauseAllSound ();
-			}
-		}
+		// if (Input.GetKeyDown (KeyCode.P)) {
+		// 	if (paused) {
+		// 		paused = false;
+		// 		resumeAllSound ();
+		// 	} else {
+		// 		paused = true;
+		// 		pauseAllSound ();
+		// 	}
+		// }
 		
 		if (!changeMusicTo2 && !changeMusicTo1 && musicQueue.Count > 0) {
 
