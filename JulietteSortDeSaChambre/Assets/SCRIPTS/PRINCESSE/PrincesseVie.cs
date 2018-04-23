@@ -85,13 +85,13 @@ public class PrincesseVie : MonoBehaviour {
 			// GameControl.control.Save ();
 			// CheckPointManager.getInstance().restartCheckPoint();
 		}
-
+		/*
 		if (Input.GetKeyDown (KeyCode.X) && enVie()) {
 			soigner(10);
 
 		} else if (Input.GetKeyDown (KeyCode.W) && enVie()) {
 			blesser(1, this.gameObject, 0.0f);
-		}
+		}*/
 
 	}
 
@@ -129,7 +129,6 @@ public class PrincesseVie : MonoBehaviour {
 	}
 
 	public void startEffectVieUp(){
-		Debug.Log("greg");
 		GetComponentInChildren<EffetVieUp>(true).startEffect();
 	}
 

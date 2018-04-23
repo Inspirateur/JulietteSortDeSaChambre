@@ -23,7 +23,6 @@ public class EffetVieUp : MonoBehaviour {
 	}
 
 	public void startEffect(){
-		Debug.Log("yolooooo");
 		timer = Time.time + stopMeAfter;
 		this.gameObject.SetActive(true);
 	}
