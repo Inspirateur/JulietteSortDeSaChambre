@@ -16,6 +16,9 @@ public class SoundEntity : MonoBehaviour {
 		audio = GetComponent<AudioSource>();
 		//volumeGeneral=PlayerPrefs.GetInt("volumeGeneral",volumeGeneral);
 		volumeGeneral = sm.volumeGeneral;
+		float newVol =volumeGeneral;
+		newVol/=10;
+		audio.volume=newVol;
 	}
 
 	// Use this for initialization

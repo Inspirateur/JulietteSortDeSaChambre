@@ -96,7 +96,7 @@ public class PrincesseDeplacement : MonoBehaviour
         {
              //anim.enabled = true;
             
-            if (InputManager.GetButtonDown("Dash")  && moveHorizontal!=0f)
+            if ((InputManager.GetButtonDown("Dash")||InputManager.GetKeyAxis("Dash")>0.85f)  && moveHorizontal!=0f)
             {
                 if (CanDash == true && isGrounded == true)
                 {
@@ -195,7 +195,7 @@ public class PrincesseDeplacement : MonoBehaviour
         }
 
 
-        bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge");
+        bool toucheAttackCharge = InputManager.GetButtonDown("AttaqueCharge")||InputManager.GetKeyAxis("AttaqueCharge")>0.85f;
         if(toucheAttackCharge && !anim.GetBool("isPushing") && canAttack && !attaqueBegin)
         {
             

@@ -43,6 +43,11 @@ public class SoundManager : MonoBehaviour {
 		i = 0;
 		paused = false;
 		volumeGeneral=PlayerPrefs.GetInt("volumeGeneral",volumeGeneral);//sur 10
+		float newVol = volumeGeneral;
+		newVol/=10;
+		levelAudioLoop2.volume = newVol;
+		levelAudioLoop1.volume = newVol;
+		levelAudioSingle.volume= newVol;
 	}
 	
 	// Update is called once per frame
