@@ -80,7 +80,9 @@ public class SoundEntity : MonoBehaviour {
 	public void onVolumeChange(){
 		volumeGeneral= sm.volumeGeneral;
 		if(audio!=null){
-			audio.volume=volumeGeneral;
+			float newVol =volumeGeneral;
+			newVol/=10;
+			audio.volume=newVol;
 		}
 	}
 }

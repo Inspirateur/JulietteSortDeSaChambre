@@ -70,8 +70,10 @@ public class SoundManager : MonoBehaviour {
 			if (levelAudioLoop1.volume == 1.0f*(volumeGeneral/10)) {//tweak le 1f
 				changeMusicTo2 = true;
 				levelAudioLoop2.clip = musicQueue.Dequeue ();
+				levelAudioLoop2.volume = 1.0f*(volumeGeneral/10);
 				levelAudioLoop2.Play ();
 			} else {
+				levelAudioLoop1.volume = 1.0f*(volumeGeneral/10);
 				changeMusicTo1 = true;
 				levelAudioLoop1.clip = musicQueue.Dequeue ();
 				levelAudioLoop1.Play ();
@@ -178,5 +180,11 @@ public class SoundManager : MonoBehaviour {
 
 	public void notifVolumeChange(){
 		onVolumeChange();
+		float newVol = volumeGeneral;
+		newVol/=10;
+		Debug.Log(newVol);
+		levelAudioLoop2.volume = newVol;
+		levelAudioLoop1.volume = newVol;
+		levelAudioSingle.volume= newVol;
 	}
 }
