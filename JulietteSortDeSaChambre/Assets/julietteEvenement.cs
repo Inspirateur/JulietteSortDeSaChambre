@@ -42,7 +42,7 @@ public class julietteEvenement : Evenement {
 		if(activeTrois){
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().canMove = false;
 			Vector3 x = GetComponent<Transform> ().position;
-			x.x += 0.1f;
+			x.x += 0.08f;
 			GetComponent<Transform> ().position = x;
 
 			if(GetComponent<Transform> ().localPosition.x >18.5f){
@@ -54,7 +54,7 @@ public class julietteEvenement : Evenement {
 		if(activeQ){
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().canMove = false;
 			Vector3 x = GetComponent<Transform> ().position;
-			x.x += 0.08f;
+			x.x += 0.05f;
 			GetComponent<Transform> ().position = x;
 
 			if(GetComponent<Transform> ().localPosition.x >20.0f){
