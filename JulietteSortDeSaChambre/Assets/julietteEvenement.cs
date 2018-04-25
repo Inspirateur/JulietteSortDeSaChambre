@@ -45,7 +45,7 @@ public class julietteEvenement : Evenement {
 			x.x += 0.1f;
 			GetComponent<Transform> ().position = x;
 
-			if(GetComponent<Transform> ().localPosition.x >17.2f){
+			if(GetComponent<Transform> ().localPosition.x >18.5f){
 				encours = false;
 				activeTrois = false;
 				activeQ = true;
