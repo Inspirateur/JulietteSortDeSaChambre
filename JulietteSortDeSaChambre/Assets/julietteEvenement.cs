@@ -42,7 +42,7 @@ public class julietteEvenement : Evenement {
 		if(activeTrois){
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().canMove = false;
 			Vector3 x = GetComponent<Transform> ().position;
-			x.x += 0.08f;
+			x.x += 0.1f;
 			GetComponent<Transform> ().position = x;
 
 			if(GetComponent<Transform> ().localPosition.x >18.5f){
@@ -54,7 +54,7 @@ public class julietteEvenement : Evenement {
 		if(activeQ){
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().canMove = false;
 			Vector3 x = GetComponent<Transform> ().position;
-			x.x += 0.05f;
+			x.x += 0.1f;
 			GetComponent<Transform> ().position = x;
 
 			if(GetComponent<Transform> ().localPosition.x >20.0f){
@@ -65,6 +65,7 @@ public class julietteEvenement : Evenement {
 	}
 
 	public void activeDeplacementFinDeNiveau(){
+		encours = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().isFin = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().LockPrincesse ();
 		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<camera> ().active = false;
@@ -73,6 +74,7 @@ public class julietteEvenement : Evenement {
 	}
 
 	public void activeDeplacementFinDeNiveauDeux(){
+		encours = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().isFin = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().LockPrincesse ();
 		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<camera> ().active = false;
@@ -81,6 +83,7 @@ public class julietteEvenement : Evenement {
 	}
 
 	public void activeDeplacementDebutNiveaux(){
+		encours = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().isFin = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PrincesseDeplacement> ().LockPrincesse ();
 		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<camera> ().active = false;
