@@ -26,5 +26,6 @@ public class RespawnableMob : RespawnableEntity {
             this.agent.getAnimator().enabled = true;
             this.agent.respawn();
         }
+        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 }
